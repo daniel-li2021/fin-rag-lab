@@ -8,6 +8,7 @@ chroma_db*/
 tmp_chroma_*/
 tmp_*.csv
 *.egg-info/
+index/
 
 # Env / secrets
 .env

@@ -1,23 +1,17 @@
 """
-FastAPI demo server.
+FastAPI demo server — thin HTTP adapter over RAGService.
 
-Two endpoints + a health check:
+Endpoints:
+  GET  /health
+  POST /ingest   {"path": "...", "max_pages": int?}
+  POST /query    {"question": "...", "verify_hallucination": bool?}
 
-  POST /ingest    body: {"path": "/abs/path/to.pdf", "max_pages": int?}
-                  returns: {"document_id", "n_blocks", "n_chunks", "cost_usd"}
-  
-  POST /query     body: {"question": "..."}
-                  returns: {"answer", "citations", "stages", "query_type"}
-  
-  GET  /health    returns: {"status": "ok", "n_documents_indexed": int}
-
-This is a DEMO server for the lab. Production hardening (auth, rate limit,
-request validation, async streaming) is out of scope — see Module 13.
-
+Uses the same parent-child hybrid path as the CLI and Streamlit app.
 Run from repo root:
     uvicorn src.api.server:app --reload --port 8000
 """
 from __future__ import annotations
+
 from pathlib import Path
 from typing import Optional, Any
 from contextlib import asynccontextmanager
@@ -25,18 +19,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from src.core.cache import CacheBundle
 from src.core.config import settings, configure_langsmith
-from src.observability import CostTracker
-from src.pipelines import IngestionPipeline, QueryPipeline
-from src.chunkers import RecursiveChunker
-from src.retrievers import VectorRetriever, BM25Retriever, HybridRetriever
-from src.generators import RAGGenerator
+from src.services import RAGService
 
 
-# =============================================================
-# Request / Response models
-# =============================================================
 class IngestRequest(BaseModel):
     path: str = Field(..., description="Absolute or repo-relative path to a PDF")
     max_pages: Optional[int] = None
@@ -50,11 +36,12 @@ class IngestResponse(BaseModel):
     n_chunks: int
     cost_usd: float
     cache_hit: bool
+    n_documents_indexed: int
 
 
 class QueryRequest(BaseModel):
     question: str
-    k: int = 5
+    verify_hallucination: bool = False
 
 
 class CitationModel(BaseModel):
@@ -71,117 +58,129 @@ class QueryResponse(BaseModel):
     query_type: Optional[str] = None
     stages: list[str] = []
     n_chunks_retrieved: int
+    latency_ms: float = 0.0
+    cost_usd: float = 0.0
+    hallucination: Optional[dict[str, Any]] = None
 
 
-# =============================================================
-# App state — built lazily so import doesn't require API keys
-# =============================================================
 class AppState:
-    def __init__(self):
-        self.cost_tracker = CostTracker()
-        self.cache = CacheBundle.from_root("cache", enabled=True)
-        self.ingestion = IngestionPipeline(
-            cache=self.cache, cost_tracker=self.cost_tracker
+    """Holds the shared RAGService instance for the HTTP process."""
+
+    def __init__(self, service: Optional[RAGService] = None):
+        self.service = service or RAGService(
+            index_dir=settings.repo_root / "index",
+            cache_root=settings.repo_root / "cache",
+            upload_dir=settings.repo_root / "data" / "uploads",
         )
-        # Retrievers + generator are built lazily after first ingest
-        self.vector: Optional[VectorRetriever] = None
-        self.bm25: Optional[BM25Retriever] = None
-        self.hybrid: Optional[HybridRetriever] = None
-        self.generator: Optional[RAGGenerator] = None
-        self.query_pipeline: Optional[QueryPipeline] = None
-        self.indexed_docs: list[str] = []
-    
-    def ensure_retrievers(self):
-        if self.vector is None:
-            self.vector = VectorRetriever(
-                persist_dir="./chroma_db_api",
-                embeddings_cache_dir=self.cache.embeddings_dir,
-            )
-            self.bm25 = BM25Retriever()
-            self.hybrid = HybridRetriever(self.vector, self.bm25)
-            self.generator = RAGGenerator(cost_tracker=self.cost_tracker)
-            self.query_pipeline = QueryPipeline(
-                self.hybrid, self.generator, cost_tracker=self.cost_tracker,
-            )
+        # Best-effort load so /query works after restart if index/ exists
+        self.service.load_index()
 
 
-def build_app() -> FastAPI:
-    """Factory pattern — lets tests build an isolated app."""
-    
+def build_app(service: Optional[RAGService] = None) -> FastAPI:
+    """Factory — pass a prebuilt RAGService for tests."""
+
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         configure_langsmith()
         yield
-    
+
     app = FastAPI(
-        title="VoyageAI RAG Lab API",
-        version="1.0.0",
-        description="Demo RAG service. POST /ingest, then POST /query.",
+        title="Fin-RAG Lab API",
+        version="1.1.0",
+        description="Parent-child hybrid RAG. POST /ingest, then POST /query.",
         lifespan=lifespan,
     )
-    state = AppState()
-    
+    state = AppState(service=service)
+
     @app.get("/health")
     def health():
+        status = state.service.status()
         return {
             "status": "ok",
-            "n_documents_indexed": len(state.indexed_docs),
-            "openai_key_set": settings.has_openai_key,
+            "ready": status.ready,
+            "n_documents_indexed": status.n_documents,
+            "n_children": status.n_children,
+            "n_parents": status.n_parents,
+            "openai_key_set": status.openai_key_set,
+            "strategy": status.strategy,
+            "index_dir": status.index_dir,
         }
-    
+
     @app.post("/ingest", response_model=IngestResponse)
     def ingest(req: IngestRequest):
         path = Path(req.path)
+        if not path.is_absolute():
+            path = (settings.repo_root / path).resolve()
         if not path.exists():
             raise HTTPException(404, f"file not found: {path}")
-        
-        state.ensure_retrievers()
-        
-        report = state.ingestion.ingest(
-            path, max_pages=req.max_pages, page_range=req.page_range,
-        )
-        chunks = RecursiveChunker().chunk(report.document)
-        state.hybrid.index(chunks)
-        state.indexed_docs.append(report.document.document_id)
-        
+
+        try:
+            result = state.service.ingest_and_index(
+                [path],
+                max_pages=req.max_pages,
+                page_range=req.page_range,
+                reset=True,
+            )
+        except RuntimeError as e:
+            # Missing API key, empty chunks, etc.
+            raise HTTPException(400, str(e)) from e
+        except FileNotFoundError as e:
+            raise HTTPException(404, str(e)) from e
+        except Exception as e:
+            raise HTTPException(500, f"ingest failed: {e}") from e
+
+        doc = result["documents"][0]
         return IngestResponse(
-            document_id=report.document.document_id,
-            title=report.document.title,
-            n_blocks=len(report.document.blocks),
-            n_chunks=len(chunks),
-            cost_usd=report.total_cost_usd,
-            cache_hit=report.parse_cache_hit,
+            document_id=doc["document_id"],
+            title=doc["title"],
+            n_blocks=doc["n_blocks"],
+            n_chunks=doc["n_children"],
+            cost_usd=doc["cost_usd"],
+            cache_hit=doc["cache_hit"],
+            n_documents_indexed=result["n_documents"],
         )
-    
+
     @app.post("/query", response_model=QueryResponse)
     def query(req: QueryRequest):
-        state.ensure_retrievers()
-        if not state.indexed_docs:
-            raise HTTPException(400, "No documents indexed. POST /ingest first.")
-        
-        result = state.query_pipeline.query(req.question)
-        chunk_lookup = {c.chunk_id: c for c in result["chunks"]}
+        if not state.service.is_ready():
+            if not state.service.load_index():
+                raise HTTPException(
+                    400, "No documents indexed. POST /ingest first (or build_index.py)."
+                )
+        try:
+            result = state.service.query(
+                req.question,
+                verify_hallucination=req.verify_hallucination,
+            )
+        except RuntimeError as e:
+            raise HTTPException(400, str(e)) from e
+        except ValueError as e:
+            raise HTTPException(400, str(e)) from e
+        except Exception as e:
+            raise HTTPException(500, f"query failed: {e}") from e
+
         citations = [
             CitationModel(
-                chunk_id=cid,
-                text_preview=chunk_lookup[cid].text[:150] + ("..." if len(chunk_lookup[cid].text) > 150 else ""),
-                page_number=chunk_lookup[cid].page_number,
-                heading_path=chunk_lookup[cid].heading_path,
+                chunk_id=c.get("chunk_id", ""),
+                text_preview=c.get("text_preview", ""),
+                page_number=c.get("page_number"),
+                heading_path=list(c.get("heading_path") or []),
             )
-            for cid in result["citations"] if cid in chunk_lookup
+            for c in result.citations
         ]
-        
         return QueryResponse(
-            answer=result["answer"],
+            answer=result.answer,
             citations=citations,
-            refused=result["refused"],
-            query_type=result.get("query_type"),
-            stages=result.get("stages", []),
-            n_chunks_retrieved=len(result["chunks"]),
+            refused=result.refused,
+            query_type=result.query_type,
+            stages=result.stages,
+            n_chunks_retrieved=result.n_chunks_retrieved,
+            latency_ms=result.latency_ms,
+            cost_usd=result.cost_usd,
+            hallucination=result.hallucination,
         )
-    
+
     return app
 
 
-# Module-level app for `uvicorn src.api.server:app`
 app = build_app()

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Secrets — never bake into the image
+.env
+.env.*
+!.env.example
+
+# Local / heavy artifacts
+.git/
+.github/
+index/
+cache/
+chroma_db*/
+tmp_chroma_*/
+tmp_*.csv
+*.pkl
+notebooks/
+cache_bundle.zip
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+.DS_Store
+Thumbs.db
+*.md
+!README.md

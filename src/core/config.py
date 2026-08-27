@@ -130,8 +130,19 @@ def make_chat_llm(model: str, temperature: float = 0.0, **kwargs):
     it WILL send in the API body even when caller omits the kwarg. So for
     GPT-5/o-series we must explicitly pass temperature=1 (the only value the
     API accepts), not just omit it.
+
+    Optional env ``REASONING_EFFORT`` (minimal|low|medium|high) is forwarded for
+    GPT-5 / o-series. Default API effort burns many hidden reasoning tokens and
+    dominates Ask latency; set ``minimal`` for fast demos.
     """
     from langchain_openai import ChatOpenAI
+
+    effort = kwargs.pop("reasoning_effort", None) or os.getenv("REASONING_EFFORT")
+    if effort:
+        model_kwargs = dict(kwargs.pop("model_kwargs", {}) or {})
+        model_kwargs.setdefault("reasoning_effort", effort)
+        kwargs["model_kwargs"] = model_kwargs
+
     if supports_temperature(model):
         return ChatOpenAI(model=model, temperature=temperature, **kwargs)
     # GPT-5 / o-series: API requires temperature=1, anything else (including

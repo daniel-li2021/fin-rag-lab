@@ -67,6 +67,57 @@ If you have a pre-built `cache_bundle.zip`, unzip it at the repo root instead of
 
 ---
 
+## Application (local)
+
+The notebooks remain the teaching path. For a runnable app, a thin service layer wraps the same `src/` modules using the **parent-child** strategy from notebook 05 (not the recursive baseline).
+
+```bash
+# Build / load the index (parent=800, child=150, hybrid RRF + parent expansion)
+python scripts/build_index.py
+
+# Ask a question from the CLI
+python scripts/query_cli.py "What was Wells Fargo's Q4 2025 net income?"
+python scripts/query_cli.py --verify "What was Tesla's vehicle production?"   # optional hallucination check
+python scripts/query_cli.py --interactive
+
+# Offline Ragas evaluation (separate from online queries)
+python scripts/run_eval.py --limit 5
+python scripts/run_eval.py --limit 0 --output tmp_app_ragas.csv   # full golden set
+
+# Streamlit UI
+streamlit run app/streamlit_app.py
+# open http://localhost:8501
+```
+
+| Piece | Role |
+|---|---|
+| `src/services/rag_service.py` | Shared ingest / index / query / evaluate orchestration |
+| `scripts/build_index.py` | Build or rebuild the local `index/` |
+| `scripts/query_cli.py` | Online queries from the terminal |
+| `scripts/run_eval.py` | Offline Ragas pipeline |
+| `app/streamlit_app.py` | Upload/select PDFs, ask questions, show citations + latency/cost/trace |
+| `src/api/server.py` | FastAPI adapter over the same `RAGService` |
+
+Ragas stays offline (`run_eval.py`). The Streamlit UI may optionally run `HallucinationDetector` on a single answer; it does not run the full Ragas suite.
+
+### Docker (local)
+
+`.env` is **not** baked into the image. Pass it at runtime. Mount volumes so uploads/index/cache persist on the host.
+
+```bash
+docker build -t fin-rag-lab .
+
+docker run --rm --env-file .env -p 8501:8501 \
+  -v "$(pwd)/data/uploads:/app/data/uploads" \
+  -v "$(pwd)/index:/app/index" \
+  -v "$(pwd)/cache:/app/cache" \
+  fin-rag-lab
+```
+
+Then open http://localhost:8501. Ingest PDFs in the UI (or pre-build with `python scripts/build_index.py` on the host so `index/` is ready before `docker run`).
+
+---
+
 ## Lab progression
 
 | # | Notebook | Topic |
@@ -119,7 +170,12 @@ fin-rag-lab/
 ├── LICENSE
 ├── requirements.txt
 ├── .env.example
+├── app/
+│   └── streamlit_app.py        # local Streamlit MVP
 ├── scripts/
+│   ├── build_index.py          # build parent-child hybrid index
+│   ├── query_cli.py            # online CLI queries
+│   ├── run_eval.py             # offline Ragas evaluation
 │   ├── precompute_cache.py     # one-shot, generates shareable cache_bundle
 │   └── build_notebooks.py      # rebuilds .ipynb from src
 ├── src/
@@ -134,6 +190,7 @@ fin-rag-lab/
 │   ├── pipelines/
 │   │   ├── ingestion.py        # IngestionPipeline orchestrator
 │   │   └── query.py            # LangGraph state machine
+│   ├── services/               # app orchestration (RAGService)
 │   ├── observability/          # CostTracker, LangSmith helpers
 │   └── api/                    # FastAPI demo (POST /ingest, /query)
 ├── notebooks/                  # 00–06, see Lab progression above
@@ -141,7 +198,8 @@ fin-rag-lab/
 │   ├── uploads/                # PDFs go here
 │   └── golden_set/             # 30 financial QA across 5 categories
 ├── cache/                      # auto-managed, content-addressed
-└── tests/                      # 57 unit + integration tests
+├── index/                      # local app index (gitignored)
+└── tests/                      # unit + integration tests
 ```
 
 ---

@@ -1,0 +1,35 @@
+# Dockerignore for the cloud image (Dockerfile.cloud).
+# Secrets stay out. Index + embeddings are INCLUDED for the first MVP.
+
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+.git/
+.github/
+notebooks/
+cache_bundle.zip
+chroma_db*/
+tmp_chroma_*/
+tmp_*.csv
+
+# Keep index/ and cache/embeddings/ — do NOT ignore them for cloud builds
+# (override the root .dockerignore behavior by using:
+#   docker build -f Dockerfile.cloud -t fin-rag-lab:cloud .
+# with this file copied? Actually docker only reads .dockerignore at context root.
+# So we use a build script that temporarily adjusts ignore, OR we remove index/
+# from root .dockerignore for cloud builds only via script.
+
+.idea/
+.vscode/
+.cursor/
+.DS_Store
+Thumbs.db
