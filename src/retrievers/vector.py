@@ -27,15 +27,16 @@ class VectorRetriever(BaseRetriever):
         collection: str = "voyageai",
         embedding_model: Optional[str] = None,
         embeddings_cache_dir: Optional[Path | str] = None,
+        cost_tracker=None,
     ):
-        from langchain_openai import OpenAIEmbeddings
+        from src.observability.embeddings import make_tracked_embeddings
         from langchain_chroma import Chroma
         
         self.persist_dir = str(persist_dir)
         self.collection = collection
         self.embedding_model = embedding_model or settings.embedding_model
         
-        base_embeddings = OpenAIEmbeddings(model=self.embedding_model)
+        base_embeddings = make_tracked_embeddings(self.embedding_model, cost_tracker)
         if embeddings_cache_dir:
             self.embeddings = make_cached_embeddings(
                 base_embeddings,
@@ -57,8 +58,9 @@ class VectorRetriever(BaseRetriever):
             return
         lc_docs = [
             LCDocument(
-                page_content=c.text,
+                page_content=c.retrieval_text or c.text,
                 metadata={
+                    "chunk_payload": c.model_dump_json(),
                     "chunk_id": c.chunk_id,
                     "document_id": c.document_id,
                     "parent_chunk_id": c.parent_chunk_id or "",
@@ -95,6 +97,8 @@ class VectorRetriever(BaseRetriever):
     @staticmethod
     def _lc_to_chunk(lc_doc: LCDocument) -> DocumentChunk:
         m = lc_doc.metadata or {}
+        if m.get("chunk_payload"):
+            return DocumentChunk.model_validate_json(m["chunk_payload"])
         heading_str = m.get("heading_path", "")
         return DocumentChunk(
             chunk_id=m.get("chunk_id", "") or f"unknown_{id(lc_doc)}",

@@ -81,7 +81,11 @@ class IngestionPipeline:
         page_range: Optional[tuple[int, int]] = None,
         verbose: bool = False,
     ) -> IngestionReport:
-        """Run the full pipeline. Returns a report with the document + stats."""
+        """Run the full pipeline with a request-local usage receipt."""
+        with self.cost_tracker.request():
+            return self._ingest(source, max_pages, page_range, verbose)
+
+    def _ingest(self, source, max_pages, page_range, verbose):
         source = Path(source)
         t0 = time.perf_counter()
         
@@ -141,7 +145,7 @@ class IngestionPipeline:
         
         wall = time.perf_counter() - t0
         if verbose:
-            print(f"Done in {wall:.1f}s. ${self.cost_tracker.total:.4f} this run.")
+            print(f"Done in {wall:.1f}s. Cost: {self.cost_tracker.current_report()['total_usd']}")
         return self._build_report(doc, wall, parse_cache_hit=False)
     
     def _build_report(
@@ -151,6 +155,7 @@ class IngestionPipeline:
         n_tables = sum(1 for b in doc.blocks if b.block_type == "table")
         n_images = sum(1 for b in doc.blocks if b.block_type in ("image", "chart", "figure"))
         
+        usage = self.cost_tracker.current_report()
         return IngestionReport(
             document=doc,
             n_text_blocks=n_text,
@@ -160,8 +165,9 @@ class IngestionPipeline:
             parse_cache_hit=parse_cache_hit,
             vlm_cache_hits=self.cache.vlm.hits,
             vlm_cache_misses=self.cache.vlm.misses,
-            total_cost_usd=self.cost_tracker.total,
-            cost_breakdown=dict(self.cost_tracker.by_stage),
+            total_cost_usd=usage["total_usd"],
+            cost_breakdown=usage["by_stage"],
+            usage=usage,
             wall_time_seconds=wall,
         )
     

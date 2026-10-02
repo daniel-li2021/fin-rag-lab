@@ -1,0 +1,781 @@
+{
+  "schema_version": 1,
+  "golden_sha256": "9a90ae99ded28d6afe736f6298517a217f9405dd50989e98bed889508116cdf6",
+  "corpus": {
+    "wells_fargo": {
+      "path": "data/uploads/wells_fargo.pdf",
+      "sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+    },
+    "tesla": {
+      "path": "data/uploads/tesla.pdf",
+      "sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+    },
+    "amd": {
+      "path": "data/uploads/amd.pdf",
+      "sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+    }
+  },
+  "labels": [
+    {
+      "id": "q01",
+      "question_sha256": "afe31883f9bd4e9f5b5cab292a55bc204b0d011ab85d0c8012f1366320f8a78b",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 135,
+          "char_end": 175,
+          "quote": "$5.4 billion, or $1.62 per Diluted Share"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "5.4",
+          "unit": "USD billion",
+          "tolerance": "0.05",
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "consolidated net income"
+        }
+      ],
+      "reference_answer": "Wells Fargo Q4 2025 net income was $5.4 billion (rounded; $5,361 million in the table).",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q02",
+      "question_sha256": "88ba62d2845e292fbe509647ee043531745d12ebc140499a30efc2ea48d2c0e1",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 135,
+          "char_end": 175,
+          "quote": "$5.4 billion, or $1.62 per Diluted Share"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "1.62",
+          "unit": "USD/share",
+          "tolerance": "0.005",
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "diluted EPS"
+        }
+      ],
+      "reference_answer": "Wells Fargo Q4 2025 diluted EPS was $1.62.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q03",
+      "question_sha256": "2db739cb88124c0b169b68c9048c8fb574715a525369a09041dc6cb3f9d97718",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 705,
+          "char_end": 710,
+          "quote": "10.6%"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "10.6",
+          "unit": "percent",
+          "tolerance": "0.05",
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "CET1"
+        }
+      ],
+      "reference_answer": "Wells Fargo CET1 at December 31, 2025 was 10.6%.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q04",
+      "question_sha256": "1f6eeb5bddcd84b8d0f3fd9c4fd631f1e4f357824e3f994000700a51b2c2bef2",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 5,
+          "char_start": 222,
+          "char_end": 229,
+          "quote": "408,386"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "408386",
+          "unit": "vehicles",
+          "tolerance": "0",
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "total production"
+        }
+      ],
+      "reference_answer": "Tesla Q1 2026 total vehicle production was 408,386.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q05",
+      "question_sha256": "7e0d210ad22d12115d127c26bd20fb42ff7c33a1ecf0221e36688552d2fc18ad",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 5,
+          "char_start": 846,
+          "char_end": 849,
+          "quote": "8.8"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "8.8",
+          "unit": "GWh",
+          "tolerance": "0.05",
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "storage deployed"
+        }
+      ],
+      "reference_answer": "Tesla Q1 2026 storage deployed was 8.8 GWh.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q06",
+      "question_sha256": "1bf1a6dba8946671561fc3b13a50315899548429acfac62ee514ff7e80f55b3b",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 21,
+          "char_start": 255,
+          "char_end": 267,
+          "quote": "$5.4 Billion"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "5.4",
+          "unit": "USD billion",
+          "tolerance": "0.05",
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Data Center revenue"
+        }
+      ],
+      "reference_answer": "AMD Q4 2025 Data Center revenue was $5.4 billion.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q07",
+      "question_sha256": "2d14da15bf2089c669b438e702c21b800acff745472639db76cf466f9333fa7f",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 22,
+          "char_start": 1229,
+          "char_end": 1234,
+          "quote": "$0.8B"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "0.8",
+          "unit": "USD billion",
+          "tolerance": "0.05",
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Gaming revenue"
+        }
+      ],
+      "reference_answer": "AMD Q4 2025 Gaming revenue was $0.8 billion, distinct from $3.9 billion combined Client and Gaming revenue.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q08",
+      "question_sha256": "d984ef135202cd44b3d3f71fe6704764899c7007855854a4889892d491d333c5",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 17,
+          "char_start": 159,
+          "char_end": 166,
+          "quote": "$34,639"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "34.639",
+          "unit": "USD billion",
+          "tolerance": "0.05",
+          "entity": "amd",
+          "period": "FY 2025",
+          "scope": "consolidated revenue"
+        }
+      ],
+      "reference_answer": "AMD FY 2025 revenue was $34,639 million, rounded to $34.6 billion.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q09",
+      "question_sha256": "8196162ed95e1872aaba25bb72c39f4d1b0035c6e437a383a893fb53e7eb21ab",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 10,
+          "char_start": 269,
+          "char_end": 286,
+          "quote": "Gross Margin \n54%"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "54",
+          "unit": "percent",
+          "tolerance": "0.5",
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "GAAP consolidated gross margin"
+        }
+      ],
+      "reference_answer": "AMD Q4 2025 GAAP gross margin was 54%; non-GAAP was 57%.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q10",
+      "question_sha256": "97219e4ff99253d50e9fd0760926f893295d92f31755e17434293da6404133e7",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 689,
+          "char_end": 694,
+          "quote": "955.8"
+        }
+      ],
+      "numeric": [
+        {
+          "value": "955.8",
+          "unit": "USD billion",
+          "tolerance": "0.05",
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "average loans"
+        }
+      ],
+      "reference_answer": "Wells Fargo Q4 2025 average loans were $955.8 billion.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q11",
+      "question_sha256": "a574d252d163fb901dd6bde179d0bc84080d9652d02f351b3463ad113d646094",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 4,
+          "char_start": 2047,
+          "char_end": 2067,
+          "quote": "Revenue increased 7%"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "The release describes the segment's revenue trends and key drivers.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q12",
+      "question_sha256": "409ccc0b67c6e93a9a845faa645c3232e7eaca7d34492a8ee1bc624d6720a80e",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 2,
+          "char_start": 3089,
+          "char_end": 3121,
+          "quote": "Net interest income increased 4%"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Wells Fargo discusses NII drivers in its Q4 2025 release.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q13",
+      "question_sha256": "f39ec129afdd3bbdbf6fa4b6206f781ee08a4ef3f2f8412031030b9d573e0b81",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 8,
+          "char_start": 0,
+          "char_end": 2,
+          "quote": "AI"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Tesla's Q1 2026 update covers AI and robotics progress including Cortex, Optimus, and FSD.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q14",
+      "question_sha256": "1c631da01fa5aa4b4dd749e7a12e1668d084b66b77cd388f4f6dad82a002b49c",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 3,
+          "char_start": 495,
+          "char_end": 535,
+          "quote": "We continued to make meaningful progress"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Tesla's Q1 2026 update lists operational highlights including production, deliveries, and energy.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q15",
+      "question_sha256": "f2d1994016d620a4a26be29210f75249fa365383ab9d0fdb1866d03394624fb2",
+      "expected_outcome": "qualified_answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 21,
+          "char_start": 113,
+          "char_end": 127,
+          "quote": "continued ramp"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "AMD discusses Instinct/MI300 series GPU performance and adoption.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q16",
+      "question_sha256": "22dfb29fcee62c240b9b7b412d34c66e5845b27ecebfac3921e4639af9bc4bb5",
+      "expected_outcome": "qualified_answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 5,
+          "char_start": 203,
+          "char_end": 214,
+          "quote": "Data Center"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "AMD's Q4 2025 earnings discusses the data center AI market opportunity.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q17",
+      "question_sha256": "3226669b11b72257322fa78b166dcc0da1e6edbdc3a7f35e78120f7e3d1ce8cc",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 1385,
+          "char_end": 1397,
+          "quote": "$5.0 billion"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Wells Fargo describes share repurchases and/or dividend actions in Q4 2025.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q18",
+      "question_sha256": "4b5924b9e3f84efcc9c72b7987f51881ec69f015be1c9546725dcc714771510e",
+      "expected_outcome": "clarify",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 4,
+          "char_start": 451,
+          "char_end": 474,
+          "quote": "Total GAAP gross margin"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "The financial summary reports consolidated GAAP gross margin (21.1%), not automotive gross margin; clarify the requested scope rather than substitute the consolidated figure.",
+      "rubric": "The financial summary reports consolidated GAAP gross margin (21.1%), not automotive gross margin; clarify the requested scope rather than substitute the consolidated figure."
+    },
+    {
+      "id": "q19",
+      "question_sha256": "e80458fa57d670127374d8f4292f960c45fdd01c26577e9649a4ae8e04f51d18",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 2,
+          "char_start": 1832,
+          "char_end": 1838,
+          "quote": "12,331"
+        },
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 2,
+          "char_start": 1862,
+          "char_end": 1868,
+          "quote": "11,836"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Wells Fargo Q4 2025 NII was $12,331 million versus $11,836 million in Q4 2024, up $495 million (about 4.2%).",
+      "rubric": "Wells Fargo Q4 2025 NII was $12,331 million versus $11,836 million in Q4 2024, up $495 million (about 4.2%)."
+    },
+    {
+      "id": "q20",
+      "question_sha256": "594aee0abb0b4c9407610860ec0cc646a9c8a8e033169d50ff792929df17518c",
+      "expected_outcome": "qualified_answer",
+      "required_sources": [
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 5,
+          "char_start": 222,
+          "char_end": 229,
+          "quote": "408,386"
+        },
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 5,
+          "char_start": 410,
+          "char_end": 417,
+          "quote": "358,023"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Tesla Q1 2026 produced 408,386 and delivered 358,023 vehicles, a gap of 50,363; this suggests inventory accumulation but does not establish its cause.",
+      "rubric": "Tesla Q1 2026 produced 408,386 and delivered 358,023 vehicles, a gap of 50,363; this suggests inventory accumulation but does not establish its cause."
+    },
+    {
+      "id": "q21",
+      "question_sha256": "bb26cbe9c49e22d73971dfb3c3cb3e7ba4911f008f8a2fa3046af5f2161de1a5",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 21,
+          "char_start": 269,
+          "char_end": 279,
+          "quote": "Up 39% y/y"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 22,
+          "char_start": 417,
+          "char_end": 427,
+          "quote": "Up 37% y/y"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 23,
+          "char_start": 84,
+          "char_end": 91,
+          "quote": "Revenue"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "AMD's segment-level YoY data allows ranking segment growth.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q22",
+      "question_sha256": "f14f349f9afc947a8cbb0aa9a490951c065aa733dc19ef5cf736a6b59089ff75",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 10,
+          "char_start": 269,
+          "char_end": 286,
+          "quote": "Gross Margin \n54%"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 10,
+          "char_start": 288,
+          "char_end": 291,
+          "quote": "51%"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "AMD reports Q4 2024 and Q4 2025 gross margin allowing trend comparison.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q23",
+      "question_sha256": "cc9ae41cc330f5d1519a7663a8c5e4d47ffd346e1c0cbc1a38ec135f196c87a6",
+      "expected_outcome": "clarify",
+      "required_sources": [
+        "wells_fargo",
+        "tesla",
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 1,
+          "char_start": 430,
+          "char_end": 436,
+          "quote": "21,292"
+        },
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 4,
+          "char_start": 387,
+          "char_end": 393,
+          "quote": "22,387"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 10,
+          "char_start": 174,
+          "char_end": 181,
+          "quote": "$10,270"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Clarify the reporting period and revenue definition before ranking: Wells Fargo Q4 2025 $21.292B, Tesla Q1 2026 $22.387B, AMD Q4 2025 $10.270B. These are different periods; the historical ranking is wrong even for reported quarter amounts.",
+      "rubric": "Clarify the reporting period and revenue definition before ranking: Wells Fargo Q4 2025 $21.292B, Tesla Q1 2026 $22.387B, AMD Q4 2025 $10.270B. These are different periods; the historical ranking is wrong even for reported quarter amounts."
+    },
+    {
+      "id": "q24",
+      "question_sha256": "f68a70eeaed198e982e345f5f03e94108d22f6588200d672c4585be296d9fd0d",
+      "expected_outcome": "clarify",
+      "required_sources": [
+        "tesla",
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 4,
+          "char_start": 499,
+          "char_end": 504,
+          "quote": "21.1%"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 10,
+          "char_start": 269,
+          "char_end": 286,
+          "quote": "Gross Margin \n54%"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Clarify consolidated versus automotive and GAAP versus non-GAAP basis. Consolidated GAAP gross margins are Tesla Q1 2026 21.1% and AMD Q4 2025 54%; periods differ. Do not compare automotive with company-wide margin silently.",
+      "rubric": "Clarify consolidated versus automotive and GAAP versus non-GAAP basis. Consolidated GAAP gross margins are Tesla Q1 2026 21.1% and AMD Q4 2025 54%; periods differ. Do not compare automotive with company-wide margin silently."
+    },
+    {
+      "id": "q25",
+      "question_sha256": "29b7c0c65e54d9ff1b24003f5e0d2f3fa240630e51ff51eeefd0b5974a3a8107",
+      "expected_outcome": "qualified_answer",
+      "required_sources": [
+        "tesla",
+        "amd"
+      ],
+      "evidence": [
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 8,
+          "char_start": 0,
+          "char_end": 2,
+          "quote": "AI"
+        },
+        {
+          "source": "amd",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "page_number": 21,
+          "char_start": 269,
+          "char_end": 279,
+          "quote": "Up 39% y/y"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "AMD reports Data Center growth and Instinct ramp; Tesla reports AI infrastructure and FSD progress, not an equivalent standalone AI revenue metric. Qualify the different definitions.",
+      "rubric": "AMD reports Data Center growth and Instinct ramp; Tesla reports AI infrastructure and FSD progress, not an equivalent standalone AI revenue metric. Qualify the different definitions."
+    },
+    {
+      "id": "q26",
+      "question_sha256": "645294d822286182b0b24c01fea35e0bb0fe93492875e80c519efd5a45ddfecf",
+      "expected_outcome": "answer",
+      "required_sources": [
+        "wells_fargo",
+        "tesla"
+      ],
+      "evidence": [
+        {
+          "source": "wells_fargo",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "page_number": 10,
+          "char_start": 2839,
+          "char_end": 2843,
+          "quote": "risk"
+        },
+        {
+          "source": "tesla",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "page_number": 30,
+          "char_start": 4624,
+          "char_end": 4628,
+          "quote": "risk"
+        }
+      ],
+      "numeric": [],
+      "reference_answer": "Each filing has different focal risks \u2014 banking/credit for WF vs production/regulatory for Tesla.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q27",
+      "question_sha256": "48a7b711f079c69e13edf1faf7c28f2266a294e74bc68570bd0d97179e5104c5",
+      "expected_outcome": "refuse",
+      "required_sources": [],
+      "evidence": [],
+      "numeric": [],
+      "reference_answer": "REFUSE: Apple is not in the corpus.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q28",
+      "question_sha256": "fc6593985aef81ba017342086c3d4973c70931126e06db0c326cd8145492c327",
+      "expected_outcome": "refuse",
+      "required_sources": [],
+      "evidence": [],
+      "numeric": [],
+      "reference_answer": "REFUSE: not in corpus, requires external real-time data.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q29",
+      "question_sha256": "7e36243f53eab0ace369670f40e9dbe8bb2d93ef2a01953bc5ca8d405b93e11a",
+      "expected_outcome": "refuse",
+      "required_sources": [],
+      "evidence": [],
+      "numeric": [],
+      "reference_answer": "REFUSE: future event not in the Q1 2026 update document.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "q30",
+      "question_sha256": "70d9f3f93a42cf81eb9cc6bf0821cafff1d4b02c57673575e5d5bf8582ce1263",
+      "expected_outcome": "refuse",
+      "required_sources": [],
+      "evidence": [],
+      "numeric": [],
+      "reference_answer": "REFUSE: Microsoft not in corpus.",
+      "rubric": "Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    }
+  ]
+}

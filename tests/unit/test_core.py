@@ -109,7 +109,10 @@ def test_cost_tracker_records_llm():
 def test_cost_tracker_handles_unknown_model():
     ct = CostTracker()
     cost = ct.record_llm("s", "unknown-model", 1000, 500)
-    assert cost == 0.0
+    assert cost is None
+    assert ct.report()["total_usd"] is None
+    assert ct.report()["by_stage"]["s"] is None
+    assert ct.by_stage["s"] is None
     assert ct.n_calls["s"] == 1  # call still counted
 
 def test_cost_tracker_vlm_image():

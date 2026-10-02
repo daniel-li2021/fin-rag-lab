@@ -34,9 +34,10 @@ class IngestResponse(BaseModel):
     title: str
     n_blocks: int
     n_chunks: int
-    cost_usd: float
+    cost_usd: Optional[float]
     cache_hit: bool
     n_documents_indexed: int
+    usage: dict[str, Any] = {}
 
 
 class QueryRequest(BaseModel):
@@ -49,18 +50,33 @@ class CitationModel(BaseModel):
     text_preview: str
     page_number: Optional[int] = None
     heading_path: list[str] = []
+    source_number: Optional[int] = None
+    document_id: str = ""
+    document_name: str = ""
+    source_version: Optional[str] = None
+    page_numbers: list[int] = []
+    evidence_spans: list[dict[str, Any]] = []
+    provenance_status: str = "migration_required"
+    legacy_document_id: Optional[str] = None
 
 
 class QueryResponse(BaseModel):
     answer: str
     citations: list[CitationModel]
+    retrieved_contexts: list[CitationModel] = []
+    invalid_citations: list[Any] = []
     refused: bool
     query_type: Optional[str] = None
     stages: list[str] = []
     n_chunks_retrieved: int
     latency_ms: float = 0.0
-    cost_usd: float = 0.0
+    cost_usd: Optional[float] = 0.0
     hallucination: Optional[dict[str, Any]] = None
+    outcome: Optional[str] = None
+    usage: dict[str, Any] = {}
+    configuration: dict[str, Any] = {}
+    cost_breakdown: dict[str, Optional[float]] = {}
+    retrieval_latency_ms: float = 0.0
 
 
 class AppState:
@@ -135,7 +151,8 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
             title=doc["title"],
             n_blocks=doc["n_blocks"],
             n_chunks=doc["n_children"],
-            cost_usd=doc["cost_usd"],
+            cost_usd=result["cost_usd"],
+            usage=result["usage"],
             cache_hit=doc["cache_hit"],
             n_documents_indexed=result["n_documents"],
         )
@@ -159,18 +176,12 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
         except Exception as e:
             raise HTTPException(500, f"query failed: {e}") from e
 
-        citations = [
-            CitationModel(
-                chunk_id=c.get("chunk_id", ""),
-                text_preview=c.get("text_preview", ""),
-                page_number=c.get("page_number"),
-                heading_path=list(c.get("heading_path") or []),
-            )
-            for c in result.citations
-        ]
+        citations = [CitationModel(**c) for c in result.citations]
         return QueryResponse(
             answer=result.answer,
             citations=citations,
+            retrieved_contexts=[CitationModel(**c) for c in result.retrieved_contexts],
+            invalid_citations=result.invalid_citations,
             refused=result.refused,
             query_type=result.query_type,
             stages=result.stages,
@@ -178,6 +189,9 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
             latency_ms=result.latency_ms,
             cost_usd=result.cost_usd,
             hallucination=result.hallucination,
+            outcome=result.outcome, usage=result.usage,
+            configuration=result.configuration, cost_breakdown=result.cost_breakdown,
+            retrieval_latency_ms=result.retrieval_latency_ms,
         )
 
     return app

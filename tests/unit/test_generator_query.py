@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
+import json
 from typing import Any
 from src.core.models import DocumentChunk
 from src.core.interfaces import BaseRetriever, BaseGenerator
@@ -47,7 +48,8 @@ class FakeLLM:
         self.last_messages = None
     def invoke(self, messages):
         self.last_messages = messages
-        return _FakeMessage(self.response)
+        content = self.response if self.response.startswith("{") else json.dumps({"outcome": "answer", "answer": self.response})
+        return _FakeMessage(content)
 
 
 # =============================================================
@@ -184,3 +186,25 @@ def test_query_pipeline_draws_mermaid():
     diagram = pipeline.draw_mermaid()
     assert isinstance(diagram, str)
     assert len(diagram) > 0
+
+
+def test_invalid_citation_numbers_are_preserved_for_audit():
+    gen = RAGGenerator()
+    gen._llm = FakeLLM('Claim [^1] and unresolved claim [^99].')
+    result = gen.generate('What was net income?', make_chunks(1))
+    assert result['citations'] == ['chk_000']
+    assert result['invalid_citations'] == [99]
+
+
+def test_structured_unsupported_outcome_and_malformed_output():
+    import pytest
+    gen = RAGGenerator()
+    gen._llm = FakeLLM(json.dumps({'outcome': 'refuse', 'answer': 'The provided sources do not contain Apple revenue.'}))
+    result = gen.generate('Apple revenue?', make_chunks())
+    assert result['outcome'] == 'refuse'
+    assert result['refused'] is True
+    gen._llm = FakeLLM(json.dumps({'outcome': 'clarify', 'answer': 'Which reporting period do you mean?'}))
+    assert gen.generate('Compare revenue', make_chunks())['outcome'] == 'clarify'
+    gen._llm = FakeLLM('{"answer":"Unlabeled answer"}')
+    with pytest.raises(ValueError):
+        gen.generate('Question', make_chunks())

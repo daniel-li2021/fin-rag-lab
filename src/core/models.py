@@ -47,6 +47,7 @@ class DocumentBlock(BaseModel):
     semantic_content: Optional[str] = None
     structured_data: Optional[dict[str, Any]] = None
     
+    line_start: Optional[int] = None
     page_number: Optional[int] = None
     bbox: Optional[BoundingBox] = None
     heading_path: list[str] = Field(default_factory=list)
@@ -54,6 +55,13 @@ class DocumentBlock(BaseModel):
     # For image/chart blocks — keep raw bytes (or path) for citation/display
     image_path: Optional[str] = None
     
+    def get_original_text(self) -> str:
+        """Original table rows remain authoritative even after captioning."""
+        if self.text:
+            return self.text
+        rows = (self.structured_data or {}).get("rows", [])
+        return "\n".join(" | ".join(str(cell or "") for cell in row) for row in rows)
+
     def get_embed_text(self) -> str:
         """Text used for embedding. Prefer LLM caption over raw."""
         if self.semantic_content:
@@ -87,6 +95,21 @@ class DocumentBlock(BaseModel):
         return f"[{self.block_type}] {body}"
 
 
+class EvidenceSpan(BaseModel):
+    """Half-open character offsets into original block text (not generated prefixes)."""
+    block_id: str
+    source_version: str
+    page_number: Optional[int] = None
+    char_start: int
+    char_end: int
+    line_start: Optional[int] = None
+    line_end: Optional[int] = None
+    heading_path: list[str] = Field(default_factory=list)
+    bbox: Optional[BoundingBox] = None
+    text: str
+    kind: Literal["original", "generated"] = "original"
+
+
 class DocumentChunk(BaseModel):
     """
     S4 §3.2 Chunk — what goes into the vector DB.
@@ -98,6 +121,9 @@ class DocumentChunk(BaseModel):
     """
     chunk_id: str = Field(default_factory=lambda: f"chk_{uuid.uuid4().hex[:12]}")
     document_id: str
+    source_version: Optional[str] = None
+    evidence_spans: list[EvidenceSpan] = Field(default_factory=list)
+    retrieval_text: Optional[str] = None
     text: str
     
     source_block_ids: list[str] = Field(default_factory=list)
@@ -163,8 +189,9 @@ class IngestionReport(BaseModel):
     embedding_cache_misses: int = 0
     
     # Cost (USD)
-    total_cost_usd: float = 0.0
-    cost_breakdown: dict[str, float] = Field(default_factory=dict)
+    total_cost_usd: Optional[float] = 0.0
+    usage: dict[str, Any] = Field(default_factory=dict)
+    cost_breakdown: dict[str, Optional[float]] = Field(default_factory=dict)
     
     # Timing
     wall_time_seconds: float = 0.0
@@ -176,6 +203,6 @@ class IngestionReport(BaseModel):
             f" Chunks: {self.n_chunks}",
             f" VLM cache: {self.vlm_cache_hits} hits / {self.vlm_cache_misses} misses",
             f" Embed cache: {self.embedding_cache_hits} hits / {self.embedding_cache_misses} misses",
-            f"Cost: ${self.total_cost_usd:.4f}    time {self.wall_time_seconds:.1f}s",
+            f"Cost: {'unknown' if self.total_cost_usd is None else f'${self.total_cost_usd:.4f}'}    time {self.wall_time_seconds:.1f}s",
         ]
         return "\n".join(lines)

@@ -6,7 +6,7 @@ Three production tricks vs vanilla LangChain usage:
   3. heading_path is prepended to every chunk's text → cheap context enrichment
 """
 from __future__ import annotations
-from langchain_text_splitters import RecursiveCharacterTextSplitter, MarkdownTextSplitter, PythonCodeTextSplitter, HTMLHeaderTextSplitter, LatexTextSplitter, RecursiveJsonSplitter
+from ._evidence import evidence_text, make_chunk, split_spans
 
 from src.core.interfaces import BaseChunker
 from src.core.models import Document, DocumentChunk
@@ -31,33 +31,19 @@ class RecursiveChunker(BaseChunker):
     
     def chunk(self, doc: Document) -> list[DocumentChunk]:
         token_count = get_token_counter(self.model)
-        splitter = RecursiveCharacterTextSplitter(
-            chunk_size=self.chunk_size,
-            chunk_overlap=self.overlap,
-            separators=["\n\n", "\n", ". ", "? ", "! ", " ", ""],
-            length_function=token_count,
-        )
-        
-        chunks: list[DocumentChunk] = []
+        chunks = []
         for block in doc.blocks:
             if block.block_type in self._SKIP_AS_CHUNK:
                 continue
-            text = block.get_embed_text()
-            if not text.strip():
-                continue
-            
-            heading_prefix = " > ".join(block.heading_path)
-            for sub_text in splitter.split_text(text):
-                full = (
-                    f"[Section: {heading_prefix}]\n{sub_text}"
-                    if heading_prefix else sub_text
-                )
-                chunks.append(DocumentChunk(
-                    document_id=doc.document_id,
-                    text=full,
-                    source_block_ids=[block.block_id],
-                    heading_path=block.heading_path,
-                    page_number=block.page_number,
-                    metadata={"chunker": self.name},
-                ))
+            text, ranges = evidence_text(doc, [block], headings=False)
+            for start, end in split_spans(text, self.chunk_size, self.overlap, token_count):
+                chunk = make_chunk(doc, text, ranges, start, end,
+                                   metadata={"chunker": self.name, "evidence_revision": 1})
+                if chunk is None:
+                    continue
+                if block.heading_path:
+                    prefix = "[Section: " + " > ".join(block.heading_path) + "]\n"
+                    chunk.text = prefix + chunk.text
+                    chunk.retrieval_text = prefix + chunk.retrieval_text
+                chunks.append(chunk)
         return chunks

@@ -81,10 +81,11 @@ def main():
         print(f"{pdf_path.name}")
         report = pipeline.ingest(pdf_path, max_pages=args.max_pages, verbose=True)
         print(report.summary())
-        total_cost += report.total_cost_usd
+        total_cost = total_cost + report.total_cost_usd if total_cost is not None and report.total_cost_usd is not None else None
         print()
     
-    print(f"Grand total: ${total_cost:.4f}")
+    cost = "unknown" if total_cost is None else f"${total_cost:.4f}"
+    print(f"Grand total: {cost}")
     print(f"Cache ready at: {args.output}/")
     print(f" To ship to students: zip -r cache_bundle.zip {args.output}/")
 

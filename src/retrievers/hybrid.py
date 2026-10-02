@@ -45,15 +45,17 @@ class HybridRetriever(BaseRetriever):
         fetch_k: int = 20,
         use_parent: bool = True,
     ) -> list[DocumentChunk]:
+        return self.retrieve_with_candidates(query, k, fetch_k, use_parent)["chunks"]
+
+    def retrieve_with_candidates(self, query, k=5, fetch_k=20, use_parent=True):
+        """Return the exact fused child candidates used by this request, without replay."""
         vec_scored = self.vector.search_with_scores(query, k=fetch_k)
         bm25_scored = self.bm25.search_with_scores(query, k=fetch_k)
-        
         fused = rrf_merge([vec_scored, bm25_scored], k=self.rrf_k, top_n=fetch_k)
-        
-        if use_parent and self.parent_store:
-            return self._swap_to_parents(fused, k)
-        return [c for c, _ in fused[:k]]
-    
+        candidates = [c.model_copy(update={"metadata": {**c.metadata, "rrf_score": score}}) for c, score in fused]
+        chunks = self._swap_to_parents(fused, k) if use_parent and self.parent_store else candidates[:k]
+        return {"chunks": chunks, "candidates": candidates}
+
     def _swap_to_parents(
         self, fused: list[tuple[DocumentChunk, float]], k: int
     ) -> list[DocumentChunk]:

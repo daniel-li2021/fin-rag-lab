@@ -270,3 +270,15 @@ Two teaching moments:
 - AMD Q4 2025 Earnings Slides: https://d1io3yog0oux5.cloudfront.net/_b0eb9fe85e9ee1621001cc760a9e1d73/amd/db/841/9223/presentation/AMD+Q4'25+Earnings+Slides+FINAL.pdf
 
 **License**: MIT — see [LICENSE](LICENSE).
+
+## Benchmark, evidence and usage foundation
+
+The original 30-question golden set is preserved with hash-pinned, corrected labels. New chunks preserve original table evidence and exact source spans; answer citations are separate from retrieved context. Queries report structured outcomes and isolated usage receipts, including verification and embedding calls. Unknown usage/pricing yields an unknown cost, and configured prices are estimates.
+
+```sh
+python scripts/run_benchmark.py --limit 5 --output-dir /tmp/finrag-benchmark
+python scripts/run_benchmark.py --replay /tmp/finrag-benchmark/results.jsonl
+python -m pytest -q
+```
+
+Capture uses an explicitly rebuilt evidence-revision-1 index; it does not rebuild or run judges automatically. Add `--verify` or `--ragas` only for a budgeted experiment. See [benchmark labels and promotion gates](docs/BENCHMARK.md), [evidence and migration contract](docs/EVIDENCE.md), and [usage/cost semantics](docs/USAGE.md). Historical notebook/CSV headline scores are not measurements of this corrected baseline.

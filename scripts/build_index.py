@@ -85,7 +85,8 @@ def main() -> int:
             f"  - {doc['title']}: {doc['n_children']} children / "
             f"{doc['n_parents']} parents (cache_hit={doc['cache_hit']})"
         )
-    print(f"\nDone. Cost: ${result['cost_usd']:.4f}  time: {result['wall_time_seconds']:.1f}s")
+    cost = "unknown" if result["cost_usd"] is None else f"${result['cost_usd']:.4f}"
+    print(f"\nDone. Cost: {cost}  time: {result['wall_time_seconds']:.1f}s")
     return 0
 
 

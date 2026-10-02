@@ -236,10 +236,10 @@ def _render_sidebar(svc) -> None:
                         get_service.clear()
                         st.session_state.last_result = None
                         st.session_state.last_error = None
+                        cost = "unknown" if result["cost_usd"] is None else f"${result['cost_usd']:.4f}"
                         st.success(
                             f"{result['n_documents']} docs · "
-                            f"{result['n_children']} chunks · "
-                            f"${result['cost_usd']:.4f}"
+                            f"{result['n_children']} chunks · {cost}"
                         )
                         st.rerun()
                     except Exception as e:
@@ -250,13 +250,14 @@ def _render_sidebar(svc) -> None:
         st.caption(f"Session cost · ${cost.get('total_usd', 0):.4f}")
 
 
-def _render_sources(citations: list[dict]) -> None:
-    st.markdown("##### Sources")
+def _render_sources(citations: list[dict], title="Answer citations") -> None:
+    st.markdown(f"##### {title}")
     if not citations:
         st.caption("No sources for this answer.")
         return
 
     for i, c in enumerate(citations, start=1):
+        i = c.get("source_number") or i
         doc = c.get("document_name") or "Document"
         page = c.get("page_number")
         body = c.get("text") or c.get("text_preview") or ""
@@ -266,7 +267,8 @@ def _render_sources(citations: list[dict]) -> None:
         summary = f"[{i}]  {doc}{page_bit}  —  {excerpt}"
 
         # Anchor target for answer citation links
-        st.markdown(f'<div id="src-{i}"></div>', unsafe_allow_html=True)
+        anchor = "src" if title == "Answer citations" else "context"
+        st.markdown(f'<div id="{anchor}-{i}"></div>', unsafe_allow_html=True)
         with st.expander(summary, expanded=False):
             meta_bits = [doc]
             if page is not None:
@@ -366,6 +368,8 @@ def _render_result(result: dict) -> None:
 
     # ---- Answer (hero) ----
     st.markdown("#### Answer")
+    if result.get("outcome"):
+        st.caption(result["outcome"].replace("_", " "))
     if question:
         st.caption(question)
 
@@ -381,14 +385,17 @@ def _render_result(result: dict) -> None:
     route = (result.get("query_type") or "—").replace("_", " ")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Latency", f"{latency_s:.1f}s")
-    m2.metric("Sources", len(citations) or result.get("n_chunks_retrieved", 0))
-    m3.metric("Cost", f"${result.get('cost_usd', 0):.4f}")
+    m2.metric("Citations", len(citations))
+    cost = result.get("cost_usd")
+    m3.metric("Cost estimate", "unknown" if cost is None else f"${cost:.4f}")
     m4.metric("Route", route)
 
     # ---- User-facing sources (collapsed) ----
     # Prefer cited indices; still show all citation cards for grounding
     _ = _cited_indices(answer, len(citations))
     _render_sources(citations)
+    with st.expander("Retrieved context (not answer citations)"):
+        _render_sources(result.get("retrieved_contexts") or [], "Retrieved context")
 
     # ---- Optional verification ----
     hall = result.get("hallucination")

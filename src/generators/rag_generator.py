@@ -18,6 +18,8 @@ Design choices worth knowing in interviews:
 """
 from __future__ import annotations
 import re
+from typing import Literal
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, Optional
 
 from langchain_core.prompts import ChatPromptTemplate
@@ -54,14 +56,23 @@ numbers below. When quoting a number, ALWAYS cite where it came from.
 If a value appears as "$5.4 billion" in context, write "$5.4 billion", not "5.4B" or \
 "about 5 billion".
 
-5. Keep the answer concise — 1-3 sentences for fact lookups, up to 5 sentences \
+5. Generated descriptions are retrieval aids; original table rows and source text control numerical claims. Do not treat a generated image description as verified original text.
+
+6. Return one JSON object with exactly two fields: "outcome" and "answer".
+Outcome must be "answer", "qualified_answer", "clarify", or "refuse".
+Use "refuse" when the requested fact is unsupported, "clarify" when the user must
+specify period/scope/basis, and "qualified_answer" when a supported answer needs
+explicit limitations. Never hide an unsupported assertion inside refusal prose.
+The answer field contains the user-facing prose and [^N] citations.
+
+7. Keep the answer concise — 1-3 sentences for fact lookups, up to 5 sentences \
 for analytical questions."""),
     ("human", """Context (numbered sources):
 {context}
 
 Question: {question}
 
-Answer (with citations):"""),
+Response (JSON with outcome and cited answer):"""),
 ])
 
 
@@ -79,8 +90,10 @@ def _build_context(chunks: list[DocumentChunk]) -> tuple[str, dict[int, str]]:
     num_to_chunk_id: dict[int, str] = {}
     for i, chunk in enumerate(chunks, start=1):
         heading = " > ".join(chunk.heading_path) if chunk.heading_path else ""
-        page = f" (p. {chunk.page_number})" if chunk.page_number else ""
-        header = f"[Source {i}]" + (f" {heading}" if heading else "") + page
+        pages = sorted({s.page_number for s in getattr(chunk, "evidence_spans", []) if s.page_number})
+        page = f" (pages {', '.join(map(str, pages))})" if pages else (f" (p. {chunk.page_number})" if chunk.page_number else "")
+        identity = f" document={chunk.document_id} version={getattr(chunk, 'source_version', None) or 'legacy/unverified'}"
+        header = f"[Source {i}]" + (f" {heading}" if heading else "") + page + identity
         parts.append(f"{header}\n{chunk.text}")
         num_to_chunk_id[i] = chunk.chunk_id
     return "\n\n".join(parts), num_to_chunk_id
@@ -97,6 +110,12 @@ def _extract_citations(answer: str, num_to_chunk_id: dict[int, str]) -> list[str
             seen.add(cid)
             out.append(cid)
     return out
+
+
+class AnswerPayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    outcome: Literal["answer", "qualified_answer", "clarify", "refuse"]
+    answer: str = Field(min_length=1)
 
 
 class RAGGenerator(BaseGenerator):
@@ -128,7 +147,8 @@ class RAGGenerator(BaseGenerator):
     def _get_llm(self):
         if self._llm is None:
             from src.core.config import make_chat_llm
-            self._llm = make_chat_llm(self.model, temperature=self.temperature)
+            self._llm = make_chat_llm(self.model, temperature=self.temperature,
+                                      model_kwargs={"response_format": {"type": "json_object"}})
         return self._llm
     
     @traceable(name="rag_generate")
@@ -139,28 +159,28 @@ class RAGGenerator(BaseGenerator):
                 "citations": [],
                 "n_sources_used": 0,
                 "refused": True,
+                "outcome": "refuse",
             }
         
         context, num_to_chunk_id = _build_context(chunks)
         prompt_messages = _RAG_PROMPT.format_messages(context=context, question=query)
         
         result = self._get_llm().invoke(prompt_messages)
-        answer = result.content.strip()
-        citations = _extract_citations(answer, num_to_chunk_id)
-        
-        # Cost tracking - read from response_metadata if present, else estimate.
-        # extract_token_usage handles the reasoning_tokens field for GPT-5/o-series.
         if self.cost_tracker:
-            usage = CostTracker.extract_token_usage(result)
-            in_tok = usage["prompt_tokens"] or sum(len(m.content) // 4 for m in prompt_messages)
-            out_tok = usage["completion_tokens"] or len(answer) // 4
-            reasoning = usage["reasoning_tokens"]
-            self.cost_tracker.record_llm("rag_generate", self.model, in_tok, out_tok, reasoning)
+            self.cost_tracker.record_response("rag_generate", self.model, result)
+        # Invalid envelopes fail explicitly; never guess an outcome from prose.
+        payload = AnswerPayload.model_validate_json(result.content.strip())
+        if not payload.answer.strip():
+            raise ValueError("Generator returned an empty answer")
+        answer = payload.answer.strip()
+        citations = _extract_citations(answer, num_to_chunk_id)
 
         return {
             "answer": answer,
             "citations": citations,
+            "invalid_citations": [int(n) for n in re.findall(r"\[\^(\d+)\]", answer) if int(n) not in num_to_chunk_id],
             "n_sources_used": len(citations),
             "n_sources_retrieved": len(chunks),
-            "refused": answer.startswith(_NO_RESULT_ANSWER[:20]),
+            "refused": payload.outcome == "refuse",
+            "outcome": payload.outcome,
         }

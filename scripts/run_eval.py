@@ -48,6 +48,7 @@ def main() -> int:
         default=ROOT / "tmp_app_ragas.csv",
         help="CSV path for raw Ragas results",
     )
+    parser.add_argument("--labels", type=Path, default=ROOT / "data/golden_set/labels.v1.json")
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
 
@@ -66,8 +67,10 @@ def main() -> int:
         f"Evaluating against {args.golden}"
         + (f" (limit={limit})" if limit else " (full set)")
     )
+    from src.evaluators.benchmark import load_benchmark
+    examples, _ = load_benchmark(args.golden, args.labels)
     result = svc.evaluate(
-        args.golden,
+        examples,
         limit=limit,
         verbose=not args.quiet,
         output_csv=args.output,
@@ -76,6 +79,9 @@ def main() -> int:
     summary = {
         "n_examples": result["n_examples"],
         "metrics": result["metrics"],
+        "metric_denominators": result["metric_denominators"],
+        "usage": result["usage"],
+        "configuration": result["configuration"],
         "by_category": result["by_category"],
         "cost_usd": result["cost_usd"],
         "wall_time_seconds": result["wall_time_seconds"],
