@@ -54,7 +54,9 @@ numbers below. When quoting a number, ALWAYS cite where it came from.
 If a value appears as "$5.4 billion" in context, write "$5.4 billion", not "5.4B" or \
 "about 5 billion".
 
-5. Keep the answer concise — 1-3 sentences for fact lookups, up to 5 sentences \
+5. Generated descriptions are retrieval aids; original table rows and source text control numerical claims. Do not treat a generated image description as verified original text.
+
+6. Keep the answer concise — 1-3 sentences for fact lookups, up to 5 sentences \
 for analytical questions."""),
     ("human", """Context (numbered sources):
 {context}
@@ -79,8 +81,10 @@ def _build_context(chunks: list[DocumentChunk]) -> tuple[str, dict[int, str]]:
     num_to_chunk_id: dict[int, str] = {}
     for i, chunk in enumerate(chunks, start=1):
         heading = " > ".join(chunk.heading_path) if chunk.heading_path else ""
-        page = f" (p. {chunk.page_number})" if chunk.page_number else ""
-        header = f"[Source {i}]" + (f" {heading}" if heading else "") + page
+        pages = sorted({s.page_number for s in getattr(chunk, "evidence_spans", []) if s.page_number})
+        page = f" (pages {', '.join(map(str, pages))})" if pages else (f" (p. {chunk.page_number})" if chunk.page_number else "")
+        identity = f" document={chunk.document_id} version={getattr(chunk, 'source_version', None) or 'legacy/unverified'}"
+        header = f"[Source {i}]" + (f" {heading}" if heading else "") + page + identity
         parts.append(f"{header}\n{chunk.text}")
         num_to_chunk_id[i] = chunk.chunk_id
     return "\n\n".join(parts), num_to_chunk_id
@@ -160,6 +164,7 @@ class RAGGenerator(BaseGenerator):
         return {
             "answer": answer,
             "citations": citations,
+            "invalid_citations": [int(n) for n in re.findall(r"\[\^(\d+)\]", answer) if int(n) not in num_to_chunk_id],
             "n_sources_used": len(citations),
             "n_sources_retrieved": len(chunks),
             "refused": answer.startswith(_NO_RESULT_ANSWER[:20]),

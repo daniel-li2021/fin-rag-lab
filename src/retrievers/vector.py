@@ -57,8 +57,9 @@ class VectorRetriever(BaseRetriever):
             return
         lc_docs = [
             LCDocument(
-                page_content=c.text,
+                page_content=c.retrieval_text or c.text,
                 metadata={
+                    "chunk_payload": c.model_dump_json(),
                     "chunk_id": c.chunk_id,
                     "document_id": c.document_id,
                     "parent_chunk_id": c.parent_chunk_id or "",
@@ -95,6 +96,8 @@ class VectorRetriever(BaseRetriever):
     @staticmethod
     def _lc_to_chunk(lc_doc: LCDocument) -> DocumentChunk:
         m = lc_doc.metadata or {}
+        if m.get("chunk_payload"):
+            return DocumentChunk.model_validate_json(m["chunk_payload"])
         heading_str = m.get("heading_path", "")
         return DocumentChunk(
             chunk_id=m.get("chunk_id", "") or f"unknown_{id(lc_doc)}",

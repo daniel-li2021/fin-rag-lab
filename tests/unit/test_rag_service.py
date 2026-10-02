@@ -239,3 +239,37 @@ def test_per_document_cost_is_delta(service):
     result = svc.ingest_and_index([pdf], reset=True, require_api_key=False)
     # Single doc: document cost should equal reported ingest cost
     assert result["documents"][0]["cost_usd"] == pytest.approx(result["cost_usd"])
+
+
+def test_answer_citations_are_distinct_from_retrieved_context_and_keep_numbers(service):
+    svc, pdf = service
+    svc.ingest_and_index([pdf], require_api_key=False)
+    first = next(iter(svc.parent_store.values()))
+    chunks = [first, first.model_copy(update={"chunk_id": "source-two"})]
+    # Exercise sparse numbering: the answer cites only Source 2.
+    svc.query_pipeline.query = lambda q: {'answer': 'Claim [^2]', 'chunks': chunks[:2], 'citations': [chunks[1].chunk_id]}
+    result = svc.query('What was net income?', require_api_key=False)
+    assert len(result.citations) == 1
+    assert result.citations[0]['source_number'] == 2
+    assert result.citations[0]['source_version']
+    assert result.citations[0]['evidence_spans']
+    assert result.citations[0]['provenance_status'] == 'resolved'
+    svc.query_pipeline.query = lambda q: {'answer': 'No cited assertion', 'chunks': chunks, 'citations': []}
+    result = svc.query('What was net income?', require_api_key=False)
+    assert result.citations == []
+    assert result.retrieved_contexts
+
+
+def test_vector_serialization_preserves_provenance_and_marks_legacy():
+    from langchain_core.documents import Document as LCDocument
+    from src.retrievers import VectorRetriever
+    from src.core.models import Document, DocumentBlock
+    from src.chunkers import ParentChildChunker
+    doc = Document(title='d', source_type='md', source_hash='version', blocks=[DocumentBlock(block_type='paragraph', text='value $5.4 billion', page_number=2)])
+    chunk = ParentChildChunker().chunk(doc)[0]
+    lc = LCDocument(page_content=chunk.retrieval_text, metadata={'chunk_payload': chunk.model_dump_json()})
+    assert VectorRetriever._lc_to_chunk(lc) == chunk
+    legacy = VectorRetriever._lc_to_chunk(LCDocument(page_content='old', metadata={'document_id': 'old-id'}))
+    assert legacy.document_id == 'old-id'
+    assert legacy.source_version is None
+    assert legacy.evidence_spans == []

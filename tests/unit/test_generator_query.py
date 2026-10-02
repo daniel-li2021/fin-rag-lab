@@ -184,3 +184,11 @@ def test_query_pipeline_draws_mermaid():
     diagram = pipeline.draw_mermaid()
     assert isinstance(diagram, str)
     assert len(diagram) > 0
+
+
+def test_invalid_citation_numbers_are_preserved_for_audit():
+    gen = RAGGenerator()
+    gen._llm = FakeLLM('Claim [^1] and unresolved claim [^99].')
+    result = gen.generate('What was net income?', make_chunks(1))
+    assert result['citations'] == ['chk_000']
+    assert result['invalid_citations'] == [99]

@@ -73,7 +73,8 @@ def evidence_match(required, chunk):
     """Source-version + page + original quote. Legacy/unresolved provenance misses."""
     spans = chunk.get('evidence_spans', [])
     return any(
-        span.get('source_version') == required['source_version']
+        span.get('kind', 'original') == 'original'
+        and span.get('source_version') == required['source_version']
         and span.get('page_number') == required['page_number']
         and ' '.join(required['quote'].split()) in ' '.join(span.get('text', '').split())
         for span in spans
@@ -94,6 +95,13 @@ def score(label, result):
         'complete_evidence': float(recall(chunks) == 1) if evidence else None,
         'outcome_accuracy': float(result['outcome'] == label['expected_outcome']) if result.get('outcome') else None,
     }
+    citations = result.get('citations', [])
+    invalid = result.get('invalid_citations', [])
+    metrics['citation_validity'] = (sum(
+        c.get('provenance_status') == 'resolved' and c.get('source_version')
+        and bool(c.get('evidence_spans')) for c in citations
+    ) / (len(citations) + len(invalid))) if citations or invalid else None
+    metrics['citation_support'] = result.get('citation_support')
     # Numeric claims are explicitly annotated with entity/period/scope; plain text
     # number matching would reward wrong-period answers. Missing review is undefined.
     claims = result.get('numeric_claims')

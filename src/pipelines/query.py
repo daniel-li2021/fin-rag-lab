@@ -46,9 +46,11 @@ from src.observability import CostTracker
 class QueryState(TypedDict, total=False):
     query: str
     query_type: Literal["factual_lookup", "analytical"]
+    candidates: list[DocumentChunk]
     chunks: list[DocumentChunk]
     answer: str
     citations: list[str]
+    invalid_citations: list[int]
     refused: bool
     stages: list[str]                 # debug trace
     metadata: dict[str, Any]
@@ -102,6 +104,11 @@ class QueryPipeline:
         self.cost_tracker = cost_tracker
         self.graph = self._build_graph()
     
+    def _retrieve(self, query, k):
+        if hasattr(self.retriever, "retrieve_with_candidates"):
+            return self.retriever.retrieve_with_candidates(query, k=k)
+        return {"chunks": self.retriever.retrieve(query, k=k), "candidates": []}
+
     # ---- Nodes ----
     def _node_classify(self, state: QueryState) -> QueryState:
         qt = _classify_query(state["query"])
@@ -112,18 +119,20 @@ class QueryPipeline:
         }
     
     def _node_quick_retrieve(self, state: QueryState) -> QueryState:
-        chunks = self.retriever.retrieve(state["query"], k=self.quick_k)
+        details = self._retrieve(state["query"], self.quick_k)
+        chunks = details["chunks"]
         return {
             **state,
-            "chunks": chunks,
+            **details,
             "stages": [*state.get("stages", []), f"quick_retrieve→{len(chunks)}"],
         }
     
     def _node_deep_retrieve(self, state: QueryState) -> QueryState:
-        chunks = self.retriever.retrieve(state["query"], k=self.deep_k)
+        details = self._retrieve(state["query"], self.deep_k)
+        chunks = details["chunks"]
         return {
             **state,
-            "chunks": chunks,
+            **details,
             "stages": [*state.get("stages", []), f"deep_retrieve→{len(chunks)}"],
         }
     
@@ -133,6 +142,7 @@ class QueryPipeline:
             **state,
             "answer": result["answer"],
             "citations": result.get("citations", []),
+            "invalid_citations": result.get("invalid_citations", []),
             "refused": result.get("refused", False),
             "stages": [*state.get("stages", []), "generate"],
             "metadata": {**state.get("metadata", {}), **{
@@ -193,7 +203,9 @@ class QueryPipeline:
             "query": question,
             "answer": final.get("answer", ""),
             "citations": final.get("citations", []),
+            "invalid_citations": final.get("invalid_citations", []),
             "chunks": final.get("chunks", []),
+            "candidates": final.get("candidates", []),
             "refused": final.get("refused", False),
             "stages": final.get("stages", []),
             "query_type": final.get("query_type"),

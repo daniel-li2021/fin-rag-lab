@@ -98,6 +98,9 @@ class QueryResult:
     cost_usd: float
     cost_breakdown: dict[str, float]
     hallucination: Optional[dict[str, Any]] = None
+    retrieved_contexts: list[dict[str, Any]] = field(default_factory=list)
+    candidates: list[DocumentChunk] = field(default_factory=list)
+    invalid_citations: list[Any] = field(default_factory=list)
 
     def to_display_dict(self) -> dict[str, Any]:
         """JSON-friendly view for UIs (serializes chunks for optional debug panels)."""
@@ -105,6 +108,8 @@ class QueryResult:
             "query": self.query,
             "answer": self.answer,
             "citations": self.citations,
+            "retrieved_contexts": self.retrieved_contexts,
+            "invalid_citations": self.invalid_citations,
             "refused": self.refused,
             "query_type": self.query_type,
             "stages": self.stages,
@@ -391,9 +396,9 @@ class RAGService:
         )
 
         with open(self.parents_path, "rb") as f:
-            parents: list[DocumentChunk] = pickle.load(f)
+            parents = [DocumentChunk.model_validate(c.model_dump()) for c in pickle.load(f)]
         with open(self.children_path, "rb") as f:
-            self.children = pickle.load(f)
+            self.children = [DocumentChunk.model_validate(c.model_dump()) for c in pickle.load(f)]
 
         if not self.children:
             self._ready = False
@@ -426,6 +431,7 @@ class RAGService:
 
         meta = {
             "strategy": "parent_child",
+            "evidence_revision": 1,
             "parent_size": self.parent_size,
             "child_size": self.child_size,
             "collection": self.collection,
@@ -497,51 +503,25 @@ class RAGService:
         doc_names = {
             d.document_id: Path(d.source_path).name for d in self.documents
         }
-        chunk_lookup = {c.chunk_id: c for c in result.get("chunks", [])}
-        citations: list[dict[str, Any]] = []
-        for cid in result.get("citations", []):
-            chunk = chunk_lookup.get(cid)
-            if chunk is None:
-                citations.append(
-                    {
-                        "chunk_id": cid,
-                        "text_preview": "",
-                        "page_number": None,
-                        "heading_path": [],
-                        "document_id": "",
-                        "document_name": "",
-                        "text": "",
-                    }
-                )
-                continue
-            preview = chunk.text[:200] + ("..." if len(chunk.text) > 200 else "")
-            citations.append(
-                {
-                    "chunk_id": cid,
-                    "text_preview": preview,
-                    "page_number": chunk.page_number,
-                    "heading_path": list(chunk.heading_path),
-                    "document_id": chunk.document_id,
-                    "document_name": doc_names.get(chunk.document_id, ""),
-                    "text": chunk.text,
-                }
-            )
-
-        if not citations and result.get("chunks"):
-            for i, chunk in enumerate(result["chunks"][:5], start=1):
-                citations.append(
-                    {
-                        "chunk_id": chunk.chunk_id,
-                        "text_preview": chunk.text[:200]
-                        + ("..." if len(chunk.text) > 200 else ""),
-                        "page_number": chunk.page_number,
-                        "heading_path": list(chunk.heading_path),
-                        "document_id": chunk.document_id,
-                        "document_name": doc_names.get(chunk.document_id, ""),
-                        "text": chunk.text,
-                        "rank": i,
-                    }
-                )
+        chunks = result.get("chunks", [])
+        def card(chunk, number):
+            spans = getattr(chunk, "evidence_spans", [])
+            version = getattr(chunk, "source_version", None)
+            return {
+                "chunk_id": chunk.chunk_id, "source_number": number,
+                "text_preview": chunk.text[:200], "text": chunk.text,
+                "page_number": chunk.page_number,
+                "page_numbers": sorted({s.page_number for s in spans if s.page_number is not None}),
+                "heading_path": list(chunk.heading_path),
+                "document_id": chunk.document_id, "source_version": version,
+                "document_name": doc_names.get(chunk.document_id, ""),
+                "evidence_spans": [s.model_dump() for s in spans],
+                "provenance_status": "resolved" if version and spans else "migration_required",
+                "legacy_document_id": chunk.document_id if not version or not spans else None,
+            }
+        retrieved_contexts = [card(c, i) for i, c in enumerate(chunks, 1)]
+        lookup = {c["chunk_id"]: c for c in retrieved_contexts}
+        citations = [lookup[cid] for cid in result.get("citations", []) if cid in lookup]
 
         hallucination = None
         if verify_hallucination and not result.get("refused", False):
@@ -553,6 +533,9 @@ class RAGService:
             query=question,
             answer=result.get("answer", ""),
             citations=citations,
+            retrieved_contexts=retrieved_contexts,
+            candidates=result.get("candidates", []),
+            invalid_citations=result.get("invalid_citations", []) + [cid for cid in result.get("citations", []) if cid not in lookup],
             chunks=result.get("chunks", []),
             refused=result.get("refused", False),
             query_type=result.get("query_type"),

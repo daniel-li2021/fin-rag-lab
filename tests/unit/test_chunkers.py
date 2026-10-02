@@ -138,3 +138,47 @@ def test_all_chunkers_attach_document_id():
         chunks = chunker.chunk(doc)
         for c in chunks:
             assert c.document_id == doc.document_id
+
+
+def test_exact_evidence_spans_survive_overlap_repeated_text_and_pages():
+    from src.chunkers._evidence import split_spans
+    from src.chunkers._token_utils import get_token_counter
+    repeated = 'same words repeated exactly. ' * 12
+    doc = Document(title='Repeated', source_type='md', source_hash='immutable-version', blocks=[
+        DocumentBlock(block_type='paragraph', text=repeated, page_number=1, heading_path=['One'], line_start=1),
+        DocumentBlock(block_type='paragraph', text=repeated, page_number=2, heading_path=['Two'], line_start=40),
+    ])
+    blocks = {b.block_id: b for b in doc.blocks}
+    parents, children = ParentChildChunker(parent_size=160, child_size=30, parent_overlap=20, child_overlap=10).chunk_with_parents(doc)
+    assert any({s.page_number for s in p.evidence_spans} == {1, 2} for p in parents)
+    assert any(c.page_number == 2 for c in children)
+    assert any(len(p.source_block_ids) == 2 for p in parents)
+    for chunk in parents + children:
+        assert chunk.source_version == 'immutable-version'
+        assert chunk.evidence_spans
+        for span in chunk.evidence_spans:
+            block = blocks[span.block_id]
+            assert span.text == block.text[span.char_start:span.char_end]
+            assert span.page_number == block.page_number
+            assert span.line_start >= block.line_start
+            assert span.heading_path == block.heading_path
+            assert span.text in chunk.text
+    # Splitting carries offsets even if every emitted string is identical.
+    text = 'abc ' * 12
+    spans = list(split_spans(text, 16, 8, len))
+    assert [s for s, e in spans] == sorted({s for s, e in spans})
+    assert any(b > c for (a, b), (c, d) in zip(spans, spans[1:]))
+
+
+def test_every_arm_preserves_table_rows_for_generation():
+    from src.generators.rag_generator import _build_context
+    raw = '| Metric | Q4 2025 |\n| Net income | $5.4 billion |'
+    block = DocumentBlock(block_type='table', text=raw, semantic_content='Profit increased.', page_number=3)
+    doc = Document(title='Table', source_type='pdf', source_hash='hash', blocks=[block])
+    for chunker in [FixedSizeChunker(size=200), RecursiveChunker(chunk_size=200), ParentChildChunker()]:
+        chunks = chunker.chunk(doc)
+        context, _ = _build_context(chunks)
+        assert '$5.4 billion' in context
+        assert 'Profit increased.' not in context
+        assert 'Profit increased.' in chunks[0].retrieval_text
+        assert chunks[0].evidence_spans[0].kind == 'original'

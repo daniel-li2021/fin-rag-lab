@@ -30,7 +30,7 @@ class BM25Retriever(BaseRetriever):
         if not chunks:
             self._bm25 = None
             return
-        tokenized = [_tokenize(c.text) for c in chunks]
+        tokenized = [_tokenize(getattr(c, "retrieval_text", None) or c.text) for c in chunks]
         self._bm25 = BM25Okapi(tokenized)
     
     @traceable(name="bm25_search")

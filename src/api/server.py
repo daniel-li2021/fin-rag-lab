@@ -49,11 +49,21 @@ class CitationModel(BaseModel):
     text_preview: str
     page_number: Optional[int] = None
     heading_path: list[str] = []
+    source_number: Optional[int] = None
+    document_id: str = ""
+    document_name: str = ""
+    source_version: Optional[str] = None
+    page_numbers: list[int] = []
+    evidence_spans: list[dict[str, Any]] = []
+    provenance_status: str = "migration_required"
+    legacy_document_id: Optional[str] = None
 
 
 class QueryResponse(BaseModel):
     answer: str
     citations: list[CitationModel]
+    retrieved_contexts: list[CitationModel] = []
+    invalid_citations: list[Any] = []
     refused: bool
     query_type: Optional[str] = None
     stages: list[str] = []
@@ -159,18 +169,12 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
         except Exception as e:
             raise HTTPException(500, f"query failed: {e}") from e
 
-        citations = [
-            CitationModel(
-                chunk_id=c.get("chunk_id", ""),
-                text_preview=c.get("text_preview", ""),
-                page_number=c.get("page_number"),
-                heading_path=list(c.get("heading_path") or []),
-            )
-            for c in result.citations
-        ]
+        citations = [CitationModel(**c) for c in result.citations]
         return QueryResponse(
             answer=result.answer,
             citations=citations,
+            retrieved_contexts=[CitationModel(**c) for c in result.retrieved_contexts],
+            invalid_citations=result.invalid_citations,
             refused=result.refused,
             query_type=result.query_type,
             stages=result.stages,
