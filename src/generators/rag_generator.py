@@ -41,13 +41,11 @@ Rules:
 "Q4 2025 net income" but the context only shows "Q4 2024" or only mentions a specific \
 segment's net income (e.g., Consumer Banking), DO NOT use that number for the bank-wide \
 answer. Numbers from the wrong period or wrong scope are worse than refusing.
+The company must also match. Another company's evidence cannot answer a named-company question.
 
-2. **Refusal protocol**: If you cannot answer with confidence, do NOT just say "I don't know". \
-Instead, output a structured response with two parts:
-   - "What I found in the sources: <briefly state what relevant info IS there, with citations>."
-   - "What's missing: <state what would be needed to actually answer>."
-   This lets the user follow up productively. Use this protocol whenever the context is \
-related but does not contain the specific number / fact requested.
+2. **Refusal protocol**: If the requested fact is unsupported, refuse directly and state
+what source is missing. Do not include unrelated companies' figures, alternative-period
+numbers, factual claims or citations in a refusal. Use clarification for an ambiguous scope.
 
 3. **Citations**: Cite every factual claim using [^1], [^2], etc. matching the source \
 numbers below. When quoting a number, ALWAYS cite where it came from.
@@ -173,6 +171,9 @@ class RAGGenerator(BaseGenerator):
         if not payload.answer.strip():
             raise ValueError("Generator returned an empty answer")
         answer = payload.answer.strip()
+        if payload.outcome == "refuse":
+            # A model refusal must not smuggle unrelated or unsupported facts into prose.
+            answer = "I don't have enough information in the provided sources to answer that question. Please add a source covering the requested company, period, or fact."
         citations = _extract_citations(answer, num_to_chunk_id)
 
         return {

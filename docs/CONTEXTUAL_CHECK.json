@@ -1,0 +1,1322 @@
+{
+  "decision": "retain_parent_child",
+  "promotion_status": "recall_gate_failed",
+  "reason": "Promotion also requires reviewed numeric/outcome/citation/faithfulness/cost results; retrieval alone cannot promote.",
+  "macro_recall_deltas": {
+    "B": -0.02564102564102566,
+    "C": -0.05128205128205132,
+    "D": -0.10897435897435892
+  },
+  "paired_deltas": {
+    "B": [
+      {
+        "id": "q01",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q02",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q03",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q04",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q05",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q06",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q07",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q08",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q09",
+        "recall_delta": 1.0
+      },
+      {
+        "id": "q10",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q11",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q12",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q13",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q14",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q15",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q16",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q17",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q18",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q19",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q20",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q21",
+        "recall_delta": 0.33333333333333337
+      },
+      {
+        "id": "q22",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q23",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q24",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q25",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q26",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q27",
+        "recall_delta": null
+      },
+      {
+        "id": "q28",
+        "recall_delta": null
+      },
+      {
+        "id": "q29",
+        "recall_delta": null
+      },
+      {
+        "id": "q30",
+        "recall_delta": null
+      }
+    ],
+    "C": [
+      {
+        "id": "q01",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q02",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q03",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q04",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q05",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q06",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q07",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q08",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q09",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q10",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q11",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q12",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q13",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q14",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q15",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q16",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q17",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q18",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q19",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q20",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q21",
+        "recall_delta": -0.3333333333333333
+      },
+      {
+        "id": "q22",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q23",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q24",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q25",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q26",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q27",
+        "recall_delta": null
+      },
+      {
+        "id": "q28",
+        "recall_delta": null
+      },
+      {
+        "id": "q29",
+        "recall_delta": null
+      },
+      {
+        "id": "q30",
+        "recall_delta": null
+      }
+    ],
+    "D": [
+      {
+        "id": "q01",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q02",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q03",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q04",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q05",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q06",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q07",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q08",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q09",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q10",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q11",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q12",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q13",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q14",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q15",
+        "recall_delta": 1.0
+      },
+      {
+        "id": "q16",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q17",
+        "recall_delta": -1.0
+      },
+      {
+        "id": "q18",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q19",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q20",
+        "recall_delta": -0.5
+      },
+      {
+        "id": "q21",
+        "recall_delta": -0.3333333333333333
+      },
+      {
+        "id": "q22",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q23",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q24",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q25",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q26",
+        "recall_delta": 0.0
+      },
+      {
+        "id": "q27",
+        "recall_delta": null
+      },
+      {
+        "id": "q28",
+        "recall_delta": null
+      },
+      {
+        "id": "q29",
+        "recall_delta": null
+      },
+      {
+        "id": "q30",
+        "recall_delta": null
+      }
+    ]
+  },
+  "arms": {
+    "A": {
+      "summary": {
+        "n_questions": 30,
+        "metrics": {
+          "evidence_recall_at20": {
+            "mean": 0.5705128205128205,
+            "denominator": 26
+          },
+          "evidence_recall_final": {
+            "mean": 0.75,
+            "denominator": 26
+          },
+          "mrr": {
+            "mean": 0.2874805019541862,
+            "denominator": 26
+          },
+          "complete_evidence": {
+            "mean": 0.6923076923076923,
+            "denominator": 26
+          },
+          "outcome_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_validity": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_support": {
+            "mean": null,
+            "denominator": 0
+          },
+          "numeric_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "unsupported_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "outcome_correctness": {
+            "mean": null,
+            "denominator": 0
+          },
+          "wrong_period_scope_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "answer_relevancy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_precision": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_recall": {
+            "mean": null,
+            "denominator": 0
+          }
+        },
+        "cost": {
+          "mean_query_cost_usd": null,
+          "priced_query_denominator": 0,
+          "unknown_queries": 30,
+          "priced_subtotal_usd": 0,
+          "pricing_status": "configured_estimate"
+        },
+        "latency_ms": {
+          "end_to_end": {
+            "p50": null,
+            "p95": null,
+            "denominator": 0
+          },
+          "retrieval": {
+            "p50": 1315.0386044289917,
+            "p95": 1966.6021962999364,
+            "denominator": 30
+          }
+        },
+        "usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        },
+        "evaluation_usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        }
+      },
+      "embedding_usage": {
+        "request_id": "f7da552c464b449b9ee2218b4c33291f",
+        "total_usd": 0,
+        "priced_subtotal_usd": 0,
+        "unknown_calls": 0,
+        "by_stage": {},
+        "by_model": {},
+        "n_calls": {},
+        "reasoning_tokens": {},
+        "events": [],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "embedding_seconds": 40.06112850015052
+    },
+    "B": {
+      "summary": {
+        "n_questions": 30,
+        "metrics": {
+          "evidence_recall_at20": {
+            "mean": 0.717948717948718,
+            "denominator": 26
+          },
+          "evidence_recall_final": {
+            "mean": 0.7243589743589743,
+            "denominator": 26
+          },
+          "mrr": {
+            "mean": 0.29533930981299406,
+            "denominator": 26
+          },
+          "complete_evidence": {
+            "mean": 0.6923076923076923,
+            "denominator": 26
+          },
+          "outcome_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_validity": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_support": {
+            "mean": null,
+            "denominator": 0
+          },
+          "numeric_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "unsupported_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "outcome_correctness": {
+            "mean": null,
+            "denominator": 0
+          },
+          "wrong_period_scope_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "answer_relevancy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_precision": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_recall": {
+            "mean": null,
+            "denominator": 0
+          }
+        },
+        "cost": {
+          "mean_query_cost_usd": null,
+          "priced_query_denominator": 0,
+          "unknown_queries": 30,
+          "priced_subtotal_usd": 0,
+          "pricing_status": "configured_estimate"
+        },
+        "latency_ms": {
+          "end_to_end": {
+            "p50": null,
+            "p95": null,
+            "denominator": 0
+          },
+          "retrieval": {
+            "p50": 1259.2633545864373,
+            "p95": 1808.7504107621494,
+            "denominator": 30
+          }
+        },
+        "usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        },
+        "evaluation_usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        }
+      },
+      "embedding_usage": {
+        "request_id": "069427544eb84dbd9ad207c40792a8ab",
+        "total_usd": 0,
+        "priced_subtotal_usd": 0,
+        "unknown_calls": 0,
+        "by_stage": {},
+        "by_model": {},
+        "n_calls": {},
+        "reasoning_tokens": {},
+        "events": [],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "embedding_seconds": 36.773439957993105
+    },
+    "C": {
+      "summary": {
+        "n_questions": 30,
+        "metrics": {
+          "evidence_recall_at20": {
+            "mean": 0.6410256410256411,
+            "denominator": 26
+          },
+          "evidence_recall_final": {
+            "mean": 0.6987179487179487,
+            "denominator": 26
+          },
+          "mrr": {
+            "mean": 0.30336970721586104,
+            "denominator": 26
+          },
+          "complete_evidence": {
+            "mean": 0.6538461538461539,
+            "denominator": 26
+          },
+          "outcome_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_validity": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_support": {
+            "mean": null,
+            "denominator": 0
+          },
+          "numeric_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "unsupported_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "outcome_correctness": {
+            "mean": null,
+            "denominator": 0
+          },
+          "wrong_period_scope_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "answer_relevancy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_precision": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_recall": {
+            "mean": null,
+            "denominator": 0
+          }
+        },
+        "cost": {
+          "mean_query_cost_usd": null,
+          "priced_query_denominator": 0,
+          "unknown_queries": 30,
+          "priced_subtotal_usd": 0,
+          "pricing_status": "configured_estimate"
+        },
+        "latency_ms": {
+          "end_to_end": {
+            "p50": null,
+            "p95": null,
+            "denominator": 0
+          },
+          "retrieval": {
+            "p50": 1161.368666565977,
+            "p95": 1672.5739107932893,
+            "denominator": 30
+          }
+        },
+        "usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        },
+        "evaluation_usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        }
+      },
+      "embedding_usage": {
+        "request_id": "bd244fefd1ab4d759a65d8aa0cff48cc",
+        "total_usd": 0,
+        "priced_subtotal_usd": 0,
+        "unknown_calls": 0,
+        "by_stage": {},
+        "by_model": {},
+        "n_calls": {},
+        "reasoning_tokens": {},
+        "events": [],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "embedding_seconds": 33.51701654214412
+    },
+    "D": {
+      "summary": {
+        "n_questions": 30,
+        "metrics": {
+          "evidence_recall_at20": {
+            "mean": 0.6410256410256411,
+            "denominator": 26
+          },
+          "evidence_recall_final": {
+            "mean": 0.6410256410256411,
+            "denominator": 26
+          },
+          "mrr": {
+            "mean": 0.30336970721586104,
+            "denominator": 26
+          },
+          "complete_evidence": {
+            "mean": 0.5769230769230769,
+            "denominator": 26
+          },
+          "outcome_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_validity": {
+            "mean": null,
+            "denominator": 0
+          },
+          "citation_support": {
+            "mean": null,
+            "denominator": 0
+          },
+          "numeric_accuracy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "unsupported_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "outcome_correctness": {
+            "mean": null,
+            "denominator": 0
+          },
+          "wrong_period_scope_assertions": {
+            "mean": null,
+            "denominator": 0
+          },
+          "answer_relevancy": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_precision": {
+            "mean": null,
+            "denominator": 0
+          },
+          "context_recall": {
+            "mean": null,
+            "denominator": 0
+          }
+        },
+        "cost": {
+          "mean_query_cost_usd": null,
+          "priced_query_denominator": 0,
+          "unknown_queries": 30,
+          "priced_subtotal_usd": 0,
+          "pricing_status": "configured_estimate"
+        },
+        "latency_ms": {
+          "end_to_end": {
+            "p50": null,
+            "p95": null,
+            "denominator": 0
+          },
+          "retrieval": {
+            "p50": 53.438249975442886,
+            "p95": 82.75877513224259,
+            "denominator": 30
+          }
+        },
+        "usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        },
+        "evaluation_usage": {
+          "calls": null,
+          "receipt_denominator": 0,
+          "input_tokens": null,
+          "output_tokens": null,
+          "reasoning_tokens": null,
+          "unknown_cost_calls": 0,
+          "cost_usd": null
+        }
+      },
+      "embedding_usage": {
+        "request_id": "9b561dce70b14921b949da3f43d1de97",
+        "total_usd": 0,
+        "priced_subtotal_usd": 0,
+        "unknown_calls": 0,
+        "by_stage": {},
+        "by_model": {},
+        "n_calls": {},
+        "reasoning_tokens": {},
+        "events": [],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "embedding_seconds": 1.9054919579066336
+    }
+  },
+  "ingestion_usage": {
+    "request_id": "72aee9f57ecb47a9a03599582d106e65",
+    "total_usd": 0,
+    "priced_subtotal_usd": 0,
+    "unknown_calls": 0,
+    "by_stage": {},
+    "by_model": {},
+    "n_calls": {},
+    "reasoning_tokens": {},
+    "events": [],
+    "pricing_snapshot": {
+      "gpt-5-nano": {
+        "input": 5e-05,
+        "output": 0.0004
+      },
+      "gpt-5-mini": {
+        "input": 0.00025,
+        "output": 0.002
+      },
+      "gpt-5": {
+        "input": 0.00125,
+        "output": 0.01
+      },
+      "gpt-5.4-nano": {
+        "input": 0.0002,
+        "output": 0.00125
+      },
+      "gpt-5.4-mini": {
+        "input": 0.00075,
+        "output": 0.0045
+      },
+      "gpt-5.4": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-5.5": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-4.1": {
+        "input": 0.002,
+        "output": 0.008
+      },
+      "gpt-4o-mini": {
+        "input": 0.00015,
+        "output": 0.0006
+      },
+      "gpt-4o": {
+        "input": 0.0025,
+        "output": 0.01
+      },
+      "o4-mini": {
+        "input": 0.0011,
+        "output": 0.0044
+      },
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0.0
+      },
+      "text-embedding-3-large": {
+        "input": 0.00013,
+        "output": 0.0
+      }
+    },
+    "pricing_status": "configured_estimate"
+  },
+  "ingestion_seconds": 0.1691104171331972,
+  "context_usage": {
+    "request_id": "1e1c0615b7d046e7b3550c7e63501bc6",
+    "total_usd": 0,
+    "priced_subtotal_usd": 0,
+    "unknown_calls": 0,
+    "by_stage": {},
+    "by_model": {},
+    "n_calls": {},
+    "reasoning_tokens": {},
+    "events": [],
+    "pricing_snapshot": {
+      "gpt-5-nano": {
+        "input": 5e-05,
+        "output": 0.0004
+      },
+      "gpt-5-mini": {
+        "input": 0.00025,
+        "output": 0.002
+      },
+      "gpt-5": {
+        "input": 0.00125,
+        "output": 0.01
+      },
+      "gpt-5.4-nano": {
+        "input": 0.0002,
+        "output": 0.00125
+      },
+      "gpt-5.4-mini": {
+        "input": 0.00075,
+        "output": 0.0045
+      },
+      "gpt-5.4": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-5.5": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-4.1": {
+        "input": 0.002,
+        "output": 0.008
+      },
+      "gpt-4o-mini": {
+        "input": 0.00015,
+        "output": 0.0006
+      },
+      "gpt-4o": {
+        "input": 0.0025,
+        "output": 0.01
+      },
+      "o4-mini": {
+        "input": 0.0011,
+        "output": 0.0044
+      },
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0.0
+      },
+      "text-embedding-3-large": {
+        "input": 0.00013,
+        "output": 0.0
+      }
+    },
+    "pricing_status": "configured_estimate"
+  },
+  "all_cached_context_usage": {
+    "calls": 12,
+    "input_tokens": 275201,
+    "output_tokens": 73107,
+    "unknown_cost_calls": 12,
+    "cost_usd": null
+  },
+  "context_seconds": 0.20287458295933902,
+  "abstained_prefixes": 26,
+  "n_children": 556,
+  "token_budget": 2400,
+  "run_manifest": {
+    "schema_version": 1,
+    "git_revision": "b367d401f226962efe6d5d01f78d8ff763a24a74",
+    "code_sha256": "56b42312c901321e30e75f2621a31ba9bfa1f6e7b78b95e88077251f76a6de57",
+    "code_files": {
+      "scripts/build_index.py": "39cb369c9fcce699b630741bf5e402404669d9e606245a344a680cccec41d41e",
+      "scripts/build_notebooks.py": "084da900b4eb9cb4df2673f04302b844c68626c21eca2b040abc19bc673d6107",
+      "scripts/check_metadata.py": "712750c8593019b5ecefc14d80bc6811be4c81efc6ae64e596326063fbdd0cec",
+      "scripts/compare_lexical.py": "cb1733f182e73958097a1555edbc3a0c3837d9c57b6a92ee8cad26c28e95b372",
+      "scripts/compare_retrieval.py": "1bf614ae52a7eb0dab525648b20386e481098434019cd8dbc761ace339345323",
+      "scripts/migrate_index.py": "2f410e3cefb5a4af42f160463f8261f22e2e7a91d92e7c009c6403f4cfd4b7b8",
+      "scripts/precompute_cache.py": "9148734aeb35a41d5a258cd5740cf26cc2d4af03b67a096c2483eece0e27ef8d",
+      "scripts/query_cli.py": "600405283d3f0cdf20e9294f23f440bec1a2fe314f5d0eb72524c2011eaed038",
+      "scripts/run_benchmark.py": "a6c1d3fa9a8d273647ec9cc48d61323c99c9658a55841fba8878c64cf688b2fb",
+      "scripts/run_eval.py": "14f3e23b08ac9a816198ef0877ac17fbde000ac3bfec0844564f916178943b5e",
+      "scripts/sources.py": "a5ec769f88bb81f52b01397c7209dadca1c85078876894c539c92531183a2dab",
+      "src/__init__.py": "fe5aadfb7cb1cff8fdaaa52512b1731adeb6ac4a0ca18e53b63165dfac7c5095",
+      "src/api/__init__.py": "2b308dff9f879e9d1b34c2928c691dbcd4dd7643850002cca705769327c61755",
+      "src/api/private_server.py": "3b0bc9cec943ded3857116e0a00f2e1016422eda90b905d63e3eb45c45226656",
+      "src/api/server.py": "b925a59d052154a41e3b4a3f08db137b86338b21f45d8fc193e2494d54e1d907",
+      "src/captioners/__init__.py": "6b3e2cbb03ebf5a459a5a755e5152ebb546afb886575f0a3440bf4f12f53d4dd",
+      "src/captioners/vlm_captioner.py": "35c5bfbffc3d9aea841bde4990e92ab103ac9a6842fc411c59205883e4873d89",
+      "src/chunkers/__init__.py": "19f6a4d32b44925039c1b5519fd52a17ac65e08021f7f2b19a88509d8a0a240e",
+      "src/chunkers/_evidence.py": "326a8e55b831de1f3962452d3038cff147d6f76f38796bfbf914fe20cb0ca37f",
+      "src/chunkers/_token_utils.py": "dc285bdf4cbc49283d998f23605c4cc897cbfe75a42576e1ce3f343419eb259d",
+      "src/chunkers/fixed_size.py": "72ed315738c1321b3dc409ee73792927b15c182c420e892fd57a7a38e6f38022",
+      "src/chunkers/parent_child.py": "65244e7383a1a5862d3e0db87b5d9261344b440218891e26b71d2c639e4632b8",
+      "src/chunkers/recursive.py": "fd9bfb47597ffdec471b091508d18f1c833058ba33b3277de267de8fd5c7a592",
+      "src/core/__init__.py": "4207b6de9a700c4542d1edf9006a348e3d449d39541bbe779d6b92b3576feef7",
+      "src/core/cache.py": "335bcad96344398bada0a7e246fb19f683c91ad9f4b01de34a9a7dcdadc50b1c",
+      "src/core/config.py": "0c80efcb732ead20742b137bf42250b4a9f62948ab0b964d8a1775ad3dfa93dd",
+      "src/core/interfaces.py": "3c4e018801a6a40078f41f2f2ef5c252240e6be8373f5c8720818e84a84d9e08",
+      "src/core/models.py": "1249e75bf71011ea24ca996449b5e1f2847b04d72e63f2c9c42c81fb44db287c",
+      "src/evaluators/__init__.py": "d65a7be0bcde9f24180ec0815e11c348dcf45fad15a7decbc6d8271e84d9a44c",
+      "src/evaluators/benchmark.py": "68ebd621498cdc2a15601dfd094ad2337c10865cfcb5b3c12ec50e4ab5254e01",
+      "src/evaluators/contextual.py": "5313ec8e67642d9f1d247505dec3f3f36347b14bad199aaffa529fd608426a90",
+      "src/evaluators/coverage.py": "293d8cfe21591972169a64c5d13b1c60440977c4f97237ca9aaf14f7dce48420",
+      "src/evaluators/hallucination.py": "4bf28299061ca8b674765410e85ea67c5ac117e7bc0bf2270aec0c1fbd4245d2",
+      "src/evaluators/ragas_evaluator.py": "09b847e52884f2aced2605175bf4dba375ae899cfa37c9edd6223bb77d1b1ac8",
+      "src/generators/__init__.py": "d01bbd555d1d3cd028dc88f8a98136f92e551ef2743ac91b95dbedd0d61fcadb",
+      "src/generators/rag_generator.py": "d97d796a0bc9889b480ba5de49f6dcfd8073ec621b47a1b2a36a0d5d50c8a868",
+      "src/loaders/__init__.py": "fd3317bcb05710ca181eaeae88e83845336c9b12bdcc619cc22c676c99dcb142",
+      "src/loaders/pdf_loader.py": "a7199a8f623fd7d4fc5d8f12c28c50bf2f65a77ee896e14cefd62b6034abda5a",
+      "src/loaders/text_loader.py": "71db12a2d374674f3e067466a3e1650ff44fb8c0d30714533c67c07daa4b073e",
+      "src/observability/__init__.py": "349fe6446edbcc06df98f59ead30be88c5b1321050d84f79e003facaed3d0b23",
+      "src/observability/cost_tracker.py": "1b6648c2ce641922fbde6080e6b89fcfc4fb4f7e2d5ded85c5c1faa798e5a8f7",
+      "src/observability/embeddings.py": "f1d6e2df5b6256e8ab228688584d117da452c747d3eda3602a7b62ec622a86b4",
+      "src/parsers/__init__.py": "00f85e9b84fbd9ec135fed92c4292fc01f8fe6f002124ef101db928da493cc8a",
+      "src/parsers/pdf_parser.py": "57bd3e7fcd650ccf20b0fe44226cc09f843803cc24e0a57a082ffd75b92847da",
+      "src/pipelines/__init__.py": "0a84ccbf7f43fd8b44bd30e08d92637ae333729f00b0b99cae87cd23fb951ad1",
+      "src/pipelines/ingestion.py": "f44d0eb01556a79fa28ba012397abaa7b314c41f0341e8b3eb8f97555814043b",
+      "src/pipelines/metadata.py": "5c355224ea01ef228ff31554295edb4e9a05c48de1dccf65c31758d04de1ce97",
+      "src/pipelines/query.py": "4f07119154c44f654673878667eba0f03484a201a421cd3f948eafcd3dbec213",
+      "src/retrievers/__init__.py": "f62e78fa2dc76191316a156677c857773cb635f097f8916ef8c03e92e43ee95e",
+      "src/retrievers/bm25.py": "f688c68607c10e722178fe5a206a54123bda2c32f2fc9ea2500baba0b86c566d",
+      "src/retrievers/hybrid.py": "abfdd51c1d1faa92a79f07775ad894148e213614cdc911aadaf1c0d50014e8cf",
+      "src/retrievers/postgres.py": "abc2accd805ee1193604a05cb4e832dec77ab28484ed10ed0f6e0846c198be65",
+      "src/retrievers/rrf.py": "2526f9d709a4ea76b116f3dc85e517949a54204be01479e00d007f79397de49c",
+      "src/retrievers/vector.py": "55a4320428965c686b8d3596cc6d3da2aa09aafdf3cb4aff2a25f156706c713a",
+      "src/services/__init__.py": "843e650a0fb24c495df655b8d8896816fb7877bb9731915cb9f57c3346306395",
+      "src/services/persistent_service.py": "b9628c8686fa85bf8af81aa0c7ff1e5577973b424fb7d03ffc7ecc6167deb8db",
+      "src/services/rag_service.py": "dce74544f37da1eb77641f28b00b47cf62a62db08e7582d8f2001bb94f8eb1ca",
+      "src/storage/__init__.py": "052765aa3dfe035ae0019d09baf0f5e87bc886582d86b98506007e477beffeb0",
+      "src/storage/fetch.py": "6e7a5bb5d836e63272d3f73d872eaa0a726bf962c74be36f492526c7ab07bb42",
+      "src/storage/migration.py": "2971412c47dc0b73d027bb21ff7050375858b0033a43a1463c5526c74e6d37a5",
+      "src/storage/models.py": "5692b77999fae2ece9fb30afa4191c9c855ea33fc410de3987097ba9dcffc560",
+      "src/storage/objects.py": "3cdf7e5ca1eaea5fc64793c7298dd6ca8bac031ac583420736279598ff6781e2",
+      "src/storage/registry.py": "4c4e3d2a49dc2324ad16c7f2bd38e619d2e2f3401a218f25e029964656e90703"
+    },
+    "golden_sha256": "9a90ae99ded28d6afe736f6298517a217f9405dd50989e98bed889508116cdf6",
+    "labels_sha256": "f79c8bf10877cb82761273f9fa0e9041104f91806a4e177e09bd4cdd905cf9a2",
+    "configuration": {
+      "arms": "ABCD",
+      "embedding_model": "text-embedding-3-small",
+      "dimensions": 1536,
+      "context_model": "gpt-6-luna",
+      "context_prompt_revision": 1,
+      "context_block_order": "page_string_then_block_id",
+      "evidence_budget": 2400,
+      "fetch_k": 20,
+      "rrf_k": 60,
+      "source_metadata": {
+        "wells_fargo": {
+          "company_id": "wells_fargo",
+          "company_name": "Wells Fargo",
+          "period_label": "Q4 2025",
+          "fiscal_year": 2025,
+          "fiscal_quarter": 4,
+          "document_type": "earnings_release",
+          "review_status": "confirmed"
+        },
+        "tesla": {
+          "company_id": "tesla",
+          "company_name": "Tesla",
+          "period_label": "Q1 2026",
+          "fiscal_year": 2026,
+          "fiscal_quarter": 1,
+          "document_type": "earnings_presentation",
+          "review_status": "confirmed"
+        },
+        "amd": {
+          "company_id": "amd",
+          "company_name": "AMD",
+          "period_label": "Q4 and full year 2025",
+          "fiscal_year": 2025,
+          "fiscal_quarter": 4,
+          "document_type": "earnings_presentation",
+          "review_status": "confirmed"
+        }
+      }
+    },
+    "configuration_sha256": "f25a266edc07a95a862c819f5d9495efc7cf054c88c92a5ee537fee34fb962fb",
+    "corpus": [
+      {
+        "source": "amd",
+        "path": "data/uploads/amd.pdf",
+        "sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+      },
+      {
+        "source": "tesla",
+        "path": "data/uploads/tesla.pdf",
+        "sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+      },
+      {
+        "source": "wells_fargo",
+        "path": "data/uploads/wells_fargo.pdf",
+        "sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+      }
+    ]
+  }
+}

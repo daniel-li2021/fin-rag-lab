@@ -115,8 +115,11 @@ class DocumentCache(_BaseKVCache):
         max_pages: Optional[int],
         page_range: Optional[tuple[int, int]],
         captioner_model: str,
+        parser_config: Optional[dict] = None,
     ) -> str:
         config_str = f"{parser_name}|{max_pages}|{page_range}|{captioner_model}"
+        if parser_config is not None:
+            config_str += '|' + json.dumps(parser_config,sort_keys=True)
         return f"{file_sha256(source_path)[:16]}_{_sha256(config_str)[:8]}"
 
 

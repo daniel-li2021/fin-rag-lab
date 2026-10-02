@@ -129,8 +129,13 @@ def _answer_html(answer: str) -> str:
 @st.cache_resource
 def get_service(index_dir: str, cache_root: str):
     from src.services import RAGService
-
-    svc = RAGService(index_dir=index_dir, cache_root=cache_root)
+    import os
+    if os.getenv('DATABASE_URL'):
+        from src.services.persistent_service import PersistentRAGService
+        svc = PersistentRAGService(os.environ['DATABASE_URL'],owner=os.getenv('FINRAG_OWNER','default'),
+                                   index_dir=index_dir,cache_root=cache_root)
+    else:
+        svc = RAGService(index_dir=index_dir, cache_root=cache_root)
     svc.load_index()
     return svc
 
@@ -163,6 +168,10 @@ def _doc_label(source_path: str) -> str:
 
 def _render_sidebar(svc) -> None:
     from src.core.config import settings
+
+    if hasattr(svc,'registry'):
+        _render_registry_sidebar(svc)
+        return
 
     status = svc.status()
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -248,6 +257,52 @@ def _render_sidebar(svc) -> None:
         st.divider()
         cost = svc.cost_report()
         st.caption(f"Session cost · ${cost.get('total_usd', 0):.4f}")
+
+
+def _render_registry_sidebar(svc):
+    import json
+    with st.sidebar:
+        st.markdown('**Sources**')
+        sources=svc.registry.list(svc.owner)
+        for source in sources:
+            st.caption(f"{source['title']} · {source['kind']} · {source['status']}")
+        query_scope=st.selectbox('Query scope',['All active sources']+[str(s['source_id']) for s in sources if s['active_build_id']],
+            format_func=lambda key: next((s['title'] for s in sources if str(s['source_id'])==key),key))
+        st.session_state.source_filters={} if query_scope=='All active sources' else {'source_id':query_scope}
+        existing=st.selectbox('Source', ['New source']+[str(s['source_id']) for s in sources],
+                              format_func=lambda key: next((s['title'] for s in sources if str(s['source_id'])==key),key))
+        selected=next((s for s in sources if str(s['source_id'])==existing),None)
+        kind=selected['kind'] if selected else st.selectbox('Format',['pdf','text','markdown','url'])
+        title=st.text_input('Title',value=selected['title'] if selected else '')
+        url=st.text_input('URL',value=selected['locator'] or '' if selected else '') if kind=='url' else None
+        upload=st.file_uploader('Content',type=['pdf','txt','md']) if kind!='url' else None
+        metadata=st.text_area('Confirmed metadata (JSON)',value=json.dumps(selected['metadata'] if selected else {},indent=2))
+        if st.button('Save source'):
+            try:
+                if selected:
+                    svc.registry.update_metadata(svc.owner,selected['source_id'],json.loads(metadata))
+                else:
+                    svc.register(kind=kind,title=title,locator=url,metadata=json.loads(metadata))
+                st.rerun()
+            except Exception as exc:
+                st.error(str(exc))
+        if selected and st.button('Fetch snapshot' if kind=='url' else 'Ingest content'):
+            try:
+                with st.spinner('Processing source…'):
+                    if kind=='url':
+                        job=svc.snapshot(selected['source_id']);svc.process_job(job['job']['job_id'])
+                    elif upload:
+                        svc.ingest_bytes(selected['source_id'],upload.getvalue())
+                    else:
+                        raise ValueError('Select content to upload')
+                st.session_state.last_result=None
+                st.rerun()
+            except Exception as exc:
+                st.error(str(exc))
+        if selected and st.button('Archive source'):
+            svc.registry.archive(svc.owner,selected['source_id'])
+            st.session_state.last_result=None
+            st.rerun()
 
 
 def _render_sources(citations: list[dict], title="Answer citations") -> None:
@@ -467,7 +522,8 @@ def main() -> None:
         else:
             with st.spinner("Generating answer…"):
                 try:
-                    result = svc.query(q, verify_hallucination=verify)
+                    options={'filters':st.session_state.get('source_filters',{})} if hasattr(svc,'registry') else {}
+                    result = svc.query(q, verify_hallucination=verify, **options)
                     st.session_state.last_result = result.to_display_dict()
                     st.session_state.last_error = None
                 except Exception as e:

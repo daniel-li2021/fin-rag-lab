@@ -197,4 +197,9 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
     return app
 
 
-app = build_app()
+import os
+if os.getenv('DATABASE_URL'):
+    from .private_server import build_private_app
+    app = build_private_app()
+else:
+    app = build_app()

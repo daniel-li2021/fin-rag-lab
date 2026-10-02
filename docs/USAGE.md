@@ -25,3 +25,5 @@ python -m pytest tests/unit/test_usage.py tests/unit/test_benchmark.py tests/uni
 ```
 
 Run tests from the repository root with `python -m pytest`; CI uses the same module invocation. The bare `pytest` console script can omit the repository from Python's import path and fail to import `src` during collection.
+
+For a structured `refuse` outcome with nonempty retrieved context, the generator now renders a deterministic refusal without factual claims or answer citations. Retrieved context remains separately visible. This prevents unsupported or other-company figures from leaking through refusal prose; an offline regression replays such a model envelope.

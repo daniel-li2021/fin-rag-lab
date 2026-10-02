@@ -1,0 +1,792 @@
+{
+  "model": "gpt-6-luna",
+  "results": [
+    {
+      "question": "What was Wells Fargo's Q4 2025 net income?",
+      "category": "fact_finding",
+      "answer": "Wells Fargo\u2019s Q4 2025 net income was $5,361 million ($5.4 billion). [^3]",
+      "outcome": "answer",
+      "invalid_citations": [],
+      "citations": [
+        {
+          "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "source_version_id": "4b9d8c04-696f-4c2d-95ed-c89e51669edd",
+          "provenance_status": "resolved",
+          "page_numbers": [
+            1
+          ]
+        }
+      ],
+      "usage": {
+        "request_id": "fda29370f14f4effbdc61e889d1f1409",
+        "total_usd": null,
+        "priced_subtotal_usd": 0.0,
+        "unknown_calls": 1,
+        "by_stage": {
+          "embedding": 0.0,
+          "rag_generate": null
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0,
+          "gpt-6-luna": null
+        },
+        "n_calls": {
+          "embedding": 1,
+          "rag_generate": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0,
+          "rag_generate": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 13,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 13,
+                "total_tokens": 13
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 2.6000000000000005e-07,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "rag_generate",
+            "model": "gpt-6-luna",
+            "input_tokens": 3019,
+            "output_tokens": 42,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "completion_tokens": 42,
+                "prompt_tokens": 3019,
+                "total_tokens": 3061,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 3016
+                }
+              },
+              "response_model": "gpt-6-luna"
+            },
+            "usage_source": "reported",
+            "cost_usd": null,
+            "pricing_status": "unknown"
+          }
+        ],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "unknown"
+      },
+      "latency_ms": 2507.0798341184855,
+      "configuration": {
+        "generator_model": "gpt-6-luna",
+        "embedding_model": "text-embedding-3-small",
+        "judge_model": null,
+        "verify_hallucination": false,
+        "quick_k": 3,
+        "deep_k": 8,
+        "backend": "postgres",
+        "lexical": "bm25",
+        "filters": {
+          "company_id": "wells_fargo"
+        }
+      }
+    },
+    {
+      "question": "What was Apple's Q4 2025 revenue?",
+      "category": "out_of_corpus",
+      "answer": "I don't have enough information in the provided sources to answer that question. Please add a source covering the requested company, period, or fact.",
+      "outcome": "refuse",
+      "invalid_citations": [],
+      "citations": [],
+      "usage": {
+        "request_id": "87e3d748850f4dffa7335624ec0372b7",
+        "total_usd": null,
+        "priced_subtotal_usd": 0.0,
+        "unknown_calls": 1,
+        "by_stage": {
+          "embedding": 0.0,
+          "rag_generate": null
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0,
+          "gpt-6-luna": null
+        },
+        "n_calls": {
+          "embedding": 1,
+          "rag_generate": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0,
+          "rag_generate": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 11,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 11,
+                "total_tokens": 11
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 2.2e-07,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "rag_generate",
+            "model": "gpt-6-luna",
+            "input_tokens": 3252,
+            "output_tokens": 68,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "completion_tokens": 68,
+                "prompt_tokens": 3252,
+                "total_tokens": 3320,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 3249
+                }
+              },
+              "response_model": "gpt-6-luna"
+            },
+            "usage_source": "reported",
+            "cost_usd": null,
+            "pricing_status": "unknown"
+          }
+        ],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "unknown"
+      },
+      "latency_ms": 2508.894915925339,
+      "configuration": {
+        "generator_model": "gpt-6-luna",
+        "embedding_model": "text-embedding-3-small",
+        "judge_model": null,
+        "verify_hallucination": false,
+        "quick_k": 3,
+        "deep_k": 8,
+        "backend": "postgres",
+        "lexical": "bm25",
+        "filters": {}
+      },
+      "original_model_answer": "What I found in the sources: They report Q4 2025 revenue of $10.3 billion, but the material is AMD financial results, not Apple\u2019s.[^3] What's missing: An Apple source reporting its Q4 2025 revenue.",
+      "original_model_citations": [
+        {
+          "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+          "source_version": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "source_version_id": "a57f3d92-ba45-4279-a40b-5a461d21f3b6",
+          "provenance_status": "resolved",
+          "page_numbers": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "deterministic_refusal_replayed": true
+    },
+    {
+      "question": "What is the current US federal funds rate?",
+      "category": "out_of_corpus",
+      "answer": "I don't have enough information in the provided sources to answer that question. Please add a source covering the requested company, period, or fact.",
+      "outcome": "refuse",
+      "invalid_citations": [],
+      "citations": [],
+      "usage": {
+        "request_id": "c5f9b0c0b35a4e08aa14be67577ba7fe",
+        "total_usd": null,
+        "priced_subtotal_usd": 0.0,
+        "unknown_calls": 1,
+        "by_stage": {
+          "embedding": 0.0,
+          "rag_generate": null
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0,
+          "gpt-6-luna": null
+        },
+        "n_calls": {
+          "embedding": 1,
+          "rag_generate": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0,
+          "rag_generate": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 9,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 9,
+                "total_tokens": 9
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 1.8000000000000002e-07,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "rag_generate",
+            "model": "gpt-6-luna",
+            "input_tokens": 3119,
+            "output_tokens": 66,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "completion_tokens": 66,
+                "prompt_tokens": 3119,
+                "total_tokens": 3185,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 3116
+                }
+              },
+              "response_model": "gpt-6-luna"
+            },
+            "usage_source": "reported",
+            "cost_usd": null,
+            "pricing_status": "unknown"
+          }
+        ],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "unknown"
+      },
+      "latency_ms": 2064.1279169358313,
+      "configuration": {
+        "generator_model": "gpt-6-luna",
+        "embedding_model": "text-embedding-3-small",
+        "judge_model": null,
+        "verify_hallucination": false,
+        "quick_k": 3,
+        "deep_k": 8,
+        "backend": "postgres",
+        "lexical": "bm25",
+        "filters": {}
+      },
+      "original_model_answer": "What I found in the sources: The materials identify the Federal Reserve Board in a discussion of factors affecting Wells Fargo, but do not state a federal funds rate.[^1] What's missing: A current source reporting the U.S. federal funds rate.",
+      "original_model_citations": [
+        {
+          "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+          "source_version": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "source_version_id": "4b9d8c04-696f-4c2d-95ed-c89e51669edd",
+          "provenance_status": "resolved",
+          "page_numbers": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "deterministic_refusal_replayed": true
+    },
+    {
+      "question": "When will Tesla release its Q2 2026 earnings?",
+      "category": "out_of_corpus",
+      "answer": "I don't have enough information in the provided sources to answer that question. Please add a source covering the requested company, period, or fact.",
+      "outcome": "refuse",
+      "invalid_citations": [],
+      "citations": [],
+      "usage": {
+        "request_id": "b618fb67e4e34d2a8740544486147bc1",
+        "total_usd": null,
+        "priced_subtotal_usd": 0.0,
+        "unknown_calls": 1,
+        "by_stage": {
+          "embedding": 0.0,
+          "rag_generate": null
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0,
+          "gpt-6-luna": null
+        },
+        "n_calls": {
+          "embedding": 1,
+          "rag_generate": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0,
+          "rag_generate": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 12,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 12,
+                "total_tokens": 12
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 2.4000000000000003e-07,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "rag_generate",
+            "model": "gpt-6-luna",
+            "input_tokens": 6715,
+            "output_tokens": 76,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "completion_tokens": 76,
+                "prompt_tokens": 6715,
+                "total_tokens": 6791,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 6712
+                }
+              },
+              "response_model": "gpt-6-luna"
+            },
+            "usage_source": "reported",
+            "cost_usd": null,
+            "pricing_status": "unknown"
+          }
+        ],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "unknown"
+      },
+      "latency_ms": 1925.4290000535548,
+      "configuration": {
+        "generator_model": "gpt-6-luna",
+        "embedding_model": "text-embedding-3-small",
+        "judge_model": null,
+        "verify_hallucination": false,
+        "quick_k": 3,
+        "deep_k": 8,
+        "backend": "postgres",
+        "lexical": "bm25",
+        "filters": {}
+      },
+      "original_model_answer": "What I found in the sources: Tesla\u2019s Q1 2026 results call is scheduled for April 22, 2026, at 4:30 p.m. CT.[^1] What's missing: the sources do not state when Tesla will release its Q2 2026 earnings.",
+      "original_model_citations": [
+        {
+          "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+          "source_version": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "source_version_id": "0301d84d-40e5-4748-adb6-968ddebee33b",
+          "provenance_status": "resolved",
+          "page_numbers": [
+            30
+          ]
+        }
+      ],
+      "deterministic_refusal_replayed": true
+    },
+    {
+      "question": "What did Microsoft's CEO say about AI during the earnings call?",
+      "category": "out_of_corpus",
+      "answer": "I don't have enough information in the provided sources to answer that question. Please add a source covering the requested company, period, or fact.",
+      "outcome": "refuse",
+      "invalid_citations": [],
+      "citations": [],
+      "usage": {
+        "request_id": "7f3699ee343c4e7493d9c61c10ec636a",
+        "total_usd": null,
+        "priced_subtotal_usd": 0.0,
+        "unknown_calls": 1,
+        "by_stage": {
+          "embedding": 0.0,
+          "rag_generate": null
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0,
+          "gpt-6-luna": null
+        },
+        "n_calls": {
+          "embedding": 1,
+          "rag_generate": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0,
+          "rag_generate": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 13,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 13,
+                "total_tokens": 13
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 2.6000000000000005e-07,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "rag_generate",
+            "model": "gpt-6-luna",
+            "input_tokens": 2712,
+            "output_tokens": 56,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "completion_tokens": 56,
+                "prompt_tokens": 2712,
+                "total_tokens": 2768,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 2709
+                }
+              },
+              "response_model": "gpt-6-luna"
+            },
+            "usage_source": "reported",
+            "cost_usd": null,
+            "pricing_status": "unknown"
+          }
+        ],
+        "pricing_snapshot": {
+          "gpt-5-nano": {
+            "input": 5e-05,
+            "output": 0.0004
+          },
+          "gpt-5-mini": {
+            "input": 0.00025,
+            "output": 0.002
+          },
+          "gpt-5": {
+            "input": 0.00125,
+            "output": 0.01
+          },
+          "gpt-5.4-nano": {
+            "input": 0.0002,
+            "output": 0.00125
+          },
+          "gpt-5.4-mini": {
+            "input": 0.00075,
+            "output": 0.0045
+          },
+          "gpt-5.4": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-5.5": {
+            "input": 0.0025,
+            "output": 0.015
+          },
+          "gpt-4.1": {
+            "input": 0.002,
+            "output": 0.008
+          },
+          "gpt-4o-mini": {
+            "input": 0.00015,
+            "output": 0.0006
+          },
+          "gpt-4o": {
+            "input": 0.0025,
+            "output": 0.01
+          },
+          "o4-mini": {
+            "input": 0.0011,
+            "output": 0.0044
+          },
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0.0
+          },
+          "text-embedding-3-large": {
+            "input": 0.00013,
+            "output": 0.0
+          }
+        },
+        "pricing_status": "unknown"
+      },
+      "latency_ms": 2093.4920420404524,
+      "configuration": {
+        "generator_model": "gpt-6-luna",
+        "embedding_model": "text-embedding-3-small",
+        "judge_model": null,
+        "verify_hallucination": false,
+        "quick_k": 3,
+        "deep_k": 8,
+        "backend": "postgres",
+        "lexical": "bm25",
+        "filters": {}
+      },
+      "original_model_answer": "The provided sources do not contain a statement from Microsoft\u2019s CEO about AI during an earnings call. The available AI-related material concerns Tesla and AMD; a relevant Microsoft earnings-call transcript or excerpt is missing.",
+      "original_model_citations": [],
+      "deterministic_refusal_replayed": true
+    }
+  ],
+  "limitations": "Five smoke questions, not a full judged answer benchmark.",
+  "guard_validation": "Original Luna outcomes/completions replayed through the final deterministic refusal formatter without paid calls.",
+  "latency_note": "Latency/usage are from the live classification/generation calls; formatter replay adds no model call."
+}

@@ -1,0 +1,3 @@
+# Optional durable backend for the full notebook/UI environment.
+psycopg[binary]==3.3.6
+boto3==1.43.107

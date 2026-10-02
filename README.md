@@ -100,6 +100,8 @@ streamlit run app/streamlit_app.py
 
 Ragas stays offline (`run_eval.py`). The Streamlit UI may optionally run `HallucinationDetector` on a single answer; it does not run the full Ragas suite.
 
+For persistent source updates, install `requirements-persistence.txt`, configure `DATABASE_URL` and private objects, then run `python scripts/sources.py migrate`. The [durable-source guide](docs/PERSISTENCE.md) covers registration, text/Markdown, bookmarks/snapshots, metadata confirmation, migration and the authenticated API. With `DATABASE_URL`, Streamlit uses that registry instead of rebuilding a shared PDF corpus. Parent-child plus BM25 remains the default after the [controlled comparisons](docs/RETRIEVAL_RESULTS.md).
+
 ### Docker (local)
 
 `.env` is **not** baked into the image. Pass it at runtime. Mount volumes so uploads/index/cache persist on the host.
@@ -133,6 +135,8 @@ Then open http://localhost:8501. Ingest PDFs in the UI (or pre-build with `pytho
 ---
 
 ## Architecture
+
+The [next-phase plan](docs/NEXT_PHASE_PLAN.md) now includes an opt-in durable source registry and Postgres/private-object backend. See [source lifecycle, API/UI and migration](docs/PERSISTENCE.md), [controlled retrieval results](docs/RETRIEVAL_RESULTS.md), and [prepared private deployment](docs/PRIVATE_DEPLOYMENT.md). Without `DATABASE_URL`, the notebook/local Chroma architecture below remains the default.
 
 ```
                     [ User uploads PDF ]

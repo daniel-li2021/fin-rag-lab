@@ -99,7 +99,14 @@ def score(label, result):
     invalid = result.get('invalid_citations', [])
     metrics['citation_validity'] = (sum(
         bool(c.get('provenance_status') == 'resolved' and c.get('source_version')
-        and c.get('evidence_spans')) for c in citations
+        and c.get('evidence_spans')
+        and all(s.get('kind', 'original') == 'original'
+                and s.get('source_version') == c['source_version'] for s in c['evidence_spans'])
+        and any(c.get('chunk_id') and c.get('document_id')
+                and c['chunk_id'] == chunk.get('chunk_id')
+                and c['document_id'] == chunk.get('document_id')
+                and c['source_version'] == chunk.get('source_version')
+                and c['evidence_spans'] == chunk.get('evidence_spans') for chunk in chunks)) for c in citations
     ) / (len(citations) + len(invalid))) if citations or invalid else None
     metrics['citation_support'] = result.get('citation_support')
     # Numeric claims are explicitly annotated with entity/period/scope; plain text
@@ -113,7 +120,9 @@ def score(label, result):
     else:
         metrics['numeric_accuracy'] = None
     verification = result.get('hallucination')
-    unsupported = (verification.get('n_refuted', 0) + verification.get('n_unsupported', 0)) if verification is not None else None
+    unsupported = (verification['n_refuted'] + verification['n_unsupported']) if verification is not None and all(
+        isinstance(verification.get(k), int) and verification[k] >= 0
+        for k in ('n_refuted', 'n_unsupported')) else None
     metrics['unsupported_assertions'] = unsupported
     metrics['outcome_correctness'] = float(result.get('outcome') == label['expected_outcome'] and unsupported == 0) if unsupported is not None and result.get('outcome') else None
     metrics['wrong_period_scope_assertions'] = result.get('wrong_period_scope_assertions')
@@ -174,7 +183,7 @@ def summarize(rows):
                 'receipt_denominator': len(receipts),
                 'input_tokens': sum(e['input_tokens'] for e in events) if complete and all(e.get('input_tokens') is not None for e in events) else None,
                 'output_tokens': sum(e['output_tokens'] for e in events) if complete and all(e.get('output_tokens') is not None for e in events) else None,
-                'reasoning_tokens': sum(e.get('reasoning_tokens') or 0 for e in events) if complete else None,
+                'reasoning_tokens': sum(e['reasoning_tokens'] for e in events) if complete and all(e.get('reasoning_tokens') is not None for e in events) else None,
                 'unknown_cost_calls': sum(e.get('cost_usd') is None for e in events),
                 'cost_usd': sum(e['cost_usd'] for e in events) if complete and all(e.get('cost_usd') is not None for e in events) else None}
     return summary

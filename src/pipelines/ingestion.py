@@ -16,6 +16,8 @@ With max_pages / page_range:
     pipeline.ingest("tesla.pdf", page_range=(24, 30))   # Financial Statements only
 """
 from __future__ import annotations
+import hashlib
+import inspect
 import time
 from pathlib import Path
 from typing import Optional
@@ -91,12 +93,25 @@ class IngestionPipeline:
         
         # ---- Layer 1: Document cache lookup ----
         captioner_model = getattr(self.captioner, "model", self.captioner.name)
+        config = {}
+        for stage, component in [('loader', self.loader), ('parser', self.parser), ('captioner', self.captioner)]:
+            cls = type(component)
+            config[stage] = {
+                'class': cls.__module__ + '.' + cls.__qualname__,
+                'parameters': {
+                    k: v for k, v in vars(component).items()
+                    if not k.startswith('_') and isinstance(v, (str, int, float, bool, type(None)))
+                },
+            }
+            if cls.__module__.startswith('src.'):
+                config[stage]['code_sha256'] = hashlib.sha256(Path(inspect.getfile(cls)).read_bytes()).hexdigest()
         doc_key = self.cache.docs.make_key(
             source_path=source,
             parser_name=self.parser.name,
             max_pages=max_pages,
             page_range=page_range,
             captioner_model=captioner_model,
+            parser_config=config,
         )
         cached_doc = self.cache.docs.get(doc_key)
         

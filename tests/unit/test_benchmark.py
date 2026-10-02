@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
-from src.evaluators.benchmark import load_benchmark, manifest, replay, run_benchmark, score
+from src.evaluators.benchmark import latency_summary, load_benchmark, manifest, replay, run_benchmark, score, summarize
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -79,3 +79,62 @@ def test_reporting_keeps_unknown_cost_and_unsupported_refusal_distinct(tmp_path)
     assert group['latency_ms']['end_to_end']['p95'] == 100
     assert group['metrics']['faithfulness']['denominator'] == 0
     assert serializable(float('nan')) is None
+
+
+def test_recall_mrr_and_complete_evidence_require_every_original_span():
+    label = {'evidence': [
+        {'source_version': 'A', 'page_number': 1, 'quote': 'Revenue 42'},
+        {'source_version': 'B', 'page_number': 2, 'quote': 'Cash 8'}],
+        'numeric': [], 'expected_outcome': 'answer'}
+    a, b = [{'evidence_spans': [{**e, 'text': e['quote']}]} for e in label['evidence']]
+    metrics = score(label, {'candidates': [{}, a, a], 'chunks': [a, a]})
+    assert metrics['evidence_recall_at20'] == .5
+    assert metrics['evidence_recall_final'] == .5
+    assert metrics['mrr'] == .5
+    assert metrics['complete_evidence'] == 0
+    assert score(label, {'chunks': [a, b]})['complete_evidence'] == 1
+    assert score(label, {'candidates': [{}] * 20 + [a]})['mrr'] == 0
+    for change in ({'kind': 'generated'}, {'source_version': 'stale'}, {'page_number': 3}):
+        wrong = {'evidence_spans': [{**a['evidence_spans'][0], **change}]}
+        assert score(label, {'chunks': [wrong]})['evidence_recall_final'] == 0
+
+
+def test_numeric_review_tolerance_and_identity():
+    label = {'evidence': [], 'expected_outcome': 'answer', 'numeric': [{
+        'entity': 'Acme', 'period': 'Q1 2026', 'scope': 'consolidated',
+        'unit': 'USD_million', 'value': '42', 'tolerance': '.1'}]}
+    claim = {k: v for k, v in label['numeric'][0].items() if k != 'tolerance'}
+    assert score(label, {})['numeric_accuracy'] is None
+    assert score(label, {'numeric_claims': []})['numeric_accuracy'] == 0
+    assert score(label, {'numeric_claims': [{**claim, 'value': '42.1'}]})['numeric_accuracy'] == 1
+    for key, value in [('value', '42.1001'), ('entity', 'Other'), ('period', 'Q2 2026'),
+                       ('scope', 'segment'), ('unit', 'USD_billion')]:
+        assert score(label, {'numeric_claims': [{**claim, key: value}]})['numeric_accuracy'] == 0
+
+
+def test_citations_resolve_to_retrieved_original_evidence_and_review_is_explicit():
+    label = {'evidence': [], 'numeric': [], 'expected_outcome': 'refuse'}
+    chunk = {'chunk_id': 'chunk', 'document_id': 'doc', 'source_version': 'hash',
+             'evidence_spans': [{'source_version': 'hash', 'kind': 'original', 'text': 'Revenue 42'}]}
+    citation = {**chunk, 'provenance_status': 'resolved'}
+    result = {'chunks': [chunk], 'citations': [citation], 'invalid_citations': [9], 'outcome': 'refuse'}
+    assert score(label, result)['citation_validity'] == .5
+    for change in ({'chunk_id': 'missing'}, {'document_id': 'other'}, {'source_version': 'stale'},
+                   {'evidence_spans': [{'source_version': 'hash', 'kind': 'generated', 'text': 'Revenue 42'}]}):
+        assert score(label, {**result, 'citations': [{**citation, **change}]})['citation_validity'] == 0
+    assert score(label, {**result, 'hallucination': {}})['outcome_correctness'] is None
+    assert score(label, {**result, 'hallucination': {'n_refuted': 0, 'n_unsupported': 0}})['outcome_correctness'] == 1
+
+
+def test_latency_and_partial_usage_do_not_invent_zeroes():
+    assert latency_summary([None, float('nan'), 0, 10, 20]) == {'p50': 10, 'p95': 19, 'denominator': 3}
+    assert latency_summary([]) == {'p50': None, 'p95': None, 'denominator': 0}
+    row = {'category': 'fact_finding', 'metrics': {}, 'result': {'cost_usd': 0,
+           'usage': {'events': [{'input_tokens': 3, 'output_tokens': 2, 'reasoning_tokens': None, 'cost_usd': 0}]}}}
+    group = summarize([row])['all']
+    assert group['cost']['mean_query_cost_usd'] == 0
+    assert group['usage']['reasoning_tokens'] is None
+    group = summarize([row, {**row, 'result': {}}])['all']
+    assert group['cost']['mean_query_cost_usd'] is None
+    assert group['usage']['receipt_denominator'] == 1
+    assert group['usage']['input_tokens'] is None

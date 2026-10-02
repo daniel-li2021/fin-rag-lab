@@ -1,0 +1,371 @@
+{
+  "cases": [
+    {
+      "case": 1,
+      "expected": {
+        "company_name": "Acme Holdings",
+        "fiscal_year": 2026,
+        "fiscal_quarter": 1,
+        "document_type": "earnings_release"
+      },
+      "actual": {
+        "company_name": "Acme Holdings",
+        "fiscal_year": 2026,
+        "fiscal_quarter": 1,
+        "document_type": "earnings_release"
+      },
+      "correct_fields": 4,
+      "abstentions": 0,
+      "evidence_validated": true
+    },
+    {
+      "case": 2,
+      "expected": {
+        "company_name": "Beta Robotics",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 4,
+        "document_type": "earnings_presentation"
+      },
+      "actual": {
+        "company_name": "Beta Robotics",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 4,
+        "document_type": "earnings_presentation"
+      },
+      "correct_fields": 4,
+      "abstentions": 0,
+      "evidence_validated": true
+    },
+    {
+      "case": 3,
+      "expected": {
+        "company_name": "Cedar Inc.",
+        "fiscal_year": 2026,
+        "fiscal_quarter": 2,
+        "document_type": "transcript"
+      },
+      "actual": {
+        "company_name": "Cedar Inc.",
+        "fiscal_year": 2026,
+        "fiscal_quarter": 2,
+        "document_type": "transcript"
+      },
+      "correct_fields": 4,
+      "abstentions": 0,
+      "evidence_validated": true
+    },
+    {
+      "case": 4,
+      "expected": {
+        "company_name": null,
+        "fiscal_year": null,
+        "fiscal_quarter": null,
+        "document_type": "note"
+      },
+      "actual": {
+        "company_name": null,
+        "fiscal_year": null,
+        "fiscal_quarter": null,
+        "document_type": null
+      },
+      "correct_fields": 3,
+      "abstentions": 4,
+      "evidence_validated": true
+    },
+    {
+      "case": 5,
+      "expected": {
+        "company_name": "Aster Ltd.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 3,
+        "document_type": "10-Q"
+      },
+      "actual": {
+        "company_name": "Aster Ltd.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 3,
+        "document_type": "10-Q"
+      },
+      "correct_fields": 4,
+      "abstentions": 0,
+      "evidence_validated": true
+    },
+    {
+      "case": 6,
+      "expected": {
+        "company_name": null,
+        "fiscal_year": null,
+        "fiscal_quarter": null,
+        "document_type": null
+      },
+      "actual": {
+        "company_name": null,
+        "fiscal_year": null,
+        "fiscal_quarter": null,
+        "document_type": null
+      },
+      "correct_fields": 4,
+      "abstentions": 4,
+      "evidence_validated": true
+    }
+  ],
+  "correct_fields": 23,
+  "field_denominator": 24,
+  "abstentions": 8,
+  "usage": {
+    "request_id": "5765d2f2d5e245eab47ff9c731bcb55d",
+    "total_usd": null,
+    "priced_subtotal_usd": 0.0,
+    "unknown_calls": 6,
+    "by_stage": {
+      "metadata_suggestions": null
+    },
+    "by_model": {
+      "gpt-6-luna": null
+    },
+    "n_calls": {
+      "metadata_suggestions": 6
+    },
+    "reasoning_tokens": {
+      "metadata_suggestions": 202
+    },
+    "events": [
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 210,
+        "output_tokens": 206,
+        "reasoning_tokens": 33,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 206,
+            "prompt_tokens": 210,
+            "total_tokens": 416,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 33,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      },
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 206,
+        "output_tokens": 204,
+        "reasoning_tokens": 37,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 204,
+            "prompt_tokens": 206,
+            "total_tokens": 410,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 37,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      },
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 212,
+        "output_tokens": 182,
+        "reasoning_tokens": 33,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 182,
+            "prompt_tokens": 212,
+            "total_tokens": 394,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 33,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      },
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 213,
+        "output_tokens": 107,
+        "reasoning_tokens": 14,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 107,
+            "prompt_tokens": 213,
+            "total_tokens": 320,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 14,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      },
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 212,
+        "output_tokens": 179,
+        "reasoning_tokens": 31,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 179,
+            "prompt_tokens": 212,
+            "total_tokens": 391,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 31,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      },
+      {
+        "stage": "metadata_suggestions",
+        "model": "gpt-6-luna",
+        "input_tokens": 218,
+        "output_tokens": 147,
+        "reasoning_tokens": 54,
+        "raw_usage": {
+          "usage": {
+            "completion_tokens": 147,
+            "prompt_tokens": 218,
+            "total_tokens": 365,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 54,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "response_model": "gpt-6-luna"
+        },
+        "usage_source": "reported",
+        "cost_usd": null,
+        "pricing_status": "unknown"
+      }
+    ],
+    "pricing_snapshot": {
+      "gpt-5-nano": {
+        "input": 5e-05,
+        "output": 0.0004
+      },
+      "gpt-5-mini": {
+        "input": 0.00025,
+        "output": 0.002
+      },
+      "gpt-5": {
+        "input": 0.00125,
+        "output": 0.01
+      },
+      "gpt-5.4-nano": {
+        "input": 0.0002,
+        "output": 0.00125
+      },
+      "gpt-5.4-mini": {
+        "input": 0.00075,
+        "output": 0.0045
+      },
+      "gpt-5.4": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-5.5": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-4.1": {
+        "input": 0.002,
+        "output": 0.008
+      },
+      "gpt-4o-mini": {
+        "input": 0.00015,
+        "output": 0.0006
+      },
+      "gpt-4o": {
+        "input": 0.0025,
+        "output": 0.01
+      },
+      "o4-mini": {
+        "input": 0.0011,
+        "output": 0.0044
+      },
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0.0
+      },
+      "text-embedding-3-large": {
+        "input": 0.00013,
+        "output": 0.0
+      }
+    },
+    "pricing_status": "unknown"
+  },
+  "model": "gpt-6-luna",
+  "synthetic_only": true,
+  "decision": "suggestions_require_user_confirmation",
+  "limitations": [
+    "Six synthetic cases only; not validated on amended or ambiguous real filings.",
+    "One earlier schema-validation attempt had unrecorded usage; aggregate billing cost remains unknown."
+  ]
+}

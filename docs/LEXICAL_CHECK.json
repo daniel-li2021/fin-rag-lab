@@ -1,0 +1,2204 @@
+{
+  "decision": "retain_bm25",
+  "reason": "Retrieval screening does not establish answer/refusal parity. SQL lexical ranking remains opt-in.",
+  "summary": {
+    "bm25": {
+      "macro_recall": 0.75,
+      "denominator": 26,
+      "latency_ms": {
+        "p50": 1190.6341036083177,
+        "p95": 1756.9799252203666,
+        "denominator": 30
+      }
+    },
+    "postgres": {
+      "macro_recall": 0.6858974358974359,
+      "denominator": 26,
+      "latency_ms": {
+        "p50": 1074.7687289258465,
+        "p95": 2083.3633850794286,
+        "denominator": 30
+      }
+    }
+  },
+  "paired_deltas": [
+    {
+      "id": "q01",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q02",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q03",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q04",
+      "recall_delta": -1.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q05",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q06",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q07",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q08",
+      "recall_delta": -1.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q09",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q10",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q11",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q12",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q13",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q14",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q15",
+      "recall_delta": 1.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q16",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q17",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q18",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q19",
+      "recall_delta": -1.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q20",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q21",
+      "recall_delta": 0.33333333333333337,
+      "ranking_changed": true
+    },
+    {
+      "id": "q22",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q23",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q24",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q25",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q26",
+      "recall_delta": 0.0,
+      "ranking_changed": true
+    },
+    {
+      "id": "q27",
+      "recall_delta": null,
+      "ranking_changed": true
+    },
+    {
+      "id": "q28",
+      "recall_delta": null,
+      "ranking_changed": true
+    },
+    {
+      "id": "q29",
+      "recall_delta": null,
+      "ranking_changed": true
+    },
+    {
+      "id": "q30",
+      "recall_delta": null,
+      "ranking_changed": true
+    }
+  ],
+  "vector_reference_parity": {
+    "identical_rankings": 30,
+    "denominator": 30,
+    "distance": "cosine",
+    "note": "Exact local reference uses the same input vectors; float32 rounding/ties are recorded as differences."
+  },
+  "query_embedding_usage": {
+    "request_id": "b38dd2a32b3744b2abdcc9107874be3f",
+    "total_usd": 0,
+    "priced_subtotal_usd": 0,
+    "unknown_calls": 0,
+    "by_stage": {},
+    "by_model": {},
+    "n_calls": {},
+    "reasoning_tokens": {},
+    "events": [],
+    "pricing_snapshot": {
+      "gpt-5-nano": {
+        "input": 5e-05,
+        "output": 0.0004
+      },
+      "gpt-5-mini": {
+        "input": 0.00025,
+        "output": 0.002
+      },
+      "gpt-5": {
+        "input": 0.00125,
+        "output": 0.01
+      },
+      "gpt-5.4-nano": {
+        "input": 0.0002,
+        "output": 0.00125
+      },
+      "gpt-5.4-mini": {
+        "input": 0.00075,
+        "output": 0.0045
+      },
+      "gpt-5.4": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-5.5": {
+        "input": 0.0025,
+        "output": 0.015
+      },
+      "gpt-4.1": {
+        "input": 0.002,
+        "output": 0.008
+      },
+      "gpt-4o-mini": {
+        "input": 0.00015,
+        "output": 0.0006
+      },
+      "gpt-4o": {
+        "input": 0.0025,
+        "output": 0.01
+      },
+      "o4-mini": {
+        "input": 0.0011,
+        "output": 0.0044
+      },
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0.0
+      },
+      "text-embedding-3-large": {
+        "input": 0.00013,
+        "output": 0.0
+      }
+    },
+    "pricing_status": "configured_estimate"
+  },
+  "token_budget": 2400,
+  "fetch_k": 20,
+  "rrf_k": 60,
+  "questions": [
+    {
+      "id": "q01",
+      "question": "What was Wells Fargo's Q4 2025 net income?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1667.5619171001017,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "0409cabb9efa913737a000aa5b5b5138816f609e7a6a9c2149e2291809b58503",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "9cdc0f9f756ce1bd062fa87d2d7db3f7cde2582baef749b6e5da42a49553bfd0",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "556f206d89f46ea122453ab8b5b58cbebb5bb839502c9148894576493593cbb3",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "a78e3b4773c65337306bf99dc35cab9b185dd21b495eb7de2245c5e89cba1d67",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "9bd0502990a33decfbe578192c5749099c493764f05df041af6ffc40dc5bb8fc",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 2089.8029999807477,
+          "candidate_ids": [
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "aa7c6a97077119500e3083874e9ec3a445388178078a683e833f5a8e1ccfab15",
+            "0409cabb9efa913737a000aa5b5b5138816f609e7a6a9c2149e2291809b58503",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "9cdc0f9f756ce1bd062fa87d2d7db3f7cde2582baef749b6e5da42a49553bfd0",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "556f206d89f46ea122453ab8b5b58cbebb5bb839502c9148894576493593cbb3",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "a78e3b4773c65337306bf99dc35cab9b185dd21b495eb7de2245c5e89cba1d67",
+            "93dc4325c92621d0ebaaf1d83c7c81087b15e13693f44eb01683405d493bc772",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q02",
+      "question": "What was Wells Fargo's diluted EPS in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1476.6238750889897,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "ef75735ca32523e2ca5dc5fccc4f82f92edcdc9215e0fad637dc55b62b771c75",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "33af5537f4864117219bd8cc702f623a038abda7477a5b0bff4ccfa10ffe4439",
+            "19ad91bccdd0bd2b86e4751c68689b958c16cfc2c9f400f2eb2218ba92a7a431",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "a7e6072fc6be98dabfaf0d12606c0d758dd83e489d53e00ae38d17beacd34edf",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "28e09bbe1d0dbbbc4f22ca952e4f9f01dcc100f481732268854a10941f68a6d6",
+            "e7ddd1daf9daae4cfa57e235a48879d40f3a7547c6d71f43f5d4921efa058ef8",
+            "d1ffb4d6675aedcf8faad1316ceb9542e2793335c99ac5e730eaa2f5f925c56b",
+            "0409cabb9efa913737a000aa5b5b5138816f609e7a6a9c2149e2291809b58503",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "9cdc0f9f756ce1bd062fa87d2d7db3f7cde2582baef749b6e5da42a49553bfd0",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "6d0a407e8306655bd238cddf466d122301910cc8fe1557cfd983ba690ac50cc2",
+            "1bd224a6f9c3bab13aa596122792467d3fccc8bce3b40e422df83254af6e6fe0",
+            "a8eff196cb739fed354a9161270f0ee1d90fa00582b1b41801438a29c48a6df9",
+            "bd2bcf60ca6776864cf1b6f54d976af0540b2a775486d915bad88ed25cbc2e75"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 894.6640000212938,
+          "candidate_ids": [
+            "ef75735ca32523e2ca5dc5fccc4f82f92edcdc9215e0fad637dc55b62b771c75",
+            "28e09bbe1d0dbbbc4f22ca952e4f9f01dcc100f481732268854a10941f68a6d6",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "19ad91bccdd0bd2b86e4751c68689b958c16cfc2c9f400f2eb2218ba92a7a431",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "33af5537f4864117219bd8cc702f623a038abda7477a5b0bff4ccfa10ffe4439",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "d1ffb4d6675aedcf8faad1316ceb9542e2793335c99ac5e730eaa2f5f925c56b",
+            "0409cabb9efa913737a000aa5b5b5138816f609e7a6a9c2149e2291809b58503",
+            "9cdc0f9f756ce1bd062fa87d2d7db3f7cde2582baef749b6e5da42a49553bfd0",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "6d0a407e8306655bd238cddf466d122301910cc8fe1557cfd983ba690ac50cc2",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q03",
+      "question": "What was Wells Fargo's CET1 ratio at the end of Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1441.9250001665205,
+          "candidate_ids": [
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "bf12bfd2e0d80d309af775fb9d7511b846ea2dbac0ff9317f63df9d945a1e7b1",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "141d53296313616b760b738fb0de5fc50d5bfe172cb63eeccea5ed2e3cc4da07",
+            "4a10bcc3a78b0aa83491450c1e20b33668b4da247359617803ff4ebde4f710c2",
+            "144118ed52d16d00b38119020e9f49269c329342a6b8e05dc48b89744224951a",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "907f88324d0b8b5ff31251247189224badbac875c730e123f5ce447f565ef639",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54",
+            "cfeae53f82596dbd55d65f6ef673e2a0d58800321df5261f7ae5e9c0da163a56",
+            "65f08e2e15fcc68d2ca50a8b61de8b40c7463abc1dd5d25177df3a3ab1447c7a",
+            "1b1b91a7cd7a75f99a998d7ab816bc81f1646854b01464939cc059407c639fc9",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "ed85c54cf43680f9b836cbc3aeaa407b263d84e4329405e684de06f51c1e8085"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1874.5342080947012,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "bf12bfd2e0d80d309af775fb9d7511b846ea2dbac0ff9317f63df9d945a1e7b1",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "4a10bcc3a78b0aa83491450c1e20b33668b4da247359617803ff4ebde4f710c2",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q04",
+      "question": "What was Tesla's vehicle production in Q1 2026?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 873.6896661575884,
+          "candidate_ids": [
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "4903a7d98cc8d436e88be9b028e1d43ad10ce0cdf08b57484d5a3b3e8c1f446e",
+            "ba21f1e6708684f899548ba47ab3fdb01211b664b66bc2ad8dfe5cae342da44c",
+            "bd627c21b41467d68f9cdaadaccea80cf8527bfcf3df1bcd8d47250387bfd984",
+            "d850bf478defeaff6618a6885244256576278f643cc64e31030773dfdba91064",
+            "f0e22f85212b550e98868825633130d08b911f3519a629212b45bc578b8284e5",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "6be24cd34574f7010544085b670089ee34d2507e34f11eeb264b055b3e7aee34",
+            "5ca4ebeecb70c775c0c24d7773d4f14c0efa4c9f069d3d57e9fe6dd88053839c",
+            "141d53296313616b760b738fb0de5fc50d5bfe172cb63eeccea5ed2e3cc4da07",
+            "c299ea6e5d73b36046c9bfd57fa4695a98f5efa3ca70c08beb5ea7ea7538983e",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "780ba12bffa173f465f30e130b738d3bd2aa6181592ad859fbcd300c98d86656",
+            "4968ae1be8c8589064700d1e27615f06a9a4e95ebc6f3ff642bf44bc8ea66c9f",
+            "3e454164bc1f4414756da5e3a12811bccc910da1a664fcf6e25fe387fbd31f20",
+            "e5b40dd089a9a832ef5b628094368622fef92846b26fa9e928d7182692e2b2ff",
+            "312913178221d572b7fe9acac6d75622198f4946f35b6bb5209c085d4e83bde2",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 281.8134999834001,
+          "candidate_ids": [
+            "037048ac889ed50c7c8ebea0bd3e284973d54b039e6d0efa1aaea7c867be16fc",
+            "c4afe318b2ae79044f71f85df956f8a948d3b8fdc7900097e71322dba708a544",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "a65ddea554c5fd5e0aacc2bffbd98c7a8d3d850e32b8380d27f50d483f04a040",
+            "feccf293cbee2af774ad1df8ac10f3ad5b915906d2eb322536be9b60bfaff797",
+            "d850bf478defeaff6618a6885244256576278f643cc64e31030773dfdba91064",
+            "f0e22f85212b550e98868825633130d08b911f3519a629212b45bc578b8284e5",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "018c1d593a2b562b7745c257607d009ee6194e2156da54b388393b0f0ef9a35d",
+            "5ca4ebeecb70c775c0c24d7773d4f14c0efa4c9f069d3d57e9fe6dd88053839c",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "702959a2ccc776ef6b7cd529171fd952468fc39871bee8283aec115d27e5f839",
+            "780ba12bffa173f465f30e130b738d3bd2aa6181592ad859fbcd300c98d86656",
+            "4968ae1be8c8589064700d1e27615f06a9a4e95ebc6f3ff642bf44bc8ea66c9f",
+            "918b98f0db4cc35ba671cd3de27eb056a410372e18dde5edf56d467b8ed1c5ee",
+            "3e454164bc1f4414756da5e3a12811bccc910da1a664fcf6e25fe387fbd31f20",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "d52980b1f2f58108a904e1aac1b599b33df2fc74cd0d980064e4020062cbc4dd"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q05",
+      "question": "What was Tesla's energy storage deployment in Q1 2026?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 604.5643340330571,
+          "candidate_ids": [
+            "60213452d3678c493f104daf833b1f4c5dfe5a1e8315d402901300e6e5145d93",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "5ca4ebeecb70c775c0c24d7773d4f14c0efa4c9f069d3d57e9fe6dd88053839c",
+            "1597bf43c3b2520ee58540a598ec2577a5efc0ca3a756de1f0224923a6b4aa47",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "e583d53e92fcd65833b1a47b780890931e8a55f0a613be9cee11714cded78671",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "3e454164bc1f4414756da5e3a12811bccc910da1a664fcf6e25fe387fbd31f20",
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "75e547b2b627ddd842189f645f52a950fe6ca7d45ad4183ceb2126969af7cc59",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "142f5f7d8a1788bd9db01a9a8ec344fcf66110cda593e8021cd588fb0844e569",
+            "2feda09fcc9c619f4035c2e2cace04568f3594e94f8ed94a55fc004931fe43f0",
+            "8c1266162f0ccb8ad587f58c3f3931d8511f2ce33ecde87aed4977aa6a6da17e",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "4b4d97cabed8cf43eaaabb8af06cff50dc6452f317344b11e6c5ba3414093045",
+            "633126ffce9ca4421e79ce67622fc2bc4bb805adcd350de2331f056732dac72b",
+            "1ee3b4751cd0c5f365c750668ff4177990ea9993a19aeda94948050db350eb1f",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "f3efba5d3d6f0c06c6e899c503f168998e48bd9b650bb44898de90db2b47ee90"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 776.3593329582363,
+          "candidate_ids": [
+            "1597bf43c3b2520ee58540a598ec2577a5efc0ca3a756de1f0224923a6b4aa47",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "60213452d3678c493f104daf833b1f4c5dfe5a1e8315d402901300e6e5145d93",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "5ca4ebeecb70c775c0c24d7773d4f14c0efa4c9f069d3d57e9fe6dd88053839c",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "75e547b2b627ddd842189f645f52a950fe6ca7d45ad4183ceb2126969af7cc59",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "2feda09fcc9c619f4035c2e2cace04568f3594e94f8ed94a55fc004931fe43f0",
+            "8c1266162f0ccb8ad587f58c3f3931d8511f2ce33ecde87aed4977aa6a6da17e",
+            "362b2432d5cc9cd3a2f8dd705733671d03bc0df24ffae7cae194da299e1d2e74",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "3e454164bc1f4414756da5e3a12811bccc910da1a664fcf6e25fe387fbd31f20"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q06",
+      "question": "What was AMD's data center segment revenue in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1184.962541097775,
+          "candidate_ids": [
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "556f206d89f46ea122453ab8b5b58cbebb5bb839502c9148894576493593cbb3",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "99f4349ab3d6f29272245db221ce94844576e18288ea5f137bef0da843050b5c",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "aa2f85496d88206da3f329024af56dde8d108a5c05eec7eacd10a4478ac49692",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "f8bf2f1bbff49a824c8120f77dcfc14babf2def615fe5687cb5a9099abd7f957",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 769.4281248841435,
+          "candidate_ids": [
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "556f206d89f46ea122453ab8b5b58cbebb5bb839502c9148894576493593cbb3",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "d1e74b50b9226ef658c0a6c91e10efa56aa6a25f275a77f68cd2170f2758987d",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "aa2f85496d88206da3f329024af56dde8d108a5c05eec7eacd10a4478ac49692",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "99f4349ab3d6f29272245db221ce94844576e18288ea5f137bef0da843050b5c"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q07",
+      "question": "What was AMD's gaming segment revenue in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 956.129000056535,
+          "candidate_ids": [
+            "19ad91bccdd0bd2b86e4751c68689b958c16cfc2c9f400f2eb2218ba92a7a431",
+            "103aead8780cef4e0a125add745747600ea0b5c344cdc3415c5fcf9d35091a95",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "b7fbbf924e99dbd6f2ab8e7916e1ec1ffebb4cc9b54ac3b461e696f01ba026db",
+            "7229fd64690c1ab5d5732a86b3efaa03effcce22311226e77c95a668e20e00b7",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "d8cf5f42110e556a4fce3c31049eca9ca65dd11761d895abee80a0731490881f",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "556f206d89f46ea122453ab8b5b58cbebb5bb839502c9148894576493593cbb3"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 895.8834160584956,
+          "candidate_ids": [
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "19ad91bccdd0bd2b86e4751c68689b958c16cfc2c9f400f2eb2218ba92a7a431",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "d8cf5f42110e556a4fce3c31049eca9ca65dd11761d895abee80a0731490881f",
+            "d1e74b50b9226ef658c0a6c91e10efa56aa6a25f275a77f68cd2170f2758987d",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q08",
+      "question": "What was AMD's full-year 2025 revenue?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1115.0956670753658,
+          "candidate_ids": [
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "3cabd584f442d6381bbc5c8e015e182b1a3d2e4979471e009bcb47c7af94eb23",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "d94f7523439f03a57c05368699756d992ebfcabfaa0c530f77f6f83458bf092d",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "3f5619265b019a6c0cc881948ad47ed77687798f156cb9195c4db7d276f8284c",
+            "9c8652ba991825ea319515ee14d87e9a688fa7f76b80de78af31c912373fd3b5",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "d8cf5f42110e556a4fce3c31049eca9ca65dd11761d895abee80a0731490881f"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 1001.5864998567849,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q09",
+      "question": "What was AMD's gross margin in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.0,
+          "latency_ms": 1308.7510420009494,
+          "candidate_ids": [
+            "216d39b4078de4186acae8bb200b1cf2aed340f420d0dcbcc43641cc7484a43d",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "532bcd4c9060eb80d83150aa8f8edc4df1a06e4aa0569e7c724c97c35e0a38a0",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "da3b3fb2109f1736989190de375371cb2bdd559fc0922ac15a33cd6688f4fdc5",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "c71a7311290034c6f4618b867411241428f898ba09ea5c35a88e7c4dd6b73fe3",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 1058.367082849145,
+          "candidate_ids": [
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "216d39b4078de4186acae8bb200b1cf2aed340f420d0dcbcc43641cc7484a43d",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q10",
+      "question": "What was Wells Fargo's average loan balance in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1760.9242498874664,
+          "candidate_ids": [
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7",
+            "2ff8f8165f3ebb8b48150194952ed3cefc75d1306d2175c92c2175a47a816107",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "6e6d1f6a0ed118555fddd1861de7df1195562a676db28f23e7d5a744d7e4fc93",
+            "0cea788603bc722283272a10997a6b4f3cf55de3291dcf61c8b507fe154df65a",
+            "0a2120e89cd55fd26688fa4056420eeafdcbe82a945dec80b552516bfe2c66c7",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "626f402e9423ffd82a130eede81ff2cb150bbedd7da84b930dff87d9d76d2c05",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "f1a19d7fdf8038aaf901d5c5c8fffe3274df708c1313affdbc9d7ae77e890fd4",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "27fcdad164286cdf579bbd6a789a6f5a092689f458cfae06f5cf374368ecb58f",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "586accd032501e79b2f521037acff383dbd1d1cc8628734fe62be63b24c3132e"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1602.7593328617513,
+          "candidate_ids": [
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "6e6d1f6a0ed118555fddd1861de7df1195562a676db28f23e7d5a744d7e4fc93",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "0cea788603bc722283272a10997a6b4f3cf55de3291dcf61c8b507fe154df65a",
+            "ef69cfea28f601145a8b4c9cf096fd08e69cae852717c430e61ebcdf65f36a5f",
+            "0a2120e89cd55fd26688fa4056420eeafdcbe82a945dec80b552516bfe2c66c7",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "626f402e9423ffd82a130eede81ff2cb150bbedd7da84b930dff87d9d76d2c05",
+            "60c37b32835ec5d1c187b756b3d1a6989122210c8d198ff0c7bcfdd049d991aa",
+            "f1a19d7fdf8038aaf901d5c5c8fffe3274df708c1313affdbc9d7ae77e890fd4",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "27fcdad164286cdf579bbd6a789a6f5a092689f458cfae06f5cf374368ecb58f",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q11",
+      "question": "How did Wells Fargo's Consumer Banking and Lending segment perform in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1115.165791939944,
+          "candidate_ids": [
+            "626f402e9423ffd82a130eede81ff2cb150bbedd7da84b930dff87d9d76d2c05",
+            "0cea788603bc722283272a10997a6b4f3cf55de3291dcf61c8b507fe154df65a",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "d5cb17b6cf18f3cf7b1c43acebff3b69f790d1ed1fc82e80e51881b7c22b57e8",
+            "0a2120e89cd55fd26688fa4056420eeafdcbe82a945dec80b552516bfe2c66c7",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "c6a730acf1e5c9b457141d4ee3f09ae560a86ab8105224ef6435cdefb50a380b",
+            "6c9b437125eba2312f0d98c940432c24ed56f5316968d2d1e61e20ef06ae19d2",
+            "08abdd66f060b7addded6e10706dd5b04be90d69576e3d286abdbac8c6e3c075",
+            "bc3d7e2fc2779d146ab752d0dd7c5d2a9f9a6888c98192cbe33c8b60c12b681c",
+            "b6aaaccb6c9708e9b065b60f1e8aca67c46be87b10a1d6a819635096f52edce8",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "d7a01daa9c475bb6a7af9454aa48714a217b28e65a7e457e69117b2774b11313"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1431.6205410286784,
+          "candidate_ids": [
+            "626f402e9423ffd82a130eede81ff2cb150bbedd7da84b930dff87d9d76d2c05",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "d5cb17b6cf18f3cf7b1c43acebff3b69f790d1ed1fc82e80e51881b7c22b57e8",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "0cea788603bc722283272a10997a6b4f3cf55de3291dcf61c8b507fe154df65a",
+            "ef69cfea28f601145a8b4c9cf096fd08e69cae852717c430e61ebcdf65f36a5f",
+            "0a2120e89cd55fd26688fa4056420eeafdcbe82a945dec80b552516bfe2c66c7",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "c6a730acf1e5c9b457141d4ee3f09ae560a86ab8105224ef6435cdefb50a380b",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q12",
+      "question": "What were the main drivers of Wells Fargo's net interest income changes?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1474.6442078612745,
+          "candidate_ids": [
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "2ec5c4730ac455c0390db22d3f37b12851fdaee0faa052b9687407ef0d116693",
+            "89f1dd335e75035871132b7bffdd27905a1f5c63c4221104070a6ba61eff9682",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "a352be9ec0584032242ca8f74764e57d91ee5ab8eaea24717486809d787b834e",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "a1c61db292a2feb687ec8cd93fbeb7c1a0451689a276c10f736f024bd18c4529",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "34100d9f67dcb0fb17cae08fe9497948e7b3ef150f1ee591d77a25ae18609e64",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "8a8a8acf1e6eff7c51e25fc3e428c11aa27bab867a6bf2999cd77506d6e2daff"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1243.4442499652505,
+          "candidate_ids": [
+            "2ec5c4730ac455c0390db22d3f37b12851fdaee0faa052b9687407ef0d116693",
+            "2319e66e676a7a74579395cb170435a79ab958f83ec18372233947c1083cdc5e",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "aa7c6a97077119500e3083874e9ec3a445388178078a683e833f5a8e1ccfab15",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "89f1dd335e75035871132b7bffdd27905a1f5c63c4221104070a6ba61eff9682",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "a352be9ec0584032242ca8f74764e57d91ee5ab8eaea24717486809d787b834e",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "7015f668674e2d4f94153b04451f08a935374290fb8e63d08b0b7fe209e89167",
+            "f96ca7397de322890e253998ebb360aabba8455ed4b277876583365032da69a1",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q13",
+      "question": "How does Tesla describe progress on its AI and robotics initiatives?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1104.5943330973387,
+          "candidate_ids": [
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "1597bf43c3b2520ee58540a598ec2577a5efc0ca3a756de1f0224923a6b4aa47",
+            "2891157fe4eddda42c8f3e10afd78ba99e374384613f936083d31464e394e588",
+            "4eeb6e62ed751fed9ba32a30d031124a5380d5d501bef223a93a0195ab12570c",
+            "5ca4ebeecb70c775c0c24d7773d4f14c0efa4c9f069d3d57e9fe6dd88053839c",
+            "d4efe2e5eb838cb5932e798ac08d31d6a4b59020fd180586efaf87f32139558e",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc",
+            "45935b3f63f61533ba85542c6a9c31c17ad1d48a838aaf84a8d32da56d912562",
+            "067d6d24358260c69daa6283f1f6b1a0e7286cd389cdad4fe2840eb4d85dd891",
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "362b2432d5cc9cd3a2f8dd705733671d03bc0df24ffae7cae194da299e1d2e74",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 806.1565840616822,
+          "candidate_ids": [
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "2d5eb7e97ad643c95b7a7fa62c8b17c6efc60075dc2fccbd3e8619a0dc26420b",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "d4efe2e5eb838cb5932e798ac08d31d6a4b59020fd180586efaf87f32139558e",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "19d7992c011fe9747cc9ae9dc11548cde181c45cdd110157932492a2966d74ec",
+            "362b2432d5cc9cd3a2f8dd705733671d03bc0df24ffae7cae194da299e1d2e74",
+            "4eeb6e62ed751fed9ba32a30d031124a5380d5d501bef223a93a0195ab12570c",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "22544aec013a356b64f0bc86c4ddf39ead415dc0232d244639cfed3641355ab7",
+            "2891157fe4eddda42c8f3e10afd78ba99e374384613f936083d31464e394e588",
+            "639524f03f9176713260aedb0f3a0df06aa62dde77d905ef0caacffe8410b419"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q14",
+      "question": "What were Tesla's key operational highlights for Q1 2026?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 457.60587486438453,
+          "candidate_ids": [
+            "b41e07ab7034d5dd4368bbb1f8ba0bcc60111711be13fa3b2582acc01ca39156",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "4b683db12b61c320b843c502a970b1ba6eb6de0e8de7f0ecd1a628d672e3ad45",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a267982aa7034b4dd3eef72501e9961f9537630b25eee3dbf4004aa19f291da3",
+            "bd627c21b41467d68f9cdaadaccea80cf8527bfcf3df1bcd8d47250387bfd984",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "312913178221d572b7fe9acac6d75622198f4946f35b6bb5209c085d4e83bde2",
+            "e5844200002630fa99fa0f043f2f7a473b049bd51cd83cfd11ce3f3eee636a27",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "31475a2e40bce120107c08702bd8b75c69a242a69c35d386dbf27d4ae871df19",
+            "80f51a3b61fb876d287dc44de1379df3f08b0726c48b407ec79069f981751a70",
+            "6e75b4a2263aa6f533b6c27d795b25fcb733ccadfba155ed3144f375363525fd",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "3f5619265b019a6c0cc881948ad47ed77687798f156cb9195c4db7d276f8284c",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 895.4561669379473,
+          "candidate_ids": [
+            "b41e07ab7034d5dd4368bbb1f8ba0bcc60111711be13fa3b2582acc01ca39156",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "e7f6ea371c17a7289679886e0a103c8f714b977e4ab5c7a5b2f306b8350fb351",
+            "4b683db12b61c320b843c502a970b1ba6eb6de0e8de7f0ecd1a628d672e3ad45",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "e5844200002630fa99fa0f043f2f7a473b049bd51cd83cfd11ce3f3eee636a27",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "65f08e2e15fcc68d2ca50a8b61de8b40c7463abc1dd5d25177df3a3ab1447c7a",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q15",
+      "question": "How did AMD's Instinct GPU products perform in 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.0,
+          "latency_ms": 998.3292499091476,
+          "candidate_ids": [
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "d8cf5f42110e556a4fce3c31049eca9ca65dd11761d895abee80a0731490881f",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "39aa8fb76288545ceeeee8ed0b707d67bc6c1f1c2eca1c622b9025d6be60497d"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1303.826916962862,
+          "candidate_ids": [
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "d8cf5f42110e556a4fce3c31049eca9ca65dd11761d895abee80a0731490881f",
+            "103aead8780cef4e0a125add745747600ea0b5c344cdc3415c5fcf9d35091a95",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q16",
+      "question": "What is AMD's outlook for the data center AI market?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.0,
+          "latency_ms": 597.6787090767175,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "e3a765cc3e735559bcdd652e686b88e121a5d91042f6829ea2246b2859095e7d",
+            "ef392013fb441993456d729ad295f70b2f745b14641857144fa9e55bcb45eec0",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 1049.8414998874068,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "e3a765cc3e735559bcdd652e686b88e121a5d91042f6829ea2246b2859095e7d",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "bf12bfd2e0d80d309af775fb9d7511b846ea2dbac0ff9317f63df9d945a1e7b1",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "d4efe2e5eb838cb5932e798ac08d31d6a4b59020fd180586efaf87f32139558e",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q17",
+      "question": "What capital return actions did Wells Fargo take in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1752.1590839605778,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "6e6d1f6a0ed118555fddd1861de7df1195562a676db28f23e7d5a744d7e4fc93",
+            "a970a80feba0681b5b0737741dbbe5b7d3c9b4d9cdca70073d92630600e4a772",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "7333418ef86f47ff2b58d3c37ea9f28702fa747d34a9ec6a0092068bcddba49d",
+            "66edca45f5ceb3115f53abd5251cf08593964df5a2bd88a69560c414490e3701",
+            "f04bad04675124d8abdc11f8bd7a35ddb008cd62e5a5f8119562768c56830a91",
+            "639524f03f9176713260aedb0f3a0df06aa62dde77d905ef0caacffe8410b419",
+            "144118ed52d16d00b38119020e9f49269c329342a6b8e05dc48b89744224951a",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1739.5398749504238,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "7333418ef86f47ff2b58d3c37ea9f28702fa747d34a9ec6a0092068bcddba49d",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71",
+            "f04bad04675124d8abdc11f8bd7a35ddb008cd62e5a5f8119562768c56830a91",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q18",
+      "question": "How did Tesla's automotive margins evolve in Q1 2026?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1196.3056661188602,
+          "candidate_ids": [
+            "e583d53e92fcd65833b1a47b780890931e8a55f0a613be9cee11714cded78671",
+            "053e3b33b29d04b6082765ce43c3ef4ba4b6f91c84d56b2a9ac614a3a4edd581",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "d15154af5187187eae50d73dfe64710c11827d63d89d6496af9595253ed163f0",
+            "b9e756eac9edb0c838e244c6bb49cfadcfc63a9a10f667f3cf9fd68e9bef03a7",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "8b5b94c069ffe6cb184eafe9a640407400095773cd0d377a0d502ae751e7d726",
+            "b3325913df32c1b8f422eb5692c6118326d1e0e570ace5836b7eac52f8b1d79e",
+            "2891157fe4eddda42c8f3e10afd78ba99e374384613f936083d31464e394e588",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "4eeb6e62ed751fed9ba32a30d031124a5380d5d501bef223a93a0195ab12570c",
+            "8517b0e6a791d5d7750110c9129251f49f21331add04d0531583bfc04dad5e27",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "bd627c21b41467d68f9cdaadaccea80cf8527bfcf3df1bcd8d47250387bfd984",
+            "31475a2e40bce120107c08702bd8b75c69a242a69c35d386dbf27d4ae871df19"
+          ],
+          "source_versions": [
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 1142.864542081952,
+          "candidate_ids": [
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "e583d53e92fcd65833b1a47b780890931e8a55f0a613be9cee11714cded78671",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "074614c6454a17825af050d8a7cec4ded32c4fc894052ca679fd06853a1f6707",
+            "053e3b33b29d04b6082765ce43c3ef4ba4b6f91c84d56b2a9ac614a3a4edd581",
+            "4eeb6e62ed751fed9ba32a30d031124a5380d5d501bef223a93a0195ab12570c",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "b3325913df32c1b8f422eb5692c6118326d1e0e570ace5836b7eac52f8b1d79e",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "8b5b94c069ffe6cb184eafe9a640407400095773cd0d377a0d502ae751e7d726",
+            "8517b0e6a791d5d7750110c9129251f49f21331add04d0531583bfc04dad5e27",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "23e1a5a7688192d3eb5acaff63c530cbee63b52d38d02207fdc5e999205eae42",
+            "362b2432d5cc9cd3a2f8dd705733671d03bc0df24ffae7cae194da299e1d2e74",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q19",
+      "question": "Compare Wells Fargo's Q4 2025 net interest income to its Q4 2024 figure",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1856.4300839789212,
+          "candidate_ids": [
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "e647531c562f86386864ee9182aeb5e78ed623ea7121766ae4ee3de286e3206c",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "2319e66e676a7a74579395cb170435a79ab958f83ec18372233947c1083cdc5e",
+            "d1ffb4d6675aedcf8faad1316ceb9542e2793335c99ac5e730eaa2f5f925c56b",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "649e8a43e1965d39dbfe4bc6dcdbaf61e48c5260b5b37b6f1b951013d3533d1c",
+            "8a8a8acf1e6eff7c51e25fc3e428c11aa27bab867a6bf2999cd77506d6e2daff",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "a1c61db292a2feb687ec8cd93fbeb7c1a0451689a276c10f736f024bd18c4529",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 1981.1504168901592,
+          "candidate_ids": [
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0",
+            "aa7c6a97077119500e3083874e9ec3a445388178078a683e833f5a8e1ccfab15",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "2319e66e676a7a74579395cb170435a79ab958f83ec18372233947c1083cdc5e",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "8a8a8acf1e6eff7c51e25fc3e428c11aa27bab867a6bf2999cd77506d6e2daff",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71",
+            "a1c61db292a2feb687ec8cd93fbeb7c1a0451689a276c10f736f024bd18c4529",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q20",
+      "question": "How did Tesla's Q1 2026 production compare to deliveries, and what does the gap suggest?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 930.4535409901291,
+          "candidate_ids": [
+            "80f51a3b61fb876d287dc44de1379df3f08b0726c48b407ec79069f981751a70",
+            "312913178221d572b7fe9acac6d75622198f4946f35b6bb5209c085d4e83bde2",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "6e75b4a2263aa6f533b6c27d795b25fcb733ccadfba155ed3144f375363525fd",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "a267982aa7034b4dd3eef72501e9961f9537630b25eee3dbf4004aa19f291da3",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "bd627c21b41467d68f9cdaadaccea80cf8527bfcf3df1bcd8d47250387bfd984",
+            "4b4d97cabed8cf43eaaabb8af06cff50dc6452f317344b11e6c5ba3414093045",
+            "b700317512a32e8d17fa75489e05eea20923c96a6c5adae2b564a9639ce685c0",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "780ba12bffa173f465f30e130b738d3bd2aa6181592ad859fbcd300c98d86656",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "2891157fe4eddda42c8f3e10afd78ba99e374384613f936083d31464e394e588",
+            "c299ea6e5d73b36046c9bfd57fa4695a98f5efa3ca70c08beb5ea7ea7538983e",
+            "4968ae1be8c8589064700d1e27615f06a9a4e95ebc6f3ff642bf44bc8ea66c9f",
+            "ba21f1e6708684f899548ba47ab3fdb01211b664b66bc2ad8dfe5cae342da44c",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "702959a2ccc776ef6b7cd529171fd952468fc39871bee8283aec115d27e5f839"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 445.0105840805918,
+          "candidate_ids": [
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "bd627c21b41467d68f9cdaadaccea80cf8527bfcf3df1bcd8d47250387bfd984",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "312913178221d572b7fe9acac6d75622198f4946f35b6bb5209c085d4e83bde2",
+            "2d5eb7e97ad643c95b7a7fa62c8b17c6efc60075dc2fccbd3e8619a0dc26420b",
+            "b700317512a32e8d17fa75489e05eea20923c96a6c5adae2b564a9639ce685c0",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "80f51a3b61fb876d287dc44de1379df3f08b0726c48b407ec79069f981751a70",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "6e75b4a2263aa6f533b6c27d795b25fcb733ccadfba155ed3144f375363525fd",
+            "22544aec013a356b64f0bc86c4ddf39ead415dc0232d244639cfed3641355ab7",
+            "a267982aa7034b4dd3eef72501e9961f9537630b25eee3dbf4004aa19f291da3",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "a44c43ea052d21d3fa8bc0774c5efa4ef9471e7fb89338a60f983d3e6620cd8b",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q21",
+      "question": "Across AMD's segments, which grew fastest year-over-year in Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.6666666666666666,
+          "latency_ms": 1067.8132500033826,
+          "candidate_ids": [
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "3cabd584f442d6381bbc5c8e015e182b1a3d2e4979471e009bcb47c7af94eb23",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 410.44424986466765,
+          "candidate_ids": [
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "ef75735ca32523e2ca5dc5fccc4f82f92edcdc9215e0fad637dc55b62b771c75",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "d1e74b50b9226ef658c0a6c91e10efa56aa6a25f275a77f68cd2170f2758987d",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q22",
+      "question": "What was the trend in AMD's gross margin from Q4 2024 to Q4 2025?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.0,
+          "latency_ms": 1360.9107499942183,
+          "candidate_ids": [
+            "216d39b4078de4186acae8bb200b1cf2aed340f420d0dcbcc43641cc7484a43d",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "532bcd4c9060eb80d83150aa8f8edc4df1a06e4aa0569e7c724c97c35e0a38a0",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "fc63d40349316ee2701deecf9213d078ec708bee40c8955507f8a9c640272dd1",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "69aad46f90ec5f28033bc877d12136f00d26700f3aabf7526f8e6579f9c8b19d",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 855.9030420146883,
+          "candidate_ids": [
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "216d39b4078de4186acae8bb200b1cf2aed340f420d0dcbcc43641cc7484a43d",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6",
+            "643c896771a743db1b503b3117c37bfc1fc62e8630c6b3ab6993ff6949373b7f",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q23",
+      "question": "Which company has the largest absolute revenue: Wells Fargo, Tesla, or AMD?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.3333333333333333,
+          "latency_ms": 1296.7564999125898,
+          "candidate_ids": [
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "da3b3fb2109f1736989190de375371cb2bdd559fc0922ac15a33cd6688f4fdc5",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "0123b47caef013badd261d564b02790b7892a5bee6d5b663705687adca29aee0",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "fc6cd3d799ec2d3a0837bf5132f8fba7c03adceda863275d00998e7a81c6accd",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "103aead8780cef4e0a125add745747600ea0b5c344cdc3415c5fcf9d35091a95"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.3333333333333333,
+          "latency_ms": 1441.1693341098726,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "7015f668674e2d4f94153b04451f08a935374290fb8e63d08b0b7fe209e89167",
+            "bd86f8db18b825fc68d16d964291b32bc5f07d8d290802846a9cc16dc7979846",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "a352be9ec0584032242ca8f74764e57d91ee5ab8eaea24717486809d787b834e",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "26422ff803c79d0c9c44cf43eea682cf12dccada1bad45636d47e01e9e1e2371",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "2ff8f8165f3ebb8b48150194952ed3cefc75d1306d2175c92c2175a47a816107"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q24",
+      "question": "Which of Tesla and AMD has higher gross margin in their most recent quarter?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.0,
+          "latency_ms": 1232.615290908143,
+          "candidate_ids": [
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "216d39b4078de4186acae8bb200b1cf2aed340f420d0dcbcc43641cc7484a43d",
+            "69f3807427861f3764388a225e55c7776bf2966b148c9da63695caf7d6e207d3",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "da3b3fb2109f1736989190de375371cb2bdd559fc0922ac15a33cd6688f4fdc5",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "1b1b91a7cd7a75f99a998d7ab816bc81f1646854b01464939cc059407c639fc9",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "619b5f8472717d3c338bcfc52477174ab75b817bb7d5f2b95fe48ee60046fd6a",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "d15154af5187187eae50d73dfe64710c11827d63d89d6496af9595253ed163f0",
+            "788d2ae9812c81178efd349db80c61024c47aa7caed0a92f1151fcdb43143ec6"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.0,
+          "latency_ms": 2085.572791052982,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "22b0d8e42c08e22860bcb5d00a4b35c4d806ad83e40c341ebe83e92d81eb1d52",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "8baa8bbe031ee529754a1f0f51e003465f4d69182ce67f985be5c0125d5eea86",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "20b03df60fb27af7306f8d6ee299788a953a2f201e5001cfbe95f82e6eb2e16b",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "4277f1605c04454e57eb36c244da2db268f7651e541cccef69c542a89f87d6e5",
+            "893f2153c3f965eecb905cde55519b802c10bfe4923c6536fc2664412c1234e4",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "f1a19d7fdf8038aaf901d5c5c8fffe3274df708c1313affdbc9d7ae77e890fd4",
+            "ab71d70f2bec935cc06705bda50251db9d65638ec61066e03302f952a7b0b434",
+            "7333418ef86f47ff2b58d3c37ea9f28702fa747d34a9ec6a0092068bcddba49d",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q25",
+      "question": "Are Tesla and AMD both reporting growth in their AI-related businesses?",
+      "branches": {
+        "bm25": {
+          "final_recall": 0.5,
+          "latency_ms": 1561.380541883409,
+          "candidate_ids": [
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "b2416af99312822cc1cd50c1f93c122a8ae0b6a73b98e148d8d18f99b03df149",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "a3ce38f9a9ebadf2f9db4bac5cec56a622570956dd7ef65b0f43e3eca180c652",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "2056add9a19e92038aeaf51f7b1d5d9bed032d953077e5a067c4129308ce3d3d",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "3e454164bc1f4414756da5e3a12811bccc910da1a664fcf6e25fe387fbd31f20",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "1b1b91a7cd7a75f99a998d7ab816bc81f1646854b01464939cc059407c639fc9",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": 0.5,
+          "latency_ms": 1157.381416996941,
+          "candidate_ids": [
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "ad0ed264bf8af814128f8fe20914e9e0552e666f364eedb6eb72a1785c88a9c6",
+            "5b320434559383a8d131febcf613af9e29ba6e235f1457237f7bd6be7749cee2",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "d73e779d093531c6d3e3a4e9231542c1bbff599eb48b0e2612c74883ef9153e6",
+            "2d5eb7e97ad643c95b7a7fa62c8b17c6efc60075dc2fccbd3e8619a0dc26420b",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q26",
+      "question": "How do Wells Fargo's risk discussions differ from Tesla's forward-looking statements?",
+      "branches": {
+        "bm25": {
+          "final_recall": 1.0,
+          "latency_ms": 1026.5637498814613,
+          "candidate_ids": [
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "711ab44107ff0cbb89e328caa7c148712e4ddd6a06975e56ef5af55a623b3628",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "ad0ed264bf8af814128f8fe20914e9e0552e666f364eedb6eb72a1785c88a9c6",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "90855190d649f8b549e290d8e96ae67021df03d5065d84a56204b4e87dac9ce0",
+            "c8c9dc59fbe91094ad83860b24a3d4fff64be260f0d9ccf01a735e879580fda5",
+            "904dbad2f7d27856c54569c9e028a46221c11e9f86a5f062c9da3a91160946ae",
+            "ee06f5db1c719453b672ece5e2d3a036c74a9715e35d4d338c024575720ce81c",
+            "4421f565c0b759aeaa27c6a8a1c0c81a2f05586447357509aaa1d2f705342ee1",
+            "d94f7523439f03a57c05368699756d992ebfcabfaa0c530f77f6f83458bf092d",
+            "fc6cd3d799ec2d3a0837bf5132f8fba7c03adceda863275d00998e7a81c6accd",
+            "7015f668674e2d4f94153b04451f08a935374290fb8e63d08b0b7fe209e89167",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "e7e2d88a9ebdcb056db5e2357abe1159cb31fb960f1f57c317275d2ab18f5466",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "e3a765cc3e735559bcdd652e686b88e121a5d91042f6829ea2246b2859095e7d",
+            "445f3d308e967291a7d36f6c6e818e3a3bf00503d4cd038c7db7f2dc2407db3a"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": 1.0,
+          "latency_ms": 673.9260840695351,
+          "candidate_ids": [
+            "209183cab67f4cc1939a47824e318e8d6c183757801d78bfc61f9e1978f0c9f4",
+            "711ab44107ff0cbb89e328caa7c148712e4ddd6a06975e56ef5af55a623b3628",
+            "ad0ed264bf8af814128f8fe20914e9e0552e666f364eedb6eb72a1785c88a9c6",
+            "ee06f5db1c719453b672ece5e2d3a036c74a9715e35d4d338c024575720ce81c",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "7af31b6118dceb76990028c02c5a1881b33297aa85ba1a605dcffbfb63443fd9",
+            "7015f668674e2d4f94153b04451f08a935374290fb8e63d08b0b7fe209e89167",
+            "6f08398632adf00c43f6e1adc87e884101c33a73f56e1d15ce8c1933206419c8",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "fdc34c96713968ffdbf3303efafa76e6d739bacd47bd09559d93f49e533dd296",
+            "62749c1f67fac8a50a21985f65c45984d3012be8442b7a8b2562b4c3abe25743",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "90855190d649f8b549e290d8e96ae67021df03d5065d84a56204b4e87dac9ce0",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "c8c9dc59fbe91094ad83860b24a3d4fff64be260f0d9ccf01a735e879580fda5",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "050cf401781bcd2642b6c767a1195402f50a6bdd4190dd51f7c100eda1c0c25e",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "fc6cd3d799ec2d3a0837bf5132f8fba7c03adceda863275d00998e7a81c6accd"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q27",
+      "question": "What was Apple's Q4 2025 revenue?",
+      "branches": {
+        "bm25": {
+          "final_recall": null,
+          "latency_ms": 1646.5396250132471,
+          "candidate_ids": [
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "25f4503622f8e787dbad8f05ab6114f898684a47321ce157abdcf4b36a569c7b",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "31b07444390ee823c30999972b8feaef6cceb1588c788e27d3569f68b7097145",
+            "6dac1e35f3f38762cd6daca6640cccc2f3d9cddaa3401752667f5519da4d8998",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "01901f9d3c8b704dfb6e5fce00a78b9108537516dd4e1435eddda798c4ad9056",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "2ec5c4730ac455c0390db22d3f37b12851fdaee0faa052b9687407ef0d116693",
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "6be24cd34574f7010544085b670089ee34d2507e34f11eeb264b055b3e7aee34",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "532bcd4c9060eb80d83150aa8f8edc4df1a06e4aa0569e7c724c97c35e0a38a0",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "7b5fecd259ce65c9bb95b1b1c52a75311f0f7be21e60029e2468cafaabf327e0",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "30fbb18b3050acf8cca037a57cd4efcbe212cb28ddc1db5f6f549ae7660bebbd",
+            "47afd0e0f9579d5c4d39646dce9d1fbd80100111f2b24e9d3b53c270ec0d87d3"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": null,
+          "latency_ms": 778.6999999079853,
+          "candidate_ids": [
+            "ba1279e96b02e6eced432a0e6a2d8e3eb32c9bfffcd12cfd9159f63f18058859",
+            "2e78039679ee57a4b69478c8b457fa4796d3a915b415162b3037bb276f6c9d21",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8",
+            "1846393e5b043db1355a46cfa115bb5786ecf6ddd5c8105ba484fa769512cbb9",
+            "c663341dbb9d028fbb9df47fa6bb5aa300afd6f93384f80a0927519f422ae353",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "605f91cda90392adbcb97f8ad88e1d282936bf16f9dee1582946640692bea2b2",
+            "d910f9cb95e49d9e4cb04786fdf04af6987954d09bcd7ed16d7c6a54dce13ef5",
+            "25f4503622f8e787dbad8f05ab6114f898684a47321ce157abdcf4b36a569c7b",
+            "880a25c2ad8a358ba441d80fa31be5a2d48af0e057d2a931161d9d2858622416",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "68df5ac2a0e319cc1f9b3ad1e7de5991a941bfe7a0880fe1f0846f8b28c1f137",
+            "a27d1aa9c301b27b09fb2cddd41dd782d01efdfcd1e627afe2dfa926fb999ea7",
+            "d1e74b50b9226ef658c0a6c91e10efa56aa6a25f275a77f68cd2170f2758987d",
+            "47afd0e0f9579d5c4d39646dce9d1fbd80100111f2b24e9d3b53c270ec0d87d3",
+            "a78e3b4773c65337306bf99dc35cab9b185dd21b495eb7de2245c5e89cba1d67",
+            "1ad71bb2b4926519d5beba0dac66734aaddad1b56538a39b147603efb0b1a760",
+            "eff705edf3f74094955b656e285e808b81d2db99207b57accc7a1b7f6a38bb30",
+            "600ef87b4cef3a2ae340ec56f5f0006798084059e782b11bb7d4671753dfe06d",
+            "323d22a5941d673b985045444a0014a48b5155f460e200eb3ae5be39e4dace71"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q28",
+      "question": "What is the current US federal funds rate?",
+      "branches": {
+        "bm25": {
+          "final_recall": null,
+          "latency_ms": 1504.6612918376923,
+          "candidate_ids": [
+            "ab03fdfe15f489a983d059d2df618348b7c98266b3215fc81b7c7c7f828d7ba3",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "445f3d308e967291a7d36f6c6e818e3a3bf00503d4cd038c7db7f2dc2407db3a",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "639524f03f9176713260aedb0f3a0df06aa62dde77d905ef0caacffe8410b419",
+            "a352be9ec0584032242ca8f74764e57d91ee5ab8eaea24717486809d787b834e",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "da9aeefc11021d28c7277da850a772aa29be1d8b2723857ec7b014080c5f846e",
+            "a1c61db292a2feb687ec8cd93fbeb7c1a0451689a276c10f736f024bd18c4529",
+            "a3ce38f9a9ebadf2f9db4bac5cec56a622570956dd7ef65b0f43e3eca180c652",
+            "2056add9a19e92038aeaf51f7b1d5d9bed032d953077e5a067c4129308ce3d3d",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7",
+            "eba0e6c96395f53851d6154f616a0766f8273dd859290734ecb7dac59aee1e46",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "2bae3057707e994e086cca3c963bfefcb9972f529592401d257e9524e835e0ab",
+            "2319e66e676a7a74579395cb170435a79ab958f83ec18372233947c1083cdc5e",
+            "505bd2f5cb80772d5e77dd2d353f854a54dce28804d8816bef89aa58d156707e",
+            "893f2153c3f965eecb905cde55519b802c10bfe4923c6536fc2664412c1234e4",
+            "89f1dd335e75035871132b7bffdd27905a1f5c63c4221104070a6ba61eff9682",
+            "c34d819f1408d919d80b559460eeccd4ed55a1fb8ce46efb605575e6d99628a0"
+          ],
+          "source_versions": [
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        },
+        "postgres": {
+          "final_recall": null,
+          "latency_ms": 2080.6630000006407,
+          "candidate_ids": [
+            "ab03fdfe15f489a983d059d2df618348b7c98266b3215fc81b7c7c7f828d7ba3",
+            "812da686fe1fc82dad1a7aa71ac834128306b99d5169f51cbb15d666084aeaa0",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "769f3cbbdb7471e083958d8ab04cd23676474140d3620402003d07d3e0a2f233",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "639524f03f9176713260aedb0f3a0df06aa62dde77d905ef0caacffe8410b419",
+            "711ab44107ff0cbb89e328caa7c148712e4ddd6a06975e56ef5af55a623b3628",
+            "d1ebcc133fbeca7d3e1ce80f6d6380c73d4b9ce84e7c20880f1cbc8a2ee6d081",
+            "bf12bfd2e0d80d309af775fb9d7511b846ea2dbac0ff9317f63df9d945a1e7b1",
+            "a1c61db292a2feb687ec8cd93fbeb7c1a0451689a276c10f736f024bd18c4529",
+            "da9aeefc11021d28c7277da850a772aa29be1d8b2723857ec7b014080c5f846e",
+            "8ebf89b9285a87600a3e4c5395a9a2cb8ba51e2b512c70bb38de4ab31d022c15",
+            "c7317b1125a88cec0e593bf64136e383ce2bce897461935314912c0016a08cc7",
+            "d4efe2e5eb838cb5932e798ac08d31d6a4b59020fd180586efaf87f32139558e",
+            "2db1512ca7c05329ca179dd1f164f9151027684edbab514f40c2b2b2850b3710",
+            "29fea3744722663c680a828df2e518883bd389fcc7653f351eb1062fbbb7436d",
+            "2319e66e676a7a74579395cb170435a79ab958f83ec18372233947c1083cdc5e",
+            "7015f668674e2d4f94153b04451f08a935374290fb8e63d08b0b7fe209e89167",
+            "893f2153c3f965eecb905cde55519b802c10bfe4923c6536fc2664412c1234e4",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q29",
+      "question": "When will Tesla release its Q2 2026 earnings?",
+      "branches": {
+        "bm25": {
+          "final_recall": null,
+          "latency_ms": 970.7266669720411,
+          "candidate_ids": [
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "eff7f80c6ff26b1c11d9d9511fc14e5fa239309125c473783d97d27be9afedda",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54",
+            "339f4a63d24388b73e80769e0a853a0b8a5784e6a3ec50ac304a10ea739ace9d",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "74771ced5fe1851538a5b15da4f5d1f7f741145378676a57cc29b9b68cad7fed",
+            "6ccd48f5a996f29e8bb8d836eaac1f3bdb00382387580c1b924fbccc1eb5383e",
+            "312913178221d572b7fe9acac6d75622198f4946f35b6bb5209c085d4e83bde2",
+            "62fc72bac0282d78928831823c980f203d925f6f4ae33638b8f6187fd5348c88",
+            "2753fff78349e8a022738a519d16c4bef60269636e92f7ab843f5f73270ad8f3",
+            "47afd0e0f9579d5c4d39646dce9d1fbd80100111f2b24e9d3b53c270ec0d87d3",
+            "cfeae53f82596dbd55d65f6ef673e2a0d58800321df5261f7ae5e9c0da163a56",
+            "a78e3b4773c65337306bf99dc35cab9b185dd21b495eb7de2245c5e89cba1d67",
+            "3ec6a2c3f4ec0a2f853f7d48af1c4b34b552ce7cb5d2344d6af9364bc786b683",
+            "33af5537f4864117219bd8cc702f623a038abda7477a5b0bff4ccfa10ffe4439",
+            "80f51a3b61fb876d287dc44de1379df3f08b0726c48b407ec79069f981751a70",
+            "51e94d343e1dd3a01371d8812e1539e36bc0a920852ab1fb84726e682226bcd8"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": null,
+          "latency_ms": 1286.1181248445064,
+          "candidate_ids": [
+            "fe5c90083a4f663a65ef4dd36dae21e5df86b55c2c7e47c835a362b153a3409e",
+            "33af5537f4864117219bd8cc702f623a038abda7477a5b0bff4ccfa10ffe4439",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "7f79cdc197abaddcc11147822e16e68d5c4b92f51893718a97b1f6edc4e99331",
+            "ce76b3e7209c06c43c447de5c69a20a569f9dcd97ffdd0990196dee119f7efea",
+            "b29f492520a8cafb0643b2e1c8361aae06977859fbcced1af5caeca488fa942e",
+            "74771ced5fe1851538a5b15da4f5d1f7f741145378676a57cc29b9b68cad7fed",
+            "be1a3bbf42de647c02d49b2bfa73b6eb2d8d3678fb0a37df8a1f9f793a59dd54",
+            "7ec5bcddf209822bab2b4347684650f439f98cb78e616ffaa88abba6d4bfa780",
+            "20bd89e382229b5e2c236f5db513418a6f26fbd96a387e0a1f52d8ced085acbc",
+            "eff7f80c6ff26b1c11d9d9511fc14e5fa239309125c473783d97d27be9afedda",
+            "6ccd48f5a996f29e8bb8d836eaac1f3bdb00382387580c1b924fbccc1eb5383e",
+            "02e3c12fea9585abb992a91c2a7871eda9f78702156a65abaa9f91004321d344",
+            "62fc72bac0282d78928831823c980f203d925f6f4ae33638b8f6187fd5348c88",
+            "1597bf43c3b2520ee58540a598ec2577a5efc0ca3a756de1f0224923a6b4aa47",
+            "47afd0e0f9579d5c4d39646dce9d1fbd80100111f2b24e9d3b53c270ec0d87d3",
+            "1b1b91a7cd7a75f99a998d7ab816bc81f1646854b01464939cc059407c639fc9",
+            "a78e3b4773c65337306bf99dc35cab9b185dd21b495eb7de2245c5e89cba1d67",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "22b293b97ca30446feae758aa3eb18cf06b0ea426c2eb8161619df5eca45a421"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    },
+    {
+      "id": "q30",
+      "question": "What did Microsoft's CEO say about AI during the earnings call?",
+      "branches": {
+        "bm25": {
+          "final_recall": null,
+          "latency_ms": 880.0572499167174,
+          "candidate_ids": [
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "1bb02a127dc870850a2ccce832f3a28aa462563aeb41a06a0bf7bf20e8fef68a",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "cfeae53f82596dbd55d65f6ef673e2a0d58800321df5261f7ae5e9c0da163a56",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc",
+            "3ec6a2c3f4ec0a2f853f7d48af1c4b34b552ce7cb5d2344d6af9364bc786b683",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "ef392013fb441993456d729ad295f70b2f745b14641857144fa9e55bcb45eec0",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "02e3c12fea9585abb992a91c2a7871eda9f78702156a65abaa9f91004321d344",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "5ea229e75119b73430032a7f375dbb72041ad31c086d1b54c5cff95ac605a9be"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        },
+        "postgres": {
+          "final_recall": null,
+          "latency_ms": 1091.170375002548,
+          "candidate_ids": [
+            "1bac7538aefb97b30157d04c5b74d12e06e4bf579a7ceac7d40caf5cd928a490",
+            "0414fcd925bab66441fd42841b3a0d205169470d99969644f9d748b3402175e3",
+            "9ce27659fb0f816e687751194c18d0b23cd1c31424416fa5f92d71eb3c6387bd",
+            "a0aa40a74b2c93464108be1a3826d5d8ccf7a191c25a84d79d5430f9b8dfb71e",
+            "d3564dcaf9ed6514f925388a50e010606552ef4ebe175972cfd39ef976bbf2ad",
+            "e3741aa5b395ff2470f21e70ebec715b1ac450adb074f0aead48df17db4e8040",
+            "1bb02a127dc870850a2ccce832f3a28aa462563aeb41a06a0bf7bf20e8fef68a",
+            "cbb3d7a251dd43dbcbb57f42da142242c7c058b38d741729359fb989282abfa6",
+            "1b7d4f59383de6f3444932f6f58ac3a0f788115325df4c4f55e3e195c8d1dc62",
+            "597d7ee69305a2dccd9e81fbe36a40c314625aeddc046bcd06243b0bb40c20fc",
+            "1c116cb3bf40603c1515ba52af97fe187e8d8b7c9ff05c5997ec35a60c39a78e",
+            "cf89b88e7679480830c73a83d52ea94a57d7aee2e4b3e4f7f5b904869fff5c04",
+            "a5dfd8753ad3d1aa9f1dcc2ca3c00ce82a5904db14305b23493952c447aee52b",
+            "d4efe2e5eb838cb5932e798ac08d31d6a4b59020fd180586efaf87f32139558e",
+            "ef392013fb441993456d729ad295f70b2f745b14641857144fa9e55bcb45eec0",
+            "1c196d8ba90d6001dd0d805e23c029b17cb1721b856b040bcae0d6ad53e8ed64",
+            "eda0e5769692a5490efbad897b89e2eab9a004d352c7e82998712838924fb06a",
+            "fc8ec8ae7510f2dfb5fa9c4f6b81c5183ff36e1283467ba1a6dc02953047faef",
+            "02e3c12fea9585abb992a91c2a7871eda9f78702156a65abaa9f91004321d344",
+            "97762d6a3fa6f56c61a38168fb7a8206517cf65bdf4e4a9b359bed0dc8c89006"
+          ],
+          "source_versions": [
+            "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+            "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+          ]
+        }
+      }
+    }
+  ]
+}

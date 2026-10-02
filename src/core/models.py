@@ -145,7 +145,7 @@ class Document(BaseModel):
     """
     document_id: str = Field(default_factory=lambda: f"doc_{uuid.uuid4().hex[:12]}")
     title: str
-    source_type: Literal["pdf", "md", "html", "docx", "json"]
+    source_type: Literal["pdf", "text", "markdown", "md", "html", "docx", "json"]
     source_path: Optional[str] = None
     source_hash: Optional[str] = None       # SHA256 of source bytes — cache key
     

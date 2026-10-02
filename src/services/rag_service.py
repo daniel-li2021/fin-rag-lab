@@ -522,6 +522,7 @@ class RAGService:
                     "page_numbers": sorted({s.page_number for s in spans if s.page_number is not None}),
                     "heading_path": list(chunk.heading_path),
                     "document_id": chunk.document_id, "source_version": version,
+                    "source_version_id": chunk.metadata.get("version_id"),
                     "document_name": doc_names.get(chunk.document_id, ""),
                     "evidence_spans": [s.model_dump() for s in spans],
                     "provenance_status": "resolved" if version and spans else "migration_required",
@@ -608,7 +609,6 @@ class RAGService:
             examples = examples[:limit]
 
         evaluator = RagasEvaluator(cost_tracker=self.cost_tracker)
-        assert self.query_pipeline is not None
 
         def query_fn(question: str) -> dict[str, Any]:
             return asdict(self.query(question, require_api_key=require_api_key))

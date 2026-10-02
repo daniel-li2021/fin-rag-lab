@@ -199,10 +199,11 @@ def test_invalid_citation_numbers_are_preserved_for_audit():
 def test_structured_unsupported_outcome_and_malformed_output():
     import pytest
     gen = RAGGenerator()
-    gen._llm = FakeLLM(json.dumps({'outcome': 'refuse', 'answer': 'The provided sources do not contain Apple revenue.'}))
+    gen._llm = FakeLLM(json.dumps({'outcome': 'refuse', 'answer': 'Other company revenue was $99 billion. [^1]'}))
     result = gen.generate('Apple revenue?', make_chunks())
     assert result['outcome'] == 'refuse'
     assert result['refused'] is True
+    assert '99' not in result['answer'] and result['citations']==[]
     gen._llm = FakeLLM(json.dumps({'outcome': 'clarify', 'answer': 'Which reporting period do you mean?'}))
     assert gen.generate('Compare revenue', make_chunks())['outcome'] == 'clarify'
     gen._llm = FakeLLM('{"answer":"Unlabeled answer"}')

@@ -25,9 +25,10 @@ def make_tracked_embeddings(model, tracker):
         record(response)
 
     if tracker is None:
-        return OpenAIEmbeddings(model=model)
+        return OpenAIEmbeddings(model=model,request_timeout=60,max_retries=2)
     return OpenAIEmbeddings(
         model=model,
+        request_timeout=60,max_retries=2,
         http_client=httpx.Client(event_hooks={'response': [sync_hook]}),
         http_async_client=httpx.AsyncClient(event_hooks={'response': [async_hook]}),
     )

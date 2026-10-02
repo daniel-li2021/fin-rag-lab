@@ -108,7 +108,7 @@ settings = Settings()
 # Models that DON'T support custom temperature (must use default of 1.0).
 # This applies to GPT-5 family and o-series reasoning models. Older models
 # (gpt-4o, gpt-4.1) accept temperature normally.
-_NO_TEMPERATURE_PREFIXES = ("gpt-5", "o1", "o3", "o4")
+_NO_TEMPERATURE_PREFIXES = ("gpt-5", "gpt-6", "o1", "o3", "o4")
 
 
 def supports_temperature(model: str) -> bool:
