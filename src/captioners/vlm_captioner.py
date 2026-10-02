@@ -121,12 +121,7 @@ class GPT4oCaptioner(BaseCaptioner):
         if self.cache:
             self.cache.set(key, text)
         if self.cost_tracker:
-            from src.observability import CostTracker
-            usage = CostTracker.extract_token_usage(result)
-            in_tok = usage["prompt_tokens"] or len(prompt) // 4
-            out_tok = usage["completion_tokens"] or len(text) // 4
-            reasoning = usage["reasoning_tokens"]
-            self.cost_tracker.record_llm("vlm_caption", self.model, in_tok, out_tok, reasoning)
+            self.cost_tracker.record_response("vlm_caption", self.model, result)
         return text
 
     def _caption_image(self, block: DocumentBlock, doc_context: str) -> str:
@@ -158,18 +153,7 @@ class GPT4oCaptioner(BaseCaptioner):
         if self.cache:
             self.cache.set(key, text)
         if self.cost_tracker:
-            # Prefer real token usage from API response. Fall back to flat
-            # per-image rate only if response_metadata is missing.
-            from src.observability import CostTracker
-            usage = CostTracker.extract_token_usage(result)
-            if usage["prompt_tokens"] or usage["completion_tokens"]:
-                self.cost_tracker.record_llm(
-                    "vlm_caption", self.model,
-                    usage["prompt_tokens"], usage["completion_tokens"],
-                    usage["reasoning_tokens"],
-                )
-            else:
-                self.cost_tracker.record_vlm_image("vlm_caption")
+            self.cost_tracker.record_response("vlm_caption", self.model, result)
         return text
 
     def _invoke_with_retry(self, messages):

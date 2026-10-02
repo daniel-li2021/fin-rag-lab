@@ -91,6 +91,12 @@ def test_ingest_then_query(client):
     assert "answer" in body2
     assert body2["n_chunks_retrieved"] >= 0
     assert "latency_ms" in body2
+    assert body2["outcome"] == "answer"
+    assert body2["usage"]["unknown_calls"] == 0
+    assert body2["citations"][0]["document_id"]
+    assert body2["citations"][0]["source_version"]
+    assert body2["citations"][0]["evidence_spans"]
+    assert body2["retrieved_contexts"]
 
 
 def test_query_without_ingest_fails(client):

@@ -69,6 +69,7 @@ class RagasEvaluator:
 
         Returns: pandas.DataFrame with one row per example + metric columns
         """
+        from src.evaluators.benchmark import serializable
         from ragas import evaluate
         from datasets import Dataset
         import pandas as pd
@@ -84,7 +85,7 @@ class RagasEvaluator:
             if "contexts" in result:
                 contexts = result["contexts"]
             elif "chunks" in result:
-                contexts = [c.text for c in result["chunks"]]
+                contexts = [c["text"] if isinstance(c, dict) else c.text for c in result["chunks"]]
             else:
                 contexts = []
 
@@ -94,18 +95,28 @@ class RagasEvaluator:
                 "contexts": contexts,
                 "ground_truth": ex.get("ground_truth", ""),
                 "category": ex.get("category", ""),
+                "id": ex.get("id", ""),
+                "expected_outcome": ex.get("expected_outcome", "refuse" if ex.get("category") == "out_of_corpus" else "answer"),
+                "outcome": result.get("outcome"),
+                "query_result_json": json.dumps(serializable(result)),
             })
 
-        ds = Dataset.from_list(rows)
+        df = pd.DataFrame(rows)
+        for name in self.metric_names:
+            df[name] = float("nan")
+        eligible = [i for i, row in enumerate(rows) if row["expected_outcome"] not in ("refuse", "clarify")]
+        if not eligible:
+            return df
+        ds = Dataset.from_list([{k: rows[i][k] for k in ("question", "answer", "contexts", "ground_truth")} for i in eligible])
         if verbose:
-            print(f"\nRunning Ragas on {len(ds)} examples...")
+            print(f"\nRunning Ragas on {len(ds)} supported examples...")
 
         # Wire our judge model + embedding model into ragas.evaluate so that
         # Ragas actually uses what we configured (otherwise it falls back to
         # its internal default, which may be a deprecated model).
         # make_chat_llm handles the GPT-5/o-series temperature constraint.
         from src.core.config import make_chat_llm
-        from langchain_openai import OpenAIEmbeddings
+        from src.observability.embeddings import make_tracked_embeddings
         from ragas.llms import LangchainLLMWrapper
         from ragas.embeddings import LangchainEmbeddingsWrapper
 
@@ -117,7 +128,7 @@ class RagasEvaluator:
 
         chat_llm = make_chat_llm(self.llm_model, temperature=0, callbacks=callbacks)
         judge_llm = LangchainLLMWrapper(chat_llm)
-        judge_emb = LangchainEmbeddingsWrapper(OpenAIEmbeddings(model=self.embedding_model))
+        judge_emb = LangchainEmbeddingsWrapper(make_tracked_embeddings(self.embedding_model, self.cost_tracker))
 
         result = evaluate(
             ds,
@@ -125,16 +136,12 @@ class RagasEvaluator:
             llm=judge_llm,
             embeddings=judge_emb,
         )
-        df = result.to_pandas()
-
-        # Ragas's to_pandas() drops any non-standard columns (e.g. "category")
-        # that we passed in. Re-attach them positionally so downstream
-        # groupby("category") and other slicing keeps working. Order is
-        # preserved because Ragas iterates the Dataset row-by-row.
-        if len(df) == len(rows):
-            for extra_col in ("category",):
-                if extra_col not in df.columns:
-                    df[extra_col] = [r.get(extra_col, "") for r in rows]
+        scored = result.to_pandas()
+        if len(scored) != len(eligible):
+            raise ValueError("Ragas returned a different number of rows")
+        for name in self.metric_names:
+            if name in scored:
+                df.loc[eligible, name] = scored[name].to_numpy()
         return df
 
     @staticmethod
@@ -173,19 +180,13 @@ class _RagasCostCallback(BaseCallbackHandler):
             for gen_list in generations:
                 for gen in gen_list:
                     msg = getattr(gen, "message", None)
-                    md = (getattr(msg, "response_metadata", None) if msg else None) or {}
-                    usage = md.get("token_usage") or md.get("usage") or {}
-                    details = usage.get("completion_tokens_details") or {}
-                    in_tok = usage.get("prompt_tokens", 0) or 0
-                    out_tok = usage.get("completion_tokens", 0) or 0
-                    reason = details.get("reasoning_tokens", 0) or 0
-                    if in_tok or out_tok or reason:
-                        self.cost_tracker.record_llm(
-                            "ragas_judge", self.model, in_tok, out_tok, reason,
-                        )
-        except Exception:
-            # Never let cost tracking break the evaluation
-            pass
+                    if msg is not None:
+                        self.cost_tracker.record_response("ragas_judge", self.model, msg)
+        except Exception as exc:
+            # Keep the evaluation running, but never hide a failed usage capture.
+            self.cost_tracker.record_llm("ragas_judge", self.model, None, None,
+                                         raw_usage={"capture_error": type(exc).__name__},
+                                         usage_source="unavailable")
 
     # Required no-op stubs so LangChain doesn't complain on dispatch
     def on_llm_start(self, *a, **kw): pass

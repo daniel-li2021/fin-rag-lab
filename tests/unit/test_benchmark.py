@@ -54,3 +54,28 @@ def test_evidence_and_numeric_scoring_reject_wrong_version_period_and_scope():
     chunk['evidence_spans'][0]['source_version'] = 'wrong'
     assert score(e, result)['numeric_accuracy'] == 0
     assert score(e, result)['evidence_recall_final'] == 0
+
+
+def test_reporting_keeps_unknown_cost_and_unsupported_refusal_distinct(tmp_path):
+    from src.evaluators.benchmark import serializable
+    examples, _ = load_benchmark(ROOT / 'data/golden_set/golden.jsonl', ROOT / 'data/golden_set/labels.v1.json')
+    from src.observability import CostTracker
+    ct = CostTracker()
+    ct.record_llm('query', 'unknown', 100, 50, 20)
+    result = {'answer': 'refusal with an unsupported claim', 'outcome': 'refuse',
+              'chunks': [], 'cost_usd': None, 'usage': ct.report(),
+              'hallucination': {'n_unsupported': 1, 'n_refuted': 0},
+              'latency_ms': 100, 'retrieval_latency_ms': 20,
+              'metrics': {'faithfulness': float('nan')}}
+    summary = run_benchmark(examples[-1:], lambda _: result, tmp_path, {})
+    assert summary == replay(tmp_path / 'results.jsonl')
+    group = summary['all']
+    assert group['cost']['mean_query_cost_usd'] is None
+    assert group['usage']['output_tokens'] == 50
+    assert group['usage']['reasoning_tokens'] == 20  # subset, never added to output
+    assert group['metrics']['outcome_accuracy']['mean'] == 1
+    assert group['metrics']['outcome_correctness']['mean'] == 0
+    assert group['metrics']['unsupported_assertions']['mean'] == 1
+    assert group['latency_ms']['end_to_end']['p95'] == 100
+    assert group['metrics']['faithfulness']['denominator'] == 0
+    assert serializable(float('nan')) is None

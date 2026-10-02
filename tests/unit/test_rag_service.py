@@ -66,11 +66,13 @@ class _FakeGenerator:
                 "answer": "I could not find any relevant information.",
                 "citations": [],
                 "refused": True,
+                "outcome": "refuse",
             }
         return {
             "answer": f"Mocked answer about {query} [^1].",
             "citations": [chunks[0].chunk_id],
             "refused": False,
+            "outcome": "answer",
             "n_sources_used": 1,
         }
 
@@ -273,3 +275,58 @@ def test_vector_serialization_preserves_provenance_and_marks_legacy():
     assert legacy.document_id == 'old-id'
     assert legacy.source_version is None
     assert legacy.evidence_spans == []
+
+
+def test_query_usage_and_latency_include_verification_and_exclude_other_requests(service, monkeypatch):
+    svc, pdf = service
+    svc.ingest_and_index([pdf], require_api_key=False)
+    svc.cost_tracker.record_llm('previous_unknown', 'unknown', 99, 99)
+    clock = [10.0]
+    monkeypatch.setattr('src.services.rag_service.time.perf_counter', lambda: clock[0])
+    def query(q):
+        svc.cost_tracker.record_embedding('embedding', 'text-embedding-3-small', 100)
+        svc.cost_tracker.record_llm('rag_generate', 'gpt-4o-mini', 1000, 500, 200)
+        clock[0] += 0.05
+        return {'answer': 'unsupported', 'outcome': 'refuse', 'refused': True, 'chunks': [], 'citations': []}
+    def verify(answer, chunks):
+        svc.cost_tracker.record_llm('hallucination_verify', 'gpt-4o-mini', 1000, 0)
+        clock[0] += 0.20
+        return {'n_claims': 0, 'n_refuted': 0, 'n_unsupported': 0}
+    svc.query_pipeline.query = query
+    svc.verify_hallucination = verify
+    for _ in range(2):
+        result = svc.query('Question', verify_hallucination=True, require_api_key=False)
+        assert result.cost_usd == pytest.approx(0.000602)
+        assert result.latency_ms == pytest.approx(250)
+        assert result.usage['n_calls'] == {'embedding': 1, 'rag_generate': 1, 'hallucination_verify': 1}
+        assert 'previous_unknown' not in result.cost_breakdown
+        assert result.hallucination is not None  # Refusal prose is verified too.
+
+
+def test_actual_query_pipeline_copies_usage_context_into_langgraph_workers(service):
+    svc, pdf = service
+    svc.ingest_and_index([pdf], require_api_key=False)
+    def generate(query, chunks):
+        svc.cost_tracker.record_llm('rag_generate', 'gpt-4o-mini', 1000, 0)
+        return {'answer': 'answer', 'outcome': 'answer', 'citations': []}
+    svc.generator.generate = generate
+    result = svc.query('What was net income?', require_api_key=False)
+    assert result.cost_usd == pytest.approx(0.00015)
+    assert result.usage['n_calls']['rag_generate'] == 1
+
+
+def test_ingest_total_includes_embedding_batches_after_document_captioning(service):
+    svc, pdf = service
+    ensure = svc._ensure_retrievers
+    def tracked_ensure(reset_vector=False):
+        ensure(reset_vector)
+        index = svc.vector.index
+        def tracked_index(chunks):
+            svc.cost_tracker.record_embedding('embedding', 'text-embedding-3-small', 7000)
+            index(chunks)
+        svc.vector.index = tracked_index
+    svc._ensure_retrievers = tracked_ensure
+    result = svc.ingest_and_index([pdf], require_api_key=False)
+    assert result['cost_usd'] == pytest.approx(0.00014)
+    assert result['usage']['n_calls'] == {'embedding': 1}
+    assert result['documents'][0]['cost_usd'] == 0  # caption receipt, not shared embedding batch

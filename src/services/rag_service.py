@@ -67,7 +67,7 @@ class IndexedDocument:
     n_parents: int
     n_children: int
     cache_hit: bool = False
-    cost_usd: float = 0.0
+    cost_usd: Optional[float] = 0.0
 
 
 @dataclass
@@ -95,12 +95,16 @@ class QueryResult:
     stages: list[str]
     latency_ms: float
     n_chunks_retrieved: int
-    cost_usd: float
-    cost_breakdown: dict[str, float]
+    cost_usd: Optional[float]
+    cost_breakdown: dict[str, Optional[float]]
     hallucination: Optional[dict[str, Any]] = None
     retrieved_contexts: list[dict[str, Any]] = field(default_factory=list)
     candidates: list[DocumentChunk] = field(default_factory=list)
     invalid_citations: list[Any] = field(default_factory=list)
+    outcome: Optional[str] = None
+    usage: dict[str, Any] = field(default_factory=dict)
+    configuration: dict[str, Any] = field(default_factory=dict)
+    retrieval_latency_ms: float = 0.0
 
     def to_display_dict(self) -> dict[str, Any]:
         """JSON-friendly view for UIs (serializes chunks for optional debug panels)."""
@@ -111,6 +115,10 @@ class QueryResult:
             "retrieved_contexts": self.retrieved_contexts,
             "invalid_citations": self.invalid_citations,
             "refused": self.refused,
+            "outcome": self.outcome,
+            "usage": self.usage,
+            "configuration": self.configuration,
+            "retrieval_latency_ms": self.retrieval_latency_ms,
             "query_type": self.query_type,
             "stages": self.stages,
             "latency_ms": self.latency_ms,
@@ -262,6 +270,7 @@ class RAGService:
                 persist_dir=self.chroma_dir,
                 collection=self.collection,
                 embeddings_cache_dir=self.cache.embeddings_dir,
+                cost_tracker=self.cost_tracker,
             )
             self.bm25 = BM25Retriever()
             self.hybrid = HybridRetriever(
@@ -313,71 +322,72 @@ class RAGService:
                 )
             reset = True
 
-        t0 = time.perf_counter()
-        self._reset_index_state()
-        self._ensure_retrievers(reset_vector=True)
+        with self.cost_tracker.request() as receipt:
+            t0 = time.perf_counter()
+            self._reset_index_state()
+            self._ensure_retrievers(reset_vector=True)
 
-        new_docs: list[IndexedDocument] = []
-        all_parents: list[DocumentChunk] = []
-        all_children: list[DocumentChunk] = []
+            new_docs: list[IndexedDocument] = []
+            all_parents: list[DocumentChunk] = []
+            all_children: list[DocumentChunk] = []
 
-        for path in paths:
-            if verbose:
-                print(f"Ingesting {path.name}...")
-            cost_before = self.cost_tracker.total
-            report = self.ingestion.ingest(
-                path, max_pages=max_pages, page_range=page_range, verbose=verbose
-            )
-            doc_cost = self.cost_tracker.total - cost_before
-
-            parents, children = self.chunker.chunk_with_parents(report.document)
-            all_parents.extend(parents)
-            all_children.extend(children)
-
-            new_docs.append(
-                IndexedDocument(
-                    document_id=report.document.document_id,
-                    title=report.document.title,
-                    source_path=str(path.resolve()),
-                    n_pages=report.document.n_pages,
-                    n_blocks=len(report.document.blocks),
-                    n_parents=len(parents),
-                    n_children=len(children),
-                    cache_hit=report.parse_cache_hit,
-                    cost_usd=doc_cost,
+            for path in paths:
+                if verbose:
+                    print(f"Ingesting {path.name}...")
+                report = self.ingestion.ingest(
+                    path, max_pages=max_pages, page_range=page_range, verbose=verbose
                 )
-            )
-            if verbose:
-                print(
-                    f"  → {len(parents)} parents / {len(children)} children "
-                    f"(cache_hit={report.parse_cache_hit}, ${doc_cost:.4f})"
+                doc_cost = report.total_cost_usd
+
+                parents, children = self.chunker.chunk_with_parents(report.document)
+                all_parents.extend(parents)
+                all_children.extend(children)
+
+                new_docs.append(
+                    IndexedDocument(
+                        document_id=report.document.document_id,
+                        title=report.document.title,
+                        source_path=str(path.resolve()),
+                        n_pages=report.document.n_pages,
+                        n_blocks=len(report.document.blocks),
+                        n_parents=len(parents),
+                        n_children=len(children),
+                        cache_hit=report.parse_cache_hit,
+                        cost_usd=doc_cost,
+                    )
+                )
+                if verbose:
+                    print(
+                        f"  → {len(parents)} parents / {len(children)} children "
+                        f"(cache_hit={report.parse_cache_hit}, cost={doc_cost})"
+                    )
+
+            if not all_children:
+                raise RuntimeError(
+                    "Ingestion produced 0 chunks. Check that the PDFs contain extractable text."
                 )
 
-        if not all_children:
-            raise RuntimeError(
-                "Ingestion produced 0 chunks. Check that the PDFs contain extractable text."
-            )
+            self.parent_store = {p.chunk_id: p for p in all_parents}
+            self.children = list(all_children)
+            self.documents = new_docs
+            assert self.hybrid is not None
+            self.hybrid.parent_store = self.parent_store
+            self.hybrid.index(self.children)
 
-        self.parent_store = {p.chunk_id: p for p in all_parents}
-        self.children = list(all_children)
-        self.documents = new_docs
-        assert self.hybrid is not None
-        self.hybrid.parent_store = self.parent_store
-        self.hybrid.index(self.children)
+            self._save_index()
+            self._ready = True
 
-        self._save_index()
-        self._ready = True
-
-        wall = time.perf_counter() - t0
-        return {
-            "n_documents": len(self.documents),
-            "n_parents": len(self.parent_store),
-            "n_children": len(self.children),
-            "documents": [asdict(d) for d in self.documents],
-            "cost_usd": sum(d.cost_usd for d in self.documents),
-            "wall_time_seconds": wall,
-            "index_dir": str(self.index_dir.resolve()),
-        }
+            wall = time.perf_counter() - t0
+            return {
+                "n_documents": len(self.documents),
+                "n_parents": len(self.parent_store),
+                "n_children": len(self.children),
+                "documents": [asdict(d) for d in self.documents],
+                "cost_usd": receipt.report()["total_usd"],
+                "usage": receipt.report(),
+                "wall_time_seconds": wall,
+                "index_dir": str(self.index_dir.resolve()),
+            }
 
     def load_index(self) -> bool:
         """Load a previously saved index. Returns True if ready."""
@@ -493,59 +503,67 @@ class RAGService:
                     "No index loaded. Run ingest_and_index() or scripts/build_index.py first."
                 )
 
-        assert self.query_pipeline is not None
-        cost_before = self.cost_tracker.total
-        t0 = time.perf_counter()
-        result = self.query_pipeline.query(question)
-        latency_ms = (time.perf_counter() - t0) * 1000.0
-        cost_after = self.cost_tracker.total
+        with self.cost_tracker.request() as receipt:
+            assert self.query_pipeline is not None
+            t0 = time.perf_counter()
+            result = self.query_pipeline.query(question)
 
-        doc_names = {
-            d.document_id: Path(d.source_path).name for d in self.documents
-        }
-        chunks = result.get("chunks", [])
-        def card(chunk, number):
-            spans = getattr(chunk, "evidence_spans", [])
-            version = getattr(chunk, "source_version", None)
-            return {
-                "chunk_id": chunk.chunk_id, "source_number": number,
-                "text_preview": chunk.text[:200], "text": chunk.text,
-                "page_number": chunk.page_number,
-                "page_numbers": sorted({s.page_number for s in spans if s.page_number is not None}),
-                "heading_path": list(chunk.heading_path),
-                "document_id": chunk.document_id, "source_version": version,
-                "document_name": doc_names.get(chunk.document_id, ""),
-                "evidence_spans": [s.model_dump() for s in spans],
-                "provenance_status": "resolved" if version and spans else "migration_required",
-                "legacy_document_id": chunk.document_id if not version or not spans else None,
+            doc_names = {
+                d.document_id: Path(d.source_path).name for d in self.documents
             }
-        retrieved_contexts = [card(c, i) for i, c in enumerate(chunks, 1)]
-        lookup = {c["chunk_id"]: c for c in retrieved_contexts}
-        citations = [lookup[cid] for cid in result.get("citations", []) if cid in lookup]
+            chunks = result.get("chunks", [])
+            def card(chunk, number):
+                spans = getattr(chunk, "evidence_spans", [])
+                version = getattr(chunk, "source_version", None)
+                return {
+                    "chunk_id": chunk.chunk_id, "source_number": number,
+                    "text_preview": chunk.text[:200], "text": chunk.text,
+                    "page_number": chunk.page_number,
+                    "page_numbers": sorted({s.page_number for s in spans if s.page_number is not None}),
+                    "heading_path": list(chunk.heading_path),
+                    "document_id": chunk.document_id, "source_version": version,
+                    "document_name": doc_names.get(chunk.document_id, ""),
+                    "evidence_spans": [s.model_dump() for s in spans],
+                    "provenance_status": "resolved" if version and spans else "migration_required",
+                    "legacy_document_id": chunk.document_id if not version or not spans else None,
+                }
+            retrieved_contexts = [card(c, i) for i, c in enumerate(chunks, 1)]
+            lookup = {c["chunk_id"]: c for c in retrieved_contexts}
+            citations = [lookup[cid] for cid in result.get("citations", []) if cid in lookup]
 
-        hallucination = None
-        if verify_hallucination and not result.get("refused", False):
-            hallucination = self.verify_hallucination(
-                result.get("answer", ""), result.get("chunks", [])
+            hallucination = None
+            if verify_hallucination:
+                hallucination = self.verify_hallucination(
+                    result.get("answer", ""), result.get("chunks", [])
+                )
+
+            usage = receipt.report()
+            return QueryResult(
+                query=question,
+                answer=result.get("answer", ""),
+                citations=citations,
+                retrieved_contexts=retrieved_contexts,
+                candidates=result.get("candidates", []),
+                invalid_citations=result.get("invalid_citations", []) + [cid for cid in result.get("citations", []) if cid not in lookup],
+                chunks=result.get("chunks", []),
+                refused=result.get("refused", False),
+                query_type=result.get("query_type"),
+                stages=result.get("stages", []),
+                latency_ms=(time.perf_counter() - t0) * 1000.0,
+                retrieval_latency_ms=result.get("retrieval_latency_ms", 0),
+                outcome=result.get("outcome"),
+                usage=usage,
+                configuration={"generator_model": getattr(self.generator, "model", None),
+                               "embedding_model": getattr(self.vector, "embedding_model", None),
+                               "judge_model": settings.judge_model if verify_hallucination else None,
+                               "verify_hallucination": verify_hallucination,
+                               "quick_k": getattr(self.query_pipeline, "quick_k", None),
+                               "deep_k": getattr(self.query_pipeline, "deep_k", None)},
+                n_chunks_retrieved=len(result.get("chunks", [])),
+                cost_usd=usage["total_usd"],
+                cost_breakdown=usage["by_stage"],
+                hallucination=hallucination,
             )
-
-        return QueryResult(
-            query=question,
-            answer=result.get("answer", ""),
-            citations=citations,
-            retrieved_contexts=retrieved_contexts,
-            candidates=result.get("candidates", []),
-            invalid_citations=result.get("invalid_citations", []) + [cid for cid in result.get("citations", []) if cid not in lookup],
-            chunks=result.get("chunks", []),
-            refused=result.get("refused", False),
-            query_type=result.get("query_type"),
-            stages=result.get("stages", []),
-            latency_ms=latency_ms,
-            n_chunks_retrieved=len(result.get("chunks", [])),
-            cost_usd=cost_after - cost_before,
-            cost_breakdown=dict(self.cost_tracker.by_stage),
-            hallucination=hallucination,
-        )
 
     def verify_hallucination(
         self, answer: str, chunks: list[DocumentChunk]
@@ -593,45 +611,54 @@ class RAGService:
         assert self.query_pipeline is not None
 
         def query_fn(question: str) -> dict[str, Any]:
-            result = self.query_pipeline.query(question)  # type: ignore[union-attr]
-            return {"answer": result["answer"], "chunks": result["chunks"]}
+            return asdict(self.query(question, require_api_key=require_api_key))
 
-        cost_before = self.cost_tracker.total
-        t0 = time.perf_counter()
-        df = evaluator.evaluate(query_fn, examples, verbose=verbose)
-        wall = time.perf_counter() - t0
+        with self.cost_tracker.request() as receipt:
+            t0 = time.perf_counter()
+            df = evaluator.evaluate(query_fn, examples, verbose=verbose)
+            wall = time.perf_counter() - t0
 
-        if output_csv is not None:
-            out = Path(output_csv)
-            if not out.is_absolute():
-                out = settings.repo_root / out
-            out.parent.mkdir(parents=True, exist_ok=True)
-            df.to_csv(out, index=False)
-            output_csv = out
+            if output_csv is not None:
+                out = Path(output_csv)
+                if not out.is_absolute():
+                    out = settings.repo_root / out
+                out.parent.mkdir(parents=True, exist_ok=True)
+                df.to_csv(out, index=False)
+                out.with_suffix(out.suffix + ".usage.json").write_text(json.dumps({
+                    "usage": receipt.report(),
+                    "configuration": {"judge_model": evaluator.llm_model, "judge_embedding_model": evaluator.embedding_model},
+                }, indent=2) + "\n")
+                output_csv = out
 
-        metric_cols = [
-            c
-            for c in (
-                "faithfulness",
-                "answer_relevancy",
-                "context_precision",
-                "context_recall",
-            )
-            if c in df.columns
-        ]
-        summary = {c: float(df[c].mean()) for c in metric_cols} if metric_cols else {}
-        by_category = None
-        if metric_cols and "category" in df.columns:
-            by_category = (
-                df.groupby("category")[metric_cols].mean().round(3).to_dict()
-            )
+            metric_cols = [
+                c
+                for c in (
+                    "faithfulness",
+                    "answer_relevancy",
+                    "context_precision",
+                    "context_recall",
+                )
+                if c in df.columns
+            ]
+            summary = {c: float(df[c].mean()) if df[c].count() else None for c in metric_cols} if metric_cols else {}
+            by_category = None
+            if metric_cols and "category" in df.columns:
+                by_category = (
+                    df.groupby("category")[metric_cols].mean().round(3).astype(object).where(
+                        df.groupby("category")[metric_cols].mean().notna(), None
+                    ).to_dict()
+                )
 
-        return {
-            "n_examples": len(examples),
-            "metrics": summary,
-            "by_category": by_category,
-            "dataframe": df,
-            "cost_usd": self.cost_tracker.total - cost_before,
-            "wall_time_seconds": wall,
-            "output_csv": str(output_csv) if output_csv else None,
-        }
+            return {
+                "n_examples": len(examples),
+                "metrics": summary,
+                "metric_denominators": {c: int(df[c].count()) for c in metric_cols},
+                "by_category": by_category,
+                "by_category_denominators": df.groupby("category")[metric_cols].count().to_dict() if "category" in df.columns else {},
+                "dataframe": df,
+                "cost_usd": receipt.report()["total_usd"],
+                "usage": receipt.report(),
+                "configuration": {"judge_model": evaluator.llm_model, "judge_embedding_model": evaluator.embedding_model},
+                "wall_time_seconds": wall,
+                "output_csv": str(output_csv) if output_csv else None,
+            }

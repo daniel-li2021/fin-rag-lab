@@ -172,7 +172,7 @@ Keep IDs, duplicate detection, type validation, source-status changes, version s
 
 Each issue includes the relevant documentation update and a focused offline check. Existing pytest infrastructure can be reused; paid benchmark execution is an explicit bounded experiment, not an ordinary CI dependency.
 
-**Implementation batch:** Issues 01 (benchmark harness/labels) and 02 (original evidence/provenance) implemented; see [Evidence contract](EVIDENCE.md); validation and operating contract: [Benchmark](BENCHMARK.md). Paid controlled runs remain deferred until the evidence/usage foundation is complete. Original review findings below describe the pre-implementation state.
+**Implementation batch:** Issues 01 (benchmark harness/labels), 02 (original evidence/provenance) and 03 (request usage/outcomes/cost) implemented; see [Evidence contract](EVIDENCE.md) and [Usage contract](USAGE.md); validation and operating contract: [Benchmark](BENCHMARK.md). The evidence/usage foundation is complete. Paid controlled comparisons and the fixed-token arms remain Issue 10; no paid run was executed in this batch. Original review findings below describe the pre-implementation state.
 
 **01 — Make the golden benchmark reproducible** · independent · evaluation files/scripts.
 Acceptance: preserve original 30 questions; add stable IDs and versioned evidence/outcome/numeric labels; review inconsistent cross-document references; manifest corpus/golden/code/configuration hashes; save per-question retrieval/results/usage with metric denominators. Recompute summaries from saved results without model calls. Define promotion thresholds in documentation. This PR adds the harness; the controlled benchmark runs after 02/03.

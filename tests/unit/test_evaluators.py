@@ -155,3 +155,48 @@ def test_hallucination_report_empty():
     report = HallucinationReport(0, 0, 0, 0, [])
     # No claims = perfect by default (nothing to be wrong about)
     assert report.faithfulness_score == 1.0
+
+
+def test_ragas_adapter_saves_outcome_and_usage_without_judging_refusal(monkeypatch):
+    import json
+    import pandas as pd
+    import ragas
+    import ragas.llms
+    import ragas.embeddings
+    from src.evaluators.ragas_evaluator import RagasEvaluator
+    from types import SimpleNamespace
+    calls = []
+    def evaluate(ds, **kw):
+        calls.append(len(ds))
+        return SimpleNamespace(to_pandas=lambda: pd.DataFrame({'faithfulness': [0.8], 'context_recall': [0.7]}))
+    monkeypatch.setattr(ragas, 'evaluate', evaluate)
+    monkeypatch.setattr('src.core.config.make_chat_llm', lambda *a, **kw: object())
+    monkeypatch.setattr('src.observability.embeddings.make_tracked_embeddings', lambda *a: object())
+    monkeypatch.setattr(ragas.llms, 'LangchainLLMWrapper', lambda llm: llm)
+    monkeypatch.setattr(ragas.embeddings, 'LangchainEmbeddingsWrapper', lambda embeddings: embeddings)
+    evaluator = RagasEvaluator()
+    monkeypatch.setattr(evaluator, '_load_metrics', lambda: [])
+    examples = [
+        {'id': 'q1', 'question': 'supported', 'expected_outcome': 'answer'},
+        {'id': 'q2', 'question': 'absent', 'expected_outcome': 'refuse'},
+    ]
+    def query(q):
+        return {'answer': q, 'outcome': 'refuse' if q == 'absent' else 'answer',
+                'chunks': [{'text': 'original evidence'}], 'usage': {'events': [], 'total_usd': 0}}
+    df = evaluator.evaluate(query, examples, verbose=False)
+    assert calls == [1]
+    assert df['faithfulness'].count() == 1
+    assert df['context_recall'].count() == 1
+    assert df.loc[1, 'outcome'] == 'refuse'
+    assert json.loads(df.loc[1, 'query_result_json'])['usage']['events'] == []
+    df = evaluator.evaluate(query, examples[1:], verbose=False)
+    assert calls == [1]
+    assert df['faithfulness'].count() == 0
+
+
+def test_malformed_verifier_cannot_mark_an_assertion_supported():
+    from src.evaluators.hallucination import HallucinationDetector
+    from types import SimpleNamespace
+    detector = HallucinationDetector()
+    detector._llm = SimpleNamespace(invoke=lambda _: SimpleNamespace(content='The claim is not entailed.'))
+    assert detector._verify('Unsupported financial assertion', 'irrelevant').verdict == 'unsupported'

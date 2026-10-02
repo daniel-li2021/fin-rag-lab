@@ -236,10 +236,10 @@ def _render_sidebar(svc) -> None:
                         get_service.clear()
                         st.session_state.last_result = None
                         st.session_state.last_error = None
+                        cost = "unknown" if result["cost_usd"] is None else f"${result['cost_usd']:.4f}"
                         st.success(
                             f"{result['n_documents']} docs · "
-                            f"{result['n_children']} chunks · "
-                            f"${result['cost_usd']:.4f}"
+                            f"{result['n_children']} chunks · {cost}"
                         )
                         st.rerun()
                     except Exception as e:
@@ -368,6 +368,8 @@ def _render_result(result: dict) -> None:
 
     # ---- Answer (hero) ----
     st.markdown("#### Answer")
+    if result.get("outcome"):
+        st.caption(result["outcome"].replace("_", " "))
     if question:
         st.caption(question)
 
@@ -384,7 +386,8 @@ def _render_result(result: dict) -> None:
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Latency", f"{latency_s:.1f}s")
     m2.metric("Citations", len(citations))
-    m3.metric("Cost", f"${result.get('cost_usd', 0):.4f}")
+    cost = result.get("cost_usd")
+    m3.metric("Cost estimate", "unknown" if cost is None else f"${cost:.4f}")
     m4.metric("Route", route)
 
     # ---- User-facing sources (collapsed) ----

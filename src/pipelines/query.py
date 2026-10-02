@@ -31,6 +31,7 @@ Each node is a pure function of state → state. State is a TypedDict carrying
 query, retrieved chunks, answer, citations, and a stage trace for debugging.
 """
 from __future__ import annotations
+import time
 from typing import TypedDict, Literal, Optional, Any
 from langgraph.graph import StateGraph, END
 from langsmith import traceable
@@ -52,6 +53,8 @@ class QueryState(TypedDict, total=False):
     citations: list[str]
     invalid_citations: list[int]
     refused: bool
+    outcome: Optional[str]
+    retrieval_latency_ms: float
     stages: list[str]                 # debug trace
     metadata: dict[str, Any]
 
@@ -105,9 +108,13 @@ class QueryPipeline:
         self.graph = self._build_graph()
     
     def _retrieve(self, query, k):
+        start = time.perf_counter()
         if hasattr(self.retriever, "retrieve_with_candidates"):
-            return self.retriever.retrieve_with_candidates(query, k=k)
-        return {"chunks": self.retriever.retrieve(query, k=k), "candidates": []}
+            result = self.retriever.retrieve_with_candidates(query, k=k)
+        else:
+            result = {"chunks": self.retriever.retrieve(query, k=k), "candidates": []}
+        result["retrieval_latency_ms"] = (time.perf_counter() - start) * 1000
+        return result
 
     # ---- Nodes ----
     def _node_classify(self, state: QueryState) -> QueryState:
@@ -143,7 +150,8 @@ class QueryPipeline:
             "answer": result["answer"],
             "citations": result.get("citations", []),
             "invalid_citations": result.get("invalid_citations", []),
-            "refused": result.get("refused", False),
+            "refused": result.get("outcome") == "refuse" if result.get("outcome") else result.get("refused", False),
+            "outcome": result.get("outcome"),
             "stages": [*state.get("stages", []), "generate"],
             "metadata": {**state.get("metadata", {}), **{
                 k: v for k, v in result.items() if k.startswith("n_")
@@ -156,6 +164,7 @@ class QueryPipeline:
             "answer": "I don't have enough information in the provided sources to answer that question.",
             "citations": [],
             "refused": True,
+            "outcome": "refuse",
             "stages": [*state.get("stages", []), "refuse"],
         }
     
@@ -197,6 +206,14 @@ class QueryPipeline:
     # ---- Public API ----
     @traceable(name="query_pipeline")
     def query(self, question: str) -> dict[str, Any]:
+        if self.cost_tracker is None:
+            return self._query(question)
+        with self.cost_tracker.request() as receipt:
+            result = self._query(question)
+            result["usage"] = receipt.report()
+            return result
+
+    def _query(self, question):
         initial = QueryState(query=question, stages=[], metadata={})
         final = self.graph.invoke(initial)
         return {
@@ -207,6 +224,8 @@ class QueryPipeline:
             "chunks": final.get("chunks", []),
             "candidates": final.get("candidates", []),
             "refused": final.get("refused", False),
+            "outcome": final.get("outcome"),
+            "retrieval_latency_ms": final.get("retrieval_latency_ms", 0),
             "stages": final.get("stages", []),
             "query_type": final.get("query_type"),
         }

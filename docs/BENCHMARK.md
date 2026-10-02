@@ -24,3 +24,5 @@ The capture default replays the deployed quick/deep 3/8-parent policy. It is **n
 ## Promotion gate
 
 Before promoting contextual retrieval: +0.10 absolute macro evidence recall within the same 2,400-token original-evidence budget; two additional correct factual numeric answers, with no formerly correct answer lost; no new wrong-period/scope assertions; all four out-of-corpus questions handled correctly; no invalid citations; mean faithfulness regression ≤0.02; online p95 latency and mean query cost increase ≤20%. Preapprove an ingestion/context budget. Report paired question deltas and uncertainty. Undefined numeric/citation review or unknown costs cannot pass the gate. Retain parent-child when results are inconclusive. Thirty questions are a screening set, not statistical proof.
+
+Request usage, structured outcomes, verification, optional secondary judging and reporting semantics: [Usage contract](USAGE.md). Capture requires a corrected evidence revision; legacy artifacts remain available for historical inspection, not new promotion measurements.

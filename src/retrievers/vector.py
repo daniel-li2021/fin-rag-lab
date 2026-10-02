@@ -27,15 +27,16 @@ class VectorRetriever(BaseRetriever):
         collection: str = "voyageai",
         embedding_model: Optional[str] = None,
         embeddings_cache_dir: Optional[Path | str] = None,
+        cost_tracker=None,
     ):
-        from langchain_openai import OpenAIEmbeddings
+        from src.observability.embeddings import make_tracked_embeddings
         from langchain_chroma import Chroma
         
         self.persist_dir = str(persist_dir)
         self.collection = collection
         self.embedding_model = embedding_model or settings.embedding_model
         
-        base_embeddings = OpenAIEmbeddings(model=self.embedding_model)
+        base_embeddings = make_tracked_embeddings(self.embedding_model, cost_tracker)
         if embeddings_cache_dir:
             self.embeddings = make_cached_embeddings(
                 base_embeddings,

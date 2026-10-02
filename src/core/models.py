@@ -189,8 +189,9 @@ class IngestionReport(BaseModel):
     embedding_cache_misses: int = 0
     
     # Cost (USD)
-    total_cost_usd: float = 0.0
-    cost_breakdown: dict[str, float] = Field(default_factory=dict)
+    total_cost_usd: Optional[float] = 0.0
+    usage: dict[str, Any] = Field(default_factory=dict)
+    cost_breakdown: dict[str, Optional[float]] = Field(default_factory=dict)
     
     # Timing
     wall_time_seconds: float = 0.0
@@ -202,6 +203,6 @@ class IngestionReport(BaseModel):
             f" Chunks: {self.n_chunks}",
             f" VLM cache: {self.vlm_cache_hits} hits / {self.vlm_cache_misses} misses",
             f" Embed cache: {self.embedding_cache_hits} hits / {self.embedding_cache_misses} misses",
-            f"Cost: ${self.total_cost_usd:.4f}    time {self.wall_time_seconds:.1f}s",
+            f"Cost: {'unknown' if self.total_cost_usd is None else f'${self.total_cost_usd:.4f}'}    time {self.wall_time_seconds:.1f}s",
         ]
         return "\n".join(lines)

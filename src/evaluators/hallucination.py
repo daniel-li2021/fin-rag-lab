@@ -28,7 +28,8 @@ from src.observability import CostTracker
 
 _DECOMPOSE_PROMPT = """Break this answer into a numbered list of atomic factual claims.
 A claim is one self-contained fact (a number, a date, a relationship). Skip introductory \
-phrases, commentary, and citations like [^1].
+phrases, commentary, and citations like [^1]. Skip refusal/clarification statements \
+about missing evidence; still extract concrete financial/world assertions made inside refusals.
 
 Answer:
 {answer}
@@ -130,14 +131,7 @@ class HallucinationDetector:
             [HumanMessage(content=_DECOMPOSE_PROMPT.format(answer=answer))]
         )
         if self.cost_tracker:
-            from src.observability import CostTracker
-            u = CostTracker.extract_token_usage(result)
-            self.cost_tracker.record_llm(
-                "hallucination_decompose", self.model,
-                u["prompt_tokens"] or len(answer) // 4,
-                u["completion_tokens"] or len(result.content) // 4,
-                u["reasoning_tokens"],
-            )
+            self.cost_tracker.record_response("hallucination_decompose", self.model, result)
         # Split lines, strip, drop empties
         claims = [
             re.sub(r"^[\-\*\d\.\)]+\s*", "", ln).strip()
@@ -150,14 +144,7 @@ class HallucinationDetector:
         prompt = _VERIFY_PROMPT.format(claim=claim, context=context)
         result = self._get_llm().invoke([HumanMessage(content=prompt)])
         if self.cost_tracker:
-            from src.observability import CostTracker
-            u = CostTracker.extract_token_usage(result)
-            self.cost_tracker.record_llm(
-                "hallucination_verify", self.model,
-                u["prompt_tokens"] or len(prompt) // 4,
-                u["completion_tokens"] or len(result.content) // 4,
-                u["reasoning_tokens"],
-            )
+            self.cost_tracker.record_response("hallucination_verify", self.model, result)
         # Parse JSON, tolerate fenced code blocks
         raw = result.content.strip()
         raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.MULTILINE).strip()
@@ -167,11 +154,8 @@ class HallucinationDetector:
             if verdict not in ("entailed", "refuted", "unsupported"):
                 verdict = "unsupported"
             reasoning = data.get("reasoning", "")
-        except json.JSONDecodeError:
-            # Fall back to keyword search
-            low = raw.lower()
-            if "entail" in low: verdict = "entailed"
-            elif "refut" in low or "contradict" in low: verdict = "refuted"
-            else: verdict = "unsupported"
+        except (ValueError, TypeError, AttributeError):
+            # Malformed judgments cannot establish support.
+            verdict = "unsupported"
             reasoning = raw[:200]
         return ClaimVerdict(claim=claim, verdict=verdict, reasoning=reasoning)

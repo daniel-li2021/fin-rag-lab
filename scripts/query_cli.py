@@ -29,10 +29,11 @@ def _print_result(result, *, show_chunks: bool = False) -> None:
     print("-" * 60)
     print(result.answer)
     print("-" * 60)
+    cost = "unknown" if result.cost_usd is None else f"${result.cost_usd:.4f}"
     print(
         f"type={result.query_type}  refused={result.refused}  "
         f"latency={result.latency_ms:.0f}ms  chunks={result.n_chunks_retrieved}  "
-        f"cost=${result.cost_usd:.4f}"
+        f"cost={cost}  outcome={result.outcome}"
     )
     print(f"stages: {' → '.join(result.stages)}")
     if result.citations:
@@ -40,7 +41,7 @@ def _print_result(result, *, show_chunks: bool = False) -> None:
         for i, c in enumerate(result.citations, start=1):
             page = c.get("page_number")
             page_s = f"p.{page}" if page else "p.?"
-            print(f"  [{i}] {page_s}  {c.get('text_preview', '')[:120]}")
+            print(f"  [{c.get('source_number') or i}] {page_s}  {c.get('text_preview', '')[:120]}")
     if result.hallucination:
         h = result.hallucination
         print(
@@ -95,18 +96,7 @@ def main() -> int:
     def run_one(q: str) -> None:
         result = svc.query(q, verify_hallucination=args.verify)
         if args.json:
-            payload = {
-                "query": result.query,
-                "answer": result.answer,
-                "citations": result.citations,
-                "refused": result.refused,
-                "query_type": result.query_type,
-                "stages": result.stages,
-                "latency_ms": result.latency_ms,
-                "n_chunks_retrieved": result.n_chunks_retrieved,
-                "cost_usd": result.cost_usd,
-                "hallucination": result.hallucination,
-            }
+            payload = result.to_display_dict()
             print(json.dumps(payload, indent=2, default=str))
         else:
             _print_result(result, show_chunks=args.show_chunks)

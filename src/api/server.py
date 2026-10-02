@@ -34,9 +34,10 @@ class IngestResponse(BaseModel):
     title: str
     n_blocks: int
     n_chunks: int
-    cost_usd: float
+    cost_usd: Optional[float]
     cache_hit: bool
     n_documents_indexed: int
+    usage: dict[str, Any] = {}
 
 
 class QueryRequest(BaseModel):
@@ -69,8 +70,13 @@ class QueryResponse(BaseModel):
     stages: list[str] = []
     n_chunks_retrieved: int
     latency_ms: float = 0.0
-    cost_usd: float = 0.0
+    cost_usd: Optional[float] = 0.0
     hallucination: Optional[dict[str, Any]] = None
+    outcome: Optional[str] = None
+    usage: dict[str, Any] = {}
+    configuration: dict[str, Any] = {}
+    cost_breakdown: dict[str, Optional[float]] = {}
+    retrieval_latency_ms: float = 0.0
 
 
 class AppState:
@@ -145,7 +151,8 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
             title=doc["title"],
             n_blocks=doc["n_blocks"],
             n_chunks=doc["n_children"],
-            cost_usd=doc["cost_usd"],
+            cost_usd=result["cost_usd"],
+            usage=result["usage"],
             cache_hit=doc["cache_hit"],
             n_documents_indexed=result["n_documents"],
         )
@@ -182,6 +189,9 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
             latency_ms=result.latency_ms,
             cost_usd=result.cost_usd,
             hallucination=result.hallucination,
+            outcome=result.outcome, usage=result.usage,
+            configuration=result.configuration, cost_breakdown=result.cost_breakdown,
+            retrieval_latency_ms=result.retrieval_latency_ms,
         )
 
     return app

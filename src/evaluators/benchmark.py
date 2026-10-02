@@ -66,7 +66,7 @@ def serializable(value):
         return {str(k): serializable(v) for k, v in value.items()}
     if isinstance(value, (list, tuple)):
         return [serializable(v) for v in value]
-    return value
+    return None if isinstance(value, float) and not math.isfinite(value) else value
 
 
 def evidence_match(required, chunk):
@@ -98,8 +98,8 @@ def score(label, result):
     citations = result.get('citations', [])
     invalid = result.get('invalid_citations', [])
     metrics['citation_validity'] = (sum(
-        c.get('provenance_status') == 'resolved' and c.get('source_version')
-        and bool(c.get('evidence_spans')) for c in citations
+        bool(c.get('provenance_status') == 'resolved' and c.get('source_version')
+        and c.get('evidence_spans')) for c in citations
     ) / (len(citations) + len(invalid))) if citations or invalid else None
     metrics['citation_support'] = result.get('citation_support')
     # Numeric claims are explicitly annotated with entity/period/scope; plain text
@@ -112,6 +112,11 @@ def score(label, result):
             for c in claims) for e in label['numeric']) / len(label['numeric'])
     else:
         metrics['numeric_accuracy'] = None
+    verification = result.get('hallucination')
+    unsupported = (verification.get('n_refuted', 0) + verification.get('n_unsupported', 0)) if verification is not None else None
+    metrics['unsupported_assertions'] = unsupported
+    metrics['outcome_correctness'] = float(result.get('outcome') == label['expected_outcome'] and unsupported == 0) if unsupported is not None and result.get('outcome') else None
+    metrics['wrong_period_scope_assertions'] = result.get('wrong_period_scope_assertions')
     for name, value in result.get('metrics', {}).items():
         if name not in metrics:
             metrics[name] = value
@@ -119,6 +124,17 @@ def score(label, result):
         for name in ('answer_relevancy', 'context_precision', 'context_recall'):
             metrics[name] = None
     return metrics
+
+
+def latency_summary(values):
+    values = sorted(v for v in values if isinstance(v, (int, float)) and math.isfinite(v))
+    def percentile(q):
+        if not values:
+            return None
+        at = (len(values) - 1) * q
+        lo = int(at)
+        return values[lo] + (values[min(lo + 1, len(values) - 1)] - values[lo]) * (at - lo)
+    return {'p50': percentile(.5), 'p95': percentile(.95), 'denominator': len(values)}
 
 
 def summarize(rows):
@@ -138,6 +154,29 @@ def summarize(rows):
         summary[group] = {'n_questions': len(items), 'metrics': {
             name: {'mean': sum(v) / len(v) if v else None, 'denominator': len(v)}
             for name, v in values.items()}}
+        costs = [r['result'].get('cost_usd') for r in items]
+        known = [c for c in costs if isinstance(c, (int, float)) and math.isfinite(c)]
+        summary[group]['cost'] = {
+            'mean_query_cost_usd': sum(known) / len(items) if len(known) == len(items) else None,
+            'priced_query_denominator': len(known), 'unknown_queries': len(items) - len(known),
+            'priced_subtotal_usd': sum(known), 'pricing_status': 'configured_estimate',
+        }
+        summary[group]['latency_ms'] = {
+            'end_to_end': latency_summary([r['result'].get('latency_ms') for r in items]),
+            'retrieval': latency_summary([r['result'].get('retrieval_latency_ms') for r in items]),
+        }
+        for scope in ('usage', 'evaluation_usage'):
+            receipts = [r['result'].get(scope) for r in items]
+            receipts = [r for r in receipts if isinstance(r, dict) and 'events' in r]
+            events = [e for receipt in receipts for e in receipt['events']]
+            complete = len(receipts) == len(items)
+            summary[group][scope] = {'calls': len(events) if receipts else None,
+                'receipt_denominator': len(receipts),
+                'input_tokens': sum(e['input_tokens'] for e in events) if complete and all(e.get('input_tokens') is not None for e in events) else None,
+                'output_tokens': sum(e['output_tokens'] for e in events) if complete and all(e.get('output_tokens') is not None for e in events) else None,
+                'reasoning_tokens': sum(e.get('reasoning_tokens') or 0 for e in events) if complete else None,
+                'unknown_cost_calls': sum(e.get('cost_usd') is None for e in events),
+                'cost_usd': sum(e['cost_usd'] for e in events) if complete and all(e.get('cost_usd') is not None for e in events) else None}
     return summary
 
 

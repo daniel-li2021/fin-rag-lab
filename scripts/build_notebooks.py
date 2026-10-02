@@ -1238,20 +1238,16 @@ print("Out-of-corpus refusal test (improved pipeline):\\n" + "-"*70)
 hits, misses = 0, 0
 for g in ooc_qs:
     result = qp_improved.query(g["question"])
-    answer = result.get("answer", "").lower()
-    refused_correctly = (
-        result.get("refused", False)
-        or "could not find" in answer
-        or "what i found" in answer  # new structured-refusal protocol
-        or "what's missing" in answer
-    )
+    verification = detector.detect(result["answer"], result.get("chunks", []))
+    refused_correctly = result.get("outcome") == "refuse" and verification.n_refuted + verification.n_unsupported == 0
     mark = "REFUSED  " if refused_correctly else "ANSWERED!"
     if refused_correctly: hits += 1
     else: misses += 1
     print(f"\\n[{mark}] {g['question']}")
     print(f"   answer: {result['answer'][:160]}")
 print(f"\\nOOC refusal rate: {hits}/{hits+misses} = {hits/max(1,hits+misses):.0%}")
-print(f"Total cost (baseline + improved + detector): ${cost_baseline.total + cost_improved.total:.4f}")"""),
+print("Baseline:", cost_baseline.summary_line())
+print("Improved + detector:", cost_improved.summary_line())"""),
         md("""## Interview talking point (with real numbers from your run)
 
 > "I built a 30-question golden set across 5 categories (fact_finding,
