@@ -23,3 +23,5 @@ The notebook's OOC scoring now requires a structured refusal plus zero unsupport
 ```sh
 python -m pytest tests/unit/test_usage.py tests/unit/test_benchmark.py tests/unit/test_evaluators.py tests/unit/test_generator_query.py tests/unit/test_rag_service.py tests/integration/test_api.py -q
 ```
+
+Run tests from the repository root with `python -m pytest`; CI uses the same module invocation. The bare `pytest` console script can omit the repository from Python's import path and fail to import `src` during collection.

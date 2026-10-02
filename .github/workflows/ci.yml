@@ -29,4 +29,4 @@ jobs:
         # Unit tests are hermetic: no API keys required (conftest stubs tiktoken
         # if network is unavailable). Integration tests under tests/integration
         # need OPENAI_API_KEY and are skipped in CI.
-        run: pytest tests/unit -v
+        run: python -m pytest tests/unit -v
