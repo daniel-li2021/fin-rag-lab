@@ -117,7 +117,6 @@ def run_research(request: ResearchRequest, snapshot: dict) -> dict:
     lines.extend(f'{g["operation"]}: {g["reason"]}' for g in gaps)
     if not lines:
         lines = ['No requested fact has a reviewed original binding.']
-    # ponytail: JSON export provides immutable replay evidence; add owner-scoped storage when saved runs are used.
     code_files = sorted(Path(__file__).parent.glob('*.py'))
     code_hash = hashlib.sha256(b''.join(p.name.encode() + p.read_bytes() for p in code_files)).hexdigest()
     result = {'contract_version': 'financial-research-v1', 'outcome': outcome, 'answer': '\n'.join(lines),

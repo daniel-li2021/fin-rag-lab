@@ -62,3 +62,16 @@ class ResearchSelection(SourceFilters):
         if (self.build_id or self.metadata_review_id) and not self.version_id:
             raise ValueError('An explicit build or metadata review requires its version_id')
         return self
+
+
+class CollectionRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
+    name: str = Field(min_length=1, max_length=200)
+    kind: Literal['collection', 'watchlist'] = 'collection'
+    source_ids: tuple[UUID, ...] = Field(min_length=1, max_length=18)
+
+    @model_validator(mode='after')
+    def unique_sources(self):
+        if len(set(self.source_ids)) != len(self.source_ids):
+            raise ValueError('Collection source IDs must be unique')
+        return self

@@ -195,9 +195,74 @@ class PersistentRAGService(RAGService):
         result.configuration.update(backend='postgres',lexical=lexical,filters=filters)
         return result
 
-    def research(self, request):
-        from src.financial.research import ResearchRequest, run_research
+    def research(self, request, *, save=False, collection_id=None, parent_run_id=None):
+        from src.financial.research import ResearchRequest
         request = ResearchRequest.model_validate(request)
         snapshot = self.registry.research_snapshot(self.owner, [s.model_dump(mode='json', exclude_none=True)
                                                               for s in request.selections])
-        return run_research(request, snapshot)
+        return self._execute_research(request, snapshot, save, collection_id, parent_run_id)
+
+    def _execute_research(self, request, snapshot, save=False, collection_id=None, parent_run_id=None):
+        from src.financial.research import ResearchRequest
+        stored = self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']])
+        if len(stored) > 100:
+            raise ValueError('Selected reviewed library exceeds 100 cards; narrow the source selection')
+        observations = {o['observation_id']: o for o in stored}
+        for observation in request.observations:
+            previous = observations.get(observation.observation_id)
+            if previous and previous != observation.model_dump(mode='json'):
+                raise ValueError('Request conflicts with an immutable stored observation')
+            observations[observation.observation_id] = observation.model_dump(mode='json')
+        request = ResearchRequest.model_validate({**request.model_dump(mode='json'), 'observations': list(observations.values())})
+        result = QueryPipeline(None, None).research(request, snapshot)
+        if save:
+            self._save_research_result(result, collection_id, parent_run_id)
+        return result
+
+    def _save_research_result(self, result, collection_id=None, parent_run_id=None):
+        import uuid
+        from datetime import datetime, timezone
+        from src.financial.research import _canonical
+        result['execution'] = {'execution_id': str(uuid.uuid4()), 'timestamp': datetime.now(timezone.utc).isoformat(),
+                               'parent_run_id': parent_run_id, 'collection_id': str(collection_id) if collection_id else None}
+        result['run_id'] = hashlib.sha256(_canonical({k: v for k, v in result.items() if k != 'run_id'}).encode()).hexdigest()
+        self.registry.save_research(self.owner, result, collection_id, parent_run_id)
+
+    def research_evidence(self, request, *, save=False, collection_id=None, parent_run_id=None):
+        from src.financial.evidence import EvidenceSearchRequest
+        request = EvidenceSearchRequest.model_validate(request)
+        snapshot = self.registry.research_snapshot(self.owner, [s.model_dump(mode='json', exclude_none=True) for s in request.selections])
+        result = QueryPipeline(None, None).evidence(request, snapshot)
+        if save:
+            self._save_research_result(result, collection_id, parent_run_id)
+        return result
+
+    def research_question(self, question, selections=None, collection_id=None, save=False):
+        from src.financial.intent import resolve_question
+        from src.financial.models import FinancialObservation
+        from src.financial.research import ResearchRequest
+        if collection_id:
+            if selections:
+                raise ValueError('Choose a collection or explicit selections')
+            collection = self.registry.collection(self.owner, collection_id)
+            selections = [{'source_id': source_id} for source_id in collection['source_ids']]
+        snapshot = self.registry.research_snapshot(self.owner, selections or [])
+        observations = [FinancialObservation.model_validate(o) for o in
+                        self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']])]
+        resolution = resolve_question(question, selections, snapshot['inventory'], observations)
+        if 'request' not in resolution:
+            return resolution
+        return self._execute_research(ResearchRequest.model_validate(resolution['request']), snapshot,
+                                      save=save, collection_id=collection_id)
+
+    def rerun_research(self, run_id):
+        previous = self.registry.research_run(self.owner, run_id)['payload']
+        request = previous['request']
+        # Explicit rerun uses current source pointers and fresh reviewed cards, preserving history.
+        request = {**request, 'selections': [{'source_id': s['source_id']} for s in request['selections']]}
+        execute = self.research_evidence if previous['contract_version'] == 'evidence-search-v1' else self.research
+        current = execute(request, save=True, parent_run_id=run_id,
+                                collection_id=previous.get('execution', {}).get('collection_id'))
+        return {'result': current, 'diff': {'previous_outcome': previous['outcome'], 'current_outcome': current['outcome'],
+            'answer_changed': previous['answer'] != current['answer'],
+            'previous_calculations': previous['calculations'], 'current_calculations': current['calculations']}}

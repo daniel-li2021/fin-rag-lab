@@ -14,6 +14,8 @@ python scripts/sources.py archive --source-id SOURCE_UUID
 
 `migrate` is an explicit, idempotent initial schema migration, including compatibility columns for the early prototype. Ordinary service startup does not migrate automatically. The database role must be limited to this application database; authenticated owner scoping occurs on every registry, job, object-download and retrieval path. No request may supply an owner. This first private profile deliberately has one owner/bearer token; it does not implement a public multi-user identity system.
 
+Phase 3 adds `financial_observations`, `research_collections` and `research_runs` through the same migration. Reviewed observation IDs and saved-run payloads are immutable; new reviews/reruns receive new identities. Collections retain stable source IDs, while each run retains resolved versions/builds and metadata revisions. The saved owner can reopen historical answers after source updates or archives; new retrieval/reruns still enforce archive/owner checks. [Workspace and routes](PHASE_3_IMPLEMENTATION.md).
+
 ## Identity, metadata and lifecycle
 
 Registration creates a stable source UUID and does no parsing, embedding or URL fetching. Supported kinds are PDF, UTF-8 text, Markdown and URL. Titles never deduplicate sources. A repeated owner/request key returns the same source only when the immutable original registration fingerprint agrees; conflicting reuse is rejected. Later metadata confirmation cannot break a retry or be overwritten by it. Early prototype rows without a fingerprint bind their first compatible retry while preserving existing metadata. Display filenames are reduced to their basename and never serve as filesystem paths or storage keys.

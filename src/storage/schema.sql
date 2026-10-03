@@ -56,6 +56,22 @@ CREATE TABLE IF NOT EXISTS source_version_metadata_reviews (
  reviewer text NOT NULL, reason text NOT NULL, created_at timestamptz NOT NULL DEFAULT now(),
  UNIQUE(version_id,revision)
 );
+CREATE TABLE IF NOT EXISTS financial_observations (
+ owner_id text NOT NULL, observation_id text NOT NULL, build_id uuid NOT NULL REFERENCES retrieval_builds,
+ payload jsonb NOT NULL, payload_hash text NOT NULL, created_at timestamptz NOT NULL DEFAULT now(),
+ PRIMARY KEY(owner_id,observation_id)
+);
+CREATE TABLE IF NOT EXISTS research_collections (
+ collection_id uuid PRIMARY KEY, owner_id text NOT NULL, name text NOT NULL,
+ kind text NOT NULL CHECK(kind IN ('collection','watchlist')), source_ids jsonb NOT NULL,
+ created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(owner_id,name)
+);
+CREATE TABLE IF NOT EXISTS research_runs (
+ owner_id text NOT NULL, run_id text NOT NULL, payload jsonb NOT NULL,
+ collection_id uuid REFERENCES research_collections, parent_run_id text,
+ created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(owner_id,run_id),
+ FOREIGN KEY(owner_id,parent_run_id) REFERENCES research_runs(owner_id,run_id)
+);
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS metadata_revision int NOT NULL DEFAULT 0;
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS registration_hash text;
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS desired_build_id uuid;

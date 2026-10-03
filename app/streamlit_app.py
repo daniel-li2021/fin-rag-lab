@@ -477,6 +477,11 @@ def main() -> None:
     svc = get_service(INDEX_DIR, CACHE_ROOT)
     _render_sidebar(svc)
 
+    if hasattr(svc, 'registry') and st.radio('Workspace', ['Ask', 'Research'], horizontal=True) == 'Research':
+        from app.research_workspace import render_research
+        render_research(svc)
+        return
+
     if not svc.is_ready():
         st.info(
             "No index loaded. Use the sidebar to ingest PDFs, "

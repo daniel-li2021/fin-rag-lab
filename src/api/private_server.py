@@ -5,11 +5,13 @@ from uuid import UUID
 
 from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.encoders import jsonable_encoder
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
-from src.storage.models import SourceRegistration, SourceMetadata, SourceFilters
+from src.storage.models import SourceRegistration, SourceMetadata, SourceFilters, ResearchSelection, CollectionRequest
 from src.storage.objects import MAX_BYTES
 from src.financial.research import ResearchRequest
+from src.financial.models import FinancialObservation
+from src.financial.evidence import EvidenceSearchRequest
 
 
 class BodyLimit:
@@ -40,6 +42,14 @@ class VersionMetadataReview(BaseModel):
     metadata: SourceMetadata
     reviewer: str = Field(min_length=1, max_length=200)
     reason: str = Field(min_length=1, max_length=2000)
+
+
+class ResearchQuestion(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    question: str = Field(min_length=1, max_length=4000)
+    selections: tuple[ResearchSelection, ...] = Field(default=(), max_length=18)
+    collection_id: UUID | None = None
+    save: bool = False
 
 
 def build_private_app(service=None, token=None):
@@ -153,5 +163,55 @@ def build_private_app(service=None, token=None):
     @app.post('/research')
     def research(req: ResearchRequest):
         return service.research(req)
+
+    @app.post('/research/questions')
+    def research_question(req: ResearchQuestion):
+        return service.research_question(req.question, [s.model_dump(mode='json', exclude_none=True) for s in req.selections],
+                                         req.collection_id, req.save)
+
+    @app.post('/research/evidence')
+    def research_evidence(req: EvidenceSearchRequest):
+        return service.research_evidence(req)
+
+    @app.post('/research/observations')
+    def observation(req: FinancialObservation):
+        return service.registry.save_observation(service.owner, req)
+
+    @app.get('/sources/{source_id}/observations')
+    def observations(source_id: UUID, version_id: UUID | None = None):
+        selection = {'source_id': str(source_id)}
+        if version_id:
+            selection['version_id'] = str(version_id)
+        snapshot = service.registry.research_snapshot(service.owner, [selection])
+        return service.registry.observations(service.owner, [p.build_id for p in snapshot['sources']])
+
+    @app.post('/research/collections')
+    def create_collection(req: CollectionRequest):
+        return jsonable_encoder(service.registry.create_collection(service.owner, req))
+
+    @app.get('/research/collections')
+    def collections():
+        return jsonable_encoder(service.registry.collections(service.owner))
+
+    @app.post('/research/runs')
+    def save_research(req: ResearchRequest):
+        return service.research(req, save=True)
+
+    @app.post('/research/evidence/runs')
+    def save_evidence(req: EvidenceSearchRequest):
+        return service.research_evidence(req, save=True)
+
+    @app.get('/research/runs')
+    def research_runs():
+        return jsonable_encoder(service.registry.research_runs(service.owner))
+
+    @app.get('/research/runs/{run_id}')
+    def research_run(run_id: str):
+        row = service.registry.research_run(service.owner, run_id)
+        return jsonable_encoder({**row, 'source_changes': service.registry.research_changes(service.owner, row['payload'])})
+
+    @app.post('/research/runs/{run_id}/rerun')
+    def rerun_research(run_id: str):
+        return service.rerun_research(run_id)
 
     return app

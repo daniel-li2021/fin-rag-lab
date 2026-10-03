@@ -60,7 +60,7 @@ class DocumentBlock(BaseModel):
         if self.text:
             return self.text
         rows = (self.structured_data or {}).get("rows", [])
-        return "\n".join(" | ".join(str(cell or "") for cell in row) for row in rows)
+        return "\n".join(" | ".join(str(cell if cell is not None else "") for cell in row) for row in rows)
 
     def get_embed_text(self) -> str:
         """Text used for embedding. Prefer LLM caption over raw."""

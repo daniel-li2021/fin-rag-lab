@@ -182,6 +182,126 @@ class Registry:
                     blocks[str(row['build_id'])].append(DocumentBlock.model_validate(row['payload']))
         return {'sources': pins, 'blocks': blocks, 'inventory': inventory}
 
+    def save_observation(self, owner, observation):
+        from src.financial.models import FinancialObservation
+        from src.financial.observations import validate_observation
+        observation = FinancialObservation.model_validate(observation)
+        pin = observation.source
+        snapshot = self.research_snapshot(owner, [{'source_id': pin.source_id, 'version_id': pin.version_id,
+                                                  'build_id': pin.build_id}])
+        validate_observation(observation, snapshot['blocks'].get(pin.build_id, []), snapshot['sources'])
+        payload = observation.model_dump(mode='json')
+        fingerprint = config_hash(payload)
+        with self.connect() as db:
+            source = self.owned(db, owner, pin.source_id, True)
+            if source['status'] == 'archived':
+                raise LookupError('Source not found')
+            row = db.execute('''INSERT INTO financial_observations(owner_id,observation_id,build_id,payload,payload_hash)
+                VALUES(%s,%s,%s,%s,%s) ON CONFLICT(owner_id,observation_id) DO NOTHING RETURNING *''',
+                (owner, observation.observation_id, pin.build_id, Jsonb(payload), fingerprint)).fetchone()
+            row = row or db.execute('SELECT * FROM financial_observations WHERE owner_id=%s AND observation_id=%s',
+                                   (owner, observation.observation_id)).fetchone()
+            if row['payload_hash'] != fingerprint:
+                raise ValueError('Observation IDs are immutable; save a new reviewed revision')
+            return row['payload']
+
+    def observations(self, owner, build_ids):
+        from uuid import UUID
+        if not build_ids:
+            return []
+        with self.connect() as db:
+            return [row['payload'] for row in db.execute('''SELECT f.payload FROM financial_observations f
+                JOIN retrieval_builds b USING(build_id) JOIN source_versions v USING(version_id)
+                JOIN sources s USING(source_id) WHERE f.owner_id=%s AND s.owner_id=%s AND s.status<>'archived'
+                AND f.build_id=ANY(%s) ORDER BY f.observation_id LIMIT 101''',
+                (owner, owner, [UUID(str(x)) for x in build_ids])).fetchall()]
+
+    def create_collection(self, owner, request):
+        from .models import CollectionRequest
+        request = CollectionRequest.model_validate(request)
+        with self.connect() as db:
+            for source_id in sorted(request.source_ids):
+                if self.owned(db, owner, source_id, True)['status'] == 'archived':
+                    raise LookupError('Source not found')
+            return db.execute('''INSERT INTO research_collections(collection_id,owner_id,name,kind,source_ids)
+                VALUES(%s,%s,%s,%s,%s) ON CONFLICT(owner_id,name) DO UPDATE
+                SET kind=EXCLUDED.kind,source_ids=EXCLUDED.source_ids RETURNING *''',
+                (uuid4(), owner, request.name, request.kind, Jsonb([str(s) for s in request.source_ids]))).fetchone()
+
+    def collections(self, owner):
+        with self.connect() as db:
+            return db.execute('SELECT * FROM research_collections WHERE owner_id=%s ORDER BY name', (owner,)).fetchall()
+
+    def collection(self, owner, collection_id):
+        with self.connect() as db:
+            row = db.execute('SELECT * FROM research_collections WHERE owner_id=%s AND collection_id=%s',
+                             (owner, collection_id)).fetchone()
+            if not row:
+                raise LookupError('Collection not found')
+            return row
+
+    def save_research(self, owner, result, collection_id=None, parent_run_id=None):
+        from src.financial.research import _canonical
+        payload = {k: v for k, v in result.items() if k != 'run_id'}
+        if hashlib.sha256(_canonical(payload).encode()).hexdigest() != result['run_id']:
+            raise ValueError('Research content hash mismatch')
+        with self.connect() as db:
+            if collection_id and not db.execute('SELECT 1 FROM research_collections WHERE owner_id=%s AND collection_id=%s',
+                                                 (owner, collection_id)).fetchone():
+                raise LookupError('Collection not found')
+            if parent_run_id and not db.execute('SELECT 1 FROM research_runs WHERE owner_id=%s AND run_id=%s',
+                                                (owner, parent_run_id)).fetchone():
+                raise LookupError('Parent research not found')
+            db.execute('''INSERT INTO research_runs(owner_id,run_id,payload,collection_id,parent_run_id)
+                VALUES(%s,%s,%s,%s,%s) ON CONFLICT(owner_id,run_id) DO NOTHING''',
+                (owner, result['run_id'], Jsonb(result), collection_id, parent_run_id))
+        return self.research_run(owner, result['run_id'])
+
+    def research_run(self, owner, run_id):
+        with self.connect() as db:
+            row = db.execute('SELECT * FROM research_runs WHERE owner_id=%s AND run_id=%s', (owner, run_id)).fetchone()
+            if not row:
+                raise LookupError('Research not found')
+            return row
+
+    def research_runs(self, owner):
+        with self.connect() as db:
+            return db.execute('''SELECT run_id,collection_id,parent_run_id,created_at,
+                payload->>'answer' AS answer,payload->>'outcome' AS outcome,
+                payload->'request'->>'question' AS question FROM research_runs
+                WHERE owner_id=%s ORDER BY created_at DESC,run_id LIMIT 100''', (owner,)).fetchall()
+
+    def research_changes(self, owner, result):
+        """Byte/build/metadata changes are potential staleness, never edits to a saved answer."""
+        changes = []
+        pins = {p['source_id']: p for p in result['manifest']}
+        with self.connect() as db:
+            db.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')
+            for previous in result['inventory']:
+                source = self.owned(db, owner, previous['source_id'])
+                pin = pins.get(previous['source_id'], {})
+                reasons = []
+                if source['status'] == 'archived':
+                    reasons.append('source_archived')
+                current_version = str(source['active_version_id']) if source['active_version_id'] else None
+                if current_version != previous['version_id']:
+                    reasons.append('source_version_changed')
+                if pin and str(source['active_build_id']) != pin['build_id']:
+                    reasons.append('retrieval_build_changed')
+                if previous.get('source_metadata_revision') is not None:
+                    if source['metadata_revision'] != previous['source_metadata_revision']:
+                        reasons.append('source_metadata_changed')
+                elif previous.get('version_id'):
+                    latest = db.execute('SELECT review_id FROM source_version_metadata_reviews WHERE version_id=%s ORDER BY revision DESC LIMIT 1',
+                                        (previous['version_id'],)).fetchone()
+                    review_id = str(latest['review_id']) if latest else None
+                    if review_id != previous.get('metadata_review_id'):
+                        reasons.append('version_metadata_changed')
+                if reasons or source['last_error']:
+                    changes.append({'source_id': previous['source_id'], 'reasons': reasons,
+                                    'refresh_error': source['last_error']})
+        return {'potentially_stale': any(c['reasons'] for c in changes), 'changes': changes}
+
     def enqueue(self, owner, source_id, data, object_key, media_type, provenance, manifest):
         sha = hashlib.sha256(data).hexdigest()
         with self.connect() as db:

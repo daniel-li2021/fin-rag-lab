@@ -69,7 +69,7 @@ If you have a pre-built `cache_bundle.zip`, unzip it at the repo root instead of
 
 ## Application (local)
 
-Phase 3 now includes opt-in reviewed financial observations, pinned multi-source numeric research and cited Decimal receipts through the private `/research` endpoint. See [implementation and usage](docs/PHASE_3_IMPLEMENTATION.md) and the [frozen evaluation contract](docs/PHASE_3_EVALUATION.md). Authentic observation gaps and holdout evaluation keep release promotion held.
+Phase 3 includes opt-in immutable reviewed facts, pinned numeric research, cited Decimal receipts, bounded original-passage search, named collections and saved history with separate reruns. Select **Research** in the persistent Streamlit app or use the private research API. See [implementation and usage](docs/PHASE_3_IMPLEMENTATION.md) and the [frozen evaluation contract](docs/PHASE_3_EVALUATION.md). Authentic binding gaps and holdout evaluation keep release promotion held.
 
 The notebooks remain the teaching path. For a runnable app, a thin service layer wraps the same `src/` modules using the **parent-child** strategy from notebook 05 (not the recursive baseline).
 

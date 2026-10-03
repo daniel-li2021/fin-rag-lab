@@ -59,6 +59,10 @@ class QueryState(TypedDict, total=False):
     stages: list[str]                 # debug trace
     metadata: dict[str, Any]
     supplement_k: int
+    research_request: Any
+    research_snapshot: dict
+    research_result: dict
+    evidence_request: Any
 
 
 _FACTUAL_KEYWORDS = (
@@ -176,6 +180,15 @@ class QueryPipeline:
             "outcome": "refuse",
             "stages": [*state.get("stages", []), "refuse"],
         }
+
+    def _node_research(self, state: QueryState) -> QueryState:
+        if state.get('evidence_request') is not None:
+            from src.financial.evidence import search_evidence
+            result = search_evidence(state['evidence_request'], state['research_snapshot'])
+        else:
+            from src.financial.research import run_research
+            result = run_research(state['research_request'], state['research_snapshot'])
+        return {**state, 'research_result': result}
     
     # ---- Edges ----
     @staticmethod
@@ -194,8 +207,10 @@ class QueryPipeline:
         g.add_node("deep_retrieve", self._node_deep_retrieve)
         g.add_node("generate", self._node_generate)
         g.add_node("refuse", self._node_refuse)
+        g.add_node('research', self._node_research)
         
-        g.set_entry_point("classify")
+        g.set_conditional_entry_point(lambda state: 'research' if state.get('research_request') is not None or state.get('evidence_request') is not None else 'classify',
+                                      {'research': 'research', 'classify': 'classify'})
         g.add_conditional_edges(
             "classify", self._route_after_classify,
             {"quick_retrieve": "quick_retrieve", "deep_retrieve": "deep_retrieve"},
@@ -210,6 +225,7 @@ class QueryPipeline:
         )
         g.add_edge("generate", END)
         g.add_edge("refuse", END)
+        g.add_edge('research', END)
         return g.compile()
     
     # ---- Public API ----
@@ -240,6 +256,16 @@ class QueryPipeline:
             "stages": final.get("stages", []),
             "query_type": final.get("query_type"),
         }
+
+    def research(self, request, snapshot):
+        from src.financial.research import ResearchRequest
+        request = ResearchRequest.model_validate(request)
+        return self.graph.invoke({'research_request': request, 'research_snapshot': snapshot})['research_result']
+
+    def evidence(self, request, snapshot):
+        from src.financial.evidence import EvidenceSearchRequest
+        request = EvidenceSearchRequest.model_validate(request)
+        return self.graph.invoke({'evidence_request': request, 'research_snapshot': snapshot})['research_result']
     
     def draw_mermaid(self) -> str:
         """Return the graph as Mermaid markup — useful for notebook display."""
