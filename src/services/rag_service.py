@@ -489,6 +489,7 @@ class RAGService:
         *,
         verify_hallucination: bool = False,
         require_api_key: bool = True,
+        supplement_k: int = 0,
     ) -> QueryResult:
         if require_api_key:
             self.require_openai_key()
@@ -506,7 +507,7 @@ class RAGService:
         with self.cost_tracker.request() as receipt:
             assert self.query_pipeline is not None
             t0 = time.perf_counter()
-            result = self.query_pipeline.query(question)
+            result = self.query_pipeline.query(question, **({"supplement_k": supplement_k} if supplement_k else {}))
 
             doc_names = {
                 d.document_id: Path(d.source_path).name for d in self.documents
@@ -559,7 +560,8 @@ class RAGService:
                                "judge_model": settings.judge_model if verify_hallucination else None,
                                "verify_hallucination": verify_hallucination,
                                "quick_k": getattr(self.query_pipeline, "quick_k", None),
-                               "deep_k": getattr(self.query_pipeline, "deep_k", None)},
+                               "deep_k": getattr(self.query_pipeline, "deep_k", None),
+                               "supplement_k": supplement_k},
                 n_chunks_retrieved=len(result.get("chunks", [])),
                 cost_usd=usage["total_usd"],
                 cost_breakdown=usage["by_stage"],

@@ -1,0 +1,7 @@
+{
+  "saved_rows": 1,
+  "failed_question_id": "q02",
+  "reason": "Provider returned citation source as string [Source 1], rejected by strict schema. Fixed by fail-closed support-envelope validation and explicit integer example in prompt.",
+  "unreceipted_model_responses": 1,
+  "cost_scope": "One saved query cost is measured; failed response receipt unavailable and excluded."
+}

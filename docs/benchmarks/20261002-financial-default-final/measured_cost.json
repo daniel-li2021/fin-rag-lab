@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "status": "Measured provider receipts at frozen October 2 tariffs; not invoice reconciliation",
+  "checked_date": "2026-10-02",
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "https://developers.openai.com/api/docs/models/text-embedding-3-small"
+  ],
+  "tariff_usd_per_million": {
+    "gpt-6-luna": {
+      "input": ".10",
+      "cached_input": ".01",
+      "cache_write": ".125",
+      "output": ".50"
+    },
+    "text-embedding-3-small": {
+      "input": ".02"
+    }
+  },
+  "results_sha256": "4f1b3f77d3e683ed7b655e7d92f9503ed2f17e2893e69c2bc9311cea77bff0ae",
+  "rows": [
+    {
+      "id": "q02",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 2985,
+          "output_tokens": 39,
+          "cost_usd": "0.000392925"
+        }
+      ],
+      "cost_usd": "0.000392925"
+    },
+    {
+      "id": "q03",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7320,
+          "output_tokens": 48,
+          "cost_usd": "0.0009393"
+        }
+      ],
+      "cost_usd": "0.0009393"
+    },
+    {
+      "id": "q10",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 2969,
+          "output_tokens": 38,
+          "cost_usd": "0.000390425"
+        }
+      ],
+      "cost_usd": "0.000390425"
+    },
+    {
+      "id": "q11",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7278,
+          "output_tokens": 98,
+          "cost_usd": "0.00095905"
+        }
+      ],
+      "cost_usd": "0.00095905"
+    },
+    {
+      "id": "q12",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7249,
+          "output_tokens": 66,
+          "cost_usd": "0.000939425"
+        }
+      ],
+      "cost_usd": "0.000939425"
+    },
+    {
+      "id": "q13",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7419,
+          "output_tokens": 121,
+          "cost_usd": "0.000988175"
+        }
+      ],
+      "cost_usd": "0.000988175"
+    },
+    {
+      "id": "q18",
+      "events": [],
+      "cost_usd": "0"
+    },
+    {
+      "id": "q19",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7219,
+          "output_tokens": 58,
+          "cost_usd": "0.000931675"
+        }
+      ],
+      "cost_usd": "0.000931675"
+    },
+    {
+      "id": "q20",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 7090,
+          "output_tokens": 82,
+          "cost_usd": "0.00092755"
+        }
+      ],
+      "cost_usd": "0.00092755"
+    },
+    {
+      "id": "q23",
+      "events": [],
+      "cost_usd": "0"
+    },
+    {
+      "id": "q24",
+      "events": [],
+      "cost_usd": "0"
+    },
+    {
+      "id": "q26",
+      "events": [
+        {
+          "stage": "rag_generate",
+          "model": "gpt-6-luna",
+          "uncached_input_tokens": 3,
+          "cached_input_tokens": 0,
+          "cache_write_tokens": 6560,
+          "output_tokens": 144,
+          "cost_usd": "0.0008923"
+        }
+      ],
+      "cost_usd": "0.0008923"
+    }
+  ],
+  "total_usd": "0.007360825",
+  "mean_query_usd": "0.0006134020833333333333333333333",
+  "cache_tokens": {
+    "cached_input_tokens": 0,
+    "cache_write_tokens": 147655,
+    "uncached_input_tokens": 529
+  }
+}

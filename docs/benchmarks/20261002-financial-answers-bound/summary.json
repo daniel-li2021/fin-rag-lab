@@ -1,0 +1,566 @@
+{
+  "all": {
+    "n_questions": 30,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": 0.5705128205128205,
+        "denominator": 26
+      },
+      "evidence_recall_final": {
+        "mean": 0.8974358974358974,
+        "denominator": 26
+      },
+      "mrr": {
+        "mean": 0.2874805019541862,
+        "denominator": 26
+      },
+      "complete_evidence": {
+        "mean": 0.8846153846153846,
+        "denominator": 26
+      },
+      "outcome_accuracy": {
+        "mean": 0.5,
+        "denominator": 30
+      },
+      "citation_validity": {
+        "mean": 1.0,
+        "denominator": 9
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_precision": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_recall": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.0009163666666666666,
+      "priced_query_denominator": 30,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.027490999999999998,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 2083.235103986226,
+        "p95": 3812.947147618978,
+        "denominator": 30
+      },
+      "retrieval": {
+        "p50": 90.851770946756,
+        "p95": 155.9284145361744,
+        "denominator": 30
+      }
+    },
+    "usage": {
+      "calls": 27,
+      "receipt_denominator": 30,
+      "input_tokens": 251132,
+      "output_tokens": 4754,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.027490199999999992
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  },
+  "fact_finding": {
+    "n_questions": 10,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": 0.5,
+        "denominator": 10
+      },
+      "evidence_recall_final": {
+        "mean": 0.9,
+        "denominator": 10
+      },
+      "mrr": {
+        "mean": 0.31435406698564594,
+        "denominator": 10
+      },
+      "complete_evidence": {
+        "mean": 0.9,
+        "denominator": 10
+      },
+      "outcome_accuracy": {
+        "mean": 0.5,
+        "denominator": 10
+      },
+      "citation_validity": {
+        "mean": 1.0,
+        "denominator": 5
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.0008407,
+      "priced_query_denominator": 10,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.008407,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 2083.235103986226,
+        "p95": 2565.942271216772,
+        "denominator": 10
+      },
+      "retrieval": {
+        "p50": 89.17043742258102,
+        "p95": 137.01456452254206,
+        "denominator": 10
+      }
+    },
+    "usage": {
+      "calls": 10,
+      "receipt_denominator": 10,
+      "input_tokens": 79279,
+      "output_tokens": 958,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.0084069
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  },
+  "semantic": {
+    "n_questions": 8,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": 0.75,
+        "denominator": 8
+      },
+      "evidence_recall_final": {
+        "mean": 1.0,
+        "denominator": 8
+      },
+      "mrr": {
+        "mean": 0.2601190476190476,
+        "denominator": 8
+      },
+      "complete_evidence": {
+        "mean": 1.0,
+        "denominator": 8
+      },
+      "outcome_accuracy": {
+        "mean": 0.5,
+        "denominator": 8
+      },
+      "citation_validity": {
+        "mean": 1.0,
+        "denominator": 4
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_precision": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_recall": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.001033375,
+      "priced_query_denominator": 8,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.008267,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 2653.0067704152316,
+        "p95": 3514.6381084923632,
+        "denominator": 8
+      },
+      "retrieval": {
+        "p50": 138.68902099784464,
+        "p95": 152.91767281014472,
+        "denominator": 8
+      }
+    },
+    "usage": {
+      "calls": 7,
+      "receipt_denominator": 8,
+      "input_tokens": 73727,
+      "output_tokens": 1788,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.0082667
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  },
+  "single_doc_multihop": {
+    "n_questions": 4,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": 0.5,
+        "denominator": 4
+      },
+      "evidence_recall_final": {
+        "mean": 1.0,
+        "denominator": 4
+      },
+      "mrr": {
+        "mean": 0.15625,
+        "denominator": 4
+      },
+      "complete_evidence": {
+        "mean": 1.0,
+        "denominator": 4
+      },
+      "outcome_accuracy": {
+        "mean": 0.0,
+        "denominator": 4
+      },
+      "citation_validity": {
+        "mean": null,
+        "denominator": 0
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.0011489999999999998,
+      "priced_query_denominator": 4,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.004595999999999999,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 2196.8828754033893,
+        "p95": 3763.3026660885653,
+        "denominator": 4
+      },
+      "retrieval": {
+        "p50": 113.30900003667921,
+        "p95": 155.0471830763854,
+        "denominator": 4
+      }
+    },
+    "usage": {
+      "calls": 4,
+      "receipt_denominator": 4,
+      "input_tokens": 41245,
+      "output_tokens": 943,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.004596
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  },
+  "cross_doc": {
+    "n_questions": 4,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": 0.4583333333333333,
+        "denominator": 4
+      },
+      "evidence_recall_final": {
+        "mean": 0.5833333333333333,
+        "denominator": 4
+      },
+      "mrr": {
+        "mean": 0.40625,
+        "denominator": 4
+      },
+      "complete_evidence": {
+        "mean": 0.5,
+        "denominator": 4
+      },
+      "outcome_accuracy": {
+        "mean": 0.5,
+        "denominator": 4
+      },
+      "citation_validity": {
+        "mean": null,
+        "denominator": 0
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_precision": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_recall": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.00068225,
+      "priced_query_denominator": 4,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.002729,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 1295.0712711317465,
+        "p95": 4917.26251252694,
+        "denominator": 4
+      },
+      "retrieval": {
+        "p50": 75.81708347424865,
+        "p95": 114.56244997680186,
+        "denominator": 4
+      }
+    },
+    "usage": {
+      "calls": 2,
+      "receipt_denominator": 4,
+      "input_tokens": 22706,
+      "output_tokens": 918,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.0027296
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  },
+  "out_of_corpus": {
+    "n_questions": 4,
+    "metrics": {
+      "evidence_recall_at20": {
+        "mean": null,
+        "denominator": 0
+      },
+      "evidence_recall_final": {
+        "mean": null,
+        "denominator": 0
+      },
+      "mrr": {
+        "mean": null,
+        "denominator": 0
+      },
+      "complete_evidence": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_accuracy": {
+        "mean": 1.0,
+        "denominator": 4
+      },
+      "citation_validity": {
+        "mean": null,
+        "denominator": 0
+      },
+      "citation_support": {
+        "mean": null,
+        "denominator": 0
+      },
+      "numeric_accuracy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "unsupported_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "outcome_correctness": {
+        "mean": null,
+        "denominator": 0
+      },
+      "wrong_period_scope_assertions": {
+        "mean": null,
+        "denominator": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_precision": {
+        "mean": null,
+        "denominator": 0
+      },
+      "context_recall": {
+        "mean": null,
+        "denominator": 0
+      }
+    },
+    "cost": {
+      "mean_query_cost_usd": 0.000873,
+      "priced_query_denominator": 4,
+      "unknown_queries": 0,
+      "priced_subtotal_usd": 0.003492,
+      "pricing_status": "configured_estimate"
+    },
+    "latency_ms": {
+      "end_to_end": {
+        "p50": 1499.7091040713713,
+        "p95": 1596.5511312242597,
+        "denominator": 4
+      },
+      "retrieval": {
+        "p50": 118.25995857361704,
+        "p95": 159.72887491807342,
+        "denominator": 4
+      }
+    },
+    "usage": {
+      "calls": 4,
+      "receipt_denominator": 4,
+      "input_tokens": 34175,
+      "output_tokens": 147,
+      "reasoning_tokens": 0,
+      "unknown_cost_calls": 0,
+      "cost_usd": 0.003491
+    },
+    "evaluation_usage": {
+      "calls": null,
+      "receipt_denominator": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "unknown_cost_calls": 0,
+      "cost_usd": null
+    }
+  }
+}

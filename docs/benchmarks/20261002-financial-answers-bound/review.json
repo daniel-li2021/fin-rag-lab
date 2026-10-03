@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "results_sha256": "a2ccc74310e739a7ee4e87f3ab24ff7e5b6de87bd140ac203fdc12293ee65d1f",
+  "units": "Closely related qualitative propositions grouped; individual primary financial values separated. Citation support uses the union of footnotes attached to each proposition. Refusals have no factual-claim denominator. Strict pass requires correct outcome, rubric completeness, full context faithfulness and citation support.",
+  "rows": [
+    {
+      "id": "q01",
+      "result_sha256": "d1038cf68fb0248700e17ebb73153f890c56efad9edc08028e3bca7134c02fbb",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net income $5.4 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "consolidated net income",
+          "unit": "USD billion",
+          "value": "5.4"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete requested fact supported by original context and actual issued citation."
+    },
+    {
+      "id": "q02",
+      "result_sha256": "67e2f60ad882d42b1896c3c892ea3089379ad1fcba802f816f881443fd36e13e",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (quote absent or ambiguous) despite Q4 2025 diluted EPS $1.62 in original retrieved company summary/page 1. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q03",
+      "result_sha256": "46c91ae145713d8ae3246dcb11d4e9135664ad649068c83b8b16d2d598eeaa8b",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (quote source not an issued citation) despite December 31, 2025 CET1 10.6% in original retrieved financial tables/pages 1 and 3. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q04",
+      "result_sha256": "e19ab0b9379c119c0b35e6069769cfb824b9c56130ea4b0c09b07715eda0944e",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 total vehicle production 408,386 vehicles",
+          "cited_source_numbers": [
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "total production",
+          "unit": "vehicles",
+          "value": "408386"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete requested fact supported by original context and actual issued citation."
+    },
+    {
+      "id": "q05",
+      "result_sha256": "ce9a81cc58402c7779dca8b5f0aac9f409deda987cc631be7b6c1f98f78fc4b6",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 storage deployment 8.8 GWh",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "storage deployed",
+          "unit": "GWh",
+          "value": "8.8"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete requested fact supported by original context and actual issued citation."
+    },
+    {
+      "id": "q06",
+      "result_sha256": "47dabd26fd4a64461204bad0d4fb90ee8d36fe21cb0758c96b49a3a5d7e5ac08",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 Data Center net revenue $5,380 million / rounded $5.4 billion",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Data Center revenue",
+          "unit": "USD billion",
+          "value": "5.38"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete requested fact supported by original context and actual issued citation."
+    },
+    {
+      "id": "q07",
+      "result_sha256": "5647aff8230ae8a13cf2857e68cc404faa5720b6e6a6bda4e22e285643829f7f",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Generator unnecessarily refused Gaming-specific revenue: original source 5/page 22 and previously verified original AMD PDF page 22 contain $0.8B Gaming, separate from combined $3.9B Client and Gaming. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q08",
+      "result_sha256": "00496db1aa4b64975933763bee8143ae10e054fce512ebcf92a7a3115e931858",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (quote source not an issued citation) despite original retrieved FY 2025 revenue $34,639M in source 4/page 17 and source 5/page 18. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q09",
+      "result_sha256": "a1db75dfa33056235ad8143973289b487db9f0a99a4f7c53dd14ba9306b29e35",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 GAAP gross margin 54%",
+          "cited_source_numbers": [
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 non-GAAP gross margin 57%",
+          "cited_source_numbers": [
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "GAAP consolidated gross margin",
+          "unit": "percent",
+          "value": "54"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete requested fact supported by original context and actual issued citation."
+    },
+    {
+      "id": "q10",
+      "result_sha256": "c9869ede743e834b7e21e7d23b53dad01fbc79143310474f8e3f407ed5919573",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (quote source not an issued citation) despite original retrieved Q4 2025 average loans $955.8B in source 3/page 1 and source 10/page 2. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q11",
+      "result_sha256": "839da136afe91807c55dcecc0d33da46cfb12238bd3c85c46d66a1f96b971deb",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (an issued citation lacks original supporting quote) despite complete Consumer Banking and Lending results/YoY drivers in original retrieved Wells Fargo page 4. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q12",
+      "result_sha256": "740183e9862354194ad2ed9be2891269ead03e0b6bda0a664131f98869cc29cb",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net interest income increased 4% versus Q4 2024",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Higher loans/securities balances, Markets results and fixed-rate repricing drove NII; deposit mix offset",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Requested NII drivers are fully supported by actual issued source 3/page 2. Qualified outcome does not match answer label: the added limitation about other periods concerns information the open-ended question did not require. No unsupported financial assertion is proved."
+    },
+    {
+      "id": "q13",
+      "result_sha256": "3cff8752c1587e3bd50122e73a9cce5a3c967a2d63de60ed2d7056c220924929",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 infrastructure/AI software buildout and additional AI compute ramp",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "First-generation Optimus production lines being installed before volume production",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Cortex 2 online and running training workloads",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Next-generation AI5 final chip design completed in April",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Optimus factory lines being prepared for future production",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "These developments are April subsequent context rather than Q1 results",
+          "cited_source_numbers": [
+            1,
+            2,
+            3,
+            6
+          ],
+          "citation_supported": false,
+          "context_supported": false
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.8333333333333334,
+      "unsupported_assertions": 1,
+      "wrong_period_scope_assertions": 1,
+      "notes": "The five substantive AI/robotics statements are supported by the issued original union: source 1/page 3 buildout, source 3/page 10 installation, source 6/page 7 Cortex training, source 2/page 8 AI5 April. The final broad plural qualifier \"these April developments\" follows Cortex online, AI5 and Optimus preparation. Source only explicitly dates AI5 to April; the update states current-quarter default for otherwise undated information. Conservatively mark the broad temporal qualifier unsupported rather than silently restricting it to AI5. Core AI/robotics coverage is otherwise complete."
+    },
+    {
+      "id": "q14",
+      "result_sha256": "43456fe2d8d0771b299543a77262a1eeb0365f9cbe7d566b0d2a90e3b579f024",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Citation guard refused (quote source not an issued citation) despite original retrieved Tesla operational counts/storage and period-specific highlights, including explicit post-quarter April launches. The final issued refusal is fact-free with no claims/citations; safe refusal is still a quality failure for this supported question."
+    },
+    {
+      "id": "q15",
+      "result_sha256": "efedc61cd1bb0fc0c76c64e15d8b862309faf378933cecc173df0e9e74d3a116",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD FY 2025 Data Center segment revenue $16,635 million",
+          "cited_source_numbers": [
+            3,
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD FY 2025 Data Center revenue grew 32% YoY",
+          "cited_source_numbers": [
+            3,
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Q4 Data Center growth driven by EPYC demand and continued Instinct GPU ramp",
+          "cited_source_numbers": [
+            3,
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Data Center segment includes more than Instinct GPUs, so segment totals cannot establish GPU-only performance",
+          "cited_source_numbers": [
+            3,
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct qualification: original source 3/page 19 supports full-year segment revenue/growth; source 11/page 21 supports separate EPYC and Instinct ramp attribution. The segment-versus-GPU limitation is explicit and avoids substituting Data Center totals for GPU-only performance. Full-year GPU-only absence is an evidence-coverage caveat, excluded from financial/world proposition count. Original AMD page 21 verified in preceding offline review; no code/API calls used."
+    },
+    {
+      "id": "q16",
+      "result_sha256": "391e73b37ba37dc9d009b26606854635bfc8463d272d3550edc8d738141f68e0",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success."
+    },
+    {
+      "id": "q17",
+      "result_sha256": "d82dde76fad581415b6da4d304eb1e70a7fb6e3f4c1f42e2031466e4d44c26d1",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Q4 2025 common shares repurchased: 58.2 million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Q4 2025 common-stock repurchase amount: $5.0 billion.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "common shares repurchased",
+          "unit": "million shares",
+          "value": "58.2"
+        },
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "common-stock repurchases",
+          "unit": "USD billion",
+          "value": "5.0"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Both share count58.2 million and common-stock repurchase amount$5.0 billion/periodQ42025 appear in bound issued Source1 original page1 Capital span."
+    },
+    {
+      "id": "q18",
+      "result_sha256": "4d19e5527c5e068e1869b3422b1bd9af64bfb8a06e7e2404de22e935e2b31780",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification explicitly asks automotive/segment versus consolidated scope, GAAP/non-GAAP basis and periods. No substitution of consolidated21.1%."
+    },
+    {
+      "id": "q19",
+      "result_sha256": "afc1c695fb94a91f07732417c2448d089a4cedf2f0587cff8799953f58e715ed",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success. This loses a strict-correct answer from the original frozen parent+BM25 baseline."
+    },
+    {
+      "id": "q20",
+      "result_sha256": "0a4cdf172346696ce8472aaa9af62abcae268a14502b467e084d028c9b95f0a4",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success. This loses a strict-correct answer from the original frozen parent+BM25 baseline."
+    },
+    {
+      "id": "q21",
+      "result_sha256": "578a3ac7ce4ee6a3332580ebe56139ed9923cc2edf0c9542ec96b4a8efd6ad54",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success."
+    },
+    {
+      "id": "q22",
+      "result_sha256": "c051c8eb35803ed2a7a709a951158f7e7f50eab889c08930830d61e8caae04ad",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success."
+    },
+    {
+      "id": "q23",
+      "result_sha256": "6995febda0a3ffb35bf45c6b604188caafb653fc4d25e3240c25f0b8b47da64a",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s) and revenue definition before ranking; satisfies both required dimensions."
+    },
+    {
+      "id": "q24",
+      "result_sha256": "c6d54c51df24542238db22609b0bd99ad7ac2f1a9586d3fd94edb9b2ad1fd4fe",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s), GAAP/non-GAAP basis and consolidated/segment scope. All required comparison dimensions covered."
+    },
+    {
+      "id": "q25",
+      "result_sha256": "d4d152b99b2cd86592dc5d2bd303bcfba78581973689698777622f2f61071b77",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success. Original frozen baseline had the correct qualified outcome with partial coverage; that supported outcome is lost."
+    },
+    {
+      "id": "q26",
+      "result_sha256": "a5c5b6440a5e26d65e7827eaf7dad422b6054d6416eac96f2a31a27722f4ffc6",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary fact-free refusal despite complete requested evidence in retained final contexts; counts as incorrect outcome/rubric, with no factual-proposition or citation-support denominator. Quote-binding containment prevents unsafe output but does not count as an answer success. This loses a strict-correct answer from the original frozen parent+BM25 baseline."
+    },
+    {
+      "id": "q27",
+      "result_sha256": "20f10b3604ab7ee0b888d01cf7d15537510724a8ee43d74cd90b9395c8084129",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q28",
+      "result_sha256": "832aa28c7051b8c20cb494ed98886c4464515902f4f8f8c98937657fbe47d652",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q29",
+      "result_sha256": "b71ec7d7e833a0539b0da347fa5d1b684bca3d4fb5e6d6d2aac43c395d106e1b",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q30",
+      "result_sha256": "d18c34f132b2cc6ff160c307d5785d11972b6227e9f10aa66064cf17c831f5ea",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    }
+  ]
+}

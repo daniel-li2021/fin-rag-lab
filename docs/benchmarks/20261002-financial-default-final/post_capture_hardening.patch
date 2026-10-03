@@ -1,0 +1,11 @@
+--- a/src/generators/rag_generator.py
++++ b/src/generators/rag_generator.py
+@@ -317,7 +317,7 @@
+ def _bind_citation_quotes(answer, quotes, calculations, chunks):
+     """Bind footnotes to verbatim originals; this does not judge prose entailment."""
+     if not any(_original_spans(chunk) for chunk in chunks):
+-        return answer  # Legacy context remains explicitly unverified.
++        raise ValueError("No verified original citation evidence")
+     used = {int(n) for n in re.findall(r"\[\^(\d+)\]", answer)}
+     if not used:
+         raise ValueError("Supported answers require original-source citations")

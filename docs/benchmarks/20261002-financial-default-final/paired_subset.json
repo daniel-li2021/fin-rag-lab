@@ -1,0 +1,92 @@
+{
+  "scope": "Selected12 regression cases, not full30 benchmark or a statistical claim",
+  "results_sha256": "4f1b3f77d3e683ed7b655e7d92f9503ed2f17e2893e69c2bc9311cea77bff0ae",
+  "baseline_strict_count": 9,
+  "new_strict_count": 7,
+  "rows": [
+    {
+      "id": "q02",
+      "baseline_strict": true,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Correct outcome, complete content and supporting issued original citations."
+    },
+    {
+      "id": "q03",
+      "baseline_strict": true,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Actual issued union 8/1 supports both parts: source 8/page 3 contains CET1 ratio 10.6%, source 1/page 9 contains preliminary-estimate endnote. No prior title/endnote-only citation error remains in this sample."
+    },
+    {
+      "id": "q10",
+      "baseline_strict": true,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Actual issued source 3/page 1 has the company-wide average-loan amount; correct content and supporting citation."
+    },
+    {
+      "id": "q11",
+      "baseline_strict": true,
+      "new_strict": false,
+      "outcome_matches": true,
+      "notes": "All amounts and other trends supported by actual issued source 1/page 4. The answer establishes Q4 2024 as comparison in sentence 1, then states provision increased 19% without changing the comparison period. Original row is 911 / 767 / 911 with QoQ +19% and YoY zero. Thus the unqualified +19% mixes the QoQ column into the prior-year comparison. Unlike the earlier capture, net-income +33% YoY is correct. One wrong-period trend prevents strict correctness; safe original context still contains the correct values."
+    },
+    {
+      "id": "q12",
+      "baseline_strict": true,
+      "new_strict": false,
+      "outcome_matches": false,
+      "notes": "All requested drivers and trend supported by actual issued source 3/page 2, but structured outcome unnecessarily says qualified_answer rather than expected answer; user-facing prose has no actual limitation."
+    },
+    {
+      "id": "q13",
+      "baseline_strict": true,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Actual issued union 2/6 supports manufacturing, Cortex online/training and the explicitly April AI5 design; source 7/page 8 supports FSD v14.3/Digital Optimus; union 3/4 supports installation/anticipation of volume production and California/Texas construction. Question is open-ended AI/robotics progress, so the cited FSD launch is relevant despite its original April date. No broad plural April qualifier or wrong-period numeric assertion appears."
+    },
+    {
+      "id": "q18",
+      "baseline_strict": false,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Deterministic fact-free clarification explicitly asks automotive/segment versus consolidated scope, GAAP/non-GAAP basis and periods. No substitution of consolidated21.1%."
+    },
+    {
+      "id": "q19",
+      "baseline_strict": true,
+      "new_strict": false,
+      "outcome_matches": true,
+      "notes": "Issued Source8 original page2 contains the requested period-bound NII operands. Exact growth495/11836\u22484.18% rounds to4%, so the relative-change claim is grounded by its cited operands. Explicit frozen rubric absolute difference$495M is omitted, so faithful partial completeness."
+    },
+    {
+      "id": "q20",
+      "baseline_strict": true,
+      "new_strict": false,
+      "outcome_matches": true,
+      "notes": "All three numeric claims and qualified non-causal comparison are supported by issued Source4 original page5 full operational table; exact408386\u2212358023=50363. The frozen rubric additionally calls for the gap suggesting inventory accumulation. This answer merely says output exceeded deliveries and declines any inventory implication, so partial rubric coverage. No unsupported cause or inventory quantity asserted."
+    },
+    {
+      "id": "q23",
+      "baseline_strict": false,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Deterministic fact-free clarification asks reporting period(s) and revenue definition before ranking; satisfies both required dimensions."
+    },
+    {
+      "id": "q24",
+      "baseline_strict": false,
+      "new_strict": true,
+      "outcome_matches": true,
+      "notes": "Deterministic fact-free clarification asks reporting period(s), GAAP/non-GAAP basis and consolidated/segment scope. All required comparison dimensions covered."
+    },
+    {
+      "id": "q26",
+      "baseline_strict": true,
+      "new_strict": false,
+      "outcome_matches": false,
+      "notes": "Faithful and complete emphasis comparison, but qualified_answer still mismatches frozen expectedanswer. Source2 Wells page10 and Source4 page11 correctly support most Wells risks and expense/capital-return policy. The grouped Wells proposition also claims credit-related matters: explicit futurecredit-quality/loanloss evidence is in retrieved Source6 page9, not its issuedSources2/4. Under full-proposition citation support that grouped claim fails. Source1 Tesla page30 supports the Tesla proposition."
+    }
+  ]
+}

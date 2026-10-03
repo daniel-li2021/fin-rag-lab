@@ -1,0 +1,18 @@
+{
+  "status": "failed; no promotion",
+  "results_sha256": "20537e54bb44f7726466c88dbfd22985dbde14153321f622ebaca531626f60e3",
+  "method": "Codex failure-focused source review, not complete claim-level judging",
+  "findings": {
+    "q07": "Supported value but qualified outcome instead of answer",
+    "q12": "Supported requested drivers but unnecessary qualified outcome",
+    "q15": "Retrieved ramp passage omitted",
+    "q16": "Retrieved qualitative opportunity omitted; substituted company-wide outlook",
+    "q18": "21.1% consolidated GAAP gross margin mislabeled automotive",
+    "q20": "Free-text difference bypasses calculations and outcome lacks causal qualification",
+    "q21": "Invalid placeholder/calculation envelope refused",
+    "q22": "Invalid placeholder/calculation envelope refused",
+    "q24": "Clarification lacks consolidated/automotive scope question",
+    "q25": "Clarifies rather than qualified qualitative comparison",
+    "q26": "Unnecessary qualified outcome"
+  }
+}

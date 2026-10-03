@@ -1,14 +1,42 @@
 # FinRAG next-phase architecture and work plan
 
-Review date: October 2, 2026. Original scope: investigation and proposal. Implementation status is recorded below.
+Updated October 2, 2026 against local `main` at `832e59f`. Items 01–12 are implemented and locally validated; financial evidence controls are implemented, with quality promotion held. The original investigation and proposal are retained below as history.
 
-Reviewed local `main` at `4b4a95f8b42d46a6fd7a0e459c072fe228490a7f`; GitHub `origin/main` points to the same commit. Read the application paths, their callers, focused tests, golden set, saved evaluation CSVs, notebook outputs, and local Chroma metadata. No ingestion, paid model calls, evaluations, builds, deployment, or application changes were performed. Issue titles below are drafts, not published GitHub issues.
+The original review examined `4b4a95f8b42d46a6fd7a0e459c072fe228490a7f`, which matched `origin/main` at that time. Its no-ingestion/no-model-call scope and architecture findings describe that investigation, not the subsequent implementation and benchmark. Issue titles 01–12 are historical draft boundaries, not published GitHub issues.
 
-## Recommendation
+## Implemented next phase: financial evidence controls
+
+The [frozen phase-close report](PHASE_CLOSE_REPORT.md) remains the baseline: strict **19/30**, numeric **9/10**, clarification **0/3**, OOC refusal **4/4**, complete cross-document answers **1/4**, final evidence recall **0.673** over 26 supported questions and receipt-based cost **$0.019366155**. Original questions, labels, PDFs, retained chunks/vectors and baseline outputs are unchanged.
+
+| Implemented boundary | Runtime behavior | Validation / remaining limit |
+|---|---|---|
+| Source-aware clarification | Confirmed company aliases from the authorized source/version snapshot trigger questions about missing comparison period, revenue definition and margin scope/basis before any model call. Unsupported companies still use the refusal policy. | q18/q23/q24 clarify correctly, without figures or model calls; 4/4 OOC refusals retained. This is a narrow semantic guard, not a complete financial query parser. |
+| Routing and opt-in original context | Short outlook/growth/performance/risk/comparison questions use deep retrieval. Opt-in generation assembles deduplicated, same-version original span text with page/document/version markers, excluding inherited headings and generated captions. Legacy/generated-only context is explicitly unverified. | Original boundaries, IDs, stored payloads and vector inputs are unchanged. This repairs presentation interruptions without re-ingestion. |
+| Bounded evidence profile | Request `supplement_k=1..8`; default is **0**. Keep ranked parents, append uncovered candidate parents with two reserved lexical slots, then positive-score original-parent BM25 evidence. Explicit growth requests have one small lexical synonym probe. | At 8: final recall **0.897**, complete evidence **23/26** versus **16/26**. Candidate rankings match all 30 frozen rows. Owner/source/version restrictions remain in force. This increases context, not the common 2,400-token experimental budget. |
+| Original quote binding | The opt-in profile requests exact supporting quotes; unique original document/version proof can repair a wrong footnote. Missing, ambiguous or malformed support produces a fact-free refusal. Cited model clarifications also pass the guard. | Numeric-only/generated/old-version quotes cannot prove support. Exact location is **not** semantic entailment: a title quote alone still cannot prove a financial claim. Broad unsupported prose requires source review. |
+| Checked arithmetic | Optional structured operands require original quotes, explicit periods, company/metric/scope/basis/unit comparability, and checked `Decimal` difference, percentage-point change or growth. Only validated placeholders receive computed results and operand citations. | Quarterly/YTD mixing, missing operands and zero growth denominators reject. Sparse labels cause conservative refusals; row/column association and arithmetic written outside the structured envelope remain review limitations. |
+
+Both APIs and the shared local/persistent query pipeline accept the bounded request option. A positive `supplement_k` also enables the experimental quote/calculation response protocol; ordinary requests keep the existing response protocol. Source-aware clarification and semantic routing are shared improvements. Ordinary generation retains the frozen baseline prompt/context format; original-span presentation and the response protocol are opt-in. Benchmark `--ids` supports bounded regression subsets; `--reuse-query-embeddings` reuses the existing same-model input-hash cache on Postgres. No new model, reranker, agent framework, ingestion, embedding or cloud resource is needed.
+
+### Measured result and promotion decision
+
+The [quote-bound 30-question capture](benchmarks/20261002-financial-answers-bound/manifest.json), [immutable outputs](benchmarks/20261002-financial-answers-bound/results.jsonl), [source review](benchmarks/20261002-financial-answers-bound/review.json), [reviewed summary](benchmarks/20261002-financial-answers-bound/reviewed_summary.json), [paired deltas](benchmarks/20261002-financial-answers-bound/paired_summary.json) and [measured cost](benchmarks/20261002-financial-answers-bound/measured_cost.json) record **14/30 strict**, **5/10 numeric**, **3/3 clarifications**, **4/4 OOC**, and **2/4 strict cross-document**. The guard fixed q06's exact-value citation and allowed q15's supported limited answer, but fourteen supported questions refused. q13 has one conservatively reviewed unsupported/wrong-period April qualifier. Strict successes were lost, so this is **not a completed quality phase or a promoted default**.
+
+There were 27 generator calls, zero fresh embedding calls and no ingestion/judge calls. Receipt-based cost is **$0.029741935** (+53.6% versus baseline); service p95 is **3.813 s** versus **3.261 s** (+16.9%). Cache reuse and different runtime conditions limit causal comparisons. Final evidence recall improved by **0.224**, but that does not compensate for correctness failures or establish a controlled-budget retrieval promotion. The original numeric +2 promotion gate is unchanged; the 9/10 baseline cannot satisfy it with only one available additional success.
+
+The capture predates isolation of the protocol behind `supplement_k`; its `code.patch` preserves the exact captured implementation. [Post-capture changes](benchmarks/20261002-financial-answers-bound/post_capture_changes.json) document that isolation. The [final default regression subset](benchmarks/20261002-financial-default-final/manifest.json) validates the final default path separately and is not a replacement 30-question benchmark. Earlier failed screens, the malformed-source partial capture and their receipts are retained; none is relabeled as a success. Its [reviewed12-question default subset](benchmarks/20261002-financial-default-final/reviewed_summary.json) has **7/12 strict**, **3/3 reviewed numeric**, all three clarification cases correct, and one q11 wrong-period provision trend. q12/q26 have unnecessary qualified outcomes; q19/q20 omit rubric details, and q26 lacks one credit-risk citation. The subset cost is **$0.007360825** across nine model calls and zero embeddings. These remaining model failures preclude an overall improvement claim even with the frozen default prompt/context preserved.
+
+**Acceptance still required:** eliminate unnecessary refusals with independently bound supporting rows/columns, repair the temporal qualifier and preserve every formerly strict-correct answer. Require all financial assertions to have supporting issued citations, zero unsupported/wrong-period claims, complete comparison evidence, and known cost/latency before considering promotion. Keep `golden.jsonl`/`labels.v1.json` fixed; capture and review any subsequent correction in a new directory. Do not infer model quality from fake-model tests or relax existing [promotion gates](BENCHMARK.md).
+
+Seventy focused offline checks pass. A disposable restore verified retained corpus identity and source/version/owner isolation; the task-created database is removed after validation. Cloud provisioning, sustained-load claims and contextual retrieval promotion remain outside this local implementation.
+
+Publication validation on October 2: 58 relevant generator, query/retrieval coverage, service, benchmark/review, usage, private-runtime and API checks pass. Offline replay confirms the baseline and four reviewed successor captures; successor golden/label/corpus identities match the baseline. This validates the existing batch for publication, not financial quality promotion. No new ingestion, model call, database restore or cloud check was performed for publication.
+
+## Historical recommendation and implementation boundaries
 
 Build a durable source registry and trustworthy evaluation/provenance first. Keep the existing parent-child hybrid retriever as the default while testing contextual retrieval separately. Use one Postgres database with pgvector plus private object storage for the production data plane. Preserve the current service/API/UI structure; a new agent framework, separate vector service, and search cluster are unnecessary at this stage.
 
-### 1. Current-state architecture
+### 1. Architecture at the original review
 
 ```mermaid
 flowchart LR
@@ -48,7 +76,7 @@ The saved app artifact has **3 documents, 85 parents and 572 children**, and its
 
 **Retrieval details.** Parent size is 800 tokens with 80-token overlap; child size is 150 with 20-token overlap. Heading strings are inserted into the text. Vector and BM25 each retrieve 20 children, sequentially, before RRF (`k=60`) keeps 20 candidates. Expansion swaps children for distinct parents, returning at most 3 parents for short factual queries or 8 for analytical queries. Both paths expand parents. There is no reranker, company/period/source filter, score threshold, or document-coverage requirement. Missing parents are silently skipped. See [chunker](../src/chunkers/parent_child.py), [hybrid](../src/retrievers/hybrid.py), [query routing](../src/pipelines/query.py).
 
-### 2. Main gaps, in priority order
+### 2. Gaps identified at the original review
 
 1. **Unsafe replacement lifecycle.** `_reset_index_state()` removes the live vector/pickle/metadata artifacts before parsing and embedding succeed. Failed ingestion destroys availability of the prior good index. Independent file writes and shared mutable service state also create consistency risks during simultaneous ingest/query or multiple app workers.
 2. **Weak source/version identity.** Paths and filenames identify uploads; changing content, refreshing a URL, amending a filing, deduplicating a blob, and registering a separate source cannot be represented reliably.
@@ -249,4 +277,4 @@ The phase batch includes items 01–11 and the prepared, partially validated ite
 
 Items 01–12 are implemented and locally validated. The retained parent-child + BM25 baseline has a completed, hash-bound 30-question answer capture and Codex source/rubric review: numeric 9/10, exact outcome 22/30, outcome correctness 21/30, strict answers 19/30, OOC refusal 4/4, clarification 0/3, and complete cross-document answers 1/4. Provider receipts and verified cache-write-aware tariffs give $0.019366155 for the benchmark. Ten focused offline checks pass. Issue 12 passes build/start, authorization, SQL/object restoration, restart/recreation, two-request concurrency and capped worker/resource validation. These are local checks, not cloud provisioning or a sustained-load SLA.
 
-Next phase: fix clarification q18/q23/q24, missing AMD/segment operands q07/q15/q16/q21/q22/q25, q08 citation support and q14 period/relevance separation; then run paired golden comparisons. Retain existing defaults and promotion gates. [Complete report, per-question failures, latency/usage/cost and deployment bounds](PHASE_CLOSE_REPORT.md).
+The active work boundaries, validation sequence and exit criteria are at the top of this document. Retain existing defaults and promotion gates. [Complete report, per-question failures, latency/usage/cost and deployment bounds](PHASE_CLOSE_REPORT.md).

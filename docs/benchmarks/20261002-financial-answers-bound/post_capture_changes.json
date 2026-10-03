@@ -1,0 +1,12 @@
+{
+  "captured_code": "code.patch plus HEAD832e59f and manifest code hashes",
+  "subsequent_changes": [
+    "Quote/calculation response protocol and original-span prompt presentation isolated behind positive supplement_k; default generation restores the frozen baseline prompt/context format.",
+    "Confirmed-source clarification and semantic routing remain shared; original-span presentation is experimental.",
+    "Final focused default-path subset captured separately with its own manifest and code.patch; interim default-smoke was a failed context-presentation screen.",
+    "Offline hardening makes the opt-in quote guard reject all-unverified legacy/generated-only contexts; ordinary requests do not invoke this guard. All captured corpus contexts have original evidence, so recorded benchmark behavior is unchanged."
+  ],
+  "latest_code": "../20261002-financial-default-final/code.patch",
+  "measurement_limit": "30-question figures describe the captured prototype. Full final-default30-question quality was not rerun; the12-question subset cannot establish overall final-default accuracy.",
+  "offline_hardening_patch": "../20261002-financial-default-final/post_capture_hardening.patch"
+}

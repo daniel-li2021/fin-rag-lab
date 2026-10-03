@@ -1,0 +1,1181 @@
+{
+  "schema_version": 1,
+  "results_sha256": "ed015ea6e2562aa69efd78d21e21c39d5f8f5654e5bf97284abb04016ab55536",
+  "units": "Closely related qualitative propositions grouped; individual primary financial values separated. Citation support uses the union of footnotes attached to each proposition. Refusals have no factual-claim denominator. Strict pass requires correct outcome, rubric completeness, full context faithfulness and citation support.",
+  "rows": [
+    {
+      "id": "q01",
+      "result_sha256": "f7170d9aaf4e5d4626f01eb39c85a01813cae9d9b86797711bd60ef275e5cc9f",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 consolidated net income $5,361 million / rounded $5.4 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "consolidated net income",
+          "unit": "USD billion",
+          "value": "5.361"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q02",
+      "result_sha256": "7f9a5c7501e27ca4b3f683773721061098eb2569b8c455dad80a75e3c3a47a24",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 diluted EPS $1.62",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "diluted EPS",
+          "unit": "USD/share",
+          "value": "1.62"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q03",
+      "result_sha256": "628efcf070828238eb31f2f306ca97386583487ebf9e0b5a8c1fa91ed1235b57",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo CET1 at December 31, 2025 was 10.6%",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "December 31, 2025 CET1 is a preliminary estimate",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "CET1",
+          "unit": "percent",
+          "value": "10.6"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.5,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Value is supported by context sources 4/page 1 and 8/page 3. Issued source 1/pages 8-9 contains the preliminary-estimate endnote, but no 10.6% ratio; the ratio citation is unsupported."
+    },
+    {
+      "id": "q04",
+      "result_sha256": "a34c27f7db2482c56f11c8b164dcfb0a69a60c573e56fcd4e5c35dcdbb21b35c",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 total vehicle production 408,386",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "total production",
+          "unit": "vehicles",
+          "value": "408386"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q05",
+      "result_sha256": "5427ec9353108082aee2840bf8ff1998995f189f8fc8fb026d822deca1532fa1",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 storage deployed 8.8 GWh",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "storage deployed",
+          "unit": "GWh",
+          "value": "8.8"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q06",
+      "result_sha256": "458d008e502bfc22edfeb50aa783e39c282cdfa1ac02ea09c6af1653475af75e",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 Data Center revenue $5,380 million / rounded $5.4 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Data Center revenue",
+          "unit": "USD billion",
+          "value": "5.38"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Context source 2/page 12 supports the exact $5,380 million. Issued source 1/page 21 supports only rounded $5.4 billion; it does not establish the more precise $5,380 million asserted in the same proposition."
+    },
+    {
+      "id": "q07",
+      "result_sha256": "b9fe481be0b6ba81d96d03a7199ddae008db60f4c900147a10cb15ce8f5de8b0",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Unnecessary deterministic refusal. Separate Gaming $0.8B versus combined Client and Gaming $3.9B is in retrieved source 5/page 22 and verified original AMD PDF page 22. No assertions or citations were issued."
+    },
+    {
+      "id": "q08",
+      "result_sha256": "943fe9c1388557169e7a9e48cfbb683302539a2823b4391edce6cfdcab98020f",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD FY 2025 consolidated revenue $34,639 million",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "FY 2025",
+          "scope": "consolidated revenue",
+          "unit": "USD billion",
+          "value": "34.639"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct value and scope directly supported by context source 4/page 17 GAAP revenue row and source 5/page 18 non-GAAP revenue row. Issued source 1/pages 1-2 contains title/caution only; it cannot support the amount."
+    },
+    {
+      "id": "q09",
+      "result_sha256": "de0106a8f5787ebb1fe8c567c769661a0451a5a6cfc500520fe4eff1173f2436",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 GAAP gross margin 54%",
+          "cited_source_numbers": [
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 non-GAAP gross margin 57%",
+          "cited_source_numbers": [
+            11
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "GAAP consolidated gross margin",
+          "unit": "percent",
+          "value": "54"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q10",
+      "result_sha256": "f5d290d68a68e08fd8d7b54372546aaac1d0368cd4cb126808d779f21bc8e0a6",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 average loans $955.8 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "average loans",
+          "unit": "USD billion",
+          "value": "955.8"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct value supported by context source 3/page 1 and source 10/page 2. Issued source 1/pages 1-2 ends in NII/income data and does not contain the average-loan amount."
+    },
+    {
+      "id": "q11",
+      "result_sha256": "6b4528cb51b1d4de3c29db18b686154f311e4b09e201da47782796ae3d69e7e3",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Consumer Banking and Lending Q4 2025 revenue $9,571 million",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending revenue up 7% YoY",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Small and Business Banking +9%, Home Lending -6%, Credit Card +7%, Auto +7%, Personal Lending -5% YoY",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending noninterest expense down 2% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Lower operating losses and efficiencies reduced expense, partly offset by advertising",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending net income $2,128 million",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending net income down 3% from a year earlier",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": false
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.8571428571428571,
+      "unsupported_assertions": 1,
+      "wrong_period_scope_assertions": 1,
+      "notes": "Original Wells Fargo PDF page 4 and retrieved source 1 show net income $2,128M versus $2,185M prior quarter and $1,602M prior year: -3% is QoQ, while YoY is +33%. Other revenue/subsegment/expense propositions are supported; this is one wrong-period financial assertion."
+    },
+    {
+      "id": "q12",
+      "result_sha256": "0576b6cef1bbdc8cf64382f6e6b6e53e07b2ab8e47f13dce4bb9e1a47eed3d54",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net interest income increased 4% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Higher loan/securities balances, Markets results and fixed-rate repricing drove NII; deposit mix partly offset",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Original retrieved evidence supports the complete answer and its issued citations."
+    },
+    {
+      "id": "q13",
+      "result_sha256": "ee0499454b8748773175a5dbb2c3b2ac1e7098608bd632408a0e9f52ebfdd7a1",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla meaningful AI infrastructure/software progress and ramp of additional AI compute",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Cortex 2 online and running training workloads",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Final next-generation AI5 processor design completed in April",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "First-generation Optimus production lines being installed before volume production",
+          "cited_source_numbers": [
+            4,
+            5
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Preparations for first large-scale Optimus factory expected to begin in Q2",
+          "cited_source_numbers": [
+            4,
+            5
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Texas Optimus line designed for long-term annual production capacity of 10 million robots",
+          "cited_source_numbers": [
+            4,
+            5
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.6666666666666666,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "All statements are supported by retrieved originals and the response explicitly dates the April AI5 event. Cortex 2 online/training is in unissued source 6/page 7; issued union 1/2/3 contains only Cortex photo labels. Exact first-generation Optimus installation statement is in source 3/page 10, not issued sentence union 4/5. Other issued footnote unions support their propositions. FSD is not separately summarized, but the open-ended AI/robotics question is materially answered, consistent with baseline rubric treatment."
+    },
+    {
+      "id": "q14",
+      "result_sha256": "b6d9df060201d1851617c73f3a9ec60f45f87256b9275a3d86f110cf5102b536",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 total production 408,386 vehicles",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 total deliveries 358,023 vehicles",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 storage deployment 8.8 GWh",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Supercharger network grew 19% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla added over 2,200 net new Supercharging stalls in Q1",
+          "cited_source_numbers": [
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Affordable Model 3/Y trims rolled out globally and Cybertruck deliveries began in UAE",
+          "cited_source_numbers": [
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Lithium, cathode and LFP production ramp began",
+          "cited_source_numbers": [
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Q1 paid Robotaxi miles nearly doubled sequentially; Austin unsupervised area expanded",
+          "cited_source_numbers": [
+            4
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Dallas/Houston unsupervised ride launches occurred in April after Q1",
+          "cited_source_numbers": [
+            4
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Quarter-specific production/delivery/storage and subsequent April separation satisfy the content rubric, with no proved wrong-period assertion. All nine propositions have supporting original context (production/deliveries source 4, storage/network source 2, stalls source 6, trims/UAE source 12, battery ramp source 1, Robotaxi source 10). Every issued citation union attaches a different, non-supporting card: source 1 summary lacks the numeric operations; sources 2/3 contain storage table/definitions rather than stalls/trims/ramp; source 4 contains operations counts rather than Robotaxi statements. Strict citation support is 0/9."
+    },
+    {
+      "id": "q15",
+      "result_sha256": "17ae204a41524d5420fc57c8bca88cd30c9a83fc26892253cdfa601e839f9c10",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 MI308 GPU shipments to China revenue about $390 million",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 release of inventory and related charges about $360 million",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Continued Instinct GPU ramp helped drive AMD Q4 Data Center revenue growth",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.6666666666666666,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct qualified outcome: full-year Instinct sales/shipment totals are not supplied; quarterly MI308 evidence is labeled Q4 rather than presented as full-year performance. The two amounts are supported by issued source 1/page 10. Ramp attribution is supported by original retrieved source 11/page 21 and verified AMD PDF page 21, but issued union 1/2/3 lacks it. Evidence-availability caveats are limitations rather than additional financial/world factual propositions."
+    },
+    {
+      "id": "q16",
+      "result_sha256": "5c312b8b984a89678e35476f670ddf0b1f697cf36adfe0df393605ac8a84140d",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "AMD describes Data Center opportunity in leadership performance/TCO across cloud, enterprise and AI workloads, and aims to expand Data Center/AI leadership.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Retrieved materials do not quantify a data-center AI market size or expected growth forecast.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.5,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Qualitative opportunity and qualification answer the rubric. Source1 caution supports the broad forward-looking topic, but not the quoted leadership-performance/TCO wording; that original text is in Source13 page5."
+    },
+    {
+      "id": "q17",
+      "result_sha256": "d2256dabf620589eff748f929c3aee519673bf5c1e2a7c587c6553d2ed44230e",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Q4 2025 common shares repurchased: 58.2 million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Q4 2025 common-stock repurchase amount: $5.0 billion.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "common shares repurchased",
+          "unit": "million shares",
+          "value": "58.2"
+        },
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "common-stock repurchases",
+          "unit": "USD billion",
+          "value": "5.0"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Both primary repurchase figures and period appear in issued Source1 page1; complete capital-return response."
+    },
+    {
+      "id": "q18",
+      "result_sha256": "f5574a9bd0c2ffc4f11dc4e11adc18e24bc2cb411139be9606448580ad523211",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification explicitly asks automotive/segment versus consolidated scope, GAAP/non-GAAP basis and periods. No substitution of consolidated21.1%."
+    },
+    {
+      "id": "q19",
+      "result_sha256": "397b7b957c5e1332c994946dfb8567aaf058ff0d571b385604a6bd5733660d9d",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net interest income: $12,331 million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Wells Fargo Q4 2024 net interest income: $11,836 million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "net interest income",
+          "unit": "USD billion",
+          "value": "12.331"
+        },
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2024",
+          "scope": "net interest income",
+          "unit": "USD billion",
+          "value": "11.836"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct and faithful period-bound amounts are present in retrieved Sources2/8. Issued Source1 page1 has no NII operands. Explicit rubric delta $495M/about4.2% is omitted; faithful partial comparison."
+    },
+    {
+      "id": "q20",
+      "result_sha256": "f436787ec36b47bc563189e56d977bd3e610ff627aeaa158f8f07e4503ad1adb",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 total vehicle production: 408,386.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 total vehicle deliveries: 358,023.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 quarter-end global vehicle inventory: 27days supply.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Q1 2026 production exceeded deliveries.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Production-delivery gap is consistent with inventory accumulation but does not establish how much went into inventory.",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "vehicle production",
+          "unit": "vehicles",
+          "value": "408386"
+        },
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "vehicle deliveries",
+          "unit": "vehicles",
+          "value": "358023"
+        },
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "global vehicle inventory days of supply",
+          "unit": "days",
+          "value": "27"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.8,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Faithful qualified inference and primary values; explicit rubric gap50,363 vehicles is omitted. Source1 page5 supports amounts and derived production>deliveries. Issued Source2 highlights do not contain production/delivery operands for the gap inference."
+    },
+    {
+      "id": "q21",
+      "result_sha256": "b46289574f1621dd53777a97b416fa3276bcad694b86692d10228d79f08d38e1",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "AMD Q4 2025 Data Center revenue YoY growth:39%.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 Client and Gaming revenue YoY growth:37%.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 Embedded revenue YoY growth:3%.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Data Center is fastest-growing among the three AMD segments in Q4 2025.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Data Center revenue YoY growth",
+          "unit": "percent",
+          "value": "39"
+        },
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Client and Gaming revenue YoY growth",
+          "unit": "percent",
+          "value": "37"
+        },
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Embedded revenue YoY growth",
+          "unit": "percent",
+          "value": "3"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.25,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "All operands/ranking correct and present in original retrieved contexts Sources8/10/13. Issued Source1 is Embedded page23, supporting3% only; it cannot establish Data Center39%, Client/Gaming37% or full ranking."
+    },
+    {
+      "id": "q22",
+      "result_sha256": "c2e94c945d046d1cfcfbf8589a325919101f1810d56f376e1d48225fc0e941f7",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "AMD consolidated GAAP gross margin Q4 2024:51%.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD consolidated GAAP gross margin Q4 2025:54%.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD consolidated GAAP gross margin increased3 percentage points from Q4 2024 to Q4 2025.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2024",
+          "scope": "consolidated GAAP gross margin",
+          "unit": "percent",
+          "value": "51"
+        },
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "consolidated GAAP gross margin",
+          "unit": "percent",
+          "value": "54"
+        },
+        {
+          "entity": "amd",
+          "period": "Q4 2024 to Q4 2025",
+          "scope": "consolidated GAAP gross margin change",
+          "unit": "percentage points",
+          "value": "3"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.3333333333333333,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct54\u221251=3ppts from full original page10 table in Source14. Issued Source1 page29 reconciliation supports current54% only, not prior51% or resulting change."
+    },
+    {
+      "id": "q23",
+      "result_sha256": "9fb744cde629a966db53d2ab4c3a06673c287abdaa4bce86b2344ae4481a7ae8",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s) and revenue definition before ranking; satisfies both required dimensions."
+    },
+    {
+      "id": "q24",
+      "result_sha256": "0bb3fb32aedcf22d95c357cb45fb6f27d161b32aa9e960fb26a4abd48aaef88a",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s), GAAP/non-GAAP basis and consolidated/segment scope. All required comparison dimensions covered."
+    },
+    {
+      "id": "q25",
+      "result_sha256": "5dea564e54493899ed36f913137009d33a04c34b5b55158558c4f4eeb51ada28",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Tesla is expanding AI compute/infrastructure/software, without a comparable standalone AI-business revenue metric in the excerpts.",
+          "cited_source_numbers": [
+            1,
+            2
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Q4 2025 Data Center revenue grew39% year over year.",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "AMD Data Center demand includes EPYC processors and Instinct GPUs, so the segment growth is not established as solelyAI growth.",
+          "cited_source_numbers": [
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Both have AI-related activity/expansion but the excerpts do not establish comparable AI-business revenue growth for both.",
+          "cited_source_numbers": [
+            1,
+            2,
+            3
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "amd",
+          "period": "Q4 2025",
+          "scope": "Data Center revenue YoY growth",
+          "unit": "percent",
+          "value": "39"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.25,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct metric qualification and AMD39% are faithful; explicit continued Instinct ramp is omitted, so partial golden-rubric coverage. Source1 Tesla highlights support progress. Source2 AMD caution adds no performance evidence; issued Source3 is Tesla AI page7\u20138, not AMD segment operands in Source15 page21. Comparison citations consequently lack actual AMD growth/ramp support."
+    },
+    {
+      "id": "q26",
+      "result_sha256": "04f8b40ca4cb1d6fe27c4bc373369d78e5e4097aed9be238fa95858c77ed29e4",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo emphasizes interest-rate/NII, capital/liquidity, regulation, credit/deposit and cybersecurity risks.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla emphasizes risks to automotive/energy/AI/robotics/infrastructure plans, manufacturing/scaling, suppliers/battery cells, demand/competition and regulatory/geopolitical conditions.",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Both warn forward-looking statements involve uncertainty and actual results may differ materially.",
+          "cited_source_numbers": [
+            1,
+            2
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": false,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.3333333333333333,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Complete faithful risk comparison but structured outcomequalified_answer differs from frozen expectedanswer. Issued footnotes are swapped: Source1 is Tesla page30 and Source2 Wells pages10\u201311. The shared uncertainty proposition is supported by their union."
+    },
+    {
+      "id": "q27",
+      "result_sha256": "f19660a7495a0948a2c8d349830dcacec65787d9665153571d6e7011a6279df2",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q28",
+      "result_sha256": "e50d8b8c8befcbb8c6d1cd1b930dd2097aacb34d2a8bfdc124eeacc267e5a5dc",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q29",
+      "result_sha256": "f4dbb39e16aa21b58d575e70fa0a38f6a23491fbcd1206e10c9a489186bd99b2",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    },
+    {
+      "id": "q30",
+      "result_sha256": "ade434d0bf85b76392822bb18628d7f8873d7d76d14b50efc152dea2725b479f",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free OOC refusal; no factual assertions, issued citations or numeric claims."
+    }
+  ]
+}

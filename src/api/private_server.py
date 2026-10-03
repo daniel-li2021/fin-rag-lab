@@ -32,6 +32,7 @@ class PrivateQuery(BaseModel):
     question: str = Field(min_length=1,max_length=4000)
     filters: SourceFilters = Field(default_factory=SourceFilters)
     verify_hallucination: bool = False
+    supplement_k: int = Field(default=0, ge=0, le=8, strict=True)
 
 
 def build_private_app(service=None, token=None):
@@ -130,6 +131,7 @@ def build_private_app(service=None, token=None):
     @app.post('/query')
     def query(req: PrivateQuery):
         return service.query(req.question,filters=req.filters.model_dump(mode='json',exclude_none=True),
-                             verify_hallucination=req.verify_hallucination).to_display_dict()
+                             verify_hallucination=req.verify_hallucination,
+                             supplement_k=req.supplement_k).to_display_dict()
 
     return app

@@ -6,6 +6,7 @@ from src.core.models import DocumentChunk
 from src.storage.models import SourceFilters
 from .bm25 import BM25Retriever
 from .rrf import rrf_merge
+from .hybrid import supplement_parent_evidence
 
 MAX_CHILDREN = 10000
 
@@ -24,7 +25,7 @@ class PostgresRetriever:
     def retrieve(self, query, k=5):
         return self.retrieve_with_candidates(query, k)['chunks']
 
-    def retrieve_with_candidates(self, query, k=5, fetch_k=20, use_parent=True):
+    def retrieve_with_candidates(self, query, k=5, fetch_k=20, use_parent=True, supplement_k=0):
         f = self.filters
         vector = self.embeddings.embed_query(query)
         if len(vector) != self.dimensions or not all(math.isfinite(x) for x in vector) or not any(vector):
@@ -45,7 +46,8 @@ class PostgresRetriever:
                 args.extend([field, str(value)])
         with self.registry.connect() as db:
             db.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')
-            builds = db.execute('SELECT b.* FROM sources s,source_versions v,retrieval_builds b WHERE b.version_id=v.version_id AND '+
+            metadata_alias = 'v' if f.version_id else 's'
+            builds = db.execute('SELECT b.*,'+metadata_alias+'.metadata AS source_metadata FROM sources s,source_versions v,retrieval_builds b WHERE b.version_id=v.version_id AND '+
                                 ' AND '.join(where), args).fetchall()
             if not builds:
                 return {'chunks': [], 'candidates': []}
@@ -53,6 +55,8 @@ class PostgresRetriever:
                    b['manifest'].get('distance') != 'cosine' for b in builds):
                 raise ValueError('Active build embedding profile differs from runtime')
             build_ids = [b['build_id'] for b in builds]
+            source_metadata = {str(b['build_id']): b['source_metadata'] for b in builds
+                               if (b.get('source_metadata') or {}).get('review_status') == 'confirmed'}
             rows = db.execute('SELECT payload,parent_id FROM chunks WHERE build_id=ANY(%s) ORDER BY build_id,ordinal LIMIT %s',
                               (build_ids, MAX_CHILDREN*2+1)).fetchall()
             children = [DocumentChunk.model_validate(r['payload']) for r in rows if r['parent_id']]
@@ -86,4 +90,15 @@ class PostgresRetriever:
                 seen.add(target.chunk_id); result.append(target)
             if len(result) >= k:
                 break
+        if use_parent:
+            result = supplement_parent_evidence(query, result, candidates, parents, supplement_k)
+        # Request-only aliases come from the same authorized source/version snapshot.
+        enriched = []
+        for chunk in result:
+            metadata = {k: v for k, v in chunk.metadata.items() if k != 'confirmed_source_metadata'}
+            confirmed = source_metadata.get(str(metadata.get('build_id')))
+            if confirmed:
+                metadata['confirmed_source_metadata'] = dict(confirmed)
+            enriched.append(chunk.model_copy(update={'metadata': metadata}))
+        result = enriched
         return {'chunks': result, 'candidates': candidates}

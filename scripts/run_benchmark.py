@@ -28,6 +28,11 @@ def main():
     parser.add_argument('--ragas', action='store_true', help='Add paid secondary judging on supported labels')
     parser.add_argument('--judge-embedding-model', default='text-embedding-3-small')
     parser.add_argument('--limit', type=int, default=5)
+    parser.add_argument('--ids', nargs='+', help='Run only these stable benchmark IDs')
+    parser.add_argument('--supplement-k', type=int, choices=range(9), default=0,
+                        help='Opt-in bounded original-parent evidence supplements (0–8)')
+    parser.add_argument('--reuse-query-embeddings', action='store_true',
+                        help='Reuse verified same-model text embeddings for identical queries')
     args = parser.parse_args()
     if args.replay:
         print(json.dumps(replay(args.replay), indent=2))
@@ -47,6 +52,10 @@ def main():
         svc = RAGService(index_dir=args.index_dir, cost_tracker=tracker)
     if not svc.load_index():
         parser.error('No saved index; build explicitly before benchmarking')
+    if args.reuse_query_embeddings:
+        if args.backend != 'postgres':
+            parser.error('Query embedding reuse currently requires the retained Postgres backend')
+        svc.embeddings.query_embedding_store = svc.embeddings.document_embedding_store
     if args.backend == 'postgres':
         with svc.registry.connect() as db:
             builds = db.execute('''SELECT s.source_id,s.title,v.sha256,b.build_id,b.manifest
@@ -79,6 +88,9 @@ def main():
               'index_artifacts': artifact_hashes,
               'dependencies': {name: version(name) for name in [*dependencies, 'openai', 'httpx']},
               'quick_k': 3, 'deep_k': 8, 'fetch_k': 20, 'rrf_k': 60,
+              'supplement_k': args.supplement_k,
+              'query_embedding_cache': args.reuse_query_embeddings,
+              'question_ids': args.ids,
               'evidence_policy': 'actual_quick_deep', 'limit': args.limit,
               'verify_hallucination': args.verify, 'ragas_enabled': args.ragas,
               'judge_embedding_model': args.judge_embedding_model if args.ragas else None,
@@ -86,9 +98,13 @@ def main():
               'pricing_snapshot': svc.cost_tracker.report()['pricing_snapshot'],
               'requirements_sha256': hashlib.sha256((ROOT / 'requirements.txt').read_bytes()).hexdigest()}
     run_manifest = manifest(ROOT, args.golden, args.labels, config, overlay['corpus'])
+    if args.ids:
+        if set(args.ids) - {example['id'] for example in examples}:
+            parser.error('Unknown benchmark ID')
+        examples = [example for example in examples if example['id'] in args.ids]
     selected = examples[:args.limit] if args.limit else examples
     def query(question):
-        result = asdict(svc.query(question, verify_hallucination=args.verify))
+        result = asdict(svc.query(question, verify_hallucination=args.verify, supplement_k=args.supplement_k))
         if args.ragas:
             from src.evaluators import RagasEvaluator
             from src.evaluators.benchmark import serializable

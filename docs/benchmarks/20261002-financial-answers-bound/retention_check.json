@@ -1,0 +1,10 @@
+{
+  "initial_digest": "154f0e3931b73bd7a7622daeb3ff77a535e4bc49a372005d2d04dd09ac61fc36",
+  "final_digest": "154f0e3931b73bd7a7622daeb3ff77a535e4bc49a372005d2d04dd09ac61fc36",
+  "original_chunks_and_vectors_unchanged": true,
+  "default_prompt_identical_to_frozen_head": true,
+  "default_context_builder_identical_to_frozen_head": true,
+  "baseline_revision": "832e59f",
+  "disposable_container": "finrag-nextphase-db",
+  "cleanup": "Task-created container stopped; original database/corpus untouched"
+}

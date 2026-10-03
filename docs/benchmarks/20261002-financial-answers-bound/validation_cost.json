@@ -1,0 +1,56 @@
+{
+  "scope": "Only this financial-evidence implementation task; originalphase-close/modelDocker expense excluded",
+  "pricing": "Frozen October2 verified tariffs; provider receipts, not account invoice reconciliation",
+  "captures": [
+    {
+      "directory": "../20261002-financial-answers",
+      "saved_questions": 30,
+      "generator_calls": 30,
+      "cost_usd": "0.047575125"
+    },
+    {
+      "directory": "../20261002-financial-answers-smoke",
+      "saved_questions": 13,
+      "generator_calls": 10,
+      "cost_usd": "0.011475365"
+    },
+    {
+      "directory": "../20261002-financial-answers-final",
+      "saved_questions": 30,
+      "generator_calls": 27,
+      "cost_usd": "0.018312620"
+    },
+    {
+      "directory": "../20261002-financial-answers-quotes",
+      "saved_questions": 1,
+      "generator_calls": 1,
+      "cost_usd": "0.0010453"
+    },
+    {
+      "directory": "../20261002-financial-answers-bound",
+      "saved_questions": 30,
+      "generator_calls": 27,
+      "cost_usd": "0.029741935"
+    },
+    {
+      "directory": "../20261002-financial-default-smoke",
+      "saved_questions": 12,
+      "generator_calls": 9,
+      "cost_usd": "0.006374075"
+    },
+    {
+      "directory": "../20261002-financial-default-final",
+      "saved_questions": 12,
+      "generator_calls": 9,
+      "cost_usd": "0.007360825"
+    }
+  ],
+  "debug_calls": 2,
+  "debug_cost_usd": "0.00033602",
+  "successfully_receipted_total_usd": "0.122221265",
+  "unreceipted_failed_model_responses": 1,
+  "unreceipted_cost_usd": null,
+  "fresh_embedding_calls": 0,
+  "ingestion_calls": 0,
+  "paid_judge_calls": 0
+}

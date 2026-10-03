@@ -32,6 +32,7 @@ query, retrieved chunks, answer, citations, and a stage trace for debugging.
 """
 from __future__ import annotations
 import time
+import re
 from typing import TypedDict, Literal, Optional, Any
 from langgraph.graph import StateGraph, END
 from langsmith import traceable
@@ -57,6 +58,7 @@ class QueryState(TypedDict, total=False):
     retrieval_latency_ms: float
     stages: list[str]                 # debug trace
     metadata: dict[str, Any]
+    supplement_k: int
 
 
 _FACTUAL_KEYWORDS = (
@@ -71,6 +73,9 @@ def _classify_query(query: str) -> Literal["factual_lookup", "analytical"]:
     Production: replace with a small LLM call or fine-tuned classifier.
     """
     q = query.lower().strip()
+    # These requests need coverage across passages even when phrased briefly.
+    if re.search(r"\b(?:outlook|trend|evolv\w*|growth|perform\w*|highlights?|risks?|compare\w*|drivers?|progress|rank\w*)\b", q):
+        return "analytical"
     # Short queries that start with what/how/when → factual lookup
     if any(q.startswith(k) for k in _FACTUAL_KEYWORDS) and len(query.split()) < 12:
         return "factual_lookup"
@@ -107,10 +112,11 @@ class QueryPipeline:
         self.cost_tracker = cost_tracker
         self.graph = self._build_graph()
     
-    def _retrieve(self, query, k):
+    def _retrieve(self, query, k, supplement_k=0):
         start = time.perf_counter()
         if hasattr(self.retriever, "retrieve_with_candidates"):
-            result = self.retriever.retrieve_with_candidates(query, k=k)
+            options = {"supplement_k": supplement_k} if supplement_k else {}
+            result = self.retriever.retrieve_with_candidates(query, k=k, **options)
         else:
             result = {"chunks": self.retriever.retrieve(query, k=k), "candidates": []}
         result["retrieval_latency_ms"] = (time.perf_counter() - start) * 1000
@@ -126,7 +132,7 @@ class QueryPipeline:
         }
     
     def _node_quick_retrieve(self, state: QueryState) -> QueryState:
-        details = self._retrieve(state["query"], self.quick_k)
+        details = self._retrieve(state["query"], self.quick_k, state.get("supplement_k", 0))
         chunks = details["chunks"]
         return {
             **state,
@@ -135,7 +141,7 @@ class QueryPipeline:
         }
     
     def _node_deep_retrieve(self, state: QueryState) -> QueryState:
-        details = self._retrieve(state["query"], self.deep_k)
+        details = self._retrieve(state["query"], self.deep_k, state.get("supplement_k", 0))
         chunks = details["chunks"]
         return {
             **state,
@@ -144,7 +150,8 @@ class QueryPipeline:
         }
     
     def _node_generate(self, state: QueryState) -> QueryState:
-        result = self.generator.generate(state["query"], state.get("chunks", []))
+        options = {"financial_evidence": True} if state.get("supplement_k") else {}
+        result = self.generator.generate(state["query"], state.get("chunks", []), **options)
         return {
             **state,
             "answer": result["answer"],
@@ -152,7 +159,9 @@ class QueryPipeline:
             "invalid_citations": result.get("invalid_citations", []),
             "refused": result.get("outcome") == "refuse" if result.get("outcome") else result.get("refused", False),
             "outcome": result.get("outcome"),
-            "stages": [*state.get("stages", []), "generate"],
+            "stages": [*state.get("stages", []), "generate",
+                       *(["citation_guard→" + result["citation_error"]] if result.get("citation_error") else []),
+                       *(["calculation_guard→" + result["calculation_error"]] if result.get("calculation_error") else [])],
             "metadata": {**state.get("metadata", {}), **{
                 k: v for k, v in result.items() if k.startswith("n_")
             }},
@@ -205,16 +214,18 @@ class QueryPipeline:
     
     # ---- Public API ----
     @traceable(name="query_pipeline")
-    def query(self, question: str) -> dict[str, Any]:
+    def query(self, question: str, *, supplement_k: int = 0) -> dict[str, Any]:
+        if type(supplement_k) is not int or not 0 <= supplement_k <= 8:
+            raise ValueError("supplement_k must be an integer between 0 and 8")
         if self.cost_tracker is None:
-            return self._query(question)
+            return self._query(question, supplement_k)
         with self.cost_tracker.request() as receipt:
-            result = self._query(question)
+            result = self._query(question, supplement_k)
             result["usage"] = receipt.report()
             return result
 
-    def _query(self, question):
-        initial = QueryState(query=question, stages=[], metadata={})
+    def _query(self, question, supplement_k=0):
+        initial = QueryState(query=question, stages=[], metadata={}, supplement_k=supplement_k)
         final = self.graph.invoke(initial)
         return {
             "query": question,

@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "results_sha256": "bb5e22bdd7552c5a043a1cd9f8701f2c6e4056da5f6522d5b3107c1af8261f76",
+  "units": "Closely related qualitative propositions grouped; individual primary financial values separated. Citation support uses the union of footnotes attached to each proposition. Refusals have no factual-claim denominator. Strict pass requires correct outcome, rubric completeness, full context faithfulness and citation support.",
+  "rows": [
+    {
+      "id": "q02",
+      "result_sha256": "d4eb76e28d450b8fc3307ad7ec2d25b469bda910d53987a5561b9f5fae424979",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 diluted earnings per common share $1.62",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "diluted EPS",
+          "unit": "USD/share",
+          "value": "1.62"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct outcome and complete source-supported answer with supporting issued citations."
+    },
+    {
+      "id": "q03",
+      "result_sha256": "781abf39b5f81e44deee6091566fae8ad3cf64efeb3dcf346de50824bfcac459",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo CET1 ratio at December 31, 2025 was 10.6%",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "CET1",
+          "unit": "percent",
+          "value": "10.6"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Exact value supported in this request by original source 4/page 1 and source 8/page 3. Actual issued source 1/pages 8-9 has CET1 definition/preliminary-estimate endnotes but lacks 10.6%. Complete content and correct outcome, unsupported issued citation."
+    },
+    {
+      "id": "q10",
+      "result_sha256": "c2d7a2a4a72691d004a9eb95f2a8d0d78dbb33a7c3966a8ca530dbdbc38a7bcb",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 average loans $955.8 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "average loans",
+          "unit": "USD billion",
+          "value": "955.8"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Exact value supported in this three-chunk request by original source 3/page 1. Actual issued source 1/pages 1-2 contains chairman commentary and initial NII rows, not the average-loan amount. Complete content and correct outcome, unsupported issued citation."
+    },
+    {
+      "id": "q11",
+      "result_sha256": "ab785052460410326d5bb81122408f91f8fc0e95f9fc65deea343f7196dd208f",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Consumer Banking and Lending Q4 2025 revenue $9.571 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending Q4 2025 revenue up 7% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending Q4 2025 net income $2.128 billion",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending Q4 2025 net income up 33% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "CSBB +9%, Credit Card +7%, Auto +7%, Home Lending -6%, Personal Lending -5% YoY",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Consumer Banking and Lending noninterest expense down 2% YoY",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Lower operating losses and efficiency initiatives reduced expenses, partly offset by higher advertising",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.5714285714285714,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "No reproduced wrong-period claim: net income correctly states +33% YoY, and primary revenue/income conversions to billions are exact. Actual paragraph 1 source 1/page 4 supports those four values/trends. Paragraph 2 ends with source 2/pages 5-6, which covers Commercial Banking (-3% revenue/-5% expense) and Corporate/Investment Banking rather than the cited Consumer Banking subsegment/expense propositions. Those three propositions are faithful to unissued-for-that-paragraph source 1/page 4, so context support remains complete but issued citation support is 4/7."
+    },
+    {
+      "id": "q12",
+      "result_sha256": "bbe00982064f21a632b3db8f212f332faaaadc5d2335121b649e3c93f1b58a01",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net interest income increased 4% YoY",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Higher loan/securities balances, Markets results and fixed-rate repricing drove NII; deposit mix partly offset",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct answer outcome restored. Both numeric trend and grouped drivers are explicitly supported by actual issued source 1/page 2; no unrequested other-period qualification."
+    },
+    {
+      "id": "q13",
+      "result_sha256": "68a3240556ad8955ba5fb0f4fd4c7bb0af9b61815609b36c232ecc1b51a92164",
+      "review_method": "Codex source-and-rubric review; not an independent human or Ragas judge",
+      "claim_reviews": [
+        {
+          "claim": "Tesla expanding AI infrastructure and custom silicon",
+          "cited_source_numbers": [
+            1,
+            2
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Cortex 2 online and running training workloads",
+          "cited_source_numbers": [
+            1,
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Next-generation AI5 final design completed in April",
+          "cited_source_numbers": [
+            1,
+            2
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Optimus factory construction and first-generation line installation precede volume production",
+          "cited_source_numbers": [
+            3,
+            4
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "First large-scale Optimus factory preparations expected to begin in Q2",
+          "cited_source_numbers": [
+            3,
+            4
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.8,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Core AI/robotics coverage is complete, consistent with baseline open-ended rubric; only AI5 is explicitly dated April, so no broad temporal misstatement from the quote-bound capture is repeated. Actual first-sentence issued union 1/2 supports infrastructure/silicon and AI5, but Cortex online/training appears only in retrieved original source 6/page 7. Actual robotics sentence union 3/4 supports line installation, factory construction and Q2 preparations. Thus 4/5 citation propositions supported, all 5 faithful to context."
+    },
+    {
+      "id": "q18",
+      "result_sha256": "db9f3fa674ca180d459cb25fc1323c9ded1ae5e412ac9633722b716889526328",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification explicitly asks automotive/segment versus consolidated scope, GAAP/non-GAAP basis and periods. No substitution of consolidated21.1%."
+    },
+    {
+      "id": "q19",
+      "result_sha256": "b7f84d9a5334f64590b985c7c64ae2e87221d4e90843177b61bb5b49a02691c2",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo Q4 2025 net interest income:$12,331million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Wells Fargo Q4 2024 net interest income:$11,836million.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Wells Fargo Q4 2025 NII increased4% year over year, as reported.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "net interest income",
+          "unit": "USD billion",
+          "value": "12.331"
+        },
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2024",
+          "scope": "net interest income",
+          "unit": "USD billion",
+          "value": "11.836"
+        },
+        {
+          "entity": "wells_fargo",
+          "period": "Q4 2025",
+          "scope": "net interest income YoY growth",
+          "unit": "percent",
+          "value": "4"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": false,
+      "strict_pass": false,
+      "partial_rubric": true,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Both amounts and reported rounded+4% are context-supported in original NII table; issued Source1 page1 lacks NII operands/growth. Explicit golden rubric absolute difference$495M is omitted, so partial comparison completeness.4% agrees with the source reported rounding of the exact~4.18% change."
+    },
+    {
+      "id": "q20",
+      "result_sha256": "8e208746bffd373ce93e68e3f52b11965af093cc4bf336302251424d4d88fb14",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Tesla Q1 2026 production:408,386vehicles.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 deliveries:358,023vehicles.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Production exceeded deliveries by50,363vehicles in Q1 2026.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla Q1 2026 quarter-end global vehicle inventory:27days supply.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        },
+        {
+          "claim": "Gap is consistent with inventory accumulation but does not establish how much became inventory.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": true,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "vehicle production",
+          "unit": "vehicles",
+          "value": "408386"
+        },
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "vehicle deliveries",
+          "unit": "vehicles",
+          "value": "358023"
+        },
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "production minus deliveries",
+          "unit": "vehicles",
+          "value": "50363"
+        },
+        {
+          "entity": "tesla",
+          "period": "Q1 2026",
+          "scope": "global vehicle inventory days of supply",
+          "unit": "days",
+          "value": "27"
+        }
+      ],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": 1.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Correct integer subtraction408386\u2212358023=50363; both operands and27-day inventory are in issued Source1 original page5. Correct qualified inventory inference without asserting cause; complete frozen rubric. This is source review of model-generated arithmetic, not proof of an applied runtime calculation guard."
+    },
+    {
+      "id": "q23",
+      "result_sha256": "f34e6897d70bcd63bdabecc21c6f1a399caf4416549a4adf34996e59dd6366f0",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s) and revenue definition before ranking; satisfies both required dimensions."
+    },
+    {
+      "id": "q24",
+      "result_sha256": "cb2311ce6aabb936f7e201ee2a62361842846f08c6e579000abbb04332029abc",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": true,
+      "partial_rubric": false,
+      "citation_support": null,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Deterministic fact-free clarification asks reporting period(s), GAAP/non-GAAP basis and consolidated/segment scope. All required comparison dimensions covered."
+    },
+    {
+      "id": "q26",
+      "result_sha256": "e7f6e098b1854f1ec171ee631226a079afc2bf9f91c4a133ba0f801aae66fc6c",
+      "review_method": "Codex original-source-span and frozen-rubric review; not independent human review or Ragas",
+      "claim_reviews": [
+        {
+          "claim": "Wells Fargo risk emphasis:interest/NIM, deposits/funding, capital/liquidity, credit quality, regulation, operational/cyber risks.",
+          "cited_source_numbers": [
+            1
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        },
+        {
+          "claim": "Tesla forward-looking emphasis:product/operations demand, production/ramps/deliveries, cost/profitability, infrastructure/expansion and supply/manufacturing/competition/regulatory/geopolitical risks.",
+          "cited_source_numbers": [
+            2
+          ],
+          "citation_supported": false,
+          "context_supported": true
+        }
+      ],
+      "numeric_claims": [],
+      "outcome_matches": true,
+      "rubric_pass": true,
+      "strict_pass": false,
+      "partial_rubric": false,
+      "citation_support": 0.0,
+      "unsupported_assertions": 0,
+      "wrong_period_scope_assertions": 0,
+      "notes": "Full faithful comparison and expectedanswer outcome. Company-specific issued footnotes are swapped: Source1 Tesla page30, Source2 Wells pages10\u201311. Retrieved Wells forward-looking context includes futurecredit-quality concerns; no unsupported claims, but citations support neither company-specific proposition."
+    }
+  ]
+}

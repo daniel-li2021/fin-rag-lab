@@ -43,6 +43,7 @@ class IngestResponse(BaseModel):
 class QueryRequest(BaseModel):
     question: str
     verify_hallucination: bool = False
+    supplement_k: int = Field(default=0, ge=0, le=8, strict=True)
 
 
 class CitationModel(BaseModel):
@@ -168,6 +169,7 @@ def build_app(service: Optional[RAGService] = None) -> FastAPI:
             result = state.service.query(
                 req.question,
                 verify_hallucination=req.verify_hallucination,
+                **({"supplement_k": req.supplement_k} if req.supplement_k else {}),
             )
         except RuntimeError as e:
             raise HTTPException(400, str(e)) from e
