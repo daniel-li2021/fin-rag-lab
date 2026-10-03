@@ -1,6 +1,6 @@
 # FinRAG next-phase architecture and work plan
 
-Updated October 2, 2026 against local `main` at `832e59f`. Items 01–12 are implemented and locally validated; financial evidence controls are implemented, with quality promotion held. The original investigation and proposal are retained below as history.
+Historical phase-close snapshot: October 2, 2026 against local `main` at `832e59f`, with subsequent Phase 3 status linked below. Items 01–12 are implemented and locally validated; financial evidence controls are implemented, with quality promotion held. The original investigation and proposal are retained below as history. For the October 3 review of `main` at `00d5338` and the proposed next development batch, see [the product review](PRODUCT_NEXT_BATCH_PLAN.md).
 
 The original review examined `4b4a95f8b42d46a6fd7a0e459c072fe228490a7f`, which matched `origin/main` at that time. Its no-ingestion/no-model-call scope and architecture findings describe that investigation, not the subsequent implementation and benchmark. Issue titles 01–12 are historical draft boundaries, not published GitHub issues.
 

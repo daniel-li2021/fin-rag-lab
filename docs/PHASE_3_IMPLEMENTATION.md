@@ -1,5 +1,7 @@
 # Phase 3 implementation status
 
+The October 3 [product review and next batch proposal](PRODUCT_NEXT_BATCH_PLAN.md) distinguishes this implementation from authentic release validation and prioritizes real company histories, evaluation and a demonstrable workspace.
+
 Phase 3 now has an opt-in financial research workspace in the existing service, query graph, private API and local Streamlit app. It stores immutable owner-reviewed observations, pins source/version/build/hash identities once, checks required task coverage, and emits cited Decimal receipts or explicit gaps. Collections, saved answers, change indicators and separate reruns preserve research history. Ordinary `/query` behavior and the held experimental answer profile remain unchanged.
 
 | Milestone | Implemented | Still required |

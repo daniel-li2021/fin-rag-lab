@@ -1,14 +1,16 @@
 # Fin-RAG-Lab
 
-A hands-on, production-grade RAG pipeline built around real financial filings (Wells Fargo, Tesla, AMD quarterly reports). Seven notebooks walk from PDF parsing through chunking, hybrid retrieval, LangGraph generation, Ragas evaluation, and FastAPI + LangSmith observability.
+A financial research prototype built around real Wells Fargo, Tesla and AMD reports, with cited Ask answers and an opt-in workspace for reviewed facts, calculations and saved research. Seven notebooks explain the underlying parsing, retrieval, generation and evaluation. Authentic multi-document release evaluation remains held; see the [current product review and next batch](docs/PRODUCT_NEXT_BATCH_PLAN.md).
 
-[![CI](https://github.com/zyziyun/fin-rag-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/zyziyun/fin-rag-lab/actions/workflows/ci.yml)
+[![CI](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
 
 ---
 
-## Headline result (measured, not claimed)
+## Historical notebook result
+
+These retained notebook results describe an earlier experiment, not current Ask accuracy or Phase 3 multi-document validation. Current evidence and remaining release gates are summarized in the [product review](docs/PRODUCT_NEXT_BATCH_PLAN.md).
 
 Switching from a naive `RecursiveChunker(400/60)` to a `ParentChildChunker(parent=800, child=150)` with parent-expansion at retrieval time, evaluated on a 30-question financial QA set with Ragas:
 
@@ -106,7 +108,7 @@ For persistent source updates, install `requirements-persistence.txt`, configure
 
 ### Docker (local)
 
-The [full 30-question phase-close report](docs/PHASE_CLOSE_REPORT.md) records numeric accuracy **9/10**, strict answer correctness **19/30**, OOC refusals **4/4**, clarification **0/3**, and measured model cost **$0.019366155**. Issue 12's disposable Linux Docker build/start/restart/restore/resource checks pass. Subsequent [financial evidence experiments](docs/NEXT_PHASE_PLAN.md) remain held after correctness regressions; the final ordinary path has only a selected 12-question follow-up. The [Phase 3 plan](docs/PHASE_3_PLAN.md) proposes verified financial observations, temporal selection, cited calculations, multi-source coverage and optional bounded planning. Phase 3 implementation has not begun.
+The [full 30-question phase-close report](docs/PHASE_CLOSE_REPORT.md) records numeric accuracy **9/10**, strict answer correctness **19/30**, OOC refusals **4/4**, clarification **0/3**, and measured model cost **$0.019366155**. Issue 12's disposable Linux Docker build/start/restart/restore/resource checks pass. Subsequent [financial evidence experiments](docs/NEXT_PHASE_PLAN.md) remain held after correctness regressions; the final ordinary path has only a selected 12-question follow-up. [Phase 3 implementation](docs/PHASE_3_IMPLEMENTATION.md) now includes reviewed observation contracts, pinned research, calculations and saved history; authentic bindings and sealed evaluation remain incomplete, and the optional planner is disabled. The [next product batch proposal](docs/PRODUCT_NEXT_BATCH_PLAN.md) prioritizes real report histories, evaluation and Streamlit demonstration.
 
 `.env` is **not** baked into the image. Pass it at runtime. Mount volumes so uploads/index/cache persist on the host.
 
