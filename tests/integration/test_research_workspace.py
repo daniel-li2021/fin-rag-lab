@@ -73,6 +73,7 @@ def test_workspace_api_and_unknown_company_fail_closed(durable):
             'selections': [{'source_id': str(source['source_id'])}]}
     result = client.post('/research/questions', json=body).json()
     assert result['outcome'] == 'refuse' and not result['citations']
+    assert client.post('/research/questions', json={**body, 'period_policy': 'guess'}).status_code == 422
     saved = client.post('/research/runs', json=request.model_dump(mode='json'))
     assert saved.status_code == 200, saved.text
     run_id = saved.json()['run_id']
@@ -173,3 +174,28 @@ def test_safe_question_outcomes_save_reopen_and_rerun(durable):
         assert rerun['outcome'] == outcome and rerun['execution']['parent_run_id'] == result['run_id']
         assert not rerun['citations']
     assert len(svc.registry.research_runs(svc.owner)) == 4
+
+
+def test_library_is_owner_scoped_and_history_open_clears_prior_diff(durable, monkeypatch):
+    from streamlit.testing.v1 import AppTest
+    import app.research_workspace as workspace
+    svc, _, _ = durable
+    source, observation, _ = reviewed_source(svc)
+    svc.registry.save_observation(svc.owner, observation)
+    rows = svc.registry.library(svc.owner)
+    assert len(rows) == 1 and rows[0]['fact_cards'] == 1 and rows[0]['children'] > 0
+    assert rows[0]['indexed_pages'] == 0  # Text lines do not masquerade as PDF pages.
+    assert svc.registry.library('bob') == []
+    saved = svc.research_question('What was GAAP consolidated revenue for Test in Q1 2026?',
+        selections=[{'source_id': str(source['source_id'])}], save=True)
+    monkeypatch.setattr(workspace, '_test_service', svc, raising=False)
+    library = AppTest.from_string('from app.research_workspace import render_library, _test_service\nrender_library(_test_service)').run()
+    assert not library.exception
+    history = AppTest.from_string('from app.research_workspace import render_history, render_result, _test_service\nrender_history(_test_service)\nrender_result()').run()
+    history.session_state['research_diff'] = {'answer_changed': True}
+    next(b for b in history.button if b.label == 'Open saved answer').click().run()
+    assert not history.exception
+    assert history.session_state['research_result'] == saved
+    assert 'research_diff' not in history.session_state
+    # Opening and rendering history never execute a new question.
+    assert len(svc.registry.research_runs(svc.owner)) == 1

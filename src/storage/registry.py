@@ -74,6 +74,17 @@ class Registry:
         with self.connect() as db:
             return self.owned(db, owner, source_id)
 
+    def library(self, owner):
+        """Current authorized build coverage; source metadata and fact review stay separate."""
+        with self.connect() as db:
+            return db.execute('''SELECT s.*, b.manifest, b.status AS build_status,
+                (SELECT count(DISTINCT payload->>'page_number') FROM blocks WHERE build_id=b.build_id) AS indexed_pages,
+                (SELECT count(*) FROM chunks WHERE build_id=b.build_id AND parent_id IS NOT NULL) AS children,
+                (SELECT count(*) FROM financial_observations WHERE build_id=b.build_id AND owner_id=%s) AS fact_cards
+                FROM sources s LEFT JOIN retrieval_builds b ON b.build_id=s.active_build_id
+                WHERE s.owner_id=%s AND s.status<>'archived'
+                ORDER BY s.metadata->>'company_id',s.metadata->>'period_end',s.title''', (owner, owner)).fetchall()
+
     def versions(self, owner, source_id):
         with self.connect() as db:
             self.owned(db, owner, source_id)

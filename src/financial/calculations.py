@@ -53,7 +53,7 @@ def calculate(request: CalculationRequest, start: FinancialObservation,
     if op == 'growth' and (start.company_id != end.company_id or same_period):
         raise ValueError('Growth requires one company across distinct reporting periods')
     if op in ('margin', 'delivery_to_production'):
-        expected = ({'gross_profit', 'operating_income', 'net_income'}, 'revenue') if op == 'margin' else (
+        expected = ({'gross_profit', 'operating_income', 'net_income', 'net_income_parent'}, 'revenue') if op == 'margin' else (
             {'vehicle_deliveries'}, 'vehicle_production')
         if start.metric_id not in expected[0] or end.metric_id != expected[1] or not same_period:
             raise ValueError('Ratio requires the allowlisted numerator and same-period denominator')

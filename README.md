@@ -8,6 +8,41 @@ A financial research prototype built around real Wells Fargo, Tesla and AMD repo
 
 ---
 
+## Research workspace quickstart
+
+Use the persistent workspace to compare reviewed financial facts, inspect calculations and gaps, and reopen the original evidence behind a saved result. This is a trusted private prototype: acquired originals are not yet reviewed facts, and authentic release accuracy remains held.
+
+```bash
+pip install -r requirements.txt -r requirements-persistence.txt
+# Supply OPENAI_API_KEY and DATABASE_URL for an existing application-only Postgres/pgvector database.
+export FINRAG_OWNER=local-research
+export FINRAG_OBJECT_DIR="$PWD/index/objects"
+python scripts/sources.py migrate
+streamlit run app/streamlit_app.py
+```
+
+Set credentials in your ignored `.env` or environment. Do not publish Streamlit directly: owner administration is a local UI organization, not multi-user authorization. The [private API guide](docs/PERSISTENCE.md) describes bearer authentication and immutable originals.
+
+Start in **Research**, choose a saved collection or narrow report selection, then choose Lookup, Compare, Trend, Profit margin or operating calculations. Supply explicit company/period/scope/basis; missing facts stay visible and every issued calculation needs both reviewed operands. **Library** shows metadata review, build coverage, fact counts and refresh status. **History** opens saved results without rerunning; an explicit rerun creates a separate result with readable evidence/result changes. Source/fact edits live under **Owner administration**.
+
+The [development inventory and metric policy](docs/PRODUCT_METRIC_POLICY.md) freeze 18 primary and four companion sources. Preview acquisition with `python scripts/prepare_product_corpus.py`; explicit `--acquire` retains originals with hashes and failure receipts, without ingestion or model calls. [Batch progress](docs/PRODUCT_NEXT_BATCH_PROGRESS.md) records what is acquired, tested and still held. Retained PDF files live in ignored `data/product_corpus/`; approve actual financial-page windows and metadata before existing source registration/ingestion, then import personally reviewed fact cards. Acquisition does not populate eligible research facts automatically.
+
+A five-minute walkthrough, once those facts are reviewed: choose AMD Q1/Q2 2025 → run revenue growth or gross-margin change → inspect both original operands → inspect a compatible/incompatible company comparison → open History → explicitly rerun → compare changed evidence/results. Financial screenshots and authentic hero results await reviewed bindings; test-fixture UI checks are not financial demos.
+
+```mermaid
+flowchart LR
+    Ask[Direct Ask] --> Retrieval[Selected retrieval + original evidence]
+    Retrieval --> Generation[Grounded generation + citations]
+    Research[Pinned Research tasks] --> Facts[Owner-reviewed original bindings]
+    Facts --> Coverage[Required evidence coverage]
+    Coverage --> Decimal[Checked Decimal operations]
+    Decimal --> History[Immutable saved results + explicit reruns]
+    Search[Evidence search] --> Candidates[Original passage candidates; synthesis held]
+    Planner[Optional planner: disabled] -.-> Research
+    Derived[Captions/context: derived] -.-> Retrieval
+    Evaluation[Offline/frozen evaluation: release held]
+```
+
 ## Historical notebook result
 
 These retained notebook results describe an earlier experiment, not current Ask accuracy or Phase 3 multi-document validation. Current evidence and remaining release gates are summarized in the [product review](docs/PRODUCT_NEXT_BATCH_PLAN.md).

@@ -2,6 +2,7 @@
 import os
 import secrets
 from uuid import UUID
+from typing import Literal
 
 from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.encoders import jsonable_encoder
@@ -50,6 +51,7 @@ class ResearchQuestion(BaseModel):
     selections: tuple[ResearchSelection, ...] = Field(default=(), max_length=18)
     collection_id: UUID | None = None
     save: bool = False
+    period_policy: Literal["exact_duration", "reporting_kind"] = "exact_duration"
 
 
 def build_private_app(service=None, token=None):
@@ -167,7 +169,7 @@ def build_private_app(service=None, token=None):
     @app.post('/research/questions')
     def research_question(req: ResearchQuestion):
         return service.research_question(req.question, [s.model_dump(mode='json', exclude_none=True) for s in req.selections],
-                                         req.collection_id, req.save)
+                                         req.collection_id, req.save, req.period_policy)
 
     @app.post('/research/evidence')
     def research_evidence(req: EvidenceSearchRequest):

@@ -245,10 +245,12 @@ class PersistentRAGService(RAGService):
             self._save_research_result(result, collection_id, parent_run_id)
         return result
 
-    def research_question(self, question, selections=None, collection_id=None, save=False):
+    def research_question(self, question, selections=None, collection_id=None, save=False, period_policy="exact_duration"):
         from src.financial.intent import resolve_question, parse_question, question_filters
         from src.financial.models import FinancialObservation
         from src.financial.research import ResearchRequest
+        if period_policy not in ("exact_duration", "reporting_kind"):
+            raise ValueError("Unsupported period policy")
         if collection_id:
             if selections:
                 raise ValueError('Choose a collection or explicit selections')
@@ -266,7 +268,7 @@ class PersistentRAGService(RAGService):
                 [FinancialObservation.model_validate(o) for o in stored], parsed)
         if 'request' not in resolution:
             result = {**resolution, 'contract_version': 'research-question-v1',
-                'request': {'question': question, 'selections': selections or []},
+                'request': {'question': question, 'selections': selections or [], 'period_policy': period_policy},
                 'manifest': [s.model_dump(mode='json') for s in snapshot['sources']],
                 'inventory': snapshot['inventory'], 'calculations': [], 'calculation_gaps': []}
             from src.financial.research import _canonical
@@ -274,6 +276,8 @@ class PersistentRAGService(RAGService):
             if save:
                 self._save_research_result(result, collection_id)
             return result
+        for calculation in resolution['request']['calculations']:
+            calculation['period_policy'] = period_policy
         return self._execute_research(ResearchRequest.model_validate(resolution['request']), snapshot,
                                       save=save, collection_id=collection_id)
 
@@ -284,11 +288,14 @@ class PersistentRAGService(RAGService):
         request = {**request, 'selections': [{'source_id': s['source_id']} for s in request['selections']]}
         collection_id = previous.get('execution', {}).get('collection_id')
         if previous['contract_version'] == 'research-question-v1':
-            current = self.research_question(request['question'], selections=request['selections'])
+            current = self.research_question(request['question'], selections=request['selections'],
+                period_policy=request.get('period_policy', 'exact_duration'))
             self._save_research_result(current, collection_id, run_id)
         else:
             execute = self.research_evidence if previous['contract_version'] == 'evidence-search-v1' else self.research
             current = execute(request, save=True, parent_run_id=run_id, collection_id=collection_id)
         return {'result': current, 'diff': {'previous_outcome': previous['outcome'], 'current_outcome': current['outcome'],
             'answer_changed': previous['answer'] != current['answer'],
+            'evidence_changed': previous['manifest'] != current['manifest'],
+            'previous_coverage': previous['coverage'], 'current_coverage': current['coverage'],
             'previous_calculations': previous['calculations'], 'current_calculations': current['calculations']}}

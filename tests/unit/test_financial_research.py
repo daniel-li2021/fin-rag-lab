@@ -16,14 +16,14 @@ BUILD_ID = '00000000-0000-0000-0000-000000000003'
 
 
 def fact(value='12', metric='revenue', unit='currency', scale='1000000', company='TEST',
-         period=None, source=None, observation_id='revenue', scope='consolidated'):
+         period=None, source=None, observation_id='revenue', scope='consolidated', basis='GAAP'):
     period = period or FinancialPeriod(kind='quarter', start=date(2026, 1, 1), end=date(2026, 3, 31), fiscal_label='Q1 2026')
     source = source or PinnedSource(source_id=SOURCE_ID, version_id=VERSION_ID, build_id=BUILD_ID,
         source_hash='a' * 64, company_id=company, publication_date=date(2026, 4, 10))
     labels = {'row_label': metric, 'column_period': period.fiscal_label,
               'unit': ('USD millions' if scale == '1000000' else 'USD') if unit == 'currency' else
                       'percent' if unit == 'percent' else 'vehicles',
-              'basis': 'GAAP', 'scope': scope, 'value': value}
+              'basis': basis, 'scope': scope, 'value': value}
     text = ' | '.join(labels.values())
     block = DocumentBlock(block_id='block-' + observation_id, block_type='paragraph', text=text, page_number=1)
     evidence = tuple(EvidenceLink(role=role, block_id=block.block_id, text=label,
@@ -31,7 +31,7 @@ def fact(value='12', metric='revenue', unit='currency', scale='1000000', company
         for role, label in labels.items())
     observation = FinancialObservation(observation_id=observation_id, company_id=company, metric_id=metric,
         original_label=metric, value=value, unit=unit, scale=scale, currency='USD' if unit == 'currency' else None,
-        period=period, source=source, scope=scope, evidence=evidence, verification_status='reviewed', review_revision='synthetic-review-v1')
+        period=period, source=source, scope=scope, basis=basis, evidence=evidence, verification_status='reviewed', review_revision='synthetic-review-v1')
     return observation, block
 
 

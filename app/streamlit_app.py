@@ -475,12 +475,31 @@ def main() -> None:
     st.caption("Ask questions over indexed financial filings.")
 
     svc = get_service(INDEX_DIR, CACHE_ROOT)
-    _render_sidebar(svc)
-
-    if hasattr(svc, 'registry') and st.radio('Workspace', ['Ask', 'Research'], horizontal=True) == 'Research':
-        from app.research_workspace import render_research
-        render_research(svc)
-        return
+    if hasattr(svc, 'registry'):
+        from app.research_workspace import render_research, render_library, render_history, render_result, render_administration
+        workspace = st.radio('Workspace', ['Research', 'Library', 'History', 'Ask', 'Owner administration'], horizontal=True)
+        if workspace == 'Research':
+            render_research(svc)
+            return
+        if workspace == 'Library':
+            render_library(svc)
+            return
+        if workspace == 'History':
+            render_history(svc)
+            render_result()
+            return
+        if workspace == 'Owner administration':
+            _render_registry_sidebar(svc)
+            render_administration(svc)
+            return
+    else:
+        st.info('Local Ask uses the legacy PDF index. Configure the persistent backend for Research, Source Library and saved history.')
+        _render_sidebar(svc)
+    if hasattr(svc, 'registry'):
+        sources = svc.registry.list(svc.owner)
+        scope = st.selectbox('Ask source', ['All active sources'] + [str(s['source_id']) for s in sources if s['active_build_id']],
+            format_func=lambda key: next((s['title'] for s in sources if str(s['source_id']) == key), key))
+        st.session_state.source_filters = {} if scope == 'All active sources' else {'source_id': scope}
 
     if not svc.is_ready():
         st.info(

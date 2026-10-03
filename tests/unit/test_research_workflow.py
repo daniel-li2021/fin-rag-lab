@@ -60,3 +60,28 @@ def test_company_task_search_preserves_both_original_sources_and_budget():
     assert zero_table.get_original_text() == 'risk losses | 0 | '
     zero = search_evidence(request, {**snap, 'blocks': {'build-a': [zero_table]}})
     assert zero['passages'][0]['text'] == 'risk losses | 0 | '
+
+
+def test_natural_aliases_and_guided_calculations_require_all_operands():
+    inventory = [{'source_id': SOURCE_ID, 'metadata': {'company_id': 'TEST', 'company_name': 'Test', 'review_status': 'confirmed'}}]
+    selections = [{'source_id': SOURCE_ID}]
+    revenue, rb = fact(value='12', observation_id='revenue')
+    profit, pb = fact(value='3', metric='gross_profit', observation_id='profit')
+    natural = resolve_question('What was GAAP consolidated net revenue for Test in Q1 2026?', selections, inventory, [revenue])
+    assert natural['request']['tasks'][0]['metric_id'] == 'revenue'
+    margin = resolve_question('margin GAAP consolidated gross profit for Test in Q1 2026', selections, inventory, [revenue, profit])['request']
+    assert [t['metric_id'] for t in margin['tasks']] == ['gross_profit', 'revenue']
+    result = QueryPipeline(None, None).research({**margin, 'observations': [o.model_dump(mode='json') for o in (revenue, profit)]}, snapshot([revenue, profit], [rb, pb]))
+    assert result['calculations'][0]['displayed_result'] == '25.00%'
+    missing = QueryPipeline(None, None).research({**margin, 'observations': [profit.model_dump(mode='json')]}, snapshot([profit], [pb]))
+    assert missing['outcome'] == 'qualified_answer' and not missing['calculations']
+    trend = resolve_question('How did GAAP consolidated revenue for Test change from Q1 2026 to Q2 2026?', selections, inventory, [revenue])
+    assert len(trend['request']['tasks']) == 2 and trend['request']['calculations'][0]['operation'] == 'difference'
+    deliveries, db = fact(value='80', metric='vehicle_deliveries', unit='count', scale='1', observation_id='deliveries', basis='operating')
+    production, prb = fact(value='100', metric='vehicle_production', unit='count', scale='1', observation_id='production', basis='operating')
+    for action, expected in [('delivery ratio', '80.00%'), ('production gap', '+20.00 count')]:
+        request = resolve_question(f'{action} operating consolidated vehicle deliveries for Test in Q1 2026', selections, inventory, [deliveries, production])['request']
+        result = QueryPipeline(None, None).research({**request, 'observations': [o.model_dump(mode='json') for o in (deliveries, production)]}, snapshot([deliveries, production], [db, prb]))
+        assert result['calculations'][0]['displayed_result'] == expected
+    assert resolve_question('delivery ratio GAAP consolidated vehicle deliveries for Test in Q1 2026', selections, inventory, [])['outcome'] == 'clarify'
+    assert resolve_question('What was revenue for Test?', selections, inventory, [])['outcome'] == 'clarify'
