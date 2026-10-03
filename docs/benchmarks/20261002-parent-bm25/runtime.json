@@ -1,0 +1,10 @@
+{
+  "server_version": "16.2",
+  "pgvector_version": "0.6.2",
+  "dependencies": {
+    "psycopg": "3.3.6",
+    "boto3": "1.43.107"
+  },
+  "retained_chunks_vectors_unchanged_after_run": true,
+  "post_run_artifact_sha256": "154f0e3931b73bd7a7622daeb3ff77a535e4bc49a372005d2d04dd09ac61fc36"
+}

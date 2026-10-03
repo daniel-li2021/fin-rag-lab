@@ -10,4 +10,5 @@ RUN useradd --create-home --uid 10001 appuser \
 USER appuser
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 LANGSMITH_TRACING=false
 EXPOSE 8000
-CMD ["uvicorn", "src.api.private_server:build_private_app", "--factory", "--host", "0.0.0.0", "--port", "8000", "--workers", "1", "--limit-concurrency", "2", "--no-access-log"]
+# Uvicorn rejects at >= limit; 3 admits the intended two concurrent requests.
+CMD ["uvicorn", "src.api.private_server:build_private_app", "--factory", "--host", "0.0.0.0", "--port", "8000", "--workers", "1", "--limit-concurrency", "3", "--no-access-log"]

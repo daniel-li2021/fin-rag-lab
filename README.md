@@ -104,6 +104,8 @@ For persistent source updates, install `requirements-persistence.txt`, configure
 
 ### Docker (local)
 
+The [full 30-question phase-close report](docs/PHASE_CLOSE_REPORT.md) records numeric accuracy **9/10**, strict answer correctness **19/30**, OOC refusals **4/4**, clarification **0/3**, and measured model cost **$0.019366155**. Issue 12's disposable Linux Docker build/start/restart/restore/resource checks pass; the next phase targets evidence coverage, clarification and citation support.
+
 `.env` is **not** baked into the image. Pass it at runtime. Mount volumes so uploads/index/cache persist on the host.
 
 ```bash

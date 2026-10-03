@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "git_revision": "82de42fab71d8ed1efd84829a5317d953ff09090",
+  "code_sha256": "a72c229bf29ccb27ab36d56368e707e3291c97537ec506337a3ebc09fd1ffc07",
+  "code_files": {
+    "scripts/build_index.py": "39cb369c9fcce699b630741bf5e402404669d9e606245a344a680cccec41d41e",
+    "scripts/build_notebooks.py": "084da900b4eb9cb4df2673f04302b844c68626c21eca2b040abc19bc673d6107",
+    "scripts/check_metadata.py": "712750c8593019b5ecefc14d80bc6811be4c81efc6ae64e596326063fbdd0cec",
+    "scripts/compare_lexical.py": "cb1733f182e73958097a1555edbc3a0c3837d9c57b6a92ee8cad26c28e95b372",
+    "scripts/compare_retrieval.py": "1bf614ae52a7eb0dab525648b20386e481098434019cd8dbc761ace339345323",
+    "scripts/migrate_index.py": "2f410e3cefb5a4af42f160463f8261f22e2e7a91d92e7c009c6403f4cfd4b7b8",
+    "scripts/precompute_cache.py": "9148734aeb35a41d5a258cd5740cf26cc2d4af03b67a096c2483eece0e27ef8d",
+    "scripts/query_cli.py": "600405283d3f0cdf20e9294f23f440bec1a2fe314f5d0eb72524c2011eaed038",
+    "scripts/run_benchmark.py": "5856bfa686776946609edaad402e8385f5b818dd727790f53cc3b20fc56f2960",
+    "scripts/run_eval.py": "14f3e23b08ac9a816198ef0877ac17fbde000ac3bfec0844564f916178943b5e",
+    "scripts/sources.py": "a5ec769f88bb81f52b01397c7209dadca1c85078876894c539c92531183a2dab",
+    "src/__init__.py": "fe5aadfb7cb1cff8fdaaa52512b1731adeb6ac4a0ca18e53b63165dfac7c5095",
+    "src/api/__init__.py": "50bbc956ebed8850ebbd1502fe9d4a2faa3b580d26025b52a5c0e4dc492f9ba8",
+    "src/api/private_server.py": "6b6e09cc7ed2329c9cf63095c87d9e9792cad5821576545cf8743fb4d17038d8",
+    "src/api/server.py": "b925a59d052154a41e3b4a3f08db137b86338b21f45d8fc193e2494d54e1d907",
+    "src/captioners/__init__.py": "6b3e2cbb03ebf5a459a5a755e5152ebb546afb886575f0a3440bf4f12f53d4dd",
+    "src/captioners/vlm_captioner.py": "35c5bfbffc3d9aea841bde4990e92ab103ac9a6842fc411c59205883e4873d89",
+    "src/chunkers/__init__.py": "19f6a4d32b44925039c1b5519fd52a17ac65e08021f7f2b19a88509d8a0a240e",
+    "src/chunkers/_evidence.py": "326a8e55b831de1f3962452d3038cff147d6f76f38796bfbf914fe20cb0ca37f",
+    "src/chunkers/_token_utils.py": "dc285bdf4cbc49283d998f23605c4cc897cbfe75a42576e1ce3f343419eb259d",
+    "src/chunkers/fixed_size.py": "72ed315738c1321b3dc409ee73792927b15c182c420e892fd57a7a38e6f38022",
+    "src/chunkers/parent_child.py": "65244e7383a1a5862d3e0db87b5d9261344b440218891e26b71d2c639e4632b8",
+    "src/chunkers/recursive.py": "fd9bfb47597ffdec471b091508d18f1c833058ba33b3277de267de8fd5c7a592",
+    "src/core/__init__.py": "4207b6de9a700c4542d1edf9006a348e3d449d39541bbe779d6b92b3576feef7",
+    "src/core/cache.py": "a101e87252ce85a5db07e4100cbecc10378a990997389abf997a48974ff02f94",
+    "src/core/config.py": "0c80efcb732ead20742b137bf42250b4a9f62948ab0b964d8a1775ad3dfa93dd",
+    "src/core/interfaces.py": "3c4e018801a6a40078f41f2f2ef5c252240e6be8373f5c8720818e84a84d9e08",
+    "src/core/models.py": "1249e75bf71011ea24ca996449b5e1f2847b04d72e63f2c9c42c81fb44db287c",
+    "src/evaluators/__init__.py": "d65a7be0bcde9f24180ec0815e11c348dcf45fad15a7decbc6d8271e84d9a44c",
+    "src/evaluators/benchmark.py": "a05b92e28ab6a36f4f6738fa3fea6671b7b3de54f488e916dd0a7a8bab681845",
+    "src/evaluators/contextual.py": "5313ec8e67642d9f1d247505dec3f3f36347b14bad199aaffa529fd608426a90",
+    "src/evaluators/coverage.py": "293d8cfe21591972169a64c5d13b1c60440977c4f97237ca9aaf14f7dce48420",
+    "src/evaluators/hallucination.py": "4bf28299061ca8b674765410e85ea67c5ac117e7bc0bf2270aec0c1fbd4245d2",
+    "src/evaluators/ragas_evaluator.py": "09b847e52884f2aced2605175bf4dba375ae899cfa37c9edd6223bb77d1b1ac8",
+    "src/generators/__init__.py": "d01bbd555d1d3cd028dc88f8a98136f92e551ef2743ac91b95dbedd0d61fcadb",
+    "src/generators/rag_generator.py": "e771dfaed17faa55fc2c2fbcde0470fe4fadeb417b6fca86178d5ae69d42a47e",
+    "src/loaders/__init__.py": "fd3317bcb05710ca181eaeae88e83845336c9b12bdcc619cc22c676c99dcb142",
+    "src/loaders/pdf_loader.py": "a7199a8f623fd7d4fc5d8f12c28c50bf2f65a77ee896e14cefd62b6034abda5a",
+    "src/loaders/text_loader.py": "71db12a2d374674f3e067466a3e1650ff44fb8c0d30714533c67c07daa4b073e",
+    "src/observability/__init__.py": "349fe6446edbcc06df98f59ead30be88c5b1321050d84f79e003facaed3d0b23",
+    "src/observability/cost_tracker.py": "1b6648c2ce641922fbde6080e6b89fcfc4fb4f7e2d5ded85c5c1faa798e5a8f7",
+    "src/observability/embeddings.py": "f1d6e2df5b6256e8ab228688584d117da452c747d3eda3602a7b62ec622a86b4",
+    "src/parsers/__init__.py": "00f85e9b84fbd9ec135fed92c4292fc01f8fe6f002124ef101db928da493cc8a",
+    "src/parsers/pdf_parser.py": "57bd3e7fcd650ccf20b0fe44226cc09f843803cc24e0a57a082ffd75b92847da",
+    "src/pipelines/__init__.py": "0a84ccbf7f43fd8b44bd30e08d92637ae333729f00b0b99cae87cd23fb951ad1",
+    "src/pipelines/ingestion.py": "1127c3fb1c276ce71a564b8a3686235a8f6bb6c06405941efd3aef9b78504748",
+    "src/pipelines/metadata.py": "5c355224ea01ef228ff31554295edb4e9a05c48de1dccf65c31758d04de1ce97",
+    "src/pipelines/query.py": "4f07119154c44f654673878667eba0f03484a201a421cd3f948eafcd3dbec213",
+    "src/retrievers/__init__.py": "f62e78fa2dc76191316a156677c857773cb635f097f8916ef8c03e92e43ee95e",
+    "src/retrievers/bm25.py": "f688c68607c10e722178fe5a206a54123bda2c32f2fc9ea2500baba0b86c566d",
+    "src/retrievers/hybrid.py": "abfdd51c1d1faa92a79f07775ad894148e213614cdc911aadaf1c0d50014e8cf",
+    "src/retrievers/postgres.py": "abc2accd805ee1193604a05cb4e832dec77ab28484ed10ed0f6e0846c198be65",
+    "src/retrievers/rrf.py": "2526f9d709a4ea76b116f3dc85e517949a54204be01479e00d007f79397de49c",
+    "src/retrievers/vector.py": "55a4320428965c686b8d3596cc6d3da2aa09aafdf3cb4aff2a25f156706c713a",
+    "src/services/__init__.py": "843e650a0fb24c495df655b8d8896816fb7877bb9731915cb9f57c3346306395",
+    "src/services/persistent_service.py": "7b1bb3613ed6f45153e0db253b9796d6645f1aca7777b062f07ddfcc3b2ad17a",
+    "src/services/rag_service.py": "df3fb2e369df2e8528d7a29e4d9b5e7c95fb841919c154fb51c0852e9b1a8484",
+    "src/storage/__init__.py": "052765aa3dfe035ae0019d09baf0f5e87bc886582d86b98506007e477beffeb0",
+    "src/storage/fetch.py": "6e7a5bb5d836e63272d3f73d872eaa0a726bf962c74be36f492526c7ab07bb42",
+    "src/storage/migration.py": "2971412c47dc0b73d027bb21ff7050375858b0033a43a1463c5526c74e6d37a5",
+    "src/storage/models.py": "5692b77999fae2ece9fb30afa4191c9c855ea33fc410de3987097ba9dcffc560",
+    "src/storage/objects.py": "3cdf7e5ca1eaea5fc64793c7298dd6ca8bac031ac583420736279598ff6781e2",
+    "src/storage/registry.py": "d12c19699baf8a3e7eb5d3926c9b86a1a832a8eb0e7ee35a64766ae788627e56"
+  },
+  "golden_sha256": "9a90ae99ded28d6afe736f6298517a217f9405dd50989e98bed889508116cdf6",
+  "labels_sha256": "f79c8bf10877cb82761273f9fa0e9041104f91806a4e177e09bd4cdd905cf9a2",
+  "configuration": {
+    "arm": "A",
+    "models": {
+      "generator": "gpt-6-luna",
+      "judge": null,
+      "embedding": "text-embedding-3-small"
+    },
+    "index": {
+      "schema_revision": 1,
+      "evidence_revision": 1,
+      "embedding_model": "text-embedding-3-small",
+      "dimensions": 1536,
+      "distance": "cosine",
+      "normalization": "provider",
+      "parent_size": 800,
+      "child_size": 150,
+      "parent_overlap": 80,
+      "child_overlap": 20,
+      "parser": "pdf_structural_v1",
+      "parser_configuration": {
+        "heading_max_chars": 80,
+        "merge_hyphenated": true
+      },
+      "derived_code_hash": "a9e1f115f0c05122f639cd6cff8aa5faf56f4872547ac2658d806a4ee064e5dc",
+      "captioner": "noop",
+      "max_pages": 100,
+      "page_range": null,
+      "builds": [
+        {
+          "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+          "title": "amd",
+          "sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+          "build_id": "b1d6fa39-4d42-49cd-9d8a-ad7b5630f450",
+          "manifest": {
+            "parser": "pdf_structural_v1",
+            "distance": "cosine",
+            "captioner": "noop",
+            "max_pages": 100,
+            "child_size": 150,
+            "dimensions": 1536,
+            "page_range": null,
+            "parent_size": 800,
+            "child_overlap": 20,
+            "normalization": "provider",
+            "parent_overlap": 80,
+            "embedding_model": "text-embedding-3-small",
+            "schema_revision": 1,
+            "derived_code_hash": "abda79fd9170cbb5154da71c77aacb4fe490dfe952b73df7a4fada3792a999b7",
+            "evidence_revision": 1,
+            "parser_configuration": {
+              "merge_hyphenated": true,
+              "heading_max_chars": 80
+            }
+          }
+        },
+        {
+          "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+          "title": "tesla",
+          "sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+          "build_id": "b55f32f3-bdf2-492d-ac45-d0797e03a608",
+          "manifest": {
+            "parser": "pdf_structural_v1",
+            "distance": "cosine",
+            "captioner": "noop",
+            "max_pages": 100,
+            "child_size": 150,
+            "dimensions": 1536,
+            "page_range": null,
+            "parent_size": 800,
+            "child_overlap": 20,
+            "normalization": "provider",
+            "parent_overlap": 80,
+            "embedding_model": "text-embedding-3-small",
+            "schema_revision": 1,
+            "derived_code_hash": "abda79fd9170cbb5154da71c77aacb4fe490dfe952b73df7a4fada3792a999b7",
+            "evidence_revision": 1,
+            "parser_configuration": {
+              "merge_hyphenated": true,
+              "heading_max_chars": 80
+            }
+          }
+        },
+        {
+          "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+          "title": "wells_fargo",
+          "sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+          "build_id": "a7ede94c-acaa-46b2-b5e6-6c282abb28ff",
+          "manifest": {
+            "parser": "pdf_structural_v1",
+            "distance": "cosine",
+            "captioner": "noop",
+            "max_pages": 100,
+            "child_size": 150,
+            "dimensions": 1536,
+            "page_range": null,
+            "parent_size": 800,
+            "child_overlap": 20,
+            "normalization": "provider",
+            "parent_overlap": 80,
+            "embedding_model": "text-embedding-3-small",
+            "schema_revision": 1,
+            "derived_code_hash": "abda79fd9170cbb5154da71c77aacb4fe490dfe952b73df7a4fada3792a999b7",
+            "evidence_revision": 1,
+            "parser_configuration": {
+              "merge_hyphenated": true,
+              "heading_max_chars": 80
+            }
+          }
+        }
+      ]
+    },
+    "backend": "postgres",
+    "owner": "experiment",
+    "index_artifacts": {
+      "postgres_chunks_vectors": "154f0e3931b73bd7a7622daeb3ff77a535e4bc49a372005d2d04dd09ac61fc36"
+    },
+    "dependencies": {
+      "langchain": "0.3.7",
+      "langchain-core": "0.3.21",
+      "langchain-openai": "0.2.8",
+      "langchain-community": "0.3.5",
+      "langchain-experimental": "0.3.3",
+      "langchain-chroma": "0.1.4",
+      "langchain-text-splitters": "0.3.2",
+      "langgraph": "0.2.45",
+      "langsmith": "0.1.140",
+      "ragas": "0.2.6",
+      "chromadb": "0.5.18",
+      "rank-bm25": "0.2.2",
+      "tiktoken": "0.8.0",
+      "pydantic": "2.9.2",
+      "pymupdf": "1.24.14",
+      "pillow": "11.0.0",
+      "datasets": "3.1.0",
+      "python-dotenv": "1.0.1",
+      "pandas": "2.2.3",
+      "fastapi": "0.115.5",
+      "uvicorn": "0.32.1",
+      "streamlit": "1.40.2",
+      "pytest": "8.3.3",
+      "openai": "1.109.1",
+      "httpx": "0.28.1"
+    },
+    "quick_k": 3,
+    "deep_k": 8,
+    "fetch_k": 20,
+    "rrf_k": 60,
+    "evidence_policy": "actual_quick_deep",
+    "limit": 0,
+    "verify_hallucination": false,
+    "ragas_enabled": false,
+    "judge_embedding_model": null,
+    "reasoning_effort": "minimal",
+    "pricing_snapshot": {
+      "gpt-6-luna": {
+        "input": 0.0001,
+        "output": 0.0005
+      },
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0.0
+      }
+    },
+    "requirements_sha256": "df7d61e52a70822a5e2e5160fa23e392f4304f42a1ab4f12de09bccc44c3398f"
+  },
+  "configuration_sha256": "5cbce7b71bcb3e1c7778b8f55312eedabf008b924c04e3e879956efdb1d76685",
+  "corpus": [
+    {
+      "source": "amd",
+      "path": "data/uploads/amd.pdf",
+      "sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+    },
+    {
+      "source": "tesla",
+      "path": "data/uploads/tesla.pdf",
+      "sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+    },
+    {
+      "source": "wells_fargo",
+      "path": "data/uploads/wells_fargo.pdf",
+      "sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+    }
+  ]
+}

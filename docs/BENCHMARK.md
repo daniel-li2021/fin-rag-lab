@@ -1,5 +1,7 @@
 # Reproducible benchmark
 
+The [October 2 full answer benchmark and phase close](PHASE_CLOSE_REPORT.md) now records all 30 questions on retained parent-child + BM25: numeric 9/10, strict answer correctness 19/30, OOC refusal 4/4, clarification 0/3, and complete cross-document answers 1/4. Its source-reviewed overlay is distinct from immutable model output; no Ragas or independent human judging is claimed. Provider token receipts, cache-write-aware measured pricing and Docker validation are included.
+
 The historical `data/golden_set/golden.jsonl` stays unchanged. `labels.v1.json` pins its hash and the three original PDF hashes, assigns stable q01–q30 IDs, and supplies corrected references, expected outcomes, exact PDF page/text spans, numeric units/tolerances, entity, period and scope. Quotes are source evidence, not generated captions or transient chunk IDs. Labels must be reviewed/versioned before examining experiment results.
 
 The original cross-document revenue ranking is incorrect: the reported amounts put Tesla above Wells Fargo, but use different quarters. q23 requires period/definition clarification; q24 requires margin basis/scope clarification. q18 must not substitute consolidated margin for automotive margin. AI progress is not automatically comparable AI revenue growth. Gaming revenue is distinct from combined Client and Gaming revenue. Missing historical factual values now have explicit numeric labels verified from the local PDFs.
@@ -13,6 +15,12 @@ python scripts/run_benchmark.py --limit 5 --output-dir /tmp/finrag-run-01
 python scripts/run_benchmark.py --limit 0 --output-dir /tmp/finrag-run-02
 # No model calls; recompute metrics/denominators from saved per-question results.
 python scripts/run_benchmark.py --replay /tmp/finrag-run-01/results.jsonl
+# The opt-in durable backend uses the existing, migrated, golden-only owner.
+# DATABASE_URL is supplied privately; no index rebuild occurs.
+REASONING_EFFORT=none python scripts/run_benchmark.py --backend postgres --owner experiment \
+  --limit 0 --pricing docs/benchmarks/20261002-parent-bm25/pricing.json --output-dir /tmp/finrag-durable-run
+# Replay the published review and full tariff calculation without paid work.
+python scripts/replay_answer_review.py docs/benchmarks/20261002-parent-bm25
 ```
 
 Each new directory contains `manifest.json`, append-flushed `results.jsonl` and `summary.json`. Completed rows survive a later error; existing directories are never overwritten. The manifest pins corpus/golden/label/code/configuration hashes, revision, index artifacts, model names and retrieval settings. Results retain the full question/label, candidates, final contexts, answer citations, outcome and usage when supplied by the query adapter. No paid run is part of CI.

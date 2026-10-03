@@ -1,0 +1,8 @@
+{
+  "stage": "generation",
+  "status": 400,
+  "error": "Unsupported reasoning_effort=minimal for gpt-6-luna; restarted with none",
+  "completed_questions": 0,
+  "usage_receipt_available": false,
+  "excluded_from_completed_capture_cost": true
+}

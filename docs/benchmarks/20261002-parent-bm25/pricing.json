@@ -1,0 +1,10 @@
+{
+  "gpt-6-luna": {
+    "input": 0.0001,
+    "output": 0.0005
+  },
+  "text-embedding-3-small": {
+    "input": 2e-05,
+    "output": 0.0
+  }
+}
