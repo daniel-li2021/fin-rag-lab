@@ -15,3 +15,11 @@ Validation: 15 focused financial/workflow/Postgres/workspace checks; historical 
 - C: readable Library/History/citations, persistent quickstart, actual screenshots and walkthrough; real update/reopen/rerun demonstrations follow reviewed facts.
 
 Independent curator/reviewer identities and a paid paired-capture allowance are not supplied by this automation. Keep those requirements explicit and continue independent preparation. Public hosting and cloud provisioning are separate later releases.
+
+## Batch 2 — frozen development acquisition and definition policy
+
+The exact 18-primary + four-companion development inventory is frozen separately from the unchanged evaluation manifest. Fourteen authentic PDF originals were acquired (12 primary AMD/WFC reports and two AMD companion decks), with SHA-256, HTTP provenance and original page counts. Six Tesla SEC originals and its Q2 deck returned HTTP 403; the Q1 deck URL remains unresolved. These eight gaps are explicit, with no substitutions, model calls, ingestion or eligible fact promotion. Eight retained primary PDFs exceed 100 pages and require reviewed financial/MD&A/footnote windows. Raw originals are local ignored files; tracked receipts verify reuse.
+
+[Metric policy](PRODUCT_METRIC_POLICY.md) distinguishes net-income attribution, WFC bank definitions, accounting versus operating basis, segment presentation epochs, fiscal intervals, reported versus calculated margins, and independent review requirements. Two offline acquisition checks verify the frozen counts, verified cache reuse, failures and rejection of holdout acquisition. Holdout reserve was not acquired or inspected.
+
+Use `.venv/bin/python scripts/prepare_product_corpus.py` to preview, and `--acquire` to retain missing originals. Python installations lacking system certificate configuration can set `SSL_CERT_FILE` to their existing trusted certifi bundle. Acquire is not ingest: use the existing source registration/worker flow after page and metadata review, with an explicit embedding allowance. Do not count local retained PDFs as an indexed collection or release benchmark.

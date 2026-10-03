@@ -4,6 +4,8 @@ Review date: October 3, 2026. Reviewed `main` and freshly fetched `origin/main`:
 
 **Decision: build an evidence-backed research demo over three company histories, prove it on real documents, then polish Streamlit. Keep the planner disabled and defer a frontend rewrite.** The portfolio story should be: “Compare financial reports across periods, inspect calculations and gaps, and reopen the exact evidence behind a saved result.”
 
+Implementation continuation: [dated batch progress](PRODUCT_NEXT_BATCH_PROGRESS.md) records committed work, authentic acquisition and remaining release gates. The review snapshot below remains historical.
+
 ## 1. Current state
 
 The application has substantial foundations, but has not demonstrated a reliable general multi-document product.

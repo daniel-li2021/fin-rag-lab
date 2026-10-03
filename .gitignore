@@ -34,3 +34,6 @@ Thumbs.db
 .vscode/
 .claude/
 .cursor/
+
+# Retained development originals; hash receipts are tracked separately
+data/product_corpus/

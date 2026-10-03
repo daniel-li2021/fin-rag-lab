@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-03T13:11:51.518786+00:00",
+  "inventory_sha256": "523085fecf1f21deaaca83bc0cbe35b972d2b2628a183e11c031d9803c40ced3",
+  "reports": [
+    {
+      "report_id": "amd-q1-2024",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000056/0000002488-24-000056.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "ac46272ad91e7ca57b98d7e043e9a137eaeccd86fc972430958035c8e8497edc",
+      "size_bytes": 2358325,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000056/0000002488-24-000056.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000056/0000002488-24-000056.pdf",
+        "fetched_at": "2026-10-03T13:11:37.269439+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q1-2024.pdf",
+      "reused": false,
+      "original_pages": 61,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "amd-q2-2024",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000123/0000002488-24-000123.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "d1d3c5e60762c0ba7b92e732d884574a6c5d61d35d9bcd7a5e47373d5c1c5c7a",
+      "size_bytes": 2529214,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000123/0000002488-24-000123.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000123/0000002488-24-000123.pdf",
+        "fetched_at": "2026-10-03T13:11:38.780238+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q2-2024.pdf",
+      "reused": false,
+      "original_pages": 76,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "amd-q3-2024",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000163/0000002488-24-000163.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "71898036bf96e7a0c22b454e3829b27cdd8b3eb080e7bac1276aeda12d63ccb7",
+      "size_bytes": 2749062,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000163/0000002488-24-000163.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-24-000163/0000002488-24-000163.pdf",
+        "fetched_at": "2026-10-03T13:11:39.300303+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q3-2024.pdf",
+      "reused": false,
+      "original_pages": 64,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "amd-fy2024",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000012/0000002488-25-000012.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+      "size_bytes": 5389437,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000012/0000002488-25-000012.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000012/0000002488-25-000012.pdf",
+        "fetched_at": "2026-10-03T13:11:39.972412+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-fy2024.pdf",
+      "reused": false,
+      "original_pages": 138,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "amd-q1-2025",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000047/0000002488-25-000047.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+      "size_bytes": 3013312,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000047/0000002488-25-000047.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000047/0000002488-25-000047.pdf",
+        "fetched_at": "2026-10-03T13:11:40.532016+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q1-2025.pdf",
+      "reused": false,
+      "original_pages": 82,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "amd-q2-2025",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000108/0000002488-25-000108.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+      "size_bytes": 4044877,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000108/0000002488-25-000108.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000108/0000002488-25-000108.pdf",
+        "fetched_at": "2026-10-03T13:11:41.336983+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q2-2025.pdf",
+      "reused": false,
+      "original_pages": 103,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "tsla-q1-2024",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024017503/tsla-20240331.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "tsla-q2-2024",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024032662/tsla-20240630.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "tsla-q3-2024",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024043486/tsla-20240930.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "tsla-fy2024",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "tsla-q1-2025",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025018911/tsla-20250331.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "tsla-q2-2025",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    },
+    {
+      "report_id": "wfc-q1-2024",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/first-quarter-10q.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "0212acc399cb836e32b038b840e2aff38814d92840e1273e9fe709acc9a6898d",
+      "size_bytes": 2110541,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/first-quarter-10q.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/first-quarter-10q.pdf",
+        "fetched_at": "2026-10-03T13:11:42.874081+00:00",
+        "etag": "\"6a6b8f1e-20344d\"",
+        "last_modified": "Thu, 30 Jul 2026 17:51:26 GMT"
+      },
+      "file_name": "wfc-q1-2024.pdf",
+      "reused": false,
+      "original_pages": 131,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "wfc-q2-2024",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/second-quarter-10q.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "a33281354593e6d6c657487445465bd4db598f4a30c5f8fc8afe726967f6dc02",
+      "size_bytes": 2442851,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/second-quarter-10q.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/second-quarter-10q.pdf",
+        "fetched_at": "2026-10-03T13:11:46.940426+00:00",
+        "etag": "\"6a6b7293-254663\"",
+        "last_modified": "Thu, 30 Jul 2026 15:49:39 GMT"
+      },
+      "file_name": "wfc-q2-2024.pdf",
+      "reused": false,
+      "original_pages": 138,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "wfc-q3-2024",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/third-quarter-10q.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "036703b621462317411083856a9b6494f78a8d13b5026c780ae3fa74beda6a02",
+      "size_bytes": 2582383,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/third-quarter-10q.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/third-quarter-10q.pdf",
+        "fetched_at": "2026-10-03T13:11:47.531773+00:00",
+        "etag": "\"6a6b7322-27676f\"",
+        "last_modified": "Thu, 30 Jul 2026 15:52:02 GMT"
+      },
+      "file_name": "wfc-q3-2024.pdf",
+      "reused": false,
+      "original_pages": 137,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "wfc-fy2024",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/exhibit-13.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+      "size_bytes": 2910014,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/exhibit-13.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2024/exhibit-13.pdf",
+        "fetched_at": "2026-10-03T13:11:48.309301+00:00",
+        "etag": "\"6a6b695f-2c673e\"",
+        "last_modified": "Thu, 30 Jul 2026 15:10:23 GMT"
+      },
+      "file_name": "wfc-fy2024.pdf",
+      "reused": false,
+      "original_pages": 184,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "wfc-q1-2025",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/first-quarter-10q.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "b2e4260b874e2375257d4ffafb4967cfaf806990e347d514c140938d25c5a503",
+      "size_bytes": 1989941,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/first-quarter-10q.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/first-quarter-10q.pdf",
+        "fetched_at": "2026-10-03T13:11:49.020101+00:00",
+        "etag": "\"6a6b732e-1e5d35\"",
+        "last_modified": "Thu, 30 Jul 2026 15:52:14 GMT"
+      },
+      "file_name": "wfc-q1-2025.pdf",
+      "reused": false,
+      "original_pages": 128,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "wfc-q2-2025",
+      "url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/second-quarter-10q.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "81eb0c431eac6631f48d67189e486e153a00227ca9e0bf3fd4ca22adb85b9105",
+      "size_bytes": 2220647,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/second-quarter-10q.pdf",
+        "final_url": "https://www.wellsfargo.com/assets/pdf/about/investor-relations/sec-filings/2025/second-quarter-10q.pdf",
+        "fetched_at": "2026-10-03T13:11:49.491118+00:00",
+        "etag": "\"6a6b7351-21e267\"",
+        "last_modified": "Thu, 30 Jul 2026 15:52:49 GMT"
+      },
+      "file_name": "wfc-q2-2025.pdf",
+      "reused": false,
+      "original_pages": 133,
+      "requires_page_selection": true
+    },
+    {
+      "report_id": "amd-q1-2025-companion",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000045/attachments/AMD%20Q1%2725%20Earnings%20Slides.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "66103a4150554120f76a7aa3540f9bdb3b82acb81ffdf7be4cb64b5d2dbd22c1",
+      "size_bytes": 857987,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000045/attachments/AMD%20Q1%2725%20Earnings%20Slides.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000045/attachments/AMD%20Q1%2725%20Earnings%20Slides.pdf",
+        "fetched_at": "2026-10-03T13:11:50.780819+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q1-2025-companion.pdf",
+      "reused": false,
+      "original_pages": 28,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "amd-q2-2025-companion",
+      "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000106/attachments/AMD%20Q2%2725%20Earnings%20Slides%20FINAL%202.pdf",
+      "status": "retained-unindexed",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "sha256": "5593ac91ef8115a931fe9129a87c77403c88cb78f92b4ccfbafbdd8bfa9387a5",
+      "size_bytes": 1244185,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000106/attachments/AMD%20Q2%2725%20Earnings%20Slides%20FINAL%202.pdf",
+        "final_url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-25-000106/attachments/AMD%20Q2%2725%20Earnings%20Slides%20FINAL%202.pdf",
+        "fetched_at": "2026-10-03T13:11:51.344472+00:00",
+        "etag": null,
+        "last_modified": null
+      },
+      "file_name": "amd-q2-2025-companion.pdf",
+      "reused": false,
+      "original_pages": 29,
+      "requires_page_selection": false
+    },
+    {
+      "report_id": "tsla-q1-2025-companion",
+      "url": null,
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Official download URL requires resolution from entry page"
+    },
+    {
+      "report_id": "tsla-q2-2025-companion",
+      "url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
+      "status": "unavailable",
+      "indexed_pages": [],
+      "eligible_observations": 0,
+      "error": "Snapshot HTTP status 403"
+    }
+  ],
+  "release_decision": "held",
+  "model_calls": 0
+}
