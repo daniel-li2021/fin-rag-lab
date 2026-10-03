@@ -37,3 +37,35 @@ def test_acquisition_reuses_verified_bytes_and_records_failures(tmp_path, monkey
     assert second['model_calls'] == 0
     with pytest.raises(ValueError, match='holdout'):
         corpus.acquire({'reports': [{'report_id': 'sealed', 'split': 'holdout'}]}, tmp_path)
+
+
+def test_pdf_response_failures_do_not_publish_invalid_original(tmp_path, monkeypatch):
+    monkeypatch.setattr(corpus, 'fetch_snapshot', lambda url: (b'<html>Access error</html>', 'text/html', {}))
+    inventory = {'reports': [{'report_id': 'report', 'split': 'development', 'url': 'https://example.com/report.pdf'}]}
+    result = corpus.acquire(inventory, tmp_path)
+    assert result['reports'][0]['status'] == 'unavailable'
+    assert not (tmp_path / 'report.pdf').exists()
+
+
+def test_review_packet_retains_original_page_text_and_rejects_hash_drift(tmp_path):
+    import hashlib
+    import fitz
+    from scripts.prepare_financial_review import prepare
+    with fitz.open() as document:
+        page = document.new_page()
+        page.insert_text((50, 50), 'Total revenue 12\nNet income 3\nQuarter ended March 31, 2026')
+        data = document.tobytes()
+    (tmp_path / 'report.pdf').write_bytes(data)
+    inventory = {'reports': [{'report_id': 'report', 'report_family': 'report', 'role': 'primary', 'split': 'development'}]}
+    receipts = {'inventory_sha256': hashlib.sha256(json.dumps(inventory, sort_keys=True).encode()).hexdigest(),
+        'reports': [{'report_id': 'report', 'status': 'retained-unindexed', 'media_type': 'application/pdf',
+                     'file_name': 'report.pdf', 'sha256': hashlib.sha256(data).hexdigest()}]}
+    result = prepare(inventory, receipts, tmp_path)
+    assert result['reports'][0]['pages'][0]['original_page'] == 1
+    assert 'Total revenue 12' in result['reports'][0]['pages'][0]['text']
+    assert result['eligible_observations'] == 0 and result['model_calls'] == 0
+    (tmp_path / 'report.pdf').write_bytes(b'changed')
+    with pytest.raises(ValueError, match='original hash'):
+        prepare(inventory, receipts, tmp_path)
+    with pytest.raises(ValueError, match='inventory hash'):
+        prepare({'reports': []}, receipts, tmp_path)

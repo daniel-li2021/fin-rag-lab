@@ -4,7 +4,6 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
-import os
 from pathlib import Path
 import sys
 
@@ -33,11 +32,12 @@ def acquire(inventory, destination, previous=None):
         else:
             try:
                 data, media, provenance = fetch_snapshot(report['url'])
+                if report['url'].endswith('.pdf') and media != 'application/pdf':
+                    raise ValueError('Expected a PDF original, received another media type')
                 if media == 'application/pdf' and not data.startswith(b'%PDF-'):
                     raise ValueError('Response is not a PDF original')
                 if media == 'text/html' and b'<html' not in data.lower()[:10000]:
                     raise ValueError('Response is not an HTML original')
-                path.write_bytes(data)
                 receipt.update(status='retained-unindexed', sha256=hashlib.sha256(data).hexdigest(),
                     size_bytes=len(data), media_type=media, provenance=provenance, file_name=path.name, reused=False)
                 if media == 'application/pdf':
@@ -45,8 +45,10 @@ def acquire(inventory, destination, previous=None):
                     with fitz.open(stream=data, filetype='pdf') as document:
                         receipt['original_pages'] = len(document)
                         receipt['requires_page_selection'] = len(document) > 100
-            except (ValueError, OSError, TimeoutError) as exc:
-                receipt['error'] = str(exc)
+                path.write_bytes(data)
+            except (ValueError, OSError, TimeoutError, RuntimeError) as exc:
+                receipt = {'report_id': report['report_id'], 'url': report['url'], 'status': 'unavailable',
+                           'indexed_pages': [], 'eligible_observations': 0, 'error': str(exc)}
         receipts.append(receipt)
     return {'schema_version': 1, 'captured_at': datetime.now(timezone.utc).isoformat(),
             'inventory_sha256': hashlib.sha256(json.dumps(inventory, sort_keys=True).encode()).hexdigest(),

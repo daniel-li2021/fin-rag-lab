@@ -49,13 +49,16 @@ def test_immutable_observations_collections_saved_history_and_rerun(durable):
     assert unchanged['result']['run_id'] != first['run_id']
     assert unchanged['result']['answer'] == first['answer']
     assert unchanged['result']['execution']['parent_run_id'] == first['run_id']
+    svc.registry.update_metadata(svc.owner, source['source_id'], {**source['metadata'], 'company_name': 'Test Inc'})
+    corrected = svc.rerun_research(first['run_id'])
+    assert corrected['diff']['evidence_changed'] and not corrected['diff']['answer_changed']
     svc.ingest_bytes(source['source_id'], b'Revenue now needs a new reviewed binding.')
     assert svc.registry.research_changes(svc.owner, first)['potentially_stale']
     assert svc.registry.research_run(svc.owner, first['run_id'])['payload'] == first
     rerun = svc.rerun_research(first['run_id'])
     assert rerun['result']['outcome'] == 'refuse' and rerun['diff']['answer_changed']
     assert not rerun['result']['citations']
-    assert len(svc.registry.research_runs(svc.owner)) == 3
+    assert len(svc.registry.research_runs(svc.owner)) == 4
     svc.registry.archive(svc.owner, source['source_id'])
     assert svc.registry.research_run(svc.owner, first['run_id'])['payload'] == first
     with pytest.raises(LookupError):
@@ -199,3 +202,11 @@ def test_library_is_owner_scoped_and_history_open_clears_prior_diff(durable, mon
     assert 'research_diff' not in history.session_state
     # Opening and rendering history never execute a new question.
     assert len(svc.registry.research_runs(svc.owner)) == 1
+
+    import app.streamlit_app as main_app
+    monkeypatch.setattr(main_app, 'get_service', lambda *args: svc)
+    landing = AppTest.from_string('from app.streamlit_app import main\nmain()').run()
+    assert not landing.exception and landing.radio[0].value == 'Research'
+    assert not any(w.label == 'Confirmed metadata (JSON)' for w in landing.text_area)
+    landing.radio[0].set_value('Library').run()
+    assert not landing.exception

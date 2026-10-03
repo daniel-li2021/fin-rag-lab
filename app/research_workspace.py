@@ -141,6 +141,8 @@ def render_result():
                     st.text(evidence['text'])
         diff = st.session_state.get('research_diff')
         if diff:
+            if diff.get('refresh_failed'):
+                st.warning('Refresh failed; this rerun retains last-good evidence.')
             st.write('Evidence changed' if diff.get('evidence_changed') else 'Evidence unchanged')
             st.write('Result changed' if diff['answer_changed'] else 'Result unchanged')
             st.caption(f'{diff["previous_outcome"]} → {diff["current_outcome"]}')

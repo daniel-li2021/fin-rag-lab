@@ -294,8 +294,13 @@ class PersistentRAGService(RAGService):
         else:
             execute = self.research_evidence if previous['contract_version'] == 'evidence-search-v1' else self.research
             current = execute(request, save=True, parent_run_id=run_id, collection_id=collection_id)
+        def evidence_identity(result):
+            return result['manifest'], [{k: item.get(k) for k in (
+                'source_id', 'version_id', 'metadata_review_id', 'source_metadata_revision', 'metadata')}
+                for item in result['inventory']]
         return {'result': current, 'diff': {'previous_outcome': previous['outcome'], 'current_outcome': current['outcome'],
             'answer_changed': previous['answer'] != current['answer'],
-            'evidence_changed': previous['manifest'] != current['manifest'],
+            'evidence_changed': evidence_identity(previous) != evidence_identity(current),
+            'refresh_failed': any(item.get('last_error') for item in current['inventory']),
             'previous_coverage': previous['coverage'], 'current_coverage': current['coverage'],
             'previous_calculations': previous['calculations'], 'current_calculations': current['calculations']}}
