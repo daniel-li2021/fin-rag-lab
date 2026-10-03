@@ -10,7 +10,7 @@ METRICS = {'revenue': 'revenue', 'net income': 'net_income', 'gross profit': 'gr
 PERIOD = r'(?:Q[1-4]\s+(?:19|20|21)\d{2}|FY\s*(?:19|20|21)\d{2})'
 
 
-def resolve_question(question, selections, inventory, observations):
+def parse_question(question, inventory):
     """Return a validated-plan candidate or a fact-free safe outcome; no model call."""
     def stop(outcome, answer):
         return {'outcome': outcome, 'answer': answer, 'coverage': [], 'citations': {},
@@ -57,14 +57,30 @@ def resolve_question(question, selections, inventory, observations):
         return stop('clarify', 'A trend requires one company and two explicit reporting periods.')
     if action in ('show', 'compare', 'rank') and len(period_labels) != 1:
         return stop('clarify', 'Use one reporting period for this lookup, comparison or ranking.')
+    return {'action': action, 'companies': companies, 'period_labels': period_labels,
+            'metric': metric, 'basis': basis, 'scope': scope}
+
+
+def question_filters(parsed):
+    return [{'company_id': company, 'metric_id': parsed['metric'], 'scope': parsed['scope'],
+             'basis': parsed['basis'], 'period_label': label}
+            for company in parsed['companies'] for label in parsed['period_labels']]
+
+
+def resolve_question(question, selections, inventory, observations, parsed=None):
+    parsed = parsed or parse_question(question, inventory)
+    if 'outcome' in parsed:
+        return parsed
+    action, metric, scope, basis = (parsed[k] for k in ('action', 'metric', 'scope', 'basis'))
     tasks = []
-    for company in companies:
-        for label in period_labels:
+    for company in parsed['companies']:
+        for label in parsed['period_labels']:
             periods = {o.period.identity(): o.period for o in observations
                        if o.company_id == company and o.metric_id == metric and o.scope == scope and o.basis == basis
                        and re.sub(r'\s+', ' ', o.period.fiscal_label.upper()).replace('FY ', 'FY') == label}
             if len(periods) > 1:
-                return stop('clarify', f'{company} has multiple actual intervals labeled {label}; select explicit dates.')
+                return {'outcome': 'clarify', 'answer': f'{company} has multiple actual intervals labeled {label}; select explicit dates.',
+                        'coverage': [], 'citations': {}, 'usage': {'planner_calls': 0, 'generator_calls': 0, 'embedding_calls': 0, 'cost_usd': '0'}}
             period = next(iter(periods.values())) if periods else FinancialPeriod(
                 kind='annual' if label.startswith('FY') else 'quarter', calendar='unresolved', fiscal_label=label)
             tasks.append({'task_id': f'task-{len(tasks) + 1}', 'company_id': company, 'metric_id': metric,

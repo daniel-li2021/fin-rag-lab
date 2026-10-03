@@ -8,11 +8,11 @@ from src.api.private_server import build_private_app
 from src.financial.research import ResearchRequest
 
 
-def reviewed_source(svc):
+def reviewed_source(svc, value="12"):
     source = svc.register(kind='text', title='Synthetic test report', metadata={
         'company_id': 'TEST', 'company_name': 'Test', 'review_status': 'confirmed',
         'publication_date': '2026-04-10', 'period_label': 'Q1 2026'})
-    prototype, block = fact()
+    prototype, block = fact(value=value)
     svc.ingest_bytes(source['source_id'], block.text.encode())
     selection = {'source_id': str(source['source_id'])}
     snap = svc.registry.research_snapshot(svc.owner, [selection])
@@ -125,3 +125,51 @@ def test_streamlit_workspace_renders_and_runs_reviewed_lookup(durable, monkeypat
     assert not app.exception
     assert app.session_state['research_result']['outcome'] == 'answer'
     assert len(svc.registry.research_runs(svc.owner)) == 1
+
+
+def test_task_scoped_cards_keep_conflicts_and_ignore_large_unrelated_library(durable):
+    from psycopg.types.json import Jsonb
+    from src.storage.registry import config_hash
+    svc, _, _ = durable
+    source, observation, request = reviewed_source(svc)
+    svc.registry.save_observation(svc.owner, observation)
+    # A large authentic-style history must not truncate the requested card.
+    with svc.registry.connect() as db:
+        for i in range(120):
+            payload = {**observation.model_dump(mode='json'), 'observation_id': f'unrelated-{i}', 'metric_id': 'other'}
+            db.execute('INSERT INTO financial_observations(owner_id,observation_id,build_id,payload,payload_hash) VALUES(%s,%s,%s,%s,%s)',
+                       (svc.owner, payload['observation_id'], observation.source.build_id, Jsonb(payload), config_hash(payload)))
+    assert svc.research(request)['outcome'] == 'answer'
+    assert svc.research_question('show GAAP consolidated revenue for Test in Q1 2026',
+                                selections=[{'source_id': str(source['source_id'])}])['outcome'] == 'answer'
+    assert svc.registry.observations('bob', [observation.source.build_id], [{'metric_id': 'revenue'}]) == []
+    # Conflicts are never removed by task scoping, even across fiscal label aliases.
+    other_source, conflicting, _ = reviewed_source(svc, value='13')
+    svc.registry.save_observation(svc.owner, conflicting.model_copy(update={'observation_id': 'conflict',
+        'period': conflicting.period.model_copy(update={'fiscal_label': 'Q1 2026 alternate'})}))
+    conflicted_request = {**request.model_dump(mode='json'), 'selections': [
+        {'source_id': str(s['source_id'])} for s in (source, other_source)]}
+    assert svc.research(conflicted_request)['coverage'][0]['status'] == 'conflicting'
+    with pytest.raises(ValueError, match='immutable'):
+        svc.research({**request.model_dump(mode='json'), 'observations': [
+            observation.model_copy(update={'metric_id': 'other'}).model_dump(mode='json')]})
+    with svc.registry.connect() as db:
+        db.execute("UPDATE financial_observations SET payload=jsonb_set(payload, '{metric_id}', '\"revenue\"') WHERE owner_id=%s AND observation_id LIKE 'unrelated-%%'", (svc.owner,))
+    with pytest.raises(ValueError, match='exceeds 100'):
+        svc.research(request)
+
+
+def test_safe_question_outcomes_save_reopen_and_rerun(durable):
+    svc, _, _ = durable
+    source, observation, _ = reviewed_source(svc)
+    svc.registry.save_observation(svc.owner, observation)
+    for question, outcome in [('What is revenue?', 'clarify'),
+        ('compare GAAP consolidated revenue for Test and Unknown in Q1 2026', 'refuse')]:
+        result = svc.research_question(question, selections=[{'source_id': str(source['source_id'])}], save=True)
+        assert result['outcome'] == outcome
+        assert svc.registry.research_run(svc.owner, result['run_id'])['payload'] == result
+        assert not svc.registry.research_changes(svc.owner, result)['potentially_stale']
+        rerun = svc.rerun_research(result['run_id'])['result']
+        assert rerun['outcome'] == outcome and rerun['execution']['parent_run_id'] == result['run_id']
+        assert not rerun['citations']
+    assert len(svc.registry.research_runs(svc.owner)) == 4

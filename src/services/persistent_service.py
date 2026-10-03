@@ -204,9 +204,17 @@ class PersistentRAGService(RAGService):
 
     def _execute_research(self, request, snapshot, save=False, collection_id=None, parent_run_id=None):
         from src.financial.research import ResearchRequest
-        stored = self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']])
+        filters = []
+        for task in request.tasks:
+            period = task.period.model_dump(mode='json')
+            if task.period.calendar != 'unresolved':
+                period.pop('fiscal_label')
+            filters.append({'company_id': task.company_id, 'metric_id': task.metric_id,
+                            'scope': task.scope, 'basis': task.basis, 'period': period})
+        stored = self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']], filters,
+                                            [o.observation_id for o in request.observations])
         if len(stored) > 100:
-            raise ValueError('Selected reviewed library exceeds 100 cards; narrow the source selection')
+            raise ValueError('Matching reviewed library exceeds 100 cards; narrow the tasks or source selection')
         observations = {o['observation_id']: o for o in stored}
         for observation in request.observations:
             previous = observations.get(observation.observation_id)
@@ -238,7 +246,7 @@ class PersistentRAGService(RAGService):
         return result
 
     def research_question(self, question, selections=None, collection_id=None, save=False):
-        from src.financial.intent import resolve_question
+        from src.financial.intent import resolve_question, parse_question, question_filters
         from src.financial.models import FinancialObservation
         from src.financial.research import ResearchRequest
         if collection_id:
@@ -247,11 +255,25 @@ class PersistentRAGService(RAGService):
             collection = self.registry.collection(self.owner, collection_id)
             selections = [{'source_id': source_id} for source_id in collection['source_ids']]
         snapshot = self.registry.research_snapshot(self.owner, selections or [])
-        observations = [FinancialObservation.model_validate(o) for o in
-                        self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']])]
-        resolution = resolve_question(question, selections, snapshot['inventory'], observations)
+        parsed = parse_question(question, snapshot['inventory'])
+        if 'outcome' in parsed:
+            resolution = parsed
+        else:
+            stored = self.registry.observations(self.owner, [p.build_id for p in snapshot['sources']], question_filters(parsed))
+            if len(stored) > 100:
+                raise ValueError('Matching reviewed library exceeds 100 cards; narrow the tasks or source selection')
+            resolution = resolve_question(question, selections, snapshot['inventory'],
+                [FinancialObservation.model_validate(o) for o in stored], parsed)
         if 'request' not in resolution:
-            return resolution
+            result = {**resolution, 'contract_version': 'research-question-v1',
+                'request': {'question': question, 'selections': selections or []},
+                'manifest': [s.model_dump(mode='json') for s in snapshot['sources']],
+                'inventory': snapshot['inventory'], 'calculations': [], 'calculation_gaps': []}
+            from src.financial.research import _canonical
+            result['run_id'] = hashlib.sha256(_canonical(result).encode()).hexdigest()
+            if save:
+                self._save_research_result(result, collection_id)
+            return result
         return self._execute_research(ResearchRequest.model_validate(resolution['request']), snapshot,
                                       save=save, collection_id=collection_id)
 
@@ -260,9 +282,13 @@ class PersistentRAGService(RAGService):
         request = previous['request']
         # Explicit rerun uses current source pointers and fresh reviewed cards, preserving history.
         request = {**request, 'selections': [{'source_id': s['source_id']} for s in request['selections']]}
-        execute = self.research_evidence if previous['contract_version'] == 'evidence-search-v1' else self.research
-        current = execute(request, save=True, parent_run_id=run_id,
-                                collection_id=previous.get('execution', {}).get('collection_id'))
+        collection_id = previous.get('execution', {}).get('collection_id')
+        if previous['contract_version'] == 'research-question-v1':
+            current = self.research_question(request['question'], selections=request['selections'])
+            self._save_research_result(current, collection_id, run_id)
+        else:
+            execute = self.research_evidence if previous['contract_version'] == 'evidence-search-v1' else self.research
+            current = execute(request, save=True, parent_run_id=run_id, collection_id=collection_id)
         return {'result': current, 'diff': {'previous_outcome': previous['outcome'], 'current_outcome': current['outcome'],
             'answer_changed': previous['answer'] != current['answer'],
             'previous_calculations': previous['calculations'], 'current_calculations': current['calculations']}}

@@ -205,16 +205,33 @@ class Registry:
                 raise ValueError('Observation IDs are immutable; save a new reviewed revision')
             return row['payload']
 
-    def observations(self, owner, build_ids):
+    def observations(self, owner, build_ids, dimension_filters=None, observation_ids=()):
+        """Bound matching cards, preserving all matching revisions and conflicts."""
         from uuid import UUID
         if not build_ids:
             return []
+        predicates, parameters = [], []
+        for dimensions in dimension_filters or []:
+            dimensions = dict(dimensions)
+            label = dimensions.pop('period_label', None)
+            predicate = 'f.payload @> %s'
+            parameters.append(Jsonb(dimensions))
+            if label:
+                predicate += " AND regexp_replace(upper(f.payload->'period'->>'fiscal_label'), '\\s+', '', 'g')=%s"
+                parameters.append(''.join(label.upper().split()))
+            predicates.append('(' + predicate + ')')
+        if observation_ids:
+            predicates.append('f.observation_id=ANY(%s)')
+            parameters.append(list(observation_ids))
+        # None retains the source-list API; an empty filter matches nothing.
+        where = (' AND (' + ' OR '.join(predicates) + ')') if predicates else (
+            ' AND FALSE' if dimension_filters is not None else '')
         with self.connect() as db:
             return [row['payload'] for row in db.execute('''SELECT f.payload FROM financial_observations f
                 JOIN retrieval_builds b USING(build_id) JOIN source_versions v USING(version_id)
                 JOIN sources s USING(source_id) WHERE f.owner_id=%s AND s.owner_id=%s AND s.status<>'archived'
-                AND f.build_id=ANY(%s) ORDER BY f.observation_id LIMIT 101''',
-                (owner, owner, [UUID(str(x)) for x in build_ids])).fetchall()]
+                AND f.build_id=ANY(%s)''' + where + ' ORDER BY f.observation_id LIMIT 101',
+                (owner, owner, [UUID(str(x)) for x in build_ids], *parameters)).fetchall()]
 
     def create_collection(self, owner, request):
         from .models import CollectionRequest
