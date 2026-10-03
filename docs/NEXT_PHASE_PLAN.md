@@ -4,6 +4,8 @@ Updated October 2, 2026 against local `main` at `832e59f`. Items 01–12 are imp
 
 The original review examined `4b4a95f8b42d46a6fd7a0e459c072fe228490a7f`, which matched `origin/main` at that time. Its no-ingestion/no-model-call scope and architecture findings describe that investigation, not the subsequent implementation and benchmark. Issue titles 01–12 are historical draft boundaries, not published GitHub issues.
 
+The forward-looking [Phase 3 plan](PHASE_3_PLAN.md) reviews this completed foundation and the held financial experiments. It defines six milestones and proposed evaluation gates; Phase 3 is not implemented.
+
 ## Implemented next phase: financial evidence controls
 
 The [frozen phase-close report](PHASE_CLOSE_REPORT.md) remains the baseline: strict **19/30**, numeric **9/10**, clarification **0/3**, OOC refusal **4/4**, complete cross-document answers **1/4**, final evidence recall **0.673** over 26 supported questions and receipt-based cost **$0.019366155**. Original questions, labels, PDFs, retained chunks/vectors and baseline outputs are unchanged.
