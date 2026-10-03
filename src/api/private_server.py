@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 from src.storage.models import SourceRegistration, SourceMetadata, SourceFilters
 from src.storage.objects import MAX_BYTES
+from src.financial.research import ResearchRequest
 
 
 class BodyLimit:
@@ -33,6 +34,12 @@ class PrivateQuery(BaseModel):
     filters: SourceFilters = Field(default_factory=SourceFilters)
     verify_hallucination: bool = False
     supplement_k: int = Field(default=0, ge=0, le=8, strict=True)
+
+
+class VersionMetadataReview(BaseModel):
+    metadata: SourceMetadata
+    reviewer: str = Field(min_length=1, max_length=200)
+    reason: str = Field(min_length=1, max_length=2000)
 
 
 def build_private_app(service=None, token=None):
@@ -82,6 +89,15 @@ def build_private_app(service=None, token=None):
     @app.patch('/sources/{source_id}/metadata')
     def metadata(source_id: UUID, req: SourceMetadata):
         return jsonable_encoder(service.registry.update_metadata(service.owner,source_id,req))
+
+    @app.post('/sources/{source_id}/versions/{version_id}/metadata-reviews')
+    def review_version(source_id: UUID, version_id: UUID, req: VersionMetadataReview):
+        return jsonable_encoder(service.registry.review_version_metadata(service.owner, source_id, version_id,
+            req.metadata, req.reviewer, req.reason))
+
+    @app.get('/sources/{source_id}/versions/{version_id}/metadata-reviews')
+    def version_reviews(source_id: UUID, version_id: UUID):
+        return jsonable_encoder(service.registry.version_metadata_reviews(service.owner, source_id, version_id))
 
     @app.post('/sources/{source_id}/suggestions')
     def suggestions(source_id: UUID):
@@ -133,5 +149,9 @@ def build_private_app(service=None, token=None):
         return service.query(req.question,filters=req.filters.model_dump(mode='json',exclude_none=True),
                              verify_hallucination=req.verify_hallucination,
                              supplement_k=req.supplement_k).to_display_dict()
+
+    @app.post('/research')
+    def research(req: ResearchRequest):
+        return service.research(req)
 
     return app

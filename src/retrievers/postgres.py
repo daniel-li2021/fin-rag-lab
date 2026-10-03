@@ -38,16 +38,17 @@ class PostgresRetriever:
             where.extend(['v.version_id=s.active_version_id', 'b.build_id=s.active_build_id'])
         if f.source_id:
             where.append('s.source_id=%s'); args.append(f.source_id)
+        metadata_expr = 'COALESCE(mr.metadata,v.metadata)' if f.version_id else 's.metadata'
         for field in ('company_id','fiscal_year','fiscal_quarter','document_type'):
             value = getattr(f, field)
             if value is not None:
-                alias='v' if f.version_id else 's'
-                where.extend([alias+".metadata->>'review_status'='confirmed'", alias+'.metadata->>%s=%s'])
+                where.extend([metadata_expr+"->>'review_status'='confirmed'", metadata_expr+'->>%s=%s'])
                 args.extend([field, str(value)])
         with self.registry.connect() as db:
             db.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')
-            metadata_alias = 'v' if f.version_id else 's'
-            builds = db.execute('SELECT b.*,'+metadata_alias+'.metadata AS source_metadata FROM sources s,source_versions v,retrieval_builds b WHERE b.version_id=v.version_id AND '+
+            review_join = ''' LEFT JOIN LATERAL (SELECT metadata FROM source_version_metadata_reviews
+                WHERE version_id=v.version_id ORDER BY revision DESC LIMIT 1) mr ON true''' if f.version_id else ''
+            builds = db.execute('SELECT b.*,'+metadata_expr+' AS source_metadata FROM sources s,source_versions v'+review_join+',retrieval_builds b WHERE b.version_id=v.version_id AND '+
                                 ' AND '.join(where), args).fetchall()
             if not builds:
                 return {'chunks': [], 'candidates': []}

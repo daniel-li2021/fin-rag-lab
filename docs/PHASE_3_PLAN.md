@@ -1,6 +1,6 @@
 # FinRAG Phase 3: evidence-backed financial research
 
-Planning date: October 2, 2026. Reviewed repository state: `d6a0cd1` on `main`, including the previously uncommitted financial-evidence batch validated and committed during this investigation. **Proposal only: Phase 3 has not been implemented.** This plan does not promote the experimental response protocol or authorize new model runs, ingestion, cloud provisioning, or scheduled source fetching.
+Planning date: October 2, 2026. Reviewed repository state: `d6a0cd1` on `main`, including the previously uncommitted financial-evidence batch validated and committed during this investigation. This is the retained proposal; implementation has since started. See [current implementation status](PHASE_3_IMPLEMENTATION.md) for contracts, original bindings, pinned research and calculation receipts, and their remaining gaps. This plan does not promote the experimental response protocol or authorize new model runs, ingestion, cloud provisioning, or scheduled source fetching.
 
 ## Recommendation
 

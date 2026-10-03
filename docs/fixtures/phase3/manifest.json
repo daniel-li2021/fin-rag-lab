@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "design_revision": "phase3-design-v1",
+  "frozen_on": "2026-10-03",
+  "status": "held",
+  "cases_path": "docs/fixtures/phase3/diagnostic_cases.v1.json",
+  "observations_path": "docs/fixtures/phase3/authentic_observations.v1.json",
+  "immutable_files": {
+    "data/golden_set/golden.jsonl": "9a90ae99ded28d6afe736f6298517a217f9405dd50989e98bed889508116cdf6",
+    "data/golden_set/labels.v1.json": "f79c8bf10877cb82761273f9fa0e9041104f91806a4e177e09bd4cdd905cf9a2",
+    "docs/benchmarks/20261002-parent-bm25/results.jsonl": "ad8c61a7859360ff3e16d78cd69440a1aba6b71a677ffbbfc6a9a47e7b4a0a82",
+    "docs/benchmarks/20261002-parent-bm25/manifest.json": "3037abb7516230f5884185ee81ae584e9f474a48e0e188d986effd7d49ac593a",
+    "docs/benchmarks/20261002-parent-bm25/review.json": "a1b80a9e47f38716df7af2a2f596a32d75ce2f0d8ed939bfa0cb06ee1a2dbeea",
+    "docs/fixtures/phase3/authentic_observations.v1.json": "480938f238a93ff6a548e39b3623e591a62edbf1bbaa31baa1d4a55cd151f190",
+    "docs/fixtures/phase3/diagnostic_cases.v1.json": "be81fe7afbfd2a12260fcb81112792764438e81565a4a93445bf1f4a0601f3cc"
+  },
+  "regression_identity": {
+    "golden_path": "data/golden_set/golden.jsonl",
+    "golden_sha256": "9a90ae99ded28d6afe736f6298517a217f9405dd50989e98bed889508116cdf6",
+    "labels_path": "data/golden_set/labels.v1.json",
+    "labels_sha256": "f79c8bf10877cb82761273f9fa0e9041104f91806a4e177e09bd4cdd905cf9a2"
+  },
+  "corpus": [
+    {
+      "source": "amd",
+      "path": "data/uploads/amd.pdf",
+      "sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca"
+    },
+    {
+      "source": "tesla",
+      "path": "data/uploads/tesla.pdf",
+      "sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485"
+    },
+    {
+      "source": "wells_fargo",
+      "path": "data/uploads/wells_fargo.pdf",
+      "sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f"
+    }
+  ],
+  "design": {
+    "slices": [
+      "multi_document",
+      "temporal_scope",
+      "calculations_units",
+      "clarification",
+      "conflicts_revisions",
+      "missing_evidence"
+    ],
+    "development_per_slice": 8,
+    "holdout_per_slice": 8,
+    "minimum_authentic_numeric_holdout": 20,
+    "report_family_disjoint": true,
+    "company_period_disjoint": true,
+    "revision_lineage_disjoint": true,
+    "independent_human_review_available": false
+  },
+  "capture_policy": {
+    "model_calls_authorized": false,
+    "paid_budget_usd": null,
+    "holdout_answers_inspected": false,
+    "receipt_cost_required": true,
+    "paired_current_default_baseline_required": true
+  },
+  "unfulfilled_release_requirements": [
+    "96 newly frozen authentic cases with 48 sealed holdout cases",
+    "At least 20 numeric/calculated authentic holdout cases",
+    "Disjoint report families, company-periods and revision lineages",
+    "Additional 12\u201318 report corpus and independently verified revision case",
+    "Complete fiscal/calendar, currency and basis bindings for every promoted numeric observation",
+    "Full current-default paired regression capture, receipt cost and matched latency",
+    "Safety and strict-answer review across regression and authentic holdout"
+  ],
+  "historical_screen": {
+    "preserve_strict_success_ids": [
+      "q01",
+      "q02",
+      "q03",
+      "q04",
+      "q05",
+      "q06",
+      "q09",
+      "q10",
+      "q11",
+      "q12",
+      "q13",
+      "q17",
+      "q19",
+      "q20",
+      "q26",
+      "q27",
+      "q28",
+      "q29",
+      "q30"
+    ],
+    "preserve_numeric_success_ids": [
+      "q01",
+      "q02",
+      "q03",
+      "q04",
+      "q05",
+      "q06",
+      "q08",
+      "q09",
+      "q10"
+    ],
+    "minimum_strict_correct": 24,
+    "question_denominator": 30,
+    "minimum_numeric_correct": 9,
+    "numeric_denominator": 10,
+    "clarification_correct_required": 3,
+    "out_of_corpus_correct_required": 4,
+    "cross_document_strict_required": 4,
+    "cross_document_includes_clarification": 2
+  }
+}

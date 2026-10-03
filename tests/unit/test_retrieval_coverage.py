@@ -69,7 +69,7 @@ def test_postgres_aliases_use_authorized_confirmed_source_or_version_snapshot():
         def execute(self, sql, args=None):
             if sql.startswith("SELECT b.*"):
                 assert "s.owner_id=%s" in sql and "s.status<>'archived'" in sql
-                self.metadata_alias = "v" if "v.metadata AS source_metadata" in sql else "s"
+                self.metadata_alias = "v" if "COALESCE(mr.metadata,v.metadata) AS source_metadata" in sql else "s"
                 return Rows([{"build_id": "owned-build", "source_metadata": profile,
                               "manifest": {"embedding_model": "offline", "dimensions": 3, "distance": "cosine"}}]
                             if args[0] == "owner" else [])

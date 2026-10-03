@@ -49,6 +49,13 @@ CREATE TABLE IF NOT EXISTS metadata_suggestions (
  version_id uuid NOT NULL REFERENCES source_versions, cache_key text NOT NULL,
  payload jsonb NOT NULL, usage jsonb, PRIMARY KEY(version_id,cache_key)
 );
+-- Append-only corrections; raw source versions and previous research remain intact.
+CREATE TABLE IF NOT EXISTS source_version_metadata_reviews (
+ review_id uuid PRIMARY KEY, version_id uuid NOT NULL REFERENCES source_versions,
+ revision int NOT NULL CHECK(revision>0), metadata jsonb NOT NULL,
+ reviewer text NOT NULL, reason text NOT NULL, created_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(version_id,revision)
+);
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS metadata_revision int NOT NULL DEFAULT 0;
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS registration_hash text;
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS desired_build_id uuid;

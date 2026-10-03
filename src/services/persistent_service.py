@@ -194,3 +194,10 @@ class PersistentRAGService(RAGService):
         result = RAGService.query(view,question,**options)
         result.configuration.update(backend='postgres',lexical=lexical,filters=filters)
         return result
+
+    def research(self, request):
+        from src.financial.research import ResearchRequest, run_research
+        request = ResearchRequest.model_validate(request)
+        snapshot = self.registry.research_snapshot(self.owner, [s.model_dump(mode='json', exclude_none=True)
+                                                              for s in request.selections])
+        return run_research(request, snapshot)

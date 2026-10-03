@@ -93,6 +93,95 @@ class Registry:
             return db.execute("UPDATE sources SET status='archived' WHERE source_id=%s RETURNING *",
                               (source_id,)).fetchone()
 
+    def review_version_metadata(self, owner, source_id, version_id, metadata, reviewer, reason):
+        metadata = SourceMetadata.model_validate(metadata).model_dump(mode='json')
+        if metadata['review_status'] != 'confirmed' or not reviewer.strip() or not reason.strip():
+            raise ValueError('Historical corrections require confirmed metadata, reviewer and reason')
+        with self.connect() as db:
+            source = self.owned(db, owner, source_id, True)
+            if source['status'] == 'archived':
+                raise ValueError('Archived sources cannot receive metadata reviews')
+            if not db.execute('SELECT 1 FROM source_versions WHERE source_id=%s AND version_id=%s',
+                              (source_id, version_id)).fetchone():
+                raise LookupError('Version not found')
+            return db.execute('''INSERT INTO source_version_metadata_reviews
+                (review_id,version_id,revision,metadata,reviewer,reason)
+                SELECT %s,%s,COALESCE(max(revision),0)+1,%s,%s,%s
+                FROM source_version_metadata_reviews WHERE version_id=%s RETURNING *''',
+                (uuid4(), version_id, Jsonb(metadata), reviewer.strip(), reason.strip(), version_id)).fetchone()
+
+    def version_metadata_reviews(self, owner, source_id, version_id):
+        with self.connect() as db:
+            self.owned(db, owner, source_id)
+            if not db.execute('SELECT 1 FROM source_versions WHERE source_id=%s AND version_id=%s',
+                              (source_id, version_id)).fetchone():
+                raise LookupError('Version not found')
+            return db.execute('SELECT * FROM source_version_metadata_reviews WHERE version_id=%s ORDER BY revision',
+                              (version_id,)).fetchall()
+
+    def research_snapshot(self, owner, selections):
+        """Resolve all authorized versions/builds and original blocks in one read snapshot."""
+        from src.core.models import DocumentBlock
+        from src.financial.models import PinnedSource
+        from .models import ResearchSelection
+        from uuid import UUID
+        filters = [ResearchSelection.model_validate(item) for item in selections]
+        if not 1 <= len(filters) <= 18 or any(f.source_id is None for f in filters):
+            raise ValueError('Research requires 1–18 explicit source selections')
+        if len({f.source_id for f in filters}) != len(filters):
+            raise ValueError('Select each source once')
+        pins, blocks, inventory = [], {}, []
+        with self.connect() as db:
+            db.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')
+            for f in filters:
+                source = self.owned(db, owner, f.source_id)
+                if source['status'] == 'archived':
+                    raise LookupError('Source not found')
+                version_id = f.version_id or source['active_version_id']
+                row = db.execute('''SELECT v.*, b.build_id,b.status AS build_status,
+                    r.metadata AS reviewed_metadata,r.review_id,r.revision AS review_revision
+                    FROM source_versions v LEFT JOIN retrieval_builds b ON b.build_id=COALESCE(%s,v.active_build_id) AND b.version_id=v.version_id
+                    LEFT JOIN LATERAL (SELECT * FROM source_version_metadata_reviews
+                        WHERE version_id=v.version_id AND (%s::uuid IS NULL OR review_id=%s)
+                        ORDER BY revision DESC LIMIT 1) r ON true
+                    WHERE v.source_id=%s AND v.version_id=%s''',
+                    (f.build_id, f.metadata_review_id, f.metadata_review_id, f.source_id, version_id)).fetchone()
+                if f.version_id and not row:
+                    raise LookupError('Version not found')
+                if f.build_id and (not row or not row['build_id']):
+                    raise LookupError('Build not found')
+                if f.metadata_review_id and (not row or not row['review_id']):
+                    raise LookupError('Metadata review not found')
+                metadata = (row['reviewed_metadata'] or row['metadata']) if row and f.version_id else source['metadata']
+                inventory.append({'source_id': str(f.source_id), 'title': source['title'],
+                    'status': source['status'], 'metadata': metadata,
+                    'version_id': str(version_id) if version_id else None,
+                    'metadata_review_id': str(row['review_id']) if f.version_id and row and row['review_id'] else None,
+                    'metadata_review_revision': row['review_revision'] if f.version_id and row else None,
+                    'source_metadata_revision': source['metadata_revision'] if not f.version_id else None,
+                    'last_error': source['last_error']})
+                if not row or not row['build_id'] or row['build_status'] != 'ready':
+                    continue
+                if metadata.get('review_status') != 'confirmed' or not metadata.get('company_id'):
+                    continue
+                for field in ('company_id', 'fiscal_year', 'fiscal_quarter', 'document_type'):
+                    if getattr(f, field) is not None and str(metadata.get(field)) != str(getattr(f, field)):
+                        raise ValueError('Selected source does not match requested metadata')
+                pin = PinnedSource(source_id=str(f.source_id), version_id=str(row['version_id']),
+                    build_id=str(row['build_id']), source_hash=row['sha256'], company_id=metadata['company_id'],
+                    publication_date=metadata.get('publication_date'))
+                pins.append(pin)
+            if pins:
+                rows = db.execute('''SELECT build_id,payload FROM blocks
+                    WHERE build_id=ANY(%s) ORDER BY build_id,ordinal LIMIT 10001''',
+                    ([UUID(p.build_id) for p in pins],)).fetchall()
+                if len(rows) > 10000:
+                    raise ValueError('Research exceeds 10000 original blocks')
+                blocks = {p.build_id: [] for p in pins}
+                for row in rows:
+                    blocks[str(row['build_id'])].append(DocumentBlock.model_validate(row['payload']))
+        return {'sources': pins, 'blocks': blocks, 'inventory': inventory}
+
     def enqueue(self, owner, source_id, data, object_key, media_type, provenance, manifest):
         sha = hashlib.sha256(data).hexdigest()
         with self.connect() as db:

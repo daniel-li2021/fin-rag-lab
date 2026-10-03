@@ -69,6 +69,8 @@ If you have a pre-built `cache_bundle.zip`, unzip it at the repo root instead of
 
 ## Application (local)
 
+Phase 3 now includes opt-in reviewed financial observations, pinned multi-source numeric research and cited Decimal receipts through the private `/research` endpoint. See [implementation and usage](docs/PHASE_3_IMPLEMENTATION.md) and the [frozen evaluation contract](docs/PHASE_3_EVALUATION.md). Authentic observation gaps and holdout evaluation keep release promotion held.
+
 The notebooks remain the teaching path. For a runnable app, a thin service layer wraps the same `src/` modules using the **parent-child** strategy from notebook 05 (not the recursive baseline).
 
 ```bash

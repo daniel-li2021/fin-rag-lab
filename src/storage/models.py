@@ -50,3 +50,15 @@ class SourceFilters(BaseModel):
         if self.version_id and not self.source_id:
             raise ValueError('An explicit version requires its source_id')
         return self
+
+
+class ResearchSelection(SourceFilters):
+    source_id: UUID
+    build_id: UUID | None = None
+    metadata_review_id: UUID | None = None
+
+    @model_validator(mode='after')
+    def build_needs_version(self):
+        if (self.build_id or self.metadata_review_id) and not self.version_id:
+            raise ValueError('An explicit build or metadata review requires its version_id')
+        return self

@@ -1,0 +1,913 @@
+{
+  "schema_version": 1,
+  "review_policy": "Codex original PDF page and retained original spans; no independent human judging. Reviewed value/row/column is separate from complete eligible observation verification.",
+  "observations": [
+    {
+      "observation_id": "amd-revenue-fy2025",
+      "company_id": "amd",
+      "metric_id": "revenue",
+      "original_label": "Revenue",
+      "value": "34639",
+      "unit": "currency",
+      "currency": "USD",
+      "scale": "1000000",
+      "scope": "consolidated",
+      "basis": "GAAP",
+      "period": {
+        "kind": "annual",
+        "start": null,
+        "end": null,
+        "fiscal_label": "FY 2025",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+        "version_id": "a57f3d92-ba45-4279-a40b-5a461d21f3b6",
+        "build_id": "b1d6fa39-4d42-49cd-9d8a-ad7b5630f450",
+        "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+        "company_id": "amd",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_c1aa9fbbb4f2",
+          "text": "$34,639",
+          "char_start": 8,
+          "char_end": 15,
+          "page_number": 17
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_c1aa9fbbb4f2",
+          "text": "Revenue",
+          "char_start": 0,
+          "char_end": 7,
+          "page_number": 17
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_09c45aa1f49b",
+          "text": "2025",
+          "char_start": 43,
+          "char_end": 47,
+          "page_number": 17
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_09c45aa1f49b",
+          "text": "$ in millions",
+          "char_start": 0,
+          "char_end": 13,
+          "page_number": 17
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_05c36c2cf05b",
+          "text": "GAAP",
+          "char_start": 22,
+          "char_end": 26,
+          "page_number": 17
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_05c36c2cf05b",
+          "text": "FY 2025 Summary P&L",
+          "char_start": 0,
+          "char_end": 19,
+          "page_number": 17
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "exact_fiscal_boundaries_not_in_retained_deck"
+        ]
+      }
+    },
+    {
+      "observation_id": "amd-gross-margin-q42024",
+      "company_id": "amd",
+      "metric_id": "gross_margin",
+      "original_label": "Gross Margin",
+      "value": "51",
+      "unit": "percent",
+      "currency": null,
+      "scale": "1",
+      "scope": "consolidated",
+      "basis": "GAAP",
+      "period": {
+        "kind": "quarter",
+        "start": null,
+        "end": null,
+        "fiscal_label": "Q4 2024",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+        "version_id": "a57f3d92-ba45-4279-a40b-5a461d21f3b6",
+        "build_id": "b1d6fa39-4d42-49cd-9d8a-ad7b5630f450",
+        "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+        "company_id": "amd",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_6b548a8563f4",
+          "text": "51%",
+          "char_start": 17,
+          "char_end": 20,
+          "page_number": 10
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_6b548a8563f4",
+          "text": "Gross Margin",
+          "char_start": 0,
+          "char_end": 12,
+          "page_number": 10
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_75e506b2afec",
+          "text": "Q4’24",
+          "char_start": 51,
+          "char_end": 56,
+          "page_number": 10
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_75e506b2afec",
+          "text": "%",
+          "char_start": 41,
+          "char_end": 42,
+          "page_number": 10
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_d56f1a1ca950",
+          "text": "GAAP",
+          "char_start": 22,
+          "char_end": 26,
+          "page_number": 10
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_d56f1a1ca950",
+          "text": "Summary P&L",
+          "char_start": 8,
+          "char_end": 19,
+          "page_number": 10
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "exact_fiscal_boundaries_not_in_retained_deck"
+        ]
+      }
+    },
+    {
+      "observation_id": "amd-gross-margin-q42025",
+      "company_id": "amd",
+      "metric_id": "gross_margin",
+      "original_label": "Gross Margin",
+      "value": "54",
+      "unit": "percent",
+      "currency": null,
+      "scale": "1",
+      "scope": "consolidated",
+      "basis": "GAAP",
+      "period": {
+        "kind": "quarter",
+        "start": null,
+        "end": null,
+        "fiscal_label": "Q4 2025",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+        "version_id": "a57f3d92-ba45-4279-a40b-5a461d21f3b6",
+        "build_id": "b1d6fa39-4d42-49cd-9d8a-ad7b5630f450",
+        "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+        "company_id": "amd",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_6b548a8563f4",
+          "text": "54%",
+          "char_start": 13,
+          "char_end": 16,
+          "page_number": 10
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_6b548a8563f4",
+          "text": "Gross Margin",
+          "char_start": 0,
+          "char_end": 12,
+          "page_number": 10
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_75e506b2afec",
+          "text": "Q4’25",
+          "char_start": 43,
+          "char_end": 48,
+          "page_number": 10
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_75e506b2afec",
+          "text": "%",
+          "char_start": 41,
+          "char_end": 42,
+          "page_number": 10
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_d56f1a1ca950",
+          "text": "GAAP",
+          "char_start": 22,
+          "char_end": 26,
+          "page_number": 10
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_d56f1a1ca950",
+          "text": "Summary P&L",
+          "char_start": 8,
+          "char_end": 19,
+          "page_number": 10
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "exact_fiscal_boundaries_not_in_retained_deck"
+        ]
+      }
+    },
+    {
+      "observation_id": "tesla-production-q12026",
+      "company_id": "tesla",
+      "metric_id": "production",
+      "original_label": "Total production",
+      "value": "408386",
+      "unit": "count",
+      "currency": null,
+      "scale": "1",
+      "scope": "consolidated",
+      "basis": "operating",
+      "period": {
+        "kind": "quarter",
+        "start": null,
+        "end": null,
+        "fiscal_label": "Q1 2026",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+        "version_id": "0301d84d-40e5-4748-adb6-968ddebee33b",
+        "build_id": "b55f32f3-bdf2-492d-ac45-d0797e03a608",
+        "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+        "company_id": "tesla",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_c2a817cd1790",
+          "text": "408,386",
+          "char_start": 49,
+          "char_end": 56,
+          "page_number": 5
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_c2a817cd1790",
+          "text": "Total production",
+          "char_start": 0,
+          "char_end": 16,
+          "page_number": 5
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_97279536043d",
+          "text": "Q1-2026",
+          "char_start": 32,
+          "char_end": 39,
+          "page_number": 5
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_c2a817cd1790",
+          "text": "Total production",
+          "char_start": 0,
+          "char_end": 16,
+          "page_number": 5
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_3f5792e5faae",
+          "text": "OPERATIONAL SUMMARY (Unaudited)",
+          "char_start": 0,
+          "char_end": 31,
+          "page_number": 5
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_c2a817cd1790",
+          "text": "Total",
+          "char_start": 0,
+          "char_end": 5,
+          "page_number": 5
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "exact_calendar_boundaries_not_explicit_in_retained_deck"
+        ]
+      }
+    },
+    {
+      "observation_id": "tesla-deliveries-q12026",
+      "company_id": "tesla",
+      "metric_id": "deliveries",
+      "original_label": "Total deliveries",
+      "value": "358023",
+      "unit": "count",
+      "currency": null,
+      "scale": "1",
+      "scope": "consolidated",
+      "basis": "operating",
+      "period": {
+        "kind": "quarter",
+        "start": null,
+        "end": null,
+        "fiscal_label": "Q1 2026",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+        "version_id": "0301d84d-40e5-4748-adb6-968ddebee33b",
+        "build_id": "b55f32f3-bdf2-492d-ac45-d0797e03a608",
+        "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+        "company_id": "tesla",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_853fbe706773",
+          "text": "358,023",
+          "char_start": 49,
+          "char_end": 56,
+          "page_number": 5
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_853fbe706773",
+          "text": "Total deliveries",
+          "char_start": 0,
+          "char_end": 16,
+          "page_number": 5
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_97279536043d",
+          "text": "Q1-2026",
+          "char_start": 32,
+          "char_end": 39,
+          "page_number": 5
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_853fbe706773",
+          "text": "Total deliveries",
+          "char_start": 0,
+          "char_end": 16,
+          "page_number": 5
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_3f5792e5faae",
+          "text": "OPERATIONAL SUMMARY (Unaudited)",
+          "char_start": 0,
+          "char_end": 31,
+          "page_number": 5
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_853fbe706773",
+          "text": "Total",
+          "char_start": 0,
+          "char_end": 5,
+          "page_number": 5
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "exact_calendar_boundaries_not_explicit_in_retained_deck"
+        ]
+      }
+    },
+    {
+      "observation_id": "wells-cbl-revenue-q42025",
+      "company_id": "wells_fargo",
+      "metric_id": "revenue",
+      "original_label": "Total revenue",
+      "value": "9571",
+      "unit": "currency",
+      "currency": "USD",
+      "scale": "1000000",
+      "scope": "Consumer Banking and Lending",
+      "basis": "reported_preliminary",
+      "period": {
+        "kind": "quarter",
+        "start": null,
+        "end": "2025-12-31",
+        "fiscal_label": "Q4 2025",
+        "calendar": "unresolved"
+      },
+      "source": {
+        "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+        "version_id": "4b9d8c04-696f-4c2d-95ed-c89e51669edd",
+        "build_id": "a7ede94c-acaa-46b2-b5e6-6c282abb28ff",
+        "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+        "company_id": "wells_fargo",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_12296fef8c5b",
+          "text": "9,571",
+          "char_start": 14,
+          "char_end": 19,
+          "page_number": 4
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_12296fef8c5b",
+          "text": "Total revenue",
+          "char_start": 0,
+          "char_end": 13,
+          "page_number": 4
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_f1d0751e1582",
+          "text": "Dec 31, 2025",
+          "char_start": 0,
+          "char_end": 12,
+          "page_number": 4
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_e7c9cc43b00f",
+          "text": "Earnings (in millions)",
+          "char_start": 0,
+          "char_end": 22,
+          "page_number": 4
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_e57819c19bd3",
+          "text": "Consumer Banking and Lending",
+          "char_start": 0,
+          "char_end": 28,
+          "page_number": 4
+        }
+      ],
+      "verification_status": "unverified",
+      "review_revision": "codex-original-page-review-v1",
+      "reported": true,
+      "binding_review": {
+        "reviewer": "Codex",
+        "independent_human_review": false,
+        "value_label_column_reviewed": true,
+        "eligibility_gaps": [
+          "basis_support_not_bound",
+          "currency_dollar_symbol_not_in_retained_revenue_row",
+          "segment_reclassification_affects_comparability",
+          "exact_duration_start_not_bound"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+      "version_id": "4b9d8c04-696f-4c2d-95ed-c89e51669edd",
+      "build_id": "a7ede94c-acaa-46b2-b5e6-6c282abb28ff",
+      "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "company_id": "wells_fargo",
+      "status": "available"
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "version_id": "a57f3d92-ba45-4279-a40b-5a461d21f3b6",
+      "build_id": "b1d6fa39-4d42-49cd-9d8a-ad7b5630f450",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "company_id": "amd",
+      "status": "available"
+    },
+    {
+      "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+      "version_id": "0301d84d-40e5-4748-adb6-968ddebee33b",
+      "build_id": "b55f32f3-bdf2-492d-ac45-d0797e03a608",
+      "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "company_id": "tesla",
+      "status": "available"
+    }
+  ],
+  "blocks": [
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_c1aa9fbbb4f2",
+        "block_type": "paragraph",
+        "text": "Revenue $34,639 $25,785 Up 34%",
+        "page_number": 17,
+        "bbox": {
+          "x0": 54.84000015258789,
+          "y0": 158.09996032714844,
+          "x1": 679.7269897460938,
+          "y1": 174.62527465820312
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q06",
+        "field": "retrieved_contexts",
+        "context_index": 2,
+        "span_index": 13
+      }
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_09c45aa1f49b",
+        "block_type": "paragraph",
+        "text": "$ in millions, except per share data and % 20251 2024 Y/Y",
+        "page_number": 17,
+        "bbox": {
+          "x0": 54.84000015258789,
+          "y0": 114.36167907714844,
+          "x1": 666.1895751953125,
+          "y1": 133.17214965820312
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q06",
+        "field": "retrieved_contexts",
+        "context_index": 2,
+        "span_index": 12
+      }
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_05c36c2cf05b",
+        "block_type": "paragraph",
+        "text": "FY 2025 Summary P&L | GAAP",
+        "page_number": 17,
+        "bbox": {
+          "x0": 46.31999969482422,
+          "y0": 48.68504333496094,
+          "x1": 539.5012817382812,
+          "y1": 84.47972869873047
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q06",
+        "field": "retrieved_contexts",
+        "context_index": 2,
+        "span_index": 11
+      }
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_6b548a8563f4",
+        "block_type": "paragraph",
+        "text": "Gross Margin 54% 51% Up 3 ppts 52% Up 2 ppts",
+        "page_number": 10,
+        "bbox": {
+          "x0": 70.44000244140625,
+          "y0": 239.1699676513672,
+          "x1": 896.553466796875,
+          "y1": 255.69528198242188
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q15",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 6
+      }
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_75e506b2afec",
+        "block_type": "paragraph",
+        "text": "$ in millions, except per share data and % Q4’25 1 Q4’24 Y/Y Q3’25 Q/Q",
+        "page_number": 10,
+        "bbox": {
+          "x0": 54.84000015258789,
+          "y0": 120.07167053222656,
+          "x1": 879.8109741210938,
+          "y1": 141.6647491455078
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q15",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 3
+      }
+    },
+    {
+      "source_id": "04bc8f60-127f-48a5-a7d5-593150d2e08a",
+      "source_hash": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "block": {
+        "block_id": "blk_d56f1a1ca950",
+        "block_type": "paragraph",
+        "text": "Q4 2025 Summary P&L | GAAP",
+        "page_number": 10,
+        "bbox": {
+          "x0": 46.31999969482422,
+          "y0": 48.68504333496094,
+          "x1": 541.933349609375,
+          "y1": 84.47972869873047
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q15",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 2
+      }
+    },
+    {
+      "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+      "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "block": {
+        "block_id": "blk_c2a817cd1790",
+        "block_type": "paragraph",
+        "text": "Total production 362,615 410,244 447,450 434,358 408,386 13%",
+        "page_number": 5,
+        "bbox": {
+          "x0": 79.80000305175781,
+          "y0": 208.7613525390625,
+          "x1": 1504.8720703125,
+          "y1": 231.114013671875
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q04",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 3
+      }
+    },
+    {
+      "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+      "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "block": {
+        "block_id": "blk_97279536043d",
+        "block_type": "paragraph",
+        "text": "Q1-2025 Q2-2025 Q3-2025 Q4-2025 Q1-2026 YoY",
+        "page_number": 5,
+        "bbox": {
+          "x0": 722.280029296875,
+          "y0": 127.38751220703125,
+          "x1": 1456.6845703125,
+          "y1": 149.39068603515625
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q04",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 0
+      }
+    },
+    {
+      "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+      "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "block": {
+        "block_id": "blk_3f5792e5faae",
+        "block_type": "paragraph",
+        "text": "OPERATIONAL SUMMARY (Unaudited)",
+        "page_number": 5,
+        "bbox": {
+          "x0": 72.55000305175781,
+          "y0": 75.88751220703125,
+          "x1": 333.7331237792969,
+          "y1": 121.16400146484375
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q05",
+        "field": "retrieved_contexts",
+        "context_index": 1,
+        "span_index": 3
+      }
+    },
+    {
+      "source_id": "0d182265-4277-444a-9c6e-dcf4b1176136",
+      "source_hash": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "block": {
+        "block_id": "blk_853fbe706773",
+        "block_type": "paragraph",
+        "text": "Total deliveries 336,681 384,122 497,099 418,227 358,023 6%",
+        "page_number": 5,
+        "bbox": {
+          "x0": 79.80000305175781,
+          "y0": 316.56134033203125,
+          "x1": 1508.422119140625,
+          "y1": 340.1839599609375
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q04",
+        "field": "retrieved_contexts",
+        "context_index": 0,
+        "span_index": 6
+      }
+    },
+    {
+      "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+      "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "block": {
+        "block_id": "blk_12296fef8c5b",
+        "block_type": "paragraph",
+        "text": "Total revenue 9,571 9,650 8,980 (1) 7",
+        "page_number": 4,
+        "bbox": {
+          "x0": 48.4010009765625,
+          "y0": 248.35397338867188,
+          "x1": 574.591064453125,
+          "y1": 257.6919860839844
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q03",
+        "field": "retrieved_contexts",
+        "context_index": 5,
+        "span_index": 56
+      }
+    },
+    {
+      "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+      "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "block": {
+        "block_id": "blk_f1d0751e1582",
+        "block_type": "paragraph",
+        "text": "Dec 31, 2025",
+        "page_number": 4,
+        "bbox": {
+          "x0": 345.760986328125,
+          "y0": 143.87197875976562,
+          "x1": 371.135986328125,
+          "y1": 160.20997619628906
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q03",
+        "field": "retrieved_contexts",
+        "context_index": 5,
+        "span_index": 44
+      }
+    },
+    {
+      "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+      "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "block": {
+        "block_id": "blk_e7c9cc43b00f",
+        "block_type": "paragraph",
+        "text": "Earnings (in millions)",
+        "page_number": 4,
+        "bbox": {
+          "x0": 38.6290283203125,
+          "y0": 163.61898803710938,
+          "x1": 108.03402709960938,
+          "y1": 172.9569854736328
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q03",
+        "field": "retrieved_contexts",
+        "context_index": 5,
+        "span_index": 49
+      }
+    },
+    {
+      "source_id": "35422282-9f7b-428b-8be1-a4ae38cdd269",
+      "source_hash": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "block": {
+        "block_id": "blk_e57819c19bd3",
+        "block_type": "paragraph",
+        "text": "Consumer Banking and Lending offers diversified financial products and services for consumers and small businesses. These financial products and services include checking and savings accounts, credit and debit cards, as well as home, auto, personal, and small business lending.",
+        "page_number": 4,
+        "bbox": {
+          "x0": 36.0,
+          "y0": 62.070037841796875,
+          "x1": 570.3800659179688,
+          "y1": 99.4100341796875
+        }
+      },
+      "retained_origin": {
+        "path": "docs/benchmarks/20261002-parent-bm25/results.jsonl",
+        "question_id": "q03",
+        "field": "retrieved_contexts",
+        "context_index": 5,
+        "span_index": 40
+      }
+    }
+  ],
+  "expected_diagnostics": [
+    {
+      "id": "q08",
+      "observation_ids": [
+        "amd-revenue-fy2025"
+      ],
+      "reference_value": "34639",
+      "unit": "USD million",
+      "status": "binding_reviewed_period_unresolved"
+    },
+    {
+      "id": "q22",
+      "observation_ids": [
+        "amd-gross-margin-q42024",
+        "amd-gross-margin-q42025"
+      ],
+      "operation": "percentage_point_change",
+      "reference_result": "3",
+      "unit": "percentage_points",
+      "status": "binding_reviewed_period_unresolved"
+    },
+    {
+      "id": "q20",
+      "observation_ids": [
+        "tesla-production-q12026",
+        "tesla-deliveries-q12026"
+      ],
+      "operation": "difference",
+      "reference_result": "50363",
+      "unit": "count",
+      "status": "binding_reviewed_period_unresolved",
+      "rubric": "A production-delivery gap does not establish a causal explanation."
+    }
+  ]
+}

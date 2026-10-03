@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "diagnostic-q08",
+      "regression_id": "q08",
+      "split": "development",
+      "authentic": true,
+      "primary_slice": "calculations_units",
+      "cross_tags": [
+        "numeric"
+      ],
+      "report_families": [
+        "amd-fy2025-release"
+      ],
+      "company_period_keys": [
+        "amd:FY2025"
+      ],
+      "revision_lineages": [
+        "amd-fy2025-release"
+      ],
+      "expected_outcome": "not_assessable",
+      "observation_ids": [
+        "amd-revenue-fy2025"
+      ],
+      "rubric": "Retained original bindings reviewed; strict observation calendar eligibility remains incomplete. Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "diagnostic-q22",
+      "regression_id": "q22",
+      "split": "development",
+      "authentic": true,
+      "primary_slice": "temporal_scope",
+      "cross_tags": [
+        "numeric",
+        "calculated"
+      ],
+      "report_families": [
+        "amd-fy2025-release"
+      ],
+      "company_period_keys": [
+        "amd:Q42024",
+        "amd:Q42025"
+      ],
+      "revision_lineages": [
+        "amd-fy2025-release"
+      ],
+      "expected_outcome": "not_assessable",
+      "observation_ids": [
+        "amd-gross-margin-q42024",
+        "amd-gross-margin-q42025"
+      ],
+      "rubric": "Retained original bindings reviewed; strict observation calendar eligibility remains incomplete. Use only the cited source period and scope; substantiate every claim. Do not assert missing facts."
+    },
+    {
+      "id": "diagnostic-q20",
+      "regression_id": "q20",
+      "split": "development",
+      "authentic": true,
+      "primary_slice": "calculations_units",
+      "cross_tags": [
+        "numeric",
+        "calculated"
+      ],
+      "report_families": [
+        "tesla-q12026-release"
+      ],
+      "company_period_keys": [
+        "tesla:Q12026"
+      ],
+      "revision_lineages": [
+        "tesla-q12026-release"
+      ],
+      "expected_outcome": "not_assessable",
+      "observation_ids": [
+        "tesla-production-q12026",
+        "tesla-deliveries-q12026"
+      ],
+      "rubric": "Retained original bindings reviewed; strict observation calendar eligibility remains incomplete. Tesla Q1 2026 produced 408,386 and delivered 358,023 vehicles, a gap of 50,363; this suggests inventory accumulation but does not establish its cause."
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Updated October 2, 2026 against local `main` at `832e59f`. Items 01–12 are imp
 
 The original review examined `4b4a95f8b42d46a6fd7a0e459c072fe228490a7f`, which matched `origin/main` at that time. Its no-ingestion/no-model-call scope and architecture findings describe that investigation, not the subsequent implementation and benchmark. Issue titles 01–12 are historical draft boundaries, not published GitHub issues.
 
-The forward-looking [Phase 3 plan](PHASE_3_PLAN.md) reviews this completed foundation and the held financial experiments. It defines six milestones and proposed evaluation gates; Phase 3 is not implemented.
+The [Phase 3 plan](PHASE_3_PLAN.md) reviews this foundation and the held financial experiments. Implementation has started: [current status](PHASE_3_IMPLEMENTATION.md) records reviewed-observation contracts, pinned numeric research, calculation receipts and frozen evaluation design. Authentic period bindings, expanded holdout evaluation, narrative coverage and release promotion remain pending.
 
 ## Implemented next phase: financial evidence controls
 
