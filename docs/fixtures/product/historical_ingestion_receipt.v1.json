@@ -1,0 +1,125 @@
+{
+  "owner": "historical-regression",
+  "corpus": "unchanged historical 30-question diagnostics",
+  "captioner": "NoOpCaptioner",
+  "rows": [
+    {
+      "name": "wells_fargo",
+      "source_id": "8065e72a-d1d3-4baf-8800-1df108b4b18a",
+      "raw_sha256": "eb705b11a23063f858acdd1430b030dbf2ca4a7dc69f38cbe2d89039806cc76f",
+      "latency_seconds": 1.573,
+      "result": {
+        "status": "ready",
+        "activated": true,
+        "reused": false,
+        "job_id": "816c3d8d-e786-47be-afd5-d6c76ba45e73",
+        "n_blocks": 419,
+        "n_parents": 13,
+        "n_children": 85,
+        "usage": {
+          "request_id": "1de627079636431d8ed0fd19470f123f",
+          "total_usd": 0,
+          "priced_subtotal_usd": 0,
+          "unknown_calls": 0,
+          "by_stage": {},
+          "by_model": {},
+          "n_calls": {},
+          "reasoning_tokens": {},
+          "events": [],
+          "pricing_snapshot": {
+            "text-embedding-3-small": {
+              "input": 2e-05,
+              "output": 0
+            }
+          },
+          "pricing_status": "configured_estimate"
+        }
+      }
+    },
+    {
+      "name": "tesla",
+      "source_id": "10ffcfb2-02f4-41eb-b0da-6525be02871b",
+      "raw_sha256": "585393e06da51f759486ecb8e0cbf8c4eb9372ffb770cbd64037b5bb6ab1e485",
+      "latency_seconds": 6.691,
+      "result": {
+        "status": "ready",
+        "activated": true,
+        "reused": false,
+        "job_id": "89db8f28-d040-4d04-ad3b-726f0a059c30",
+        "n_blocks": 551,
+        "n_parents": 46,
+        "n_children": 287,
+        "usage": {
+          "request_id": "bf9d661f9c2c4da88dc3cc7dbf2121a1",
+          "total_usd": 0,
+          "priced_subtotal_usd": 0,
+          "unknown_calls": 0,
+          "by_stage": {},
+          "by_model": {},
+          "n_calls": {},
+          "reasoning_tokens": {},
+          "events": [],
+          "pricing_snapshot": {
+            "text-embedding-3-small": {
+              "input": 2e-05,
+              "output": 0
+            }
+          },
+          "pricing_status": "configured_estimate"
+        }
+      }
+    },
+    {
+      "name": "amd",
+      "source_id": "4221b5ca-b724-4e88-a75a-77c26722a852",
+      "raw_sha256": "1b497b8382fd1ca2ce42990828fc6f53cd605a48c512dfa5c56a97c92620edca",
+      "latency_seconds": 1.544,
+      "result": {
+        "status": "ready",
+        "activated": true,
+        "reused": false,
+        "job_id": "a2041277-5b3c-40c1-ac84-2556ee5d066a",
+        "n_blocks": 564,
+        "n_parents": 29,
+        "n_children": 184,
+        "usage": {
+          "request_id": "23b93406f733437a91be125e43af9443",
+          "total_usd": 0,
+          "priced_subtotal_usd": 0,
+          "unknown_calls": 0,
+          "by_stage": {},
+          "by_model": {},
+          "n_calls": {},
+          "reasoning_tokens": {},
+          "events": [],
+          "pricing_snapshot": {
+            "text-embedding-3-small": {
+              "input": 2e-05,
+              "output": 0
+            }
+          },
+          "pricing_status": "configured_estimate"
+        }
+      }
+    }
+  ],
+  "usage": {
+    "request_id": "79744333a8e04a21b72b9e4e4aeb32b1",
+    "total_usd": 0,
+    "priced_subtotal_usd": 0,
+    "unknown_calls": 0,
+    "by_stage": {},
+    "by_model": {},
+    "n_calls": {},
+    "reasoning_tokens": {},
+    "events": [],
+    "pricing_snapshot": {
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0
+      }
+    },
+    "pricing_status": "configured_estimate"
+  },
+  "qualification": "A new corrected-provenance local parent-child/BM25 regression corpus; original legacy Chroma vectors lacked verifiable provenance and were not relabeled as verified."
+}

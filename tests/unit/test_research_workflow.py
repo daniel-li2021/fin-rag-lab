@@ -91,3 +91,24 @@ def test_natural_aliases_and_guided_calculations_require_all_operands():
         assert result['calculations'][0]['displayed_result'] == expected
     assert resolve_question('delivery ratio GAAP consolidated vehicle deliveries for Test in Q1 2026', selections, inventory, [])['outcome'] == 'clarify'
     assert resolve_question('What was revenue for Test?', selections, inventory, [])['outcome'] == 'clarify'
+
+
+def test_original_same_page_neighbor_keeps_split_heading_context_with_own_locator():
+    pin = PinnedSource(source_id=SOURCE_ID, version_id='version', build_id='build',
+                       source_hash='a'*64, company_id='AMD')
+    heading = DocumentBlock(block_id='heading', block_type='paragraph',
+                            text='Export restrictions affected operating income.', page_number=4)
+    bullet = DocumentBlock(block_id='bullet', block_type='paragraph',
+                           text='Inventory charges increased by $800 million.', page_number=4,
+                           semantic_content='Generated imaginary inventory explanation.')
+    elsewhere = DocumentBlock(block_id='elsewhere', block_type='paragraph', text='Unrelated margin statement.', page_number=5)
+    snap = {'sources': [pin], 'blocks': {'build': [heading, bullet, elsewhere]},
+            'inventory': [{'source_id': SOURCE_ID, 'metadata': {'company_id': 'AMD'}}]}
+    req = EvidenceSearchRequest(question='Explain export restrictions', selections=[{'source_id': SOURCE_ID}],
+                                tasks=[{'task_id': 'one', 'company_id': 'AMD', 'query': 'export restrictions'}])
+    result = search_evidence(req, snap)
+    assert {p['block_id'] for p in result['passages']} == {'heading', 'bullet'}
+    neighbor = next(p for p in result['passages'] if p['block_id'] == 'bullet')
+    assert neighbor['context_for'] and neighbor['text'] == bullet.text
+    assert neighbor['char_start'] == 0 and neighbor['char_end'] == len(bullet.text)
+    assert result['original_tokens'] <= 6000 and result['usage']['generator_calls'] == 0

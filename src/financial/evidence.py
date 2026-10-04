@@ -25,6 +25,7 @@ class EvidenceSearchRequest(BaseModel):
     selections: tuple[ResearchSelection, ...] = Field(min_length=1, max_length=18)
     tasks: tuple[EvidenceTask, ...] = Field(min_length=1, max_length=6)
     as_of: date | None = None
+    synthesize: bool = False
 
     @model_validator(mode='after')
     def bounds(self):
@@ -60,14 +61,18 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
             attempts[task.task_id] = 0
             continue
         chunks, originals = [], {}
+        neighbors = {}
         for pin in sources:
-            for block in snapshot['blocks'].get(pin.build_id, []):
+            source_blocks = snapshot['blocks'].get(pin.build_id, [])
+            for position, block in enumerate(source_blocks):
                 text = block.get_original_text()
                 if not _tokenize(text):
                     continue
                 identity = hashlib.sha256(f'{pin.build_id}:{block.block_id}'.encode()).hexdigest()
                 chunks.append(DocumentChunk(chunk_id=identity, document_id=pin.source_id, text=text))
                 originals[identity] = (pin, block)
+                neighbors[identity] = [(pin, b) for b in source_blocks[max(0,position-1):position+2]
+                                       if b.block_id != block.block_id and b.page_number == block.page_number]
         retriever = BM25Retriever()
         retriever.index(chunks)
         chosen, used, exhausted = [], 0, False
@@ -92,6 +97,22 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
                 used += count
                 if len(chosen) == 3:
                     break
+        # Original headings and bullet introductions often occupy separate PDF blocks.
+        # Preserve adjacent original context with its own locator and the same task budget.
+        seen = {p['evidence_id'] for p in chosen}
+        for anchor in tuple(chosen):
+            for pin, block in neighbors.get(anchor['evidence_id'], []):
+                identity = hashlib.sha256(f'{pin.build_id}:{block.block_id}'.encode()).hexdigest()
+                text = block.get_original_text()
+                count = len(encoder.encode(text))
+                if identity in seen or not _tokenize(text) or used+count > budget:
+                    continue
+                chosen.append({'task_id': task.task_id, 'evidence_id': identity, 'source': pin.model_dump(mode='json'),
+                    'block_id': block.block_id, 'page_number': block.page_number, 'char_start': 0,
+                    'char_end': len(text), 'text': text, 'tokens': count, 'score': anchor['score'],
+                    'context_for': anchor['evidence_id']})
+                seen.add(identity)
+                used += count
         passages.extend(chosen)
         coverage.append({'task_id': task.task_id, 'status': 'binding_unverified' if chosen else 'passage_not_found',
             'reason': 'Original candidates require topic/period review before synthesis' if chosen else

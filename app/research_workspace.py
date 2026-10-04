@@ -57,6 +57,7 @@ def render_research(svc):
     if action == 'original passages':
         terms = st.text_input('Evidence to find', placeholder='risk factors, Instinct ramp, market outlook…')
         period = st.text_input('Document period (optional)', help='Filters the report label; passage reporting time still requires review.')
+        synthesize = st.checkbox('Draft a cited narrative', help='One bounded model call. Generated claims remain subject to semantic review.')
     else:
         metric_options = ['vehicle deliveries'] if action in ('delivery ratio', 'production gap') else (
             ['gross profit', 'operating income', 'net income', 'net income attributable to parent'] if action == 'margin' else list(METRICS))
@@ -73,7 +74,7 @@ def render_research(svc):
         try:
             selections = [{'source_id': key} for key in selected]
             if action == 'original passages':
-                body = {'question': terms, 'selections': selections, 'tasks': [
+                body = {'question': terms, 'selections': selections, 'synthesize': synthesize, 'tasks': [
                     {'task_id': f'evidence-{i}', 'company_id': company, 'query': terms,
                      'document_period_label': period or None} for i, company in enumerate(requested)]}
                 result = svc.research_evidence(body, save=True, collection_id=collection)
@@ -131,6 +132,10 @@ def render_result():
         for passage in result.get('passages', []):
             with st.expander(f'{passage["task_id"]} · page {passage["page_number"] or "unknown"}'):
                 st.text(passage['text'])
+        for claim in result.get('claims', []):
+            with st.expander(f'Claim support · {claim["task_id"]} · original page {claim["page_number"]}'):
+                st.text(claim['quote'])
+                st.caption('Semantic review: ' + claim['review_status'].replace('_', ' '))
         titles = {s['source_id']: s['title'] for s in result.get('inventory', [])}
         for key, citation in result.get('citations', {}).items():
             source = citation['source']

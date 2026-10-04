@@ -242,6 +242,9 @@ class PersistentRAGService(RAGService):
         request = EvidenceSearchRequest.model_validate(request)
         snapshot = self.registry.research_snapshot(self.owner, [s.model_dump(mode='json', exclude_none=True) for s in request.selections])
         result = QueryPipeline(None, None).evidence(request, snapshot)
+        if request.synthesize:
+            from src.financial.narrative import synthesize_evidence
+            result = synthesize_evidence(result, self.cost_tracker)
         if save:
             self._save_research_result(result, collection_id, parent_run_id)
         return result

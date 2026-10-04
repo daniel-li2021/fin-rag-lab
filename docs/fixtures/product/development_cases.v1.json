@@ -1,0 +1,3658 @@
+{
+  "schema_version": 1,
+  "split": "development",
+  "label_freeze": "Codex-original-development-labels-20261003-v1",
+  "label_reviewer": "Codex",
+  "qualification": "Original-evidence development review; labels frozen before generation. Independent release review and strict semantic citation scoring remain required. The distinct 48-question holdout was not accessed.",
+  "artifact_sha256": {
+    "development_inventory.v1.json": "93604de01c42759124b1868e0e079c889a5607bfc826ec8bc8c51307114a9dc0",
+    "indexed_windows.v1.json": "7e1bd44b932d80a6100d88b52805c19f952e437b0e6e29e1df87deeeef747f90",
+    "ingestion_receipts.v1.json": "59332d8f08c5f963088361690139aa5a1cbcf061e538b38ec80d3d26075d3ddc",
+    "reviewed_observations.v1.json": "a62a6f475962a94d27da16579c3742a6949b73d888cdbb24275336ae6ffa668e"
+  },
+  "coverage": {
+    "multi_document": 8,
+    "temporal_scope": 8,
+    "calculations_units": 8,
+    "clarification": 8,
+    "conflicts_revisions": 8,
+    "missing_evidence": 8
+  },
+  "numeric_cases": 25,
+  "narrative_cases": 8,
+  "answerable_cross_company_cases": 8,
+  "cases": [
+    {
+      "case_id": "dev-01",
+      "primary_slice": "multi_document",
+      "lane": "question",
+      "tags": [
+        "answerable_cross_company",
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in FY2024",
+        "selections": [
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+            "value": "7091",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+            "value": "18606",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-02",
+      "primary_slice": "multi_document",
+      "lane": "question",
+      "tags": [
+        "answerable_cross_company",
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "request": {
+        "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in Q1 2025",
+        "selections": [
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          },
+          {
+            "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+            "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+            "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "409",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "4616",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-03",
+      "primary_slice": "multi_document",
+      "lane": "question",
+      "tags": [
+        "answerable_cross_company",
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "request": {
+        "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "1172",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "5214",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-04",
+      "primary_slice": "multi_document",
+      "lane": "question",
+      "tags": [
+        "answerable_cross_company",
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024",
+        "wfc-q1-2024"
+      ],
+      "request": {
+        "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in Q1 2024",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          },
+          {
+            "source_id": "bb3297ff-b242-4587-81ba-b5021bd55916",
+            "version_id": "3cd46953-f2f7-4bf3-b62b-d7d5375a05c4",
+            "build_id": "47e90d25-3710-4f12-9826-0b9c48ad766f"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1390",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "4313",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-05",
+      "primary_slice": "multi_document",
+      "lane": "narrative",
+      "tags": [
+        "narrative",
+        "answerable_cross_company"
+      ],
+      "report_ids": [
+        "amd-q2-2025",
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "Describe the separately reported AMD Q2 2025 operating-loss drivers and Tesla Q2 2025 operating-income headwinds. Do not infer metric comparability or quantify a causal bridge.",
+        "selections": [
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          },
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "query": "operating loss MI308 inventory export restrictions",
+            "document_period_label": "Q2 2025"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "query": "operating income primarily impacted regulatory credit operating expenses deliveries",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "MI308",
+              "inventory"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_c9566b080d2f",
+                "page_number": 6,
+                "text": "Inventory loss at contract manufacturer \u2014 65"
+              },
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_ae4ceb0d4a9b",
+                "page_number": 10,
+                "text": "During the three months ended June 28, 2025, the Company recorded approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 Data Center GPU products in Cost of sales."
+              },
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_de59e67f4424",
+                "page_number": 27,
+                "text": "Data Center operating loss was $155 million for the three months ended June 28, 2025, compared to operating income of $743 million for the prior year period. Data Center operating income was $777 million for the six months ended June 28, 2025, compared to operating income of $1.3 billion for the prior year period. The decrease in operating income in both periods was primarily due to approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 GPU products and higher R&D expense."
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "regulatory credit",
+              "operating expenses",
+              "deliveries"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_768c1f1e2854",
+                "page_number": 4,
+                "text": "Operating expenses 2,973 2,280 2,596 2,754 2,955 -1%"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_2fb297909907",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries - lower regulatory credit revenue - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix - decline in Energy Generation and Storage revenue due to lower ASP + growth in Services and Other"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_b8549d85abd3",
+                "page_number": 5,
+                "text": "- lower regulatory credit revenue - increase in operating expenses (ex. restructuring and SBC) driven by AI and other R&D projects - decline in vehicle deliveries - increase in SBC + decrease in restructuring charges + lower cost per vehicle, due to mix and lower raw materials partially offset by lower fixed cost absorption and an increase in tariffs + growth in Energy Generation and Storage gross profit"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-06",
+      "primary_slice": "multi_document",
+      "lane": "narrative",
+      "tags": [
+        "narrative",
+        "answerable_cross_company"
+      ],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Describe AMD Q1 2025 Data Center growth drivers and Tesla Q1 2025 delivery-related headwinds separately, without treating AI revenue as a common metric.",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "query": "Data Center revenue increase demand Instinct EPYC",
+            "document_period_label": "Q1 2025"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "query": "operating income lower ASP Model Y deliveries",
+            "document_period_label": "Q1 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "EPYC",
+              "Instinct"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+                  "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+                  "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+                  "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+                  "company_id": "AMD",
+                  "publication_date": "2025-05-07",
+                  "status": "available"
+                },
+                "block_id": "blk_15d952f91958",
+                "page_number": 24,
+                "text": "Data Center net revenue of $3.7 billion for the three months ended March 29, 2025 increased by 57%, compared to net revenue of $2.3 billion for the prior year period. The increase was primarily driven by the growth in AMD EPYC CPU and AMD Instinct GPU sales."
+              },
+              {
+                "source": {
+                  "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+                  "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+                  "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+                  "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+                  "company_id": "AMD",
+                  "publication_date": "2025-05-07",
+                  "status": "available"
+                },
+                "block_id": "blk_d45f436b7a1e",
+                "page_number": 22,
+                "text": "Beginning with the fiscal year ending December 27, 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. Net revenue for the three months ended March 29, 2025 was $7.4 billion, a 36% increase compared to the prior year period. The increase in net revenue was driven by an increase in Data Center segment revenue primarily driven by growth in AMD EPYC\u2122 CPU and AMD Instinct\u2122 GPU sales, and an increase in Client and Gaming segment revenue primarily driven by strong demand for the latest \u201cZen 5\u201d AMD Ryzen\u2122 processors and a richer mix, partially offset by a decrease in semi-custom revenue. Embedded segment revenue decreased as demand in end markets remained mixed."
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "deliveries",
+              "ASP"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_09ea8e2ee3de",
+                "page_number": 5,
+                "text": "- reduced vehicle ASP - decline in vehicle deliveries - increase in operating expenses driven by AI and other R&D projects partially offset by a decrease in SG&A + growth in Energy Generation and Storage gross profit + lower cost associated with Cybertruck production ramp in Q1\u201924 + lower cost per vehicle, including lower raw material costs partially offset by lower fixed cost absorption primarily from Model Y production decrease YoY + higher regulatory credit revenue"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_4a3a89e90f32",
+                "page_number": 6,
+                "text": "Model 3/Y deliveries 369,783 422,405 439,975 471,930 323,800 -12%"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_e094f447f8db",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries, in part due to the Model Y update across all four vehicle factories - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix and sales incentives - negative FX impact of $0.3B1"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_c06c007ace2b",
+                "page_number": 6,
+                "text": "Other models deliveries 17,027 21,551 22,915 23,640 12,881 -24%"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-07",
+      "primary_slice": "multi_document",
+      "lane": "narrative",
+      "tags": [
+        "narrative",
+        "answerable_cross_company"
+      ],
+      "report_ids": [
+        "wfc-fy2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "What reasons did Wells Fargo report for FY2024 net-interest-income changes and Tesla for FY2024 automotive-sales changes? Keep the distinct business metrics separate.",
+        "selections": [
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "WFC",
+            "query": "net interest income lower deposit costs loan balances",
+            "document_period_label": "FY2024"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "query": "automotive sales revenue decreased lower average selling price",
+            "document_period_label": "FY2024"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "WFC",
+            "required_topic_terms": [
+              "interest-bearing liabilities",
+              "loan balances"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_632c4a2ad96d",
+                "page_number": 14,
+                "text": "Revenue decreased driven by lower net interest income due to lower deposit balances and lower loan balances."
+              },
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_348c2af85c20",
+                "page_number": 6,
+                "text": "Net interest income and net interest margin decreased in 2024, compared with 2023, driven by the impact of higher interest rates on interest-bearing liabilities, including a deposit mix shift to interest-bearing deposits, as well as lower loan balances, partially offset by higher interest rates on interestearning assets."
+              },
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_65a935c6a6c6",
+                "page_number": 18,
+                "text": "equity underwriting fees and higher advisory fees driven by lower loan balances."
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "price reductions",
+              "Automotive sales revenue"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+                  "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+                  "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+                  "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-01-30",
+                  "status": "available"
+                },
+                "block_id": "blk_fe6965233616",
+                "page_number": 40,
+                "text": "Automotive sales revenue decreased $6.03 billion, or 8%, in the year ended December 31, 2024 as compared to the year ended December 31,"
+              },
+              {
+                "source": {
+                  "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+                  "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+                  "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+                  "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-01-30",
+                  "status": "available"
+                },
+                "block_id": "blk_483fae18058a",
+                "page_number": 42,
+                "text": "Cost of automotive sales revenue decreased $3.25 billion, or 5%, in the year ended December 31, 2024 as compared to the year ended"
+              },
+              {
+                "source": {
+                  "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+                  "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+                  "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+                  "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-01-30",
+                  "status": "available"
+                },
+                "block_id": "blk_b325e49c01f7",
+                "page_number": 40,
+                "text": "2023, primarily due to lower average selling price on our vehicles driven by overall price reductions and attractive financing options provided in 2024 as well as mix. Additionally, there was a decrease of approximately 22,000 combined Model 3 and Model Y cash deliveries. The decreases were partially offset by an increase of approximately 19,000 deliveries of other models primarily due to our production ramp of Cybertruck. Additionally, we recognized $596 million of FSD (Supervised) revenue due to release of certain features in 2024."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-08",
+      "primary_slice": "multi_document",
+      "lane": "narrative",
+      "tags": [
+        "narrative",
+        "answerable_cross_company"
+      ],
+      "report_ids": [
+        "wfc-fy2024",
+        "amd-q2-2025"
+      ],
+      "request": {
+        "question": "Summarize Wells Fargo FY2024 net-interest-income headwinds and AMD Q2 2025 inventory/export-control impacts separately. Explicitly keep their different periods and metrics separate.",
+        "selections": [
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          },
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "WFC",
+            "query": "net interest income lower deposit costs loan balances",
+            "document_period_label": "FY2024"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "query": "operating loss MI308 inventory export restrictions",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "WFC",
+            "required_topic_terms": [
+              "interest-bearing liabilities",
+              "loan balances"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_632c4a2ad96d",
+                "page_number": 14,
+                "text": "Revenue decreased driven by lower net interest income due to lower deposit balances and lower loan balances."
+              },
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_348c2af85c20",
+                "page_number": 6,
+                "text": "Net interest income and net interest margin decreased in 2024, compared with 2023, driven by the impact of higher interest rates on interest-bearing liabilities, including a deposit mix shift to interest-bearing deposits, as well as lower loan balances, partially offset by higher interest rates on interestearning assets."
+              },
+              {
+                "source": {
+                  "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+                  "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+                  "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+                  "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+                  "company_id": "WFC",
+                  "publication_date": "2025-02-25",
+                  "status": "available"
+                },
+                "block_id": "blk_65a935c6a6c6",
+                "page_number": 18,
+                "text": "equity underwriting fees and higher advisory fees driven by lower loan balances."
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "MI308",
+              "inventory"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_c9566b080d2f",
+                "page_number": 6,
+                "text": "Inventory loss at contract manufacturer \u2014 65"
+              },
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_ae4ceb0d4a9b",
+                "page_number": 10,
+                "text": "During the three months ended June 28, 2025, the Company recorded approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 Data Center GPU products in Cost of sales."
+              },
+              {
+                "source": {
+                  "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+                  "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+                  "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+                  "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+                  "company_id": "AMD",
+                  "publication_date": "2025-08-06",
+                  "status": "available"
+                },
+                "block_id": "blk_de59e67f4424",
+                "page_number": 27,
+                "text": "Data Center operating loss was $155 million for the three months ended June 28, 2025, compared to operating income of $743 million for the prior year period. Data Center operating income was $777 million for the six months ended June 28, 2025, compared to operating income of $1.3 billion for the prior year period. The decrease in operating income in both periods was primarily due to approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 GPU products and higher R&D expense."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-09",
+      "primary_slice": "temporal_scope",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "amd-q1-2024",
+        "amd-q2-2024"
+      ],
+      "request": {
+        "question": "Compute reported AMD revenue growth from Q1 to Q2 2024, preserving the original intervals.",
+        "selections": [
+          {
+            "source_id": "7fcd160a-05f0-471e-8915-5c28134b0dd4",
+            "version_id": "43484e0a-3409-4732-84d7-1711abb58076",
+            "build_id": "e1a281d9-6b98-40ad-8c39-83090ef12370"
+          },
+          {
+            "source_id": "1a89a6f4-0e7c-4cea-9de6-3edc7c86bc1a",
+            "version_id": "a2e9686a-c6d2-4733-bd65-b8482bb72d21",
+            "build_id": "48ce33b8-e946-4489-a983-436b5765bcb6"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2023-12-31",
+              "end": "2024-03-30",
+              "fiscal_label": "Q1 2024",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-03-31",
+              "end": "2024-06-29",
+              "fiscal_label": "Q2 2024",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "amd-q1-2024:revenue:consolidated:GAAP:Q1-2024",
+            "value": "5473",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2023-12-31",
+              "end": "2024-03-30",
+              "fiscal_label": "Q1 2024",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q2-2024:revenue:consolidated:GAAP:Q2-2024",
+            "value": "5835",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-03-31",
+              "end": "2024-06-29",
+              "fiscal_label": "Q2 2024",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "displayed_result": "+6.61%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-10",
+      "primary_slice": "temporal_scope",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "wfc-q1-2025",
+        "wfc-q2-2025"
+      ],
+      "request": {
+        "question": "Compute reported WFC net_interest_income growth from Q1 to Q2 2025, preserving the original intervals.",
+        "selections": [
+          {
+            "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+            "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+            "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "WFC",
+            "metric_id": "net_interest_income",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_interest_income",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "reporting_kind"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "wfc-q1-2025:net_interest_income:consolidated:GAAP:Q1-2025",
+            "value": "11495",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_interest_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_interest_income:consolidated:GAAP:Q2-2025",
+            "value": "11708",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_interest_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "displayed_result": "+1.85%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-11",
+      "primary_slice": "temporal_scope",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025",
+        "tsla-q2-2025"
+      ],
+      "request": {
+        "question": "Compute reported TSLA revenue growth from Q1 to Q2 2025, preserving the original intervals.",
+        "selections": [
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          },
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "reporting_kind"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "19335",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025",
+            "value": "22496",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "growth",
+            "displayed_result": "+16.35%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-12",
+      "primary_slice": "temporal_scope",
+      "lane": "question",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "show GAAP consolidated net income attributable to common for TSLA in Q4 2024",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025-companion:net_income_common:consolidated:GAAP:Q4-2024",
+            "value": "2128",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-10-01",
+              "end": "2024-12-31",
+              "fiscal_label": "Q4 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-13",
+      "primary_slice": "temporal_scope",
+      "lane": "question",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "amd-fy2024"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for AMD in FY2024",
+        "selections": [
+          {
+            "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+            "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+            "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "amd-fy2024:revenue:consolidated:GAAP:FY2024",
+            "value": "25785",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2023-12-31",
+              "end": "2024-12-28",
+              "fiscal_label": "FY2024",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-14",
+      "primary_slice": "temporal_scope",
+      "lane": "question",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2025"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for TSLA in Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025",
+            "value": "22496",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-15",
+      "primary_slice": "temporal_scope",
+      "lane": "narrative",
+      "tags": [
+        "narrative"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion",
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "Separate Tesla Q1 and Q2 2025 reported operating-income headwinds without extrapolating a cause of the sequential change.",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "query": "operating income lower ASP Model Y deliveries",
+            "document_period_label": "Q1 2025"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "query": "operating income primarily impacted regulatory credit operating expenses deliveries",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "deliveries",
+              "ASP"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_09ea8e2ee3de",
+                "page_number": 5,
+                "text": "- reduced vehicle ASP - decline in vehicle deliveries - increase in operating expenses driven by AI and other R&D projects partially offset by a decrease in SG&A + growth in Energy Generation and Storage gross profit + lower cost associated with Cybertruck production ramp in Q1\u201924 + lower cost per vehicle, including lower raw material costs partially offset by lower fixed cost absorption primarily from Model Y production decrease YoY + higher regulatory credit revenue"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_4a3a89e90f32",
+                "page_number": 6,
+                "text": "Model 3/Y deliveries 369,783 422,405 439,975 471,930 323,800 -12%"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_e094f447f8db",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries, in part due to the Model Y update across all four vehicle factories - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix and sales incentives - negative FX impact of $0.3B1"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_c06c007ace2b",
+                "page_number": 6,
+                "text": "Other models deliveries 17,027 21,551 22,915 23,640 12,881 -24%"
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "regulatory credit",
+              "operating expenses",
+              "deliveries"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_768c1f1e2854",
+                "page_number": 4,
+                "text": "Operating expenses 2,973 2,280 2,596 2,754 2,955 -1%"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_2fb297909907",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries - lower regulatory credit revenue - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix - decline in Energy Generation and Storage revenue due to lower ASP + growth in Services and Other"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_b8549d85abd3",
+                "page_number": 5,
+                "text": "- lower regulatory credit revenue - increase in operating expenses (ex. restructuring and SBC) driven by AI and other R&D projects - decline in vehicle deliveries - increase in SBC + decrease in restructuring charges + lower cost per vehicle, due to mix and lower raw materials partially offset by lower fixed cost absorption and an increase in tariffs + growth in Energy Generation and Storage gross profit"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-16",
+      "primary_slice": "temporal_scope",
+      "lane": "narrative",
+      "tags": [
+        "narrative"
+      ],
+      "report_ids": [
+        "amd-fy2024",
+        "amd-q1-2025"
+      ],
+      "request": {
+        "question": "Explain AMD FY2024 versus Q1 2025 segment reporting and why Client/Gaming cannot be compared as an unchanged standalone segment.",
+        "selections": [
+          {
+            "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+            "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+            "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd"
+          },
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "query": "four reportable segments Data Center Client Gaming Embedded",
+            "document_period_label": "FY2024"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "query": "reportable segments Client Gaming combined effective first quarter 2025",
+            "document_period_label": "Q1 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "four reporting units",
+              "four reportable segments"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+                  "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+                  "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd",
+                  "source_hash": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+                  "company_id": "AMD",
+                  "publication_date": "2025-02-05",
+                  "status": "available"
+                },
+                "block_id": "blk_1f86925e4c93",
+                "page_number": 69,
+                "text": "The Company\u2019s four reportable segments are:"
+              },
+              {
+                "source": {
+                  "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+                  "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+                  "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd",
+                  "source_hash": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+                  "company_id": "AMD",
+                  "publication_date": "2025-02-05",
+                  "status": "available"
+                },
+                "block_id": "blk_21ea6da17281",
+                "page_number": 48,
+                "text": "Goodwill. Goodwill is the excess of the aggregate of the consideration transferred over the identifiable assets acquired and liabilities assumed in connection with business combinations. Our reporting units are at the operating segment level. Our goodwill is contained within four reporting units: Data Center, Client, Gaming and Embedded."
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "combined",
+              "retrospectively adjusted"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+                  "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+                  "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+                  "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+                  "company_id": "AMD",
+                  "publication_date": "2025-05-07",
+                  "status": "available"
+                },
+                "block_id": "blk_8bc8b0b2b832",
+                "page_number": 23,
+                "text": "Beginning with the fiscal year ending December 27, 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. Each of the Client and Gaming businesses do not qualify as a reportable operating segment, however, we continue to separately disclose revenues for each business. All prior period segment data were retrospectively adjusted."
+              },
+              {
+                "source": {
+                  "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+                  "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+                  "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+                  "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+                  "company_id": "AMD",
+                  "publication_date": "2025-05-07",
+                  "status": "available"
+                },
+                "block_id": "blk_36d06593a373",
+                "page_number": 11,
+                "text": "Beginning with the fiscal year ending December 27, 2025, the Company changed its segment structure, combining the Client and Gaming segments into one reportable segment to align with how the Company manages its business. All prior period segment data were retrospectively adjusted. The Company\u2019s three reportable segments are:"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "dev-17",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "amd-q1-2025"
+      ],
+      "request": {
+        "question": "Calculate AMD Q1 2025 consolidated GAAP gross_profit margin with both original operands.",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "gross_profit",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "amd-q1-2025:gross_profit:consolidated:GAAP:Q1-2025",
+            "value": "3736",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "gross_profit",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "7438",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "displayed_result": "50.23%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-18",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "amd-q2-2025"
+      ],
+      "request": {
+        "question": "Calculate AMD Q2 2025 continuing_operations GAAP gross_profit margin with both original operands.",
+        "selections": [
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "gross_profit",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "continuing_operations",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "continuing_operations",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "amd-q2-2025:gross_profit:continuing_operations:GAAP:Q2-2025",
+            "value": "3059",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "gross_profit",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025",
+            "value": "7685",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "displayed_result": "39.80%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-19",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "amd-q2-2025"
+      ],
+      "request": {
+        "question": "Calculate AMD Q2 2025 continuing_operations GAAP net_income margin with both original operands.",
+        "selections": [
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "net_income",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "continuing_operations",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            },
+            "scope": "continuing_operations",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "amd-q2-2025:net_income:continuing_operations:GAAP:Q2-2025",
+            "value": "768",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "net_income",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025",
+            "value": "7685",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "displayed_result": "9.99%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-20",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025"
+      ],
+      "request": {
+        "question": "Calculate TSLA Q1 2025 consolidated GAAP gross_profit margin with both original operands.",
+        "selections": [
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "gross_profit",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025:gross_profit:consolidated:GAAP:Q1-2025",
+            "value": "3153",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "gross_profit",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "19335",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "displayed_result": "16.31%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-21",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2025"
+      ],
+      "request": {
+        "question": "Calculate TSLA Q2 2025 consolidated GAAP operating_income margin with both original operands.",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "operating_income",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:operating_income:consolidated:GAAP:Q2-2025",
+            "value": "923",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "operating_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025",
+            "value": "22496",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "margin",
+            "displayed_result": "4.10%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-22",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Calculate Tesla Q1 2025 delivery_to_production; do not interpret the production-delivery difference as inventory movement.",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "delivery_to_production",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025-companion:vehicle_deliveries:consolidated:operating:Q1-2025",
+            "value": "336681",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q1-2025-companion:vehicle_production:consolidated:operating:Q1-2025",
+            "value": "362615",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "delivery_to_production",
+            "displayed_result": "92.85%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-23",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "Calculate Tesla Q2 2025 delivery_to_production; do not interpret the production-delivery difference as inventory movement.",
+        "selections": [
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "delivery_to_production",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025-companion:vehicle_deliveries:consolidated:operating:Q2-2025",
+            "value": "384122",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q2-2025-companion:vehicle_production:consolidated:operating:Q2-2025",
+            "value": "410244",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "delivery_to_production",
+            "displayed_result": "93.63%"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-24",
+      "primary_slice": "calculations_units",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "Calculate Tesla Q2 2025 difference; do not interpret the production-delivery difference as inventory movement.",
+        "selections": [
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "operating"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "difference",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "period_policy": "exact_duration"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025-companion:vehicle_deliveries:consolidated:operating:Q2-2025",
+            "value": "384122",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_deliveries",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q2-2025-companion:vehicle_production:consolidated:operating:Q2-2025",
+            "value": "410244",
+            "scale": "1",
+            "unit": "count",
+            "currency": null,
+            "company_id": "TSLA",
+            "metric_id": "vehicle_production",
+            "scope": "consolidated",
+            "basis": "operating",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "difference",
+            "displayed_result": "+26122.00 count"
+          }
+        ],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-25",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "What was Tesla revenue?",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-26",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "show consolidated revenue for AMD in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-27",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "show GAAP revenue for AMD in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-28",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-29",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for AMD",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-30",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "rank best company for TSLA and WFC in FY2024",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-31",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "margin GAAP consolidated revenue for AMD in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-32",
+      "primary_slice": "clarification",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025-companion",
+        "wfc-fy2024"
+      ],
+      "request": {
+        "question": "delivery ratio GAAP consolidated vehicle deliveries for TSLA in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "clarify",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "A required dimension or allowlisted operation is missing or incompatible; require explicit clarification without a planner."
+      }
+    },
+    {
+      "case_id": "dev-33",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common-stockholder net income, latest_reviewed",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1390",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-34",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common-stockholder net income, as_reported",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "as_reported",
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1129",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-35",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q2 2024 common-stockholder net income, latest_reviewed",
+        "selections": [
+          {
+            "source_id": "c653cd62-9485-41a1-8b21-23e3bb625e79",
+            "version_id": "7671271b-ddc2-4b5d-92d9-2261afd32fce",
+            "build_id": "26aa38ce-3a33-469d-9bf7-68cd3decdc34"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q2-2024",
+            "value": "1400",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-36",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q2-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q2 2024 common-stockholder net income, as_reported",
+        "selections": [
+          {
+            "source_id": "c653cd62-9485-41a1-8b21-23e3bb625e79",
+            "version_id": "7671271b-ddc2-4b5d-92d9-2261afd32fce",
+            "build_id": "26aa38ce-3a33-469d-9bf7-68cd3decdc34"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "as_reported",
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2024:net_income_common:consolidated:GAAP:Q2-2024",
+            "value": "1478",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-37",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q3-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q3 2024 common-stockholder net income, latest_reviewed",
+        "selections": [
+          {
+            "source_id": "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+            "version_id": "6069faf8-3aba-4707-a660-4b3557f52e17",
+            "build_id": "aa5d78a0-fe12-4af6-9e5e-09cdf208c027"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q3-2024",
+            "value": "2173",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-38",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q3-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q3 2024 common-stockholder net income, latest_reviewed as of 2024-10-24",
+        "selections": [
+          {
+            "source_id": "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+            "version_id": "6069faf8-3aba-4707-a660-4b3557f52e17",
+            "build_id": "aa5d78a0-fe12-4af6-9e5e-09cdf208c027"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": "2024-10-24"
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q3-2024:net_income_common:consolidated:GAAP:Q3-2024",
+            "value": "2167",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-39",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common-stockholder net income, latest_reviewed as of 2025-02-01",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": "2025-02-01"
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1390",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "claims_review_status": null
+      }
+    },
+    {
+      "case_id": "dev-40",
+      "primary_slice": "conflicts_revisions",
+      "lane": "research",
+      "tags": [],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common income from the recast deck alone",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "Selected revised card has an unselected predecessor; original lineage completeness is required."
+      }
+    },
+    {
+      "case_id": "dev-41",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2025"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for NVIDIA in Q1 2025",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "Company absent from selected reviewed inventory."
+      }
+    },
+    {
+      "case_id": "dev-42",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "wfc-q1-2025"
+      ],
+      "request": {
+        "question": "show GAAP consolidated gross profit for WFC in Q1 2025",
+        "selections": [
+          {
+            "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+            "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+            "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "This bank metric has no reviewed exact gross-profit binding."
+      }
+    },
+    {
+      "case_id": "dev-43",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "tsla-q2-2025"
+      ],
+      "request": {
+        "question": "show GAAP consolidated net income attributable to parent for TSLA in Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "Common-stockholder income cannot substitute for parent attribution."
+      }
+    },
+    {
+      "case_id": "dev-44",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "amd-q1-2024"
+      ],
+      "request": {
+        "question": "show GAAP segment:client_gaming_2025 revenue for AMD in Q1 2024",
+        "selections": [
+          {
+            "source_id": "7fcd160a-05f0-471e-8915-5c28134b0dd4",
+            "version_id": "43484e0a-3409-4732-84d7-1711abb58076",
+            "build_id": "e1a281d9-6b98-40ad-8c39-83090ef12370"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "Old standalone segment definitions cannot be merged into a reviewed unchanged new segment."
+      }
+    },
+    {
+      "case_id": "dev-45",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for TSLA in Q4 2024",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "The original deck exists, but a reviewed Q4 revenue card is not yet bound; annual revenue cannot substitute."
+      }
+    },
+    {
+      "case_id": "dev-46",
+      "primary_slice": "missing_evidence",
+      "lane": "question",
+      "tags": [],
+      "report_ids": [
+        "tsla-q2-2025"
+      ],
+      "request": {
+        "question": "show GAAP consolidated revenue for TSLA in Q1 2026",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": null,
+        "reason": "Future requested quarter is outside selected corpus."
+      }
+    },
+    {
+      "case_id": "dev-47",
+      "primary_slice": "missing_evidence",
+      "lane": "narrative",
+      "tags": [
+        "narrative"
+      ],
+      "report_ids": [
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "What exact Q4 2027 vehicle-delivery target did Tesla explicitly disclose in its Q2 2025 update? Refuse if no exact target is disclosed.",
+        "selections": [
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "query": "Q4 2027 exact vehicle delivery target",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "Q4 2027"
+            ],
+            "reviewed_original_candidates": []
+          }
+        ],
+        "reason": "Required future target or standalone metric is not disclosed by these selected original sources; lexical topic matches cannot fill that gap."
+      }
+    },
+    {
+      "case_id": "dev-48",
+      "primary_slice": "missing_evidence",
+      "lane": "narrative",
+      "tags": [
+        "narrative"
+      ],
+      "report_ids": [
+        "amd-q2-2025"
+      ],
+      "request": {
+        "question": "What exact standalone quantum-computing unit-sales count did AMD explicitly disclose in Q2 2025? Refuse if no such standalone count is disclosed.",
+        "selections": [
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "query": "quantum computing unit sales exact count",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "required_topic_terms": [
+              "quantum"
+            ],
+            "reviewed_original_candidates": []
+          }
+        ],
+        "reason": "Required future target or standalone metric is not disclosed by these selected original sources; lexical topic matches cannot fill that gap."
+      }
+    }
+  ]
+}
