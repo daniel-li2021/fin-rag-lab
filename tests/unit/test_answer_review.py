@@ -28,7 +28,7 @@ def test_phase_close_review_and_cost_replay():
     review = json.loads((folder / 'review.json').read_text())['rows']
     assert review[7]['numeric_claims'] and review[7]['citation_support'] == 0
     assert not review[7]['strict_pass'] and not review[21]['strict_pass']
-    docker = json.loads((root / 'docs/DOCKER_CHECK.json').read_text())
+    docker = json.loads((root / 'docs/evidence/checks/DOCKER_CHECK.json').read_text())
     assert docker['passed'] and docker['two_concurrent_statuses'] == [200, 200]
     assert docker['worker_check']['source_updated_without_image_rebuild']
     assert docker['worker_resource_check']['exit_code'] == 0
