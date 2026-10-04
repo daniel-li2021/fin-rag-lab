@@ -2,7 +2,7 @@
 import json
 from types import SimpleNamespace
 
-from src.financial.narrative import synthesize_evidence
+from src.financial.narrative import synthesize_evidence, original_excerpts
 from src.observability import CostTracker
 
 
@@ -28,8 +28,8 @@ class Model:
 
 
 def claims():
-    return [{'task_id': p['task_id'], 'evidence_id': p['evidence_id'], 'text': p['text'], 'quote': p['text']}
-            for p in candidates()['passages']]
+    return [{'task_id': p['task_id'], 'excerpt_id': f'e{n+1}', 'text': p['text']}
+            for n,p in enumerate(candidates()['passages'])]
 
 
 def test_narrative_draft_preserves_original_task_quotes_and_records_usage():
@@ -45,7 +45,7 @@ def test_narrative_draft_preserves_original_task_quotes_and_records_usage():
 
 
 def test_cross_task_or_invented_numeric_claims_cannot_complete_synthesis():
-    for change in ({'evidence_id': 'b'}, {'quote': 'Invented exact-looking support text.'}, {'text': 'Revenue grew 99%.'}):
+    for change in ({'excerpt_id': 'e2'}, {'excerpt_id': 'invented:0'}, {'text': 'Revenue grew 99%.'}):
         values = claims()
         values[0].update(change)
         result = synthesize_evidence(candidates(), CostTracker(), llm=Model(values), model='test')
@@ -60,3 +60,18 @@ def test_missing_required_source_withholds_model_call():
     model = Model(claims())
     result = synthesize_evidence(result, CostTracker(), llm=model, model='test')
     assert result['outcome'] == 'refuse' and model.calls == 0
+
+
+def test_excerpt_selection_retains_exact_bounded_original_spans():
+    result = candidates()
+    text = ('Repeated original sentence. ' * 70) + 'Final sentence.'
+    result['passages'][0]['text'] = text
+    excerpts = original_excerpts({p['evidence_id']: p for p in result['passages']})
+    chosen = [e for e in excerpts.values() if e['task_id'] == 'a']
+    assert len(chosen) > 1 and all(20 <= len(e['quote']) <= 700 for e in chosen)
+    assert all(text[e['char_start']:e['char_end']] == e['quote'] for e in chosen)
+    draft = [{'task_id':'a','excerpt_id':chosen[1]['excerpt_id'],'text':'Repeated original sentence.'},
+             {'task_id':'b','excerpt_id':next(e['excerpt_id'] for e in excerpts.values() if e['task_id']=='b'),
+              'text':result['passages'][1]['text']}]
+    answer = synthesize_evidence(result, CostTracker(), llm=Model(draft), model='test')
+    assert answer['outcome'] == 'qualified_answer' and answer['claims'][0]['char_start'] > 0

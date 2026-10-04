@@ -200,8 +200,16 @@ def test_library_is_owner_scoped_and_history_open_clears_prior_diff(durable, mon
     assert not history.exception
     assert history.session_state['research_result'] == saved
     assert 'research_diff' not in history.session_state
+    # A newly saved run must not silently change the selected historical answer.
+    newer = svc.research_question('show GAAP consolidated revenue for Test in Q1 2026',
+        selections=[{'source_id': str(source['source_id'])}], save=True)
+    history.run()
+    assert history.session_state['research_saved_run'] == saved['run_id']
+    next(b for b in history.button if b.label == 'Open saved answer').click().run()
+    assert history.session_state['research_result'] == saved
+    assert newer['run_id'] != saved['run_id']
     # Opening and rendering history never execute a new question.
-    assert len(svc.registry.research_runs(svc.owner)) == 1
+    assert len(svc.registry.research_runs(svc.owner)) == 2
 
     import app.streamlit_app as main_app
     monkeypatch.setattr(main_app, 'get_service', lambda *args: svc)
@@ -210,3 +218,20 @@ def test_library_is_owner_scoped_and_history_open_clears_prior_diff(durable, mon
     assert not any(w.label == 'Confirmed metadata (JSON)' for w in landing.text_area)
     landing.radio[0].set_value('Library').run()
     assert not landing.exception
+
+
+def test_explicit_original_version_rerun_does_not_invent_metadata_change(durable):
+    svc, _, _ = durable
+    source, observation, request = reviewed_source(svc)
+    svc.registry.save_observation(svc.owner, observation)
+    pinned = request.model_dump(mode='json')
+    pinned['selections'] = [{k:observation.source.model_dump(mode='json')[k]
+                             for k in ('source_id','version_id','build_id')}]
+    first = svc.research(pinned, save=True)
+    assert first['inventory'][0]['source_metadata_revision'] is None
+    repeated = svc.rerun_research(first['run_id'])
+    assert repeated['result']['inventory'][0]['source_metadata_revision'] == 0
+    assert not repeated['diff']['evidence_changed'] and not repeated['diff']['answer_changed']
+    svc.registry.update_metadata(svc.owner, source['source_id'], {**source['metadata'], 'company_name':'Test Inc'})
+    changed = svc.rerun_research(first['run_id'])
+    assert changed['diff']['evidence_changed'] and not changed['diff']['answer_changed']

@@ -1,0 +1,353 @@
+{
+  "reviewer": "Codex",
+  "review_revision": "Codex-development-claim-review-20261003-v1",
+  "capture_results_sha256": "20f15a2e50726ec996194788d105bf8a7d7bfed7ac66e0cc5a30cb806ea58b43",
+  "labels_sha256": "a09112414165dd3821223b5f6fac715d722f10b413502a23a0dab41c897a2c9d",
+  "qualification": "Post-capture development original-claim/context review, not independent human release review. Does not mutate unreviewed generated claims or certify strict authentic accuracy.",
+  "reviewed_narrative_cases": 8,
+  "reviewed_generated_claims": 12,
+  "independent_release_review_denominator": 0,
+  "release_decision": "held",
+  "items": [
+    {
+      "case_id": "dev-05",
+      "run_id": "9e7c27234e42889f336aa96fffa302492a15312694c8a3689f74d235a18cb18b",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "AMD claim explicitly identifies Data Center scope, not a quantified consolidated operating-loss bridge; Tesla uses its operating-income bullet list on original page 5. Both issuer statements have original support.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "5c00b12207850566bda7a33c6450644ee239628b09d3b820756c7ff0d14fe8cf",
+          "source": {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+            "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+            "company_id": "AMD",
+            "publication_date": "2025-08-06",
+            "status": "available"
+          },
+          "block_id": "blk_de59e67f4424",
+          "page_number": 27,
+          "char_start": 0,
+          "char_end": 555,
+          "quote": "Data Center operating loss was $155 million for the three months ended June 28, 2025, compared to operating income of $743 million for the prior year period. Data Center operating income was $777 million for the six months ended June 28, 2025, compared to operating income of $1.3 billion for the prior year period. The decrease in operating income in both periods was primarily due to approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 GPU products and higher R&D expense.",
+          "text": "AMD reported Data Center operating loss and said the decrease in operating income was primarily due to inventory and related charges associated with U.S. government export controls on MI308 GPU products and higher R&D expense."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "7f559ef41ebd95e94fa1ecdc7fbdcbc12b1f469ff3c50261f2f8db1d3d0615b8",
+          "source": {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+            "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+            "company_id": "TSLA",
+            "publication_date": "2025-07-23",
+            "status": "available"
+          },
+          "block_id": "blk_b8549d85abd3",
+          "page_number": 5,
+          "char_start": 0,
+          "char_end": 407,
+          "quote": "- lower regulatory credit revenue - increase in operating expenses (ex. restructuring and SBC) driven by AI and other R&D projects - decline in vehicle deliveries - increase in SBC + decrease in restructuring charges + lower cost per vehicle, due to mix and lower raw materials partially offset by lower fixed cost absorption and an increase in tariffs + growth in Energy Generation and Storage gross profit",
+          "text": "Tesla said operating income was impacted by lower regulatory credit revenue, increased operating expenses driven by AI and other R&D projects, and declining vehicle deliveries. It also cited offsetting factors, including lower cost per vehicle and growth in Energy Generation and Storage gross profit."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-06",
+      "run_id": "0950c832d04a5b194089eab4d46e17cc4ccaa2b3888deb978048ef6dcbe46946",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "AMD Data Center growth is explicitly attributed to EPYC/Instinct sales; Tesla delivery/ASP headwinds are explicitly identified in its revenue discussion. No common standalone AI-revenue metric is invented.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "18f0faa7ebb71aea0f0a45ce05af358bd247b88339e1c202c9abbb8dc8e26607",
+          "source": {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+            "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+            "company_id": "AMD",
+            "publication_date": "2025-05-07",
+            "status": "available"
+          },
+          "block_id": "blk_15d952f91958",
+          "page_number": 24,
+          "char_start": 0,
+          "char_end": 258,
+          "quote": "Data Center net revenue of $3.7 billion for the three months ended March 29, 2025 increased by 57%, compared to net revenue of $2.3 billion for the prior year period. The increase was primarily driven by the growth in AMD EPYC CPU and AMD Instinct GPU sales.",
+          "text": "AMD stated that Data Center revenue increased 57%, primarily driven by growth in AMD EPYC CPU and AMD Instinct GPU sales."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "2f9b02b7d04e9af03e7e7c17c0b8b0be7e0c77fbe945c2e02313ca7c58626568",
+          "source": {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+            "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+            "company_id": "TSLA",
+            "publication_date": "2025-04-22",
+            "status": "available"
+          },
+          "block_id": "blk_09ea8e2ee3de",
+          "page_number": 5,
+          "char_start": 0,
+          "char_end": 472,
+          "quote": "- reduced vehicle ASP - decline in vehicle deliveries - increase in operating expenses driven by AI and other R&D projects partially offset by a decrease in SG&A + growth in Energy Generation and Storage gross profit + lower cost associated with Cybertruck production ramp in Q1\u201924 + lower cost per vehicle, including lower raw material costs partially offset by lower fixed cost absorption primarily from Model Y production decrease YoY + higher regulatory credit revenue",
+          "text": "Tesla reported that reduced vehicle ASP and declining vehicle deliveries impacted operating income."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-07",
+      "run_id": "a711cd579b8a3a69efdce5dcd55937337a473efe3348d779939006083c6d7d1f",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "Wells Fargo original page 6 states consolidated NII drivers. Tesla original page 40 has a split paragraph: the preceding retained block supplies automotive-sales metric and FY2024-versus-2023 context; the cited continuation supplies the drivers. Context is essential, not inferred from the isolated leading 2023 fragment.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "db72a69454322ab8ee5cbedf9e5016de48187b37cde247e95bddfdd5f82b756d",
+          "source": {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+            "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+            "company_id": "WFC",
+            "publication_date": "2025-02-25",
+            "status": "available"
+          },
+          "block_id": "blk_348c2af85c20",
+          "page_number": 6,
+          "char_start": 0,
+          "char_end": 322,
+          "quote": "Net interest income and net interest margin decreased in 2024, compared with 2023, driven by the impact of higher interest rates on interest-bearing liabilities, including a deposit mix shift to interest-bearing deposits, as well as lower loan balances, partially offset by higher interest rates on interestearning assets.",
+          "text": "Wells Fargo said net interest income decreased, driven by higher interest rates on interest-bearing liabilities, including a deposit mix shift to interest-bearing deposits, and lower loan balances; higher rates on interest-earning assets partially offset the decrease."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "9156498d0117b010f59f78eb6c921c0ecfce09eb2390f940bccd173253a1efc6",
+          "source": {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+            "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+            "company_id": "TSLA",
+            "publication_date": "2025-01-30",
+            "status": "available"
+          },
+          "block_id": "blk_b325e49c01f7",
+          "page_number": 40,
+          "char_start": 0,
+          "char_end": 539,
+          "quote": "2023, primarily due to lower average selling price on our vehicles driven by overall price reductions and attractive financing options provided in 2024 as well as mix. Additionally, there was a decrease of approximately 22,000 combined Model 3 and Model Y cash deliveries. The decreases were partially offset by an increase of approximately 19,000 deliveries of other models primarily due to our production ramp of Cybertruck. Additionally, we recognized $596 million of FSD (Supervised) revenue due to release of certain features in 2024.",
+          "text": "Tesla said automotive sales revenue decreased primarily due to lower average selling prices, driven by overall price reductions, attractive financing options, and mix. Fewer Model 3 and Model Y cash deliveries also contributed; increases in deliveries of other models and FSD (Supervised) revenue partially offset the decreases."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-08",
+      "run_id": "fd9a6f7b62127e3fa0732593a3e00311889f444c29744ff9d60b43b7ae7e026a",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "Different company periods/metrics remain separate. Wells Fargo FY2024 NII drivers and AMD Q2 Data Center inventory/export-control drivers are issuer statements; no cross-company causal equivalence or bridge is asserted.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "db72a69454322ab8ee5cbedf9e5016de48187b37cde247e95bddfdd5f82b756d",
+          "source": {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+            "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+            "company_id": "WFC",
+            "publication_date": "2025-02-25",
+            "status": "available"
+          },
+          "block_id": "blk_348c2af85c20",
+          "page_number": 6,
+          "char_start": 0,
+          "char_end": 322,
+          "quote": "Net interest income and net interest margin decreased in 2024, compared with 2023, driven by the impact of higher interest rates on interest-bearing liabilities, including a deposit mix shift to interest-bearing deposits, as well as lower loan balances, partially offset by higher interest rates on interestearning assets.",
+          "text": "Wells Fargo said net interest income and net interest margin decreased, driven by higher interest rates on interest-bearing liabilities, a shift toward interest-bearing deposits, and lower loan balances, partly offset by higher rates on interest-earning assets."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "5c00b12207850566bda7a33c6450644ee239628b09d3b820756c7ff0d14fe8cf",
+          "source": {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+            "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+            "company_id": "AMD",
+            "publication_date": "2025-08-06",
+            "status": "available"
+          },
+          "block_id": "blk_de59e67f4424",
+          "page_number": 27,
+          "char_start": 0,
+          "char_end": 555,
+          "quote": "Data Center operating loss was $155 million for the three months ended June 28, 2025, compared to operating income of $743 million for the prior year period. Data Center operating income was $777 million for the six months ended June 28, 2025, compared to operating income of $1.3 billion for the prior year period. The decrease in operating income in both periods was primarily due to approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 GPU products and higher R&D expense.",
+          "text": "AMD reported a Data Center operating loss of $155 million, primarily due to approximately $800 million of inventory and related charges associated with the U.S. government export control on MI308 GPU products and higher R&D expense."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-15",
+      "run_id": "9bc72cf232372064ce117de8c91b4bf018d6a233ad8dbd78e8361f6f49ff38ef",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "Both claims now use operating-income sections on the decks original page 5; Q1 revenue-only Model Y/FX bullet list is not promoted as an operating-income cause. Neighboring original headings establish topic context.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "2f9b02b7d04e9af03e7e7c17c0b8b0be7e0c77fbe945c2e02313ca7c58626568",
+          "source": {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+            "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+            "company_id": "TSLA",
+            "publication_date": "2025-04-22",
+            "status": "available"
+          },
+          "block_id": "blk_09ea8e2ee3de",
+          "page_number": 5,
+          "char_start": 0,
+          "char_end": 472,
+          "quote": "- reduced vehicle ASP - decline in vehicle deliveries - increase in operating expenses driven by AI and other R&D projects partially offset by a decrease in SG&A + growth in Energy Generation and Storage gross profit + lower cost associated with Cybertruck production ramp in Q1\u201924 + lower cost per vehicle, including lower raw material costs partially offset by lower fixed cost absorption primarily from Model Y production decrease YoY + higher regulatory credit revenue",
+          "text": "Tesla reported that operating income was impacted by reduced vehicle ASP, a decline in vehicle deliveries, and increased operating expenses driven by AI and other R&D projects, partially offset by a decrease in SG&A."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "7f559ef41ebd95e94fa1ecdc7fbdcbc12b1f469ff3c50261f2f8db1d3d0615b8",
+          "source": {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+            "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+            "company_id": "TSLA",
+            "publication_date": "2025-07-23",
+            "status": "available"
+          },
+          "block_id": "blk_b8549d85abd3",
+          "page_number": 5,
+          "char_start": 0,
+          "char_end": 407,
+          "quote": "- lower regulatory credit revenue - increase in operating expenses (ex. restructuring and SBC) driven by AI and other R&D projects - decline in vehicle deliveries - increase in SBC + decrease in restructuring charges + lower cost per vehicle, due to mix and lower raw materials partially offset by lower fixed cost absorption and an increase in tariffs + growth in Energy Generation and Storage gross profit",
+          "text": "Tesla reported that operating income was impacted by lower regulatory credit revenue, increased operating expenses driven by AI and other R&D projects, and a decline in vehicle deliveries, partially offset by lower restructuring charges, lower cost per vehicle, and growth in Energy Generation and Storage gross profit."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-16",
+      "run_id": "756b09ce343ce1e5a7021ce99d66a434b9f41881f9172ead5f8825251891ebdd",
+      "outcome": "qualified_answer",
+      "Codex_development_review": "supported_issuer_statements",
+      "qualification": "FY2024 original page 69 explicitly states four reportable segments; Q1 2025 original page 23 states the Client/Gaming combination and retrospective adjustment. The draft explains why the segment definition is not unchanged without inventing a numeric bridge.",
+      "claim_count": 2,
+      "original_claim_locators": [
+        {
+          "task_id": "t0",
+          "evidence_id": "7cac245509d6a284fd1b6a746d3e21dc28029bcd6c04892849cdf2578af7aff1",
+          "source": {
+            "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+            "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+            "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd",
+            "source_hash": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+            "company_id": "AMD",
+            "publication_date": "2025-02-05",
+            "status": "available"
+          },
+          "block_id": "blk_1f86925e4c93",
+          "page_number": 69,
+          "char_start": 0,
+          "char_end": 43,
+          "quote": "The Company\u2019s four reportable segments are:",
+          "text": "AMD reported four reportable segments."
+        },
+        {
+          "task_id": "t1",
+          "evidence_id": "1926a2887478dacda4f1c1dbef6058caebdd41f59d6a8bf7ca02589977c628b6",
+          "source": {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+            "source_hash": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+            "company_id": "AMD",
+            "publication_date": "2025-05-07",
+            "status": "available"
+          },
+          "block_id": "blk_8bc8b0b2b832",
+          "page_number": 23,
+          "char_start": 0,
+          "char_end": 393,
+          "quote": "Beginning with the fiscal year ending December 27, 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. Each of the Client and Gaming businesses do not qualify as a reportable operating segment, however, we continue to separately disclose revenues for each business. All prior period segment data were retrospectively adjusted.",
+          "text": "AMD combined Client and Gaming into one reportable segment to align with how it manages its business; neither business qualifies as a reportable operating segment, though revenues for each are still disclosed separately. Prior-period segment data were retrospectively adjusted."
+        }
+      ]
+    },
+    {
+      "case_id": "dev-47",
+      "run_id": "9050727c2e894e1c23b6c6ae39ebdd52e43ee3c061e514ef993c68ce2f19aa77",
+      "outcome": "refuse",
+      "Codex_development_review": "supported_refusal",
+      "qualification": "No exact Q4 2027 delivery target is stated in the selected Q2 2025 update. The generator omitted unsupported claims and the complete narrative refused.",
+      "claim_count": 0,
+      "original_claim_locators": []
+    },
+    {
+      "case_id": "dev-48",
+      "run_id": "6ef2687f0f122faf2fd416a11ab3b9ae723782329f7a1c22db4e97781a6376ba",
+      "outcome": "refuse",
+      "Codex_development_review": "supported_refusal",
+      "qualification": "The retrieved original AMD Q2 2025 window provides no support for an exact standalone quantum unit-sales count; this refusal does not claim exhaustive absence beyond indexed coverage. The generator omitted unsupported claims and the complete narrative refused.",
+      "claim_count": 0,
+      "original_claim_locators": []
+    }
+  ],
+  "failure_ledger": [
+    {
+      "capture": "capture",
+      "cases": [
+        "dev-08",
+        "dev-16"
+      ],
+      "kind": "safe_false_refusal",
+      "evidence": "Exact-copy/task/number guard rejected at least one required claim; initial diagnostic did not retain the rejected draft.",
+      "resolution": "Deterministic offered excerpt spans selected by ID; later drafts retain structured rejection reasons. Frozen labels and first capture retained."
+    },
+    {
+      "capture": "capture-v2",
+      "cases": [
+        "dev-15"
+      ],
+      "kind": "wrong_metric_section",
+      "evidence": "Exact Q1 revenue-driver quote was paraphrased as operating-income headwinds. Quote provenance passed; topic support did not.",
+      "resolution": "Preserve original block order and neighboring headings in synthesis input; explicitly retain metric-section boundaries. Latest original-claim review uses the correct operating-income bullets."
+    },
+    {
+      "capture": "capture-v3",
+      "cases": [
+        "dev-05"
+      ],
+      "kind": "safe_false_refusal",
+      "evidence": "Generated excerpt ID spliced two long original evidence hashes, so no original excerpt matched.",
+      "resolution": "Short, deterministic excerpt IDs map to exact original block spans; unknown IDs still refuse. Latest capture passes this case."
+    }
+  ],
+  "remaining_gates": [
+    "Independent semantic/numeric release review and matched historical non-regression gates.",
+    "Separate sealed holdout evaluation under its unchanged policy; no development access."
+  ]
+}

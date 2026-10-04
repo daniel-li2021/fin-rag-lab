@@ -1,0 +1,620 @@
+{
+  "qualification": "Actual localhost Streamlit explicit rerun after runtime override fix, not a development benchmark case.",
+  "result": {
+    "usage": {
+      "events": [
+        {
+          "model": "gpt-6-luna",
+          "stage": "narrative_synthesis",
+          "cost_usd": 0.00014500000000000003,
+          "raw_usage": {
+            "usage": {
+              "total_tokens": 1410,
+              "prompt_tokens": 1400,
+              "completion_tokens": 10,
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 1397,
+                "cache_write_tokens": 0
+              },
+              "completion_tokens_details": {
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "response_model": "gpt-6-luna"
+          },
+          "input_tokens": 1400,
+          "usage_source": "reported",
+          "output_tokens": 10,
+          "pricing_status": "configured_estimate",
+          "reasoning_tokens": 0
+        }
+      ],
+      "n_calls": {
+        "narrative_synthesis": 1
+      },
+      "by_model": {
+        "gpt-6-luna": 0.000145
+      },
+      "by_stage": {
+        "narrative_synthesis": 0.000145
+      },
+      "total_usd": 0.000145,
+      "request_id": "9e4f7fc4dcb84c8893c6727adc6cf761",
+      "planner_calls": 0,
+      "unknown_calls": 0,
+      "pricing_status": "configured_estimate",
+      "embedding_calls": 0,
+      "generator_calls": 1,
+      "pricing_snapshot": {
+        "gpt-5": {
+          "input": 0.00125,
+          "output": 0.01
+        },
+        "gpt-4o": {
+          "input": 0.0025,
+          "output": 0.01
+        },
+        "gpt-4.1": {
+          "input": 0.002,
+          "output": 0.008
+        },
+        "gpt-5.4": {
+          "input": 0.0025,
+          "output": 0.015
+        },
+        "gpt-5.5": {
+          "input": 0.0025,
+          "output": 0.015
+        },
+        "o4-mini": {
+          "input": 0.0011,
+          "output": 0.0044
+        },
+        "gpt-5-mini": {
+          "input": 0.00025,
+          "output": 0.002
+        },
+        "gpt-5-nano": {
+          "input": 5e-05,
+          "output": 0.0004
+        },
+        "gpt-6-luna": {
+          "input": 0.0001,
+          "output": 0.0005
+        },
+        "gpt-4o-mini": {
+          "input": 0.00015,
+          "output": 0.0006
+        },
+        "gpt-5.4-mini": {
+          "input": 0.00075,
+          "output": 0.0045
+        },
+        "gpt-5.4-nano": {
+          "input": 0.0002,
+          "output": 0.00125
+        },
+        "text-embedding-3-large": {
+          "input": 0.00013,
+          "output": 0.0
+        },
+        "text-embedding-3-small": {
+          "input": 2e-05,
+          "output": 0.0
+        }
+      },
+      "reasoning_tokens": {
+        "narrative_synthesis": 0
+      },
+      "priced_subtotal_usd": 0.000145
+    },
+    "answer": "The retrieved originals do not support every required narrative task; no complete synthesis is available.",
+    "claims": [],
+    "run_id": "c2b29e62dd1b80e4fcb252823fb385bb59979ed552643f3f6695b1255b6ec41f",
+    "outcome": "refuse",
+    "request": {
+      "as_of": null,
+      "tasks": [
+        {
+          "query": "quantum computing unit sales exact count",
+          "task_id": "t0",
+          "company_id": "AMD",
+          "repair_query": null,
+          "document_period_label": "Q2 2025"
+        }
+      ],
+      "question": "What exact standalone quantum-computing unit-sales count did AMD explicitly disclose in Q2 2025? Refuse if no such standalone count is disclosed.",
+      "selections": [
+        {
+          "build_id": null,
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": null,
+          "version_id": null,
+          "fiscal_year": null,
+          "document_type": null,
+          "fiscal_quarter": null,
+          "metadata_review_id": null
+        }
+      ],
+      "synthesize": true
+    },
+    "attempts": {
+      "t0": 1
+    },
+    "coverage": [
+      {
+        "reason": "Original candidates require topic/period review before synthesis",
+        "status": "binding_unverified",
+        "task_id": "t0",
+        "evidence_ids": [
+          "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+          "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+          "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+          "5e9bfab25ef82005b399a53eac3777c0ffbdc4ba9a410a57036f8d2d9ad2d6c1",
+          "a58af33cc62bf59fb95cc49f9354b38b11b13ed07b27c7523272ba4b7a56496a",
+          "695ca70f15f02c995577768bef6fac5fd540cea25c6b0c91f2c5e99e2a56cfef",
+          "be9716777e56d737e6851183c9ab2079f010a11bb98c1298d6f341d8233a2e14",
+          "07c083d79f442b2683e2926f4a047bb3d1f728443a4d25c87afa1ab4d1055837",
+          "81629ab07cce4b566b3efd5128aa1cc0c27fcbaa24c47d00ec2071b18b15cc30"
+        ],
+        "budget_exhausted": false
+      }
+    ],
+    "manifest": [
+      {
+        "status": "available",
+        "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+        "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+        "company_id": "AMD",
+        "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+        "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+        "publication_date": "2025-08-06"
+      }
+    ],
+    "passages": [
+      {
+        "text": "(Exact name of registrant as specified in its charter)",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 12,
+        "task_id": "t0",
+        "block_id": "blk_3c5d50f6e977",
+        "char_end": 54,
+        "char_start": 0,
+        "evidence_id": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "page_number": 1,
+        "original_order": 12
+      },
+      {
+        "text": "International Sales",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 2,
+        "task_id": "t0",
+        "block_id": "blk_d1e6a922d2d9",
+        "char_end": 19,
+        "char_start": 0,
+        "evidence_id": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "page_number": 28,
+        "original_order": 827
+      },
+      {
+        "text": "Cost of Sales",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 3,
+        "task_id": "t0",
+        "block_id": "blk_889845eb0915",
+        "char_end": 13,
+        "char_start": 0,
+        "evidence_id": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "page_number": 10,
+        "original_order": 350
+      },
+      {
+        "text": "ADVANCED MICRO DEVICES, INC.",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 8,
+        "task_id": "t0",
+        "block_id": "blk_005b8262c9b6",
+        "char_end": 28,
+        "char_start": 0,
+        "context_for": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "evidence_id": "5e9bfab25ef82005b399a53eac3777c0ffbdc4ba9a410a57036f8d2d9ad2d6c1",
+        "page_number": 1,
+        "original_order": 11
+      },
+      {
+        "text": "Delaware 94-1692300",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 8,
+        "task_id": "t0",
+        "block_id": "blk_5c900b7f05f2",
+        "char_end": 19,
+        "char_start": 0,
+        "context_for": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "evidence_id": "a58af33cc62bf59fb95cc49f9354b38b11b13ed07b27c7523272ba4b7a56496a",
+        "page_number": 1,
+        "original_order": 13
+      },
+      {
+        "text": "All Other operating loss of $2.0 billion for the six months ended June 28, 2025 primarily consisted of $1.1 billion of amortization of acquisition-related intangibles and $733 million of stock-based compensation expense. All Other operating loss of $2.1 billion for the six months ended June 29, 2024 primarily consisted of $1.2 billion of amortization of acquisition-related intangibles and $717 million of stock-based compensation expense.",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 98,
+        "task_id": "t0",
+        "block_id": "blk_f5517bdbc47a",
+        "char_end": 441,
+        "char_start": 0,
+        "context_for": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "evidence_id": "695ca70f15f02c995577768bef6fac5fd540cea25c6b0c91f2c5e99e2a56cfef",
+        "page_number": 28,
+        "original_order": 826
+      },
+      {
+        "text": "International sales as a percentage of net revenue were 71% and 60% for the three months ended June 28, 2025 and June 29, 2024, respectively. International sales as a percentage of net revenue were 69% and 60% for the six months ended June 28, 2025 and June 29, 2024, respectively. We expect that international sales will continue to be a significant portion of total sales in the foreseeable future. Substantially all of our sales transactions were denominated in U.S. dollars.",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 115,
+        "task_id": "t0",
+        "block_id": "blk_a82105ec785c",
+        "char_end": 478,
+        "char_start": 0,
+        "context_for": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "evidence_id": "be9716777e56d737e6851183c9ab2079f010a11bb98c1298d6f341d8233a2e14",
+        "page_number": 28,
+        "original_order": 828
+      },
+      {
+        "text": "Revenue recognized over time associated with custom products and development services accounted for approximately 12% and 11% of the Company\u2019s revenue for the three and six months ended June 28, 2025, respectively, and 8% and 12% of the Company\u2019s revenue for the three and six months ended June 29, 2024, respectively.",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 73,
+        "task_id": "t0",
+        "block_id": "blk_9e463f52accd",
+        "char_end": 318,
+        "char_start": 0,
+        "context_for": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "evidence_id": "07c083d79f442b2683e2926f4a047bb3d1f728443a4d25c87afa1ab4d1055837",
+        "page_number": 10,
+        "original_order": 349
+      },
+      {
+        "text": "During the three months ended June 28, 2025, the Company recorded approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 Data Center GPU products in Cost of sales.",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 49,
+        "task_id": "t0",
+        "block_id": "blk_ae4ceb0d4a9b",
+        "char_end": 241,
+        "char_start": 0,
+        "context_for": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "evidence_id": "81629ab07cce4b566b3efd5128aa1cc0c27fcbaa24c47d00ec2071b18b15cc30",
+        "page_number": 10,
+        "original_order": 351
+      }
+    ],
+    "citations": {
+      "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3": {
+        "text": "International Sales",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 2,
+        "task_id": "t0",
+        "block_id": "blk_d1e6a922d2d9",
+        "char_end": 19,
+        "char_start": 0,
+        "evidence_id": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "page_number": 28,
+        "original_order": 827
+      },
+      "07c083d79f442b2683e2926f4a047bb3d1f728443a4d25c87afa1ab4d1055837": {
+        "text": "Revenue recognized over time associated with custom products and development services accounted for approximately 12% and 11% of the Company\u2019s revenue for the three and six months ended June 28, 2025, respectively, and 8% and 12% of the Company\u2019s revenue for the three and six months ended June 29, 2024, respectively.",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 73,
+        "task_id": "t0",
+        "block_id": "blk_9e463f52accd",
+        "char_end": 318,
+        "char_start": 0,
+        "context_for": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "evidence_id": "07c083d79f442b2683e2926f4a047bb3d1f728443a4d25c87afa1ab4d1055837",
+        "page_number": 10,
+        "original_order": 349
+      },
+      "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276": {
+        "text": "Cost of Sales",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 3,
+        "task_id": "t0",
+        "block_id": "blk_889845eb0915",
+        "char_end": 13,
+        "char_start": 0,
+        "evidence_id": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "page_number": 10,
+        "original_order": 350
+      },
+      "5e9bfab25ef82005b399a53eac3777c0ffbdc4ba9a410a57036f8d2d9ad2d6c1": {
+        "text": "ADVANCED MICRO DEVICES, INC.",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 8,
+        "task_id": "t0",
+        "block_id": "blk_005b8262c9b6",
+        "char_end": 28,
+        "char_start": 0,
+        "context_for": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "evidence_id": "5e9bfab25ef82005b399a53eac3777c0ffbdc4ba9a410a57036f8d2d9ad2d6c1",
+        "page_number": 1,
+        "original_order": 11
+      },
+      "695ca70f15f02c995577768bef6fac5fd540cea25c6b0c91f2c5e99e2a56cfef": {
+        "text": "All Other operating loss of $2.0 billion for the six months ended June 28, 2025 primarily consisted of $1.1 billion of amortization of acquisition-related intangibles and $733 million of stock-based compensation expense. All Other operating loss of $2.1 billion for the six months ended June 29, 2024 primarily consisted of $1.2 billion of amortization of acquisition-related intangibles and $717 million of stock-based compensation expense.",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 98,
+        "task_id": "t0",
+        "block_id": "blk_f5517bdbc47a",
+        "char_end": 441,
+        "char_start": 0,
+        "context_for": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "evidence_id": "695ca70f15f02c995577768bef6fac5fd540cea25c6b0c91f2c5e99e2a56cfef",
+        "page_number": 28,
+        "original_order": 826
+      },
+      "81629ab07cce4b566b3efd5128aa1cc0c27fcbaa24c47d00ec2071b18b15cc30": {
+        "text": "During the three months ended June 28, 2025, the Company recorded approximately $800 million of inventory and related charges associated with the U.S. government export control on AMD Instinct MI308 Data Center GPU products in Cost of sales.",
+        "score": 5.3678759107954,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 49,
+        "task_id": "t0",
+        "block_id": "blk_ae4ceb0d4a9b",
+        "char_end": 241,
+        "char_start": 0,
+        "context_for": "52acf55dfbd5a075a647d2caf76bdcdbc08aa04e5bf36abb56ba33966e444276",
+        "evidence_id": "81629ab07cce4b566b3efd5128aa1cc0c27fcbaa24c47d00ec2071b18b15cc30",
+        "page_number": 10,
+        "original_order": 351
+      },
+      "a58af33cc62bf59fb95cc49f9354b38b11b13ed07b27c7523272ba4b7a56496a": {
+        "text": "Delaware 94-1692300",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 8,
+        "task_id": "t0",
+        "block_id": "blk_5c900b7f05f2",
+        "char_end": 19,
+        "char_start": 0,
+        "context_for": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "evidence_id": "a58af33cc62bf59fb95cc49f9354b38b11b13ed07b27c7523272ba4b7a56496a",
+        "page_number": 1,
+        "original_order": 13
+      },
+      "be9716777e56d737e6851183c9ab2079f010a11bb98c1298d6f341d8233a2e14": {
+        "text": "International sales as a percentage of net revenue were 71% and 60% for the three months ended June 28, 2025 and June 29, 2024, respectively. International sales as a percentage of net revenue were 69% and 60% for the six months ended June 28, 2025 and June 29, 2024, respectively. We expect that international sales will continue to be a significant portion of total sales in the foreseeable future. Substantially all of our sales transactions were denominated in U.S. dollars.",
+        "score": 5.564763784499245,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 115,
+        "task_id": "t0",
+        "block_id": "blk_a82105ec785c",
+        "char_end": 478,
+        "char_start": 0,
+        "context_for": "0385aa62c5041c7b181216539cc2556e491a37ab7cde5f37f27da3491a2013c3",
+        "evidence_id": "be9716777e56d737e6851183c9ab2079f010a11bb98c1298d6f341d8233a2e14",
+        "page_number": 28,
+        "original_order": 828
+      },
+      "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc": {
+        "text": "(Exact name of registrant as specified in its charter)",
+        "score": 8.753347458840596,
+        "source": {
+          "status": "available",
+          "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+          "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+          "company_id": "AMD",
+          "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+          "source_hash": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+          "publication_date": "2025-08-06"
+        },
+        "tokens": 12,
+        "task_id": "t0",
+        "block_id": "blk_3c5d50f6e977",
+        "char_end": 54,
+        "char_start": 0,
+        "evidence_id": "c9625a6c7fe5d92c65a51be2a5e9fbd418051ed5bb848a5d51254a189b952dcc",
+        "page_number": 1,
+        "original_order": 12
+      }
+    },
+    "execution": {
+      "timestamp": "2026-10-04T01:39:01.047094+00:00",
+      "execution_id": "98fe3032-9950-4592-a5e5-a2d60f9d05b7",
+      "collection_id": null,
+      "parent_run_id": "6ef2687f0f122faf2fd416a11ab3b9ae723782329f7a1c22db4e97781a6376ba"
+    },
+    "inventory": [
+      {
+        "title": "Advanced Micro Devices, Inc. Q2 2025 10-Q",
+        "status": "ready",
+        "metadata": {
+          "company_id": "AMD",
+          "period_end": "2025-06-28",
+          "fiscal_year": 2025,
+          "period_kind": "quarterly",
+          "company_name": "Advanced Micro Devices, Inc.",
+          "period_label": "Q2 2025",
+          "period_start": "2025-03-30",
+          "document_type": "10-Q",
+          "review_status": "confirmed",
+          "fiscal_quarter": 2,
+          "publication_date": "2025-08-06"
+        },
+        "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+        "last_error": null,
+        "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0
+      }
+    ],
+    "calculations": [],
+    "observations": [],
+    "original_tokens": 368,
+    "synthesis_model": "gpt-6-luna",
+    "contract_version": "evidence-search-v1",
+    "synthesis_errors": [],
+    "rejected_draft_claims": [],
+    "evidence_token_ceiling": 6000,
+    "synthesis_review_status": "unreviewed",
+    "synthesis_latency_seconds": 1.063018
+  },
+  "failed_pre_fix_attempt": {
+    "status": "HTTP 400 unsupported reasoning_effort minimal",
+    "usage": null,
+    "cost_usd": null,
+    "reason": "Ignored dotenv previously overrode explicit REASONING_EFFORT=none; no provider usage receipt was returned."
+  }
+}

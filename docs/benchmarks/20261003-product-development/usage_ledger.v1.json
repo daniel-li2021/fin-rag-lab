@@ -1,0 +1,108 @@
+{
+  "qualification": "Configured base input/output price estimates from reported usage, with raw provider details retained in linked receipts; cache tariffs are not adjusted and these are not invoices.",
+  "entries": [
+    {
+      "name": "Authentic 22-report ingestion",
+      "artifact": "docs/fixtures/product/ingestion_receipts.v1.json",
+      "artifact_sha256": "59332d8f08c5f963088361690139aa5a1cbcf061e538b38ec80d3d26075d3ddc",
+      "reported_calls": 28,
+      "input_tokens": 1570853,
+      "output_tokens": 0,
+      "configured_estimate_usd": "0.03141706",
+      "unpriced_reported_events": 0
+    },
+    {
+      "name": "Historical 30-question generator control",
+      "artifact": "docs/benchmarks/20261003-product-regression/capture/results.jsonl",
+      "artifact_sha256": "21368a8eb19ba05bd81bda8d837f3fe9b9eee9fb70c341f1be5d4497c77e6b70",
+      "reported_calls": 30,
+      "input_tokens": 155374,
+      "output_tokens": 1741,
+      "configured_estimate_usd": "0.01640790",
+      "unpriced_reported_events": 0
+    },
+    {
+      "name": "capture",
+      "artifact": "docs/benchmarks/20261003-product-development/capture/results.jsonl",
+      "artifact_sha256": "9416a066322914a11a0d59aee0b32d70028815b5526104091b984def27814dd4",
+      "reported_calls": 8,
+      "input_tokens": 15029,
+      "output_tokens": 2061,
+      "configured_estimate_usd": "0.00253340",
+      "unpriced_reported_events": 0,
+      "narrative_latency_seconds": {
+        "denominator": 8,
+        "p50": 2.903920854558237,
+        "p95": 3.7700658331159502
+      }
+    },
+    {
+      "name": "capture-v2",
+      "artifact": "docs/benchmarks/20261003-product-development/capture-v2/results.jsonl",
+      "artifact_sha256": "9e062245fedadbbf6cb1040dfc829a2f197396b155e8a5726c4c0b7e20aed07c",
+      "reported_calls": 8,
+      "input_tokens": 19451,
+      "output_tokens": 1210,
+      "configured_estimate_usd": "0.00255010",
+      "unpriced_reported_events": 0,
+      "narrative_latency_seconds": {
+        "denominator": 8,
+        "p50": 2.08914197946433,
+        "p95": 2.485050166025758
+      }
+    },
+    {
+      "name": "capture-v3",
+      "artifact": "docs/benchmarks/20261003-product-development/capture-v3/results.jsonl",
+      "artifact_sha256": "1baf93206734a2ea8495e5f0cfbd3b7409d232a32ffd6a3a583abb70cd0600c3",
+      "reported_calls": 8,
+      "input_tokens": 24575,
+      "output_tokens": 1195,
+      "configured_estimate_usd": "0.00305500",
+      "unpriced_reported_events": 0,
+      "narrative_latency_seconds": {
+        "denominator": 8,
+        "p50": 2.541252562426962,
+        "p95": 2.8398234168998897
+      }
+    },
+    {
+      "name": "capture-v4",
+      "artifact": "docs/benchmarks/20261003-product-development/capture-v4/results.jsonl",
+      "artifact_sha256": "20f15a2e50726ec996194788d105bf8a7d7bfed7ac66e0cc5a30cb806ea58b43",
+      "reported_calls": 8,
+      "input_tokens": 20488,
+      "output_tokens": 740,
+      "configured_estimate_usd": "0.00241880",
+      "unpriced_reported_events": 0,
+      "narrative_latency_seconds": {
+        "denominator": 8,
+        "p50": 1.763034812407568,
+        "p95": 1.8871016658376902
+      }
+    },
+    {
+      "name": "Actual Streamlit narrative rerun",
+      "artifact": "docs/fixtures/product/runtime_narrative_rerun.v1.json",
+      "artifact_sha256": "f03cda5b4ee5f139b4f9e128a53aef0e87ec339195d2c7ff53d036ecbf8aaf18",
+      "reported_calls": 1,
+      "input_tokens": 1400,
+      "output_tokens": 10,
+      "configured_estimate_usd": "0.00014500",
+      "unpriced_reported_events": 0
+    }
+  ],
+  "priced_subtotal_usd": "0.05852726",
+  "reported_api_responses": 91,
+  "unreported_failed_attempts": [
+    {
+      "lane": "Local Streamlit pre-fix narrative rerun",
+      "status": "HTTP 400 unsupported reasoning_effort minimal",
+      "usage": null,
+      "cost_usd": null
+    }
+  ],
+  "billing_total_usd": null,
+  "release_decision": "held",
+  "holdout": "not_accessed"
+}

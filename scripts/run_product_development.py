@@ -135,7 +135,7 @@ def main():
         'code_sha256': {str(p.relative_to(ROOT)): digest(p) for p in code_files},
         'source_artifact_sha256': labels['artifact_sha256'], 'holdout': 'not_accessed',
         'api_policy': 'one synthesis call per narrative; no retries, planner, VLM, embedding or judge calls',
-        'cost_policy': 'Configured undiscounted token-price estimate; raw provider usage retained. Not an invoice.'}
+        'cost_policy': 'Configured base input/output price estimate; raw provider usage retained. Not an invoice.'}
     (args.output_dir/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     rows = []
     with (args.output_dir/'results.jsonl').open('x') as output:

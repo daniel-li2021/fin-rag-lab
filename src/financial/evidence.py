@@ -61,7 +61,7 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
             attempts[task.task_id] = 0
             continue
         chunks, originals = [], {}
-        neighbors = {}
+        neighbors, positions = {}, {}
         for pin in sources:
             source_blocks = snapshot['blocks'].get(pin.build_id, [])
             for position, block in enumerate(source_blocks):
@@ -71,6 +71,7 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
                 identity = hashlib.sha256(f'{pin.build_id}:{block.block_id}'.encode()).hexdigest()
                 chunks.append(DocumentChunk(chunk_id=identity, document_id=pin.source_id, text=text))
                 originals[identity] = (pin, block)
+                positions[(pin.build_id,block.block_id)] = position
                 neighbors[identity] = [(pin, b) for b in source_blocks[max(0,position-1):position+2]
                                        if b.block_id != block.block_id and b.page_number == block.page_number]
         retriever = BM25Retriever()
@@ -93,7 +94,7 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
                 pin, block = originals[chunk.chunk_id]
                 chosen.append({'task_id': task.task_id, 'evidence_id': chunk.chunk_id, 'source': pin.model_dump(mode='json'),
                     'block_id': block.block_id, 'page_number': block.page_number, 'char_start': 0,
-                    'char_end': len(chunk.text), 'text': chunk.text, 'tokens': count, 'score': float(score)})
+                    'char_end': len(chunk.text), 'text': chunk.text, 'original_order': positions[(pin.build_id,block.block_id)], 'tokens': count, 'score': float(score)})
                 used += count
                 if len(chosen) == 3:
                     break
@@ -109,7 +110,7 @@ def search_evidence(request: EvidenceSearchRequest, snapshot):
                     continue
                 chosen.append({'task_id': task.task_id, 'evidence_id': identity, 'source': pin.model_dump(mode='json'),
                     'block_id': block.block_id, 'page_number': block.page_number, 'char_start': 0,
-                    'char_end': len(text), 'text': text, 'tokens': count, 'score': anchor['score'],
+                    'char_end': len(text), 'text': text, 'original_order': positions[(pin.build_id,block.block_id)], 'tokens': count, 'score': anchor['score'],
                     'context_for': anchor['evidence_id']})
                 seen.add(identity)
                 used += count

@@ -1,0 +1,38 @@
+{
+  "split": "development",
+  "label_sha256": "a09112414165dd3821223b5f6fac715d722f10b413502a23a0dab41c897a2c9d",
+  "pricing_sha256": "4db3b62a30913f9acb7909ff066fc4c0a80e75e8944fe1577af51d33f7234ab2",
+  "pricing": {
+    "gpt-6-luna": {
+      "input": 0.0001,
+      "output": 0.0005
+    },
+    "text-embedding-3-small": {
+      "input": 2e-05,
+      "output": 0
+    }
+  },
+  "model": "gpt-6-luna",
+  "reasoning_effort": "none",
+  "code_sha256": {
+    "src/financial/__init__.py": "f3f4353bcc24403d06c1016ef4fba4147c431d25a69dffaeb64575f3ee6cac3a",
+    "src/financial/calculations.py": "2f76b500d3100ae3d50ba65a200c024b0fddfc3cc2daed2111a4fdd2ee53c8a7",
+    "src/financial/evidence.py": "40f5446f7e6f7ca733eb66b6bca3b519afe37a797d4403ea8ad1cb398159b563",
+    "src/financial/intent.py": "13bf09bf6c3659ab598773c88d30b8f20dc5a9aba156de13778a57f4294e95a9",
+    "src/financial/models.py": "9211fe006f7d358184d2bcc808fca456f963f3617d9a6455a691e6ea98762360",
+    "src/financial/narrative.py": "9a6275c893cb0f04be887296d442ecab8d45db35bcdea5523d85ebba9766a9fc",
+    "src/financial/observations.py": "b40931c4eb076686939e76b4179e357290e8a2a1400f0bd86a5b886b54624b31",
+    "src/financial/research.py": "0cac14e3d8c29b0140c2e428cd55a2ffa0f831fbb7309ada146079a6a649216d",
+    "src/services/persistent_service.py": "1ad51596e399b799d684f444543579c0e01d938d1382bd674a398372bd2e8d47",
+    "scripts/run_product_development.py": "22d5f53e9e4fa3041f3093981a2a32c10584b8fb9243c9e87cd11554874e6df0"
+  },
+  "source_artifact_sha256": {
+    "development_inventory.v1.json": "93604de01c42759124b1868e0e079c889a5607bfc826ec8bc8c51307114a9dc0",
+    "indexed_windows.v1.json": "7e1bd44b932d80a6100d88b52805c19f952e437b0e6e29e1df87deeeef747f90",
+    "ingestion_receipts.v1.json": "59332d8f08c5f963088361690139aa5a1cbcf061e538b38ec80d3d26075d3ddc",
+    "reviewed_observations.v1.json": "a62a6f475962a94d27da16579c3742a6949b73d888cdbb24275336ae6ffa668e"
+  },
+  "holdout": "not_accessed",
+  "api_policy": "one synthesis call per narrative; no retries, planner, VLM, embedding or judge calls",
+  "cost_policy": "Configured undiscounted token-price estimate; raw provider usage retained. Not an invoice."
+}

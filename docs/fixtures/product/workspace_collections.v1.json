@@ -1,0 +1,180 @@
+{
+  "owner": "authentic-development",
+  "collections": [
+    {
+      "collection_id": "ed3b2bdc-5d3a-432d-ae7f-b364374fd2a2",
+      "name": "Reviewed primary history (18)",
+      "report_ids": [
+        "amd-q1-2024",
+        "amd-q2-2024",
+        "amd-q3-2024",
+        "amd-fy2024",
+        "amd-q1-2025",
+        "amd-q2-2025",
+        "tsla-q1-2024",
+        "tsla-q2-2024",
+        "tsla-q3-2024",
+        "tsla-fy2024",
+        "tsla-q1-2025",
+        "tsla-q2-2025",
+        "wfc-q1-2024",
+        "wfc-q2-2024",
+        "wfc-q3-2024",
+        "wfc-fy2024",
+        "wfc-q1-2025",
+        "wfc-q2-2025"
+      ],
+      "source_ids": [
+        "7fcd160a-05f0-471e-8915-5c28134b0dd4",
+        "1a89a6f4-0e7c-4cea-9de6-3edc7c86bc1a",
+        "eea36d44-3a84-463c-8b5e-86215056fb96",
+        "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+        "7814244f-0992-460a-a998-fa986b88b891",
+        "2b03b269-5c4e-4a00-8200-2f8535227a24",
+        "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+        "c653cd62-9485-41a1-8b21-23e3bb625e79",
+        "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+        "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "2729655d-c819-4638-89b0-29397d1ccd83",
+        "413889ad-7787-425e-a5e1-bd88f624fa7f",
+        "bb3297ff-b242-4587-81ba-b5021bd55916",
+        "2b177168-779c-4074-a131-2b2d4d100e3e",
+        "12eda076-d539-49a9-94b8-fe821809fa4f",
+        "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+        "435f63fc-11ae-420f-9077-425d67317dca"
+      ]
+    },
+    {
+      "collection_id": "9cd21897-3ff1-4dd5-96d0-6d2b88ea2acd",
+      "name": "AMD reviewed history",
+      "report_ids": [
+        "amd-q1-2024",
+        "amd-q2-2024",
+        "amd-q3-2024",
+        "amd-fy2024",
+        "amd-q1-2025",
+        "amd-q2-2025",
+        "amd-q1-2025-companion",
+        "amd-q2-2025-companion"
+      ],
+      "source_ids": [
+        "7fcd160a-05f0-471e-8915-5c28134b0dd4",
+        "1a89a6f4-0e7c-4cea-9de6-3edc7c86bc1a",
+        "eea36d44-3a84-463c-8b5e-86215056fb96",
+        "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+        "7814244f-0992-460a-a998-fa986b88b891",
+        "2b03b269-5c4e-4a00-8200-2f8535227a24",
+        "a2e09a0f-eaeb-4eec-8360-5008e46aef2e",
+        "da37cba0-72b7-4dd9-b209-b5f5e4d2b7b1"
+      ]
+    },
+    {
+      "collection_id": "47f331df-4cee-4dba-9fed-c114d26453fa",
+      "name": "Tesla reviewed history",
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-q2-2024",
+        "tsla-q3-2024",
+        "tsla-fy2024",
+        "tsla-q1-2025",
+        "tsla-q2-2025",
+        "tsla-q1-2025-companion",
+        "tsla-q2-2025-companion"
+      ],
+      "source_ids": [
+        "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+        "c653cd62-9485-41a1-8b21-23e3bb625e79",
+        "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+        "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "2729655d-c819-4638-89b0-29397d1ccd83",
+        "413889ad-7787-425e-a5e1-bd88f624fa7f",
+        "31041781-3f1a-40e8-91fa-cecb2dac226b",
+        "5732a5a5-76a9-441b-9705-8757592cf9ca"
+      ]
+    },
+    {
+      "collection_id": "c758e378-247a-4e26-b6c0-00ca5fdb6244",
+      "name": "Wells Fargo reviewed history",
+      "report_ids": [
+        "wfc-q1-2024",
+        "wfc-q2-2024",
+        "wfc-q3-2024",
+        "wfc-fy2024",
+        "wfc-q1-2025",
+        "wfc-q2-2025"
+      ],
+      "source_ids": [
+        "bb3297ff-b242-4587-81ba-b5021bd55916",
+        "2b177168-779c-4074-a131-2b2d4d100e3e",
+        "12eda076-d539-49a9-94b8-fe821809fa4f",
+        "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+        "435f63fc-11ae-420f-9077-425d67317dca"
+      ]
+    },
+    {
+      "collection_id": "b41e9d5b-a9a1-4e38-8fe2-015b9623c273",
+      "name": "Q1 2025 originals",
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025",
+        "wfc-q1-2025",
+        "amd-q1-2025-companion",
+        "tsla-q1-2025-companion"
+      ],
+      "source_ids": [
+        "7814244f-0992-460a-a998-fa986b88b891",
+        "2729655d-c819-4638-89b0-29397d1ccd83",
+        "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+        "a2e09a0f-eaeb-4eec-8360-5008e46aef2e",
+        "31041781-3f1a-40e8-91fa-cecb2dac226b"
+      ]
+    },
+    {
+      "collection_id": "6de7b294-dc87-49bf-afa7-dbd8c869e172",
+      "name": "Q2 2025 originals",
+      "report_ids": [
+        "amd-q2-2025",
+        "tsla-q2-2025",
+        "wfc-q2-2025",
+        "amd-q2-2025-companion",
+        "tsla-q2-2025-companion"
+      ],
+      "source_ids": [
+        "2b03b269-5c4e-4a00-8200-2f8535227a24",
+        "413889ad-7787-425e-a5e1-bd88f624fa7f",
+        "435f63fc-11ae-420f-9077-425d67317dca",
+        "da37cba0-72b7-4dd9-b209-b5f5e4d2b7b1",
+        "5732a5a5-76a9-441b-9705-8757592cf9ca"
+      ]
+    },
+    {
+      "collection_id": "1b898ed8-3d7b-4554-9435-e46044121419",
+      "name": "FY2024 common-income comparison",
+      "report_ids": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "source_ids": [
+        "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "b9189a65-79ff-426a-986f-23a881e3c9ba"
+      ]
+    },
+    {
+      "collection_id": "992b7794-0b11-43dd-af5f-37bb2bbd1660",
+      "name": "Tesla Q1 2024 original and crypto recast",
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024",
+        "tsla-q1-2025-companion"
+      ],
+      "source_ids": [
+        "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+        "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "31041781-3f1a-40e8-91fa-cecb2dac226b"
+      ]
+    }
+  ],
+  "qualification": "Retained original selections; no monitoring, acquisition or model calls."
+}

@@ -10,24 +10,32 @@ A financial research prototype built around real Wells Fargo, Tesla and AMD repo
 
 ## Research workspace quickstart
 
-Use the persistent workspace to compare reviewed financial facts, inspect calculations and gaps, and reopen the original evidence behind a saved result. This is a trusted private prototype: acquired originals are not yet reviewed facts, and authentic release accuracy remains held.
+Use the persistent workspace to compare reviewed financial facts, inspect calculations and gaps, and reopen the original evidence behind a saved result. This trusted local prototype now has 22 official development reports/decks and 168 Codex-reviewed original fact cards. Independent release review and authentic accuracy remain held.
 
 ```bash
-pip install -r requirements.txt -r requirements-persistence.txt
-# Supply OPENAI_API_KEY and DATABASE_URL for an existing application-only Postgres/pgvector database.
-export FINRAG_OWNER=local-research
-export FINRAG_OBJECT_DIR="$PWD/index/objects"
-python scripts/sources.py migrate
-streamlit run app/streamlit_app.py
+pip install -r requirements.txt -r requirements-persistence.txt pgserver==0.1.4
+# Supply OPENAI_API_KEY in the ignored .env or environment.
+python scripts/local_postgres.py start
+set -a
+source index/product-local/runtime.env
+set +a
+GENERATOR_MODEL=gpt-6-luna REASONING_EFFORT=none python -m streamlit run app/streamlit_app.py \
+  --server.address 127.0.0.1 --server.port 8502
 ```
 
-Set credentials in your ignored `.env` or environment. Do not publish Streamlit directly: owner administration is a local UI organization, not multi-user authorization. The [private API guide](docs/PERSISTENCE.md) describes bearer authentication and immutable originals.
+These commands reuse the existing private local cluster; repository receipts preserve its source/build identities. A fresh checkout needs acquisition, ingestion, original review and its own frozen capture manifest before reproducing this corpus.
+
+Set credentials in your ignored `.env` or environment. Explicit environment settings take precedence. Do not publish Streamlit directly: owner administration is a local UI organization, not multi-user authorization. The [private API guide](docs/PERSISTENCE.md) describes bearer authentication and immutable originals.
 
 Start in **Research**, choose a saved collection or narrow report selection, then choose Lookup, Compare, Trend, Profit margin or operating calculations. Supply explicit company/period/scope/basis; missing facts stay visible and every issued calculation needs both reviewed operands. **Library** shows metadata review, build coverage, fact counts and refresh status. **History** opens saved results without rerunning; an explicit rerun creates a separate result with readable evidence/result changes. Source/fact edits live under **Owner administration**.
 
-The [development inventory and metric policy](docs/PRODUCT_METRIC_POLICY.md) freeze 18 primary and four companion sources. Preview acquisition with `python scripts/prepare_product_corpus.py`; explicit `--acquire` retains originals with hashes and failure receipts, without ingestion or model calls. [Batch progress](docs/PRODUCT_NEXT_BATCH_PROGRESS.md) records what is acquired, tested and still held. Run `python scripts/prepare_financial_review.py` for the original-page/table review packet; [review handoff](docs/PRODUCT_REVIEW_HANDOFF.md) explains the remaining inputs and validation sequence. Retained PDF files live in ignored `data/product_corpus/`; approve actual financial-page windows and metadata before existing source registration/ingestion, then import personally reviewed fact cards. Acquisition does not populate eligible research facts automatically.
+The [development inventory and metric policy](docs/PRODUCT_METRIC_POLICY.md) freeze 18 primary and four companion sources. All 22 originals are acquired and ingested in [persistent local Postgres](docs/PRODUCT_LOCAL_RUNTIME.md), with reviewed physical windows, immutable originals/builds and usage receipts. Acquisition and candidate extraction alone never certify facts. Original role locators and a named development review qualify the 168 imported cards; independent release gates remain separate.
 
-A five-minute walkthrough, once those facts are reviewed: choose AMD Q1/Q2 2025 → run revenue growth or gross-margin change → inspect both original operands → inspect a compatible/incompatible company comparison → open History → explicitly rerun → compare changed evidence/results. Financial screenshots and authentic hero results await reviewed bindings; test-fixture UI checks are not financial demos.
+[Development capture](docs/PRODUCT_DEVELOPMENT_CAPTURE.md) uses 48 frozen cases across six slices, including 25 numeric cases, eight narratives and eight answerable cross-company cases. The latest capture passes 48/48 mechanical checks and 25/25 original numeric bindings, with 48/48 exact saved-history reopens. These are development checks, not strict authentic accuracy. Original claim/context review, failures, measured token usage, latency and configured cost estimates are retained; the separate 48-question holdout remains sealed.
+
+A five-minute walkthrough: choose **FY2024 common-income comparison** → enter `compare GAAP consolidated net income attributable to common for TSLA and WFC in FY2024` → inspect both original attribution/period/unit citations → choose a reviewed AMD/Tesla history for scoped calculations → open History → explicitly rerun and inspect evidence/result changes. AMD Q2 2025 continuing operations, unequal quarter durations, recast Tesla income and changed segment definitions stay explicit. Eight prepared local collections and saved development runs are ready. Narrative drafts are optional and visibly unreviewed.
+
+![Actual local comparison over reviewed original facts](docs/screenshots/product-local-20261003/common-income.jpg)
 
 ```mermaid
 flowchart LR
@@ -37,7 +45,9 @@ flowchart LR
     Facts --> Coverage[Required evidence coverage]
     Coverage --> Decimal[Checked Decimal operations]
     Decimal --> History[Immutable saved results + explicit reruns]
-    Search[Evidence search] --> Candidates[Original passage candidates; synthesis held]
+    Search[Evidence search] --> Candidates[Task-balanced original candidates]
+    Candidates --> Draft[Optional single-call cited draft; semantic review required]
+    Draft --> History
     Planner[Optional planner: disabled] -.-> Research
     Derived[Captions/context: derived] -.-> Retrieval
     Evaluation[Offline/frozen evaluation: release held]

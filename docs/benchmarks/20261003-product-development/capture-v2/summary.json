@@ -1,0 +1,55 @@
+{
+  "status": "development_capture_release_held",
+  "case_count": 48,
+  "slices": {
+    "calculations_units": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    },
+    "clarification": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    },
+    "conflicts_revisions": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    },
+    "missing_evidence": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    },
+    "multi_document": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    },
+    "temporal_scope": {
+      "mechanical_pass": 8,
+      "denominator": 8
+    }
+  },
+  "mechanical_pass": 48,
+  "numeric_bindings": {
+    "passed": 25,
+    "denominator": 25
+  },
+  "semantic_citation_support": {
+    "value": null,
+    "reviewed_denominator": 0
+  },
+  "strict_authentic_accuracy": {
+    "value": null,
+    "reviewed_denominator": 0
+  },
+  "planner_calls": 0,
+  "generation_calls": 8,
+  "input_tokens": 19451,
+  "output_tokens": 1210,
+  "configured_estimate_usd": 0.0025501000000000005,
+  "unpriced_events": 0,
+  "latency_seconds": {
+    "p50": 0.011179437977261841,
+    "p95": 2.2298733750358224
+  },
+  "saved_history_reopens": 48,
+  "holdout": "not_accessed"
+}

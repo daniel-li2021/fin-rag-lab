@@ -93,8 +93,13 @@ def render_research(svc):
 def render_history(svc):
     history = svc.registry.research_runs(svc.owner)
     if history:
-        saved = st.selectbox('Saved research', history, format_func=lambda row: f'{row["question"]} · {row["created_at"]:%Y-%m-%d %H:%M}')
-        row = svc.registry.research_run(svc.owner, saved['run_id'])
+        by_id = {item['run_id']: item for item in history}
+        run_ids = list(by_id)
+        previous_run = st.session_state.get('research_saved_run')
+        selected_run = st.selectbox('Saved research', run_ids, key='research_saved_run',
+            index=run_ids.index(previous_run) if previous_run in by_id else 0,
+            format_func=lambda key: f'{by_id[key]["question"]} · {by_id[key]["created_at"]:%Y-%m-%d %H:%M}')
+        row = svc.registry.research_run(svc.owner, selected_run)
         changes = svc.registry.research_changes(svc.owner, row['payload'])
         if changes['potentially_stale']:
             st.warning('Sources or metadata changed. This saved answer retains its original evidence.')
@@ -105,7 +110,7 @@ def render_history(svc):
             st.session_state.pop('research_diff', None)
         if st.button('Rerun with current sources'):
             try:
-                rerun = svc.rerun_research(saved['run_id'])
+                rerun = svc.rerun_research(selected_run)
                 st.session_state.research_result = rerun['result']
                 st.session_state.research_diff = rerun['diff']
             except (ValueError, LookupError) as exc:
@@ -119,7 +124,8 @@ def render_result():
         st.text(result['answer'])
         tasks = {t['task_id']: t for t in result['request'].get('tasks', [])}
         _table([{'Company': tasks.get(c['task_id'], {}).get('company_id', ''),
-                 'Period': tasks.get(c['task_id'], {}).get('period', {}).get('fiscal_label', ''),
+                 'Period': tasks.get(c['task_id'], {}).get('period', {}).get('fiscal_label')
+                           or tasks.get(c['task_id'], {}).get('document_period_label', ''),
                  'Metric': tasks.get(c['task_id'], {}).get('metric_id', c['task_id']).replace('_', ' '),
                  'Status': c['status'].replace('_', ' '), 'Reason': c['reason']} for c in result['coverage']])
         for receipt in result.get('calculations', []):

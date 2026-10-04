@@ -1,5 +1,11 @@
 # Authentic review handoff
 
+The [current development capture](PRODUCT_DEVELOPMENT_CAPTURE.md) completes the authorized local phase: 22 official originals, reviewed indexed windows, 168 named Codex-reviewed cards, frozen 48-case development labels and full regression/development captures. Eight prepared collections and actual Library/Research/History checks are retained. No genuine unresolved semantic or policy decision requires user input for this phase. Independent release review, matched historical gates, the sealed holdout, planner and public/cloud deployment remain separate and held.
+
+The original pre-authorization handoff below is retained as historical context; its acquisition gaps, missing database and model-allowance requests are superseded by the October 3 authorization and completed batches.
+
+## Original pre-authorization handoff (historical)
+
 The [implementation progress](PRODUCT_NEXT_BATCH_PROGRESS.md) records code validation and acquisition. The [metric policy](PRODUCT_METRIC_POLICY.md) governs curation. Release, planner, narrative synthesis and authentic accuracy remain held.
 
 ## Prepared evidence

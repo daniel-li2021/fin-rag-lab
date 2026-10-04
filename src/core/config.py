@@ -80,6 +80,8 @@ class Settings:
         "gpt-4o-mini":     {"input": 0.000150, "output": 0.000600},
         "gpt-4o":          {"input": 0.0025,   "output": 0.010},
         "o4-mini":         {"input": 0.00110,  "output": 0.00440},
+        # Official GPT-6 Luna price snapshot, verified 2026-10-03 (per 1K).
+        "gpt-6-luna":      {"input": 0.00010,  "output": 0.00050},
         # embeddings
         "text-embedding-3-small": {"input": 0.000020, "output": 0.0},
         "text-embedding-3-large": {"input": 0.000130, "output": 0.0},

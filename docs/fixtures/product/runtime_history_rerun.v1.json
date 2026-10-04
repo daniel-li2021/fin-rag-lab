@@ -1,0 +1,1649 @@
+{
+  "qualification": "Actual localhost save and explicit rerun; both immutable payloads read back from local Postgres. No source update was fabricated.",
+  "parent_run": {
+    "usage": {
+      "cost_usd": "0",
+      "planner_calls": 0,
+      "embedding_calls": 0,
+      "generator_calls": 0
+    },
+    "answer": "TSLA / net_income_common / FY2024 / consolidated / GAAP: 7091 USD \u00d7 1000000 [tsla-fy2024:net_income_common:consolidated:GAAP:FY2024]\nWFC / net_income_common / FY2024 / consolidated / GAAP: 18606 USD \u00d7 1000000 [wfc-fy2024:net_income_common:consolidated:GAAP:FY2024]",
+    "run_id": "0c4070744f1f30c178d0a47892c2d3a5a7857d05b2ea42988748af8705d3c645",
+    "outcome": "answer",
+    "ranking": [],
+    "request": {
+      "mode": "comparison",
+      "as_of": null,
+      "tasks": [
+        {
+          "basis": "GAAP",
+          "scope": "consolidated",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "task_id": "task-1",
+          "metric_id": "net_income_common",
+          "company_id": "TSLA"
+        },
+        {
+          "basis": "GAAP",
+          "scope": "consolidated",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "task_id": "task-2",
+          "metric_id": "net_income_common",
+          "company_id": "WFC"
+        }
+      ],
+      "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in FY2024",
+      "selections": [
+        {
+          "build_id": null,
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": null,
+          "version_id": null,
+          "fiscal_year": null,
+          "document_type": null,
+          "fiscal_quarter": null,
+          "metadata_review_id": null
+        },
+        {
+          "build_id": null,
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": null,
+          "version_id": null,
+          "fiscal_year": null,
+          "document_type": null,
+          "fiscal_quarter": null,
+          "metadata_review_id": null
+        }
+      ],
+      "calculations": [],
+      "observations": [
+        {
+          "unit": "currency",
+          "basis": "GAAP",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "value": "7091",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "source": {
+            "status": "available",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "company_id": "TSLA",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+            "publication_date": "2025-01-30"
+          },
+          "currency": "USD",
+          "evidence": [
+            {
+              "role": "value",
+              "text": "7,091",
+              "block_id": "blk_ed441084ccda",
+              "char_end": null,
+              "row_index": 29,
+              "char_start": null,
+              "page_number": 52,
+              "column_index": 2
+            },
+            {
+              "role": "row_label",
+              "text": "Net income attributable to common stockholders",
+              "block_id": "blk_ed441084ccda",
+              "char_end": null,
+              "row_index": 29,
+              "char_start": null,
+              "page_number": 52,
+              "column_index": 0
+            },
+            {
+              "role": "column_period",
+              "text": "Year Ended December 31,",
+              "block_id": "blk_9dda4bfb985c",
+              "char_end": 23,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "2024 2023 2022",
+              "block_id": "blk_eeee426d22ab",
+              "char_end": 14,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "millions",
+              "block_id": "blk_5bdc71ea4388",
+              "char_end": 12,
+              "row_index": null,
+              "char_start": 4,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "$",
+              "block_id": "blk_6c080e25ec3c",
+              "char_end": 18,
+              "row_index": null,
+              "char_start": 17,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "basis",
+              "text": "generally accepted accounting principles",
+              "block_id": "blk_05179b64f760",
+              "char_end": 282,
+              "row_index": null,
+              "char_start": 242,
+              "page_number": 50,
+              "column_index": null
+            },
+            {
+              "role": "scope",
+              "text": "Consolidated Statements of Operations",
+              "block_id": "blk_168905cc45a3",
+              "char_end": 37,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            }
+          ],
+          "reported": true,
+          "metric_id": "net_income_common",
+          "company_id": "TSLA",
+          "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+          "original_label": "Net income attributable to common stockholders",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "revision_evidence": [],
+          "verification_status": "reviewed",
+          "supersedes_observation_ids": []
+        },
+        {
+          "unit": "currency",
+          "basis": "GAAP",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "value": "18606",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "source": {
+            "status": "available",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "company_id": "WFC",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+            "publication_date": "2025-02-25"
+          },
+          "currency": "USD",
+          "evidence": [
+            {
+              "role": "value",
+              "text": "18,606",
+              "block_id": "blk_b4118898d159",
+              "char_end": 58,
+              "row_index": null,
+              "char_start": 52,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "row_label",
+              "text": "Wells Fargo net income applicable to common stock",
+              "block_id": "blk_b4118898d159",
+              "char_end": 49,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "Year ended December 31,",
+              "block_id": "blk_e6e9f1c7ad5f",
+              "char_end": 23,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "(in millions, except per share amounts) 2024 2023 2022",
+              "block_id": "blk_d17af9a6d8db",
+              "char_end": 54,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "millions",
+              "block_id": "blk_d17af9a6d8db",
+              "char_end": 12,
+              "row_index": null,
+              "char_start": 4,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "$",
+              "block_id": "blk_392509fae935",
+              "char_end": 17,
+              "row_index": null,
+              "char_start": 16,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "basis",
+              "text": "generally accepted accounting principles",
+              "block_id": "blk_bcd66cb8e3cc",
+              "char_end": 767,
+              "row_index": null,
+              "char_start": 727,
+              "page_number": 5,
+              "column_index": null
+            },
+            {
+              "role": "scope",
+              "text": "Consolidated Statement of Income",
+              "block_id": "blk_0c3de42ae4ba",
+              "char_end": 32,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            }
+          ],
+          "reported": true,
+          "metric_id": "net_income_common",
+          "company_id": "WFC",
+          "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+          "original_label": "Wells Fargo net income applicable to common stock",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "revision_evidence": [],
+          "verification_status": "reviewed",
+          "supersedes_observation_ids": []
+        }
+      ],
+      "revision_policy": "latest_reviewed"
+    },
+    "coverage": [
+      {
+        "reason": "Exact reviewed observations cover the requested dimensions",
+        "status": "supported",
+        "task_id": "task-1",
+        "observation_ids": [
+          "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024"
+        ]
+      },
+      {
+        "reason": "Exact reviewed observations cover the requested dimensions",
+        "status": "supported",
+        "task_id": "task-2",
+        "observation_ids": [
+          "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024"
+        ]
+      }
+    ],
+    "manifest": [
+      {
+        "status": "available",
+        "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+        "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "company_id": "TSLA",
+        "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+        "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+        "publication_date": "2025-01-30"
+      },
+      {
+        "status": "available",
+        "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+        "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "company_id": "WFC",
+        "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+        "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+        "publication_date": "2025-02-25"
+      }
+    ],
+    "citations": {
+      "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024": {
+        "source": {
+          "status": "available",
+          "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": "WFC",
+          "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+          "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+          "publication_date": "2025-02-25"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "text": "18,606",
+            "block_id": "blk_b4118898d159",
+            "char_end": 58,
+            "row_index": null,
+            "char_start": 52,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "row_label",
+            "text": "Wells Fargo net income applicable to common stock",
+            "block_id": "blk_b4118898d159",
+            "char_end": 49,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "Year ended December 31,",
+            "block_id": "blk_e6e9f1c7ad5f",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "(in millions, except per share amounts) 2024 2023 2022",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 54,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_392509fae935",
+            "char_end": 17,
+            "row_index": null,
+            "char_start": 16,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_bcd66cb8e3cc",
+            "char_end": 767,
+            "row_index": null,
+            "char_start": 727,
+            "page_number": 5,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statement of Income",
+            "block_id": "blk_0c3de42ae4ba",
+            "char_end": 32,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          }
+        ]
+      },
+      "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024": {
+        "source": {
+          "status": "available",
+          "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": "TSLA",
+          "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+          "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+          "publication_date": "2025-01-30"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "text": "7,091",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 2
+          },
+          {
+            "role": "row_label",
+            "text": "Net income attributable to common stockholders",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 0
+          },
+          {
+            "role": "column_period",
+            "text": "Year Ended December 31,",
+            "block_id": "blk_9dda4bfb985c",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "2024 2023 2022",
+            "block_id": "blk_eeee426d22ab",
+            "char_end": 14,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_5bdc71ea4388",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_6c080e25ec3c",
+            "char_end": 18,
+            "row_index": null,
+            "char_start": 17,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_05179b64f760",
+            "char_end": 282,
+            "row_index": null,
+            "char_start": 242,
+            "page_number": 50,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statements of Operations",
+            "block_id": "blk_168905cc45a3",
+            "char_end": 37,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          }
+        ]
+      }
+    },
+    "code_hash": "84f52a611e22398b2901c59409dff5e1a8d4092c77762651835481591e2fc7a3",
+    "execution": {
+      "timestamp": "2026-10-04T01:54:19.458635+00:00",
+      "execution_id": "3b0dd21f-782b-43cd-8e44-934c34b9cb34",
+      "collection_id": "1b898ed8-3d7b-4554-9435-e46044121419",
+      "parent_run_id": null
+    },
+    "inventory": [
+      {
+        "title": "Tesla, Inc. FY2024 10-K",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-12-31",
+          "fiscal_year": 2024,
+          "period_kind": "annual",
+          "company_name": "Tesla, Inc.",
+          "period_label": "FY2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-K",
+          "review_status": "confirmed",
+          "fiscal_quarter": null,
+          "publication_date": "2025-01-30"
+        },
+        "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "last_error": null,
+        "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0
+      },
+      {
+        "title": "Wells Fargo & Company FY2024 10-K",
+        "status": "ready",
+        "metadata": {
+          "company_id": "WFC",
+          "period_end": "2024-12-31",
+          "fiscal_year": 2024,
+          "period_kind": "annual",
+          "company_name": "Wells Fargo & Company",
+          "period_label": "FY2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-K",
+          "review_status": "confirmed",
+          "fiscal_quarter": null,
+          "publication_date": "2025-02-25"
+        },
+        "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "last_error": null,
+        "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0
+      }
+    ],
+    "calculations": [],
+    "observations": [
+      {
+        "unit": "currency",
+        "basis": "GAAP",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "value": "7091",
+        "period": {
+          "end": "2024-12-31",
+          "kind": "annual",
+          "start": "2024-01-01",
+          "calendar": "calendar",
+          "fiscal_label": "FY2024"
+        },
+        "source": {
+          "status": "available",
+          "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": "TSLA",
+          "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+          "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+          "publication_date": "2025-01-30"
+        },
+        "currency": "USD",
+        "evidence": [
+          {
+            "role": "value",
+            "text": "7,091",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 2
+          },
+          {
+            "role": "row_label",
+            "text": "Net income attributable to common stockholders",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 0
+          },
+          {
+            "role": "column_period",
+            "text": "Year Ended December 31,",
+            "block_id": "blk_9dda4bfb985c",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "2024 2023 2022",
+            "block_id": "blk_eeee426d22ab",
+            "char_end": 14,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_5bdc71ea4388",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_6c080e25ec3c",
+            "char_end": 18,
+            "row_index": null,
+            "char_start": 17,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_05179b64f760",
+            "char_end": 282,
+            "row_index": null,
+            "char_start": 242,
+            "page_number": 50,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statements of Operations",
+            "block_id": "blk_168905cc45a3",
+            "char_end": 37,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          }
+        ],
+        "reported": true,
+        "metric_id": "net_income_common",
+        "company_id": "TSLA",
+        "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "original_label": "Net income attributable to common stockholders",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "revision_evidence": [],
+        "verification_status": "reviewed",
+        "supersedes_observation_ids": []
+      },
+      {
+        "unit": "currency",
+        "basis": "GAAP",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "value": "18606",
+        "period": {
+          "end": "2024-12-31",
+          "kind": "annual",
+          "start": "2024-01-01",
+          "calendar": "calendar",
+          "fiscal_label": "FY2024"
+        },
+        "source": {
+          "status": "available",
+          "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": "WFC",
+          "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+          "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+          "publication_date": "2025-02-25"
+        },
+        "currency": "USD",
+        "evidence": [
+          {
+            "role": "value",
+            "text": "18,606",
+            "block_id": "blk_b4118898d159",
+            "char_end": 58,
+            "row_index": null,
+            "char_start": 52,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "row_label",
+            "text": "Wells Fargo net income applicable to common stock",
+            "block_id": "blk_b4118898d159",
+            "char_end": 49,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "Year ended December 31,",
+            "block_id": "blk_e6e9f1c7ad5f",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "(in millions, except per share amounts) 2024 2023 2022",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 54,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_392509fae935",
+            "char_end": 17,
+            "row_index": null,
+            "char_start": 16,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_bcd66cb8e3cc",
+            "char_end": 767,
+            "row_index": null,
+            "char_start": 727,
+            "page_number": 5,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statement of Income",
+            "block_id": "blk_0c3de42ae4ba",
+            "char_end": 32,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          }
+        ],
+        "reported": true,
+        "metric_id": "net_income_common",
+        "company_id": "WFC",
+        "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "original_label": "Wells Fargo net income applicable to common stock",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "revision_evidence": [],
+        "verification_status": "reviewed",
+        "supersedes_observation_ids": []
+      }
+    ],
+    "calculation_gaps": [],
+    "contract_version": "financial-research-v1",
+    "rejected_observations": []
+  },
+  "current_run": {
+    "usage": {
+      "cost_usd": "0",
+      "planner_calls": 0,
+      "embedding_calls": 0,
+      "generator_calls": 0
+    },
+    "answer": "TSLA / net_income_common / FY2024 / consolidated / GAAP: 7091 USD \u00d7 1000000 [tsla-fy2024:net_income_common:consolidated:GAAP:FY2024]\nWFC / net_income_common / FY2024 / consolidated / GAAP: 18606 USD \u00d7 1000000 [wfc-fy2024:net_income_common:consolidated:GAAP:FY2024]",
+    "run_id": "7815e9de0f054fbc8f4a296a67384c029e27523be7b233a478f646b9d51028b9",
+    "outcome": "answer",
+    "ranking": [],
+    "request": {
+      "mode": "comparison",
+      "as_of": null,
+      "tasks": [
+        {
+          "basis": "GAAP",
+          "scope": "consolidated",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "task_id": "task-1",
+          "metric_id": "net_income_common",
+          "company_id": "TSLA"
+        },
+        {
+          "basis": "GAAP",
+          "scope": "consolidated",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "task_id": "task-2",
+          "metric_id": "net_income_common",
+          "company_id": "WFC"
+        }
+      ],
+      "question": "compare GAAP consolidated net income attributable to common for TSLA and WFC in FY2024",
+      "selections": [
+        {
+          "build_id": null,
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": null,
+          "version_id": null,
+          "fiscal_year": null,
+          "document_type": null,
+          "fiscal_quarter": null,
+          "metadata_review_id": null
+        },
+        {
+          "build_id": null,
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": null,
+          "version_id": null,
+          "fiscal_year": null,
+          "document_type": null,
+          "fiscal_quarter": null,
+          "metadata_review_id": null
+        }
+      ],
+      "calculations": [],
+      "observations": [
+        {
+          "unit": "currency",
+          "basis": "GAAP",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "value": "7091",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "source": {
+            "status": "available",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "company_id": "TSLA",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+            "publication_date": "2025-01-30"
+          },
+          "currency": "USD",
+          "evidence": [
+            {
+              "role": "value",
+              "text": "7,091",
+              "block_id": "blk_ed441084ccda",
+              "char_end": null,
+              "row_index": 29,
+              "char_start": null,
+              "page_number": 52,
+              "column_index": 2
+            },
+            {
+              "role": "row_label",
+              "text": "Net income attributable to common stockholders",
+              "block_id": "blk_ed441084ccda",
+              "char_end": null,
+              "row_index": 29,
+              "char_start": null,
+              "page_number": 52,
+              "column_index": 0
+            },
+            {
+              "role": "column_period",
+              "text": "Year Ended December 31,",
+              "block_id": "blk_9dda4bfb985c",
+              "char_end": 23,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "2024 2023 2022",
+              "block_id": "blk_eeee426d22ab",
+              "char_end": 14,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "millions",
+              "block_id": "blk_5bdc71ea4388",
+              "char_end": 12,
+              "row_index": null,
+              "char_start": 4,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "$",
+              "block_id": "blk_6c080e25ec3c",
+              "char_end": 18,
+              "row_index": null,
+              "char_start": 17,
+              "page_number": 52,
+              "column_index": null
+            },
+            {
+              "role": "basis",
+              "text": "generally accepted accounting principles",
+              "block_id": "blk_05179b64f760",
+              "char_end": 282,
+              "row_index": null,
+              "char_start": 242,
+              "page_number": 50,
+              "column_index": null
+            },
+            {
+              "role": "scope",
+              "text": "Consolidated Statements of Operations",
+              "block_id": "blk_168905cc45a3",
+              "char_end": 37,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 52,
+              "column_index": null
+            }
+          ],
+          "reported": true,
+          "metric_id": "net_income_common",
+          "company_id": "TSLA",
+          "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+          "original_label": "Net income attributable to common stockholders",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "revision_evidence": [],
+          "verification_status": "reviewed",
+          "supersedes_observation_ids": []
+        },
+        {
+          "unit": "currency",
+          "basis": "GAAP",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "value": "18606",
+          "period": {
+            "end": "2024-12-31",
+            "kind": "annual",
+            "start": "2024-01-01",
+            "calendar": "calendar",
+            "fiscal_label": "FY2024"
+          },
+          "source": {
+            "status": "available",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "company_id": "WFC",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+            "publication_date": "2025-02-25"
+          },
+          "currency": "USD",
+          "evidence": [
+            {
+              "role": "value",
+              "text": "18,606",
+              "block_id": "blk_b4118898d159",
+              "char_end": 58,
+              "row_index": null,
+              "char_start": 52,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "row_label",
+              "text": "Wells Fargo net income applicable to common stock",
+              "block_id": "blk_b4118898d159",
+              "char_end": 49,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "Year ended December 31,",
+              "block_id": "blk_e6e9f1c7ad5f",
+              "char_end": 23,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "column_period",
+              "text": "(in millions, except per share amounts) 2024 2023 2022",
+              "block_id": "blk_d17af9a6d8db",
+              "char_end": 54,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "millions",
+              "block_id": "blk_d17af9a6d8db",
+              "char_end": 12,
+              "row_index": null,
+              "char_start": 4,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "unit",
+              "text": "$",
+              "block_id": "blk_392509fae935",
+              "char_end": 17,
+              "row_index": null,
+              "char_start": 16,
+              "page_number": 79,
+              "column_index": null
+            },
+            {
+              "role": "basis",
+              "text": "generally accepted accounting principles",
+              "block_id": "blk_bcd66cb8e3cc",
+              "char_end": 767,
+              "row_index": null,
+              "char_start": 727,
+              "page_number": 5,
+              "column_index": null
+            },
+            {
+              "role": "scope",
+              "text": "Consolidated Statement of Income",
+              "block_id": "blk_0c3de42ae4ba",
+              "char_end": 32,
+              "row_index": null,
+              "char_start": 0,
+              "page_number": 79,
+              "column_index": null
+            }
+          ],
+          "reported": true,
+          "metric_id": "net_income_common",
+          "company_id": "WFC",
+          "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+          "original_label": "Wells Fargo net income applicable to common stock",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "revision_evidence": [],
+          "verification_status": "reviewed",
+          "supersedes_observation_ids": []
+        }
+      ],
+      "revision_policy": "latest_reviewed"
+    },
+    "coverage": [
+      {
+        "reason": "Exact reviewed observations cover the requested dimensions",
+        "status": "supported",
+        "task_id": "task-1",
+        "observation_ids": [
+          "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024"
+        ]
+      },
+      {
+        "reason": "Exact reviewed observations cover the requested dimensions",
+        "status": "supported",
+        "task_id": "task-2",
+        "observation_ids": [
+          "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024"
+        ]
+      }
+    ],
+    "manifest": [
+      {
+        "status": "available",
+        "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+        "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "company_id": "TSLA",
+        "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+        "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+        "publication_date": "2025-01-30"
+      },
+      {
+        "status": "available",
+        "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+        "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "company_id": "WFC",
+        "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+        "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+        "publication_date": "2025-02-25"
+      }
+    ],
+    "citations": {
+      "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024": {
+        "source": {
+          "status": "available",
+          "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": "WFC",
+          "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+          "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+          "publication_date": "2025-02-25"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "text": "18,606",
+            "block_id": "blk_b4118898d159",
+            "char_end": 58,
+            "row_index": null,
+            "char_start": 52,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "row_label",
+            "text": "Wells Fargo net income applicable to common stock",
+            "block_id": "blk_b4118898d159",
+            "char_end": 49,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "Year ended December 31,",
+            "block_id": "blk_e6e9f1c7ad5f",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "(in millions, except per share amounts) 2024 2023 2022",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 54,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_392509fae935",
+            "char_end": 17,
+            "row_index": null,
+            "char_start": 16,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_bcd66cb8e3cc",
+            "char_end": 767,
+            "row_index": null,
+            "char_start": 727,
+            "page_number": 5,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statement of Income",
+            "block_id": "blk_0c3de42ae4ba",
+            "char_end": 32,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          }
+        ]
+      },
+      "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024": {
+        "source": {
+          "status": "available",
+          "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": "TSLA",
+          "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+          "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+          "publication_date": "2025-01-30"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "text": "7,091",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 2
+          },
+          {
+            "role": "row_label",
+            "text": "Net income attributable to common stockholders",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 0
+          },
+          {
+            "role": "column_period",
+            "text": "Year Ended December 31,",
+            "block_id": "blk_9dda4bfb985c",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "2024 2023 2022",
+            "block_id": "blk_eeee426d22ab",
+            "char_end": 14,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_5bdc71ea4388",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_6c080e25ec3c",
+            "char_end": 18,
+            "row_index": null,
+            "char_start": 17,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_05179b64f760",
+            "char_end": 282,
+            "row_index": null,
+            "char_start": 242,
+            "page_number": 50,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statements of Operations",
+            "block_id": "blk_168905cc45a3",
+            "char_end": 37,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          }
+        ]
+      }
+    },
+    "code_hash": "84f52a611e22398b2901c59409dff5e1a8d4092c77762651835481591e2fc7a3",
+    "execution": {
+      "timestamp": "2026-10-04T01:55:55.820793+00:00",
+      "execution_id": "ff8733d2-da2b-425e-8679-f03fc1e9d35c",
+      "collection_id": "1b898ed8-3d7b-4554-9435-e46044121419",
+      "parent_run_id": "0c4070744f1f30c178d0a47892c2d3a5a7857d05b2ea42988748af8705d3c645"
+    },
+    "inventory": [
+      {
+        "title": "Tesla, Inc. FY2024 10-K",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-12-31",
+          "fiscal_year": 2024,
+          "period_kind": "annual",
+          "company_name": "Tesla, Inc.",
+          "period_label": "FY2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-K",
+          "review_status": "confirmed",
+          "fiscal_quarter": null,
+          "publication_date": "2025-01-30"
+        },
+        "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "last_error": null,
+        "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0
+      },
+      {
+        "title": "Wells Fargo & Company FY2024 10-K",
+        "status": "ready",
+        "metadata": {
+          "company_id": "WFC",
+          "period_end": "2024-12-31",
+          "fiscal_year": 2024,
+          "period_kind": "annual",
+          "company_name": "Wells Fargo & Company",
+          "period_label": "FY2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-K",
+          "review_status": "confirmed",
+          "fiscal_quarter": null,
+          "publication_date": "2025-02-25"
+        },
+        "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+        "last_error": null,
+        "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0
+      }
+    ],
+    "calculations": [],
+    "observations": [
+      {
+        "unit": "currency",
+        "basis": "GAAP",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "value": "7091",
+        "period": {
+          "end": "2024-12-31",
+          "kind": "annual",
+          "start": "2024-01-01",
+          "calendar": "calendar",
+          "fiscal_label": "FY2024"
+        },
+        "source": {
+          "status": "available",
+          "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+          "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+          "company_id": "TSLA",
+          "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+          "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+          "publication_date": "2025-01-30"
+        },
+        "currency": "USD",
+        "evidence": [
+          {
+            "role": "value",
+            "text": "7,091",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 2
+          },
+          {
+            "role": "row_label",
+            "text": "Net income attributable to common stockholders",
+            "block_id": "blk_ed441084ccda",
+            "char_end": null,
+            "row_index": 29,
+            "char_start": null,
+            "page_number": 52,
+            "column_index": 0
+          },
+          {
+            "role": "column_period",
+            "text": "Year Ended December 31,",
+            "block_id": "blk_9dda4bfb985c",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "2024 2023 2022",
+            "block_id": "blk_eeee426d22ab",
+            "char_end": 14,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_5bdc71ea4388",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_6c080e25ec3c",
+            "char_end": 18,
+            "row_index": null,
+            "char_start": 17,
+            "page_number": 52,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_05179b64f760",
+            "char_end": 282,
+            "row_index": null,
+            "char_start": 242,
+            "page_number": 50,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statements of Operations",
+            "block_id": "blk_168905cc45a3",
+            "char_end": 37,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 52,
+            "column_index": null
+          }
+        ],
+        "reported": true,
+        "metric_id": "net_income_common",
+        "company_id": "TSLA",
+        "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "original_label": "Net income attributable to common stockholders",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "revision_evidence": [],
+        "verification_status": "reviewed",
+        "supersedes_observation_ids": []
+      },
+      {
+        "unit": "currency",
+        "basis": "GAAP",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "value": "18606",
+        "period": {
+          "end": "2024-12-31",
+          "kind": "annual",
+          "start": "2024-01-01",
+          "calendar": "calendar",
+          "fiscal_label": "FY2024"
+        },
+        "source": {
+          "status": "available",
+          "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+          "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+          "company_id": "WFC",
+          "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+          "source_hash": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+          "publication_date": "2025-02-25"
+        },
+        "currency": "USD",
+        "evidence": [
+          {
+            "role": "value",
+            "text": "18,606",
+            "block_id": "blk_b4118898d159",
+            "char_end": 58,
+            "row_index": null,
+            "char_start": 52,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "row_label",
+            "text": "Wells Fargo net income applicable to common stock",
+            "block_id": "blk_b4118898d159",
+            "char_end": 49,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "Year ended December 31,",
+            "block_id": "blk_e6e9f1c7ad5f",
+            "char_end": 23,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "column_period",
+            "text": "(in millions, except per share amounts) 2024 2023 2022",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 54,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "millions",
+            "block_id": "blk_d17af9a6d8db",
+            "char_end": 12,
+            "row_index": null,
+            "char_start": 4,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "unit",
+            "text": "$",
+            "block_id": "blk_392509fae935",
+            "char_end": 17,
+            "row_index": null,
+            "char_start": 16,
+            "page_number": 79,
+            "column_index": null
+          },
+          {
+            "role": "basis",
+            "text": "generally accepted accounting principles",
+            "block_id": "blk_bcd66cb8e3cc",
+            "char_end": 767,
+            "row_index": null,
+            "char_start": 727,
+            "page_number": 5,
+            "column_index": null
+          },
+          {
+            "role": "scope",
+            "text": "Consolidated Statement of Income",
+            "block_id": "blk_0c3de42ae4ba",
+            "char_end": 32,
+            "row_index": null,
+            "char_start": 0,
+            "page_number": 79,
+            "column_index": null
+          }
+        ],
+        "reported": true,
+        "metric_id": "net_income_common",
+        "company_id": "WFC",
+        "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "original_label": "Wells Fargo net income applicable to common stock",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "revision_evidence": [],
+        "verification_status": "reviewed",
+        "supersedes_observation_ids": []
+      }
+    ],
+    "calculation_gaps": [],
+    "contract_version": "financial-research-v1",
+    "rejected_observations": []
+  },
+  "observed_ui_diff": {
+    "evidence_changed": false,
+    "answer_changed": false
+  },
+  "screenshot": "docs/screenshots/product-local-20261003/history-rerun.jpg",
+  "screenshot_sha256": "407cb99ba2c928b79dd68b8a8291694f29f03d25da4f9a5b89a32e52d6a520c2"
+}

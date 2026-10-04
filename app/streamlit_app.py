@@ -21,7 +21,8 @@ if str(ROOT) not in sys.path:
 
 from dotenv import load_dotenv
 
-load_dotenv(ROOT / ".env", override=True)
+# Explicit runtime model/database settings take precedence over the ignored fallback file.
+load_dotenv(ROOT / ".env", override=False)
 
 INDEX_DIR = str(ROOT / "index")
 CACHE_ROOT = str(ROOT / "cache")
