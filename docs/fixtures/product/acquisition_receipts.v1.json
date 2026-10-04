@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "captured_at": "2026-10-03T13:11:51.518786+00:00",
+  "captured_at": "2026-10-04T00:35:03.475681+00:00",
   "inventory_sha256": "523085fecf1f21deaaca83bc0cbe35b972d2b2628a183e11c031d9803c40ced3",
+  "resolutions_sha256": "6fdaab6a4775614c12e82cf5c3ce051ced1d3ae217cd6d6a3b5af75e03d8ae0f",
   "reports": [
     {
       "report_id": "amd-q1-2024",
@@ -20,7 +21,7 @@
         "last_modified": null
       },
       "file_name": "amd-q1-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 61,
       "requires_page_selection": false
     },
@@ -41,7 +42,7 @@
         "last_modified": null
       },
       "file_name": "amd-q2-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 76,
       "requires_page_selection": false
     },
@@ -62,7 +63,7 @@
         "last_modified": null
       },
       "file_name": "amd-q3-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 64,
       "requires_page_selection": false
     },
@@ -83,7 +84,7 @@
         "last_modified": null
       },
       "file_name": "amd-fy2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 138,
       "requires_page_selection": true
     },
@@ -104,7 +105,7 @@
         "last_modified": null
       },
       "file_name": "amd-q1-2025.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 82,
       "requires_page_selection": false
     },
@@ -125,57 +126,189 @@
         "last_modified": null
       },
       "file_name": "amd-q2-2025.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 103,
       "requires_page_selection": true
     },
     {
       "report_id": "tsla-q1-2024",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024017503/tsla-20240331.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+      "size_bytes": 259565,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024017503/tsla-20240331-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024017503/tsla-20240331-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:34.405098+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:00 GMT"
+      },
+      "file_name": "tsla-q1-2024.pdf",
+      "reused": true,
+      "original_pages": 38,
+      "requires_page_selection": false,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024017503/tsla-20240331-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-q1-2024",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024017503/tsla-20240331.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024017503/tsla-20240331-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-q2-2024",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024032662/tsla-20240630.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "759322ed8c4392e44daa4f2e8688e00b1debdd3de8b26fa3f6e62a685a22e912",
+      "size_bytes": 558409,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:35.323587+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:01 GMT"
+      },
+      "file_name": "tsla-q2-2024.pdf",
+      "reused": true,
+      "original_pages": 85,
+      "requires_page_selection": false,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-q2-2024",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024032662/tsla-20240630.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-q3-2024",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024043486/tsla-20240930.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "b5daa6775e1eb6e3fdea2fdd7434eddc329afdbfbc6ff4d7158a6d3e34a1c564",
+      "size_bytes": 297807,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024043486/tsla-20240930-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024043486/tsla-20240930-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:36.621353+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:01 GMT"
+      },
+      "file_name": "tsla-q3-2024.pdf",
+      "reused": true,
+      "original_pages": 40,
+      "requires_page_selection": false,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024043486/tsla-20240930-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-q3-2024",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024043486/tsla-20240930.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024043486/tsla-20240930-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-fy2024",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+      "size_bytes": 1720174,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025003063/tsla-20241231-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025003063/tsla-20241231-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:37.277456+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:01 GMT"
+      },
+      "file_name": "tsla-fy2024.pdf",
+      "reused": true,
+      "original_pages": 144,
+      "requires_page_selection": true,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025003063/tsla-20241231-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-fy2024",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025003063/tsla-20241231-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-q1-2025",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025018911/tsla-20250331.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "496c2e8c9026454aeb9adf7a51f657f528aa4dfeacb1166c449deed8367359ef",
+      "size_bytes": 270379,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025018911/tsla-20250331-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025018911/tsla-20250331-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:37.527660+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:01 GMT"
+      },
+      "file_name": "tsla-q1-2025.pdf",
+      "reused": true,
+      "original_pages": 37,
+      "requires_page_selection": false,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025018911/tsla-20250331-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-q1-2025",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025018911/tsla-20250331.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025018911/tsla-20250331-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-q2-2025",
       "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "9afc2b2040944cb4050b8dec57ad947933e094a73eb731cd6f1cf0e23c780d58",
+      "size_bytes": 305624,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025035806/tsla-20250630-gen.pdf",
+        "final_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025035806/tsla-20250630-gen.pdf",
+        "fetched_at": "2026-10-04T00:34:38.055434+00:00",
+        "etag": null,
+        "last_modified": "Mon, 15 Dec 2025 20:59:01 GMT"
+      },
+      "file_name": "tsla-q2-2025.pdf",
+      "reused": true,
+      "original_pages": 39,
+      "requires_page_selection": false,
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025035806/tsla-20250630-gen.pdf",
+      "resolution": {
+        "report_id": "tsla-q2-2025",
+        "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm",
+        "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025035806/tsla-20250630-gen.pdf",
+        "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "wfc-q1-2024",
@@ -194,7 +327,7 @@
         "last_modified": "Thu, 30 Jul 2026 17:51:26 GMT"
       },
       "file_name": "wfc-q1-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 131,
       "requires_page_selection": true
     },
@@ -215,7 +348,7 @@
         "last_modified": "Thu, 30 Jul 2026 15:49:39 GMT"
       },
       "file_name": "wfc-q2-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 138,
       "requires_page_selection": true
     },
@@ -236,7 +369,7 @@
         "last_modified": "Thu, 30 Jul 2026 15:52:02 GMT"
       },
       "file_name": "wfc-q3-2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 137,
       "requires_page_selection": true
     },
@@ -257,7 +390,7 @@
         "last_modified": "Thu, 30 Jul 2026 15:10:23 GMT"
       },
       "file_name": "wfc-fy2024.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 184,
       "requires_page_selection": true
     },
@@ -278,7 +411,7 @@
         "last_modified": "Thu, 30 Jul 2026 15:52:14 GMT"
       },
       "file_name": "wfc-q1-2025.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 128,
       "requires_page_selection": true
     },
@@ -299,7 +432,7 @@
         "last_modified": "Thu, 30 Jul 2026 15:52:49 GMT"
       },
       "file_name": "wfc-q2-2025.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 133,
       "requires_page_selection": true
     },
@@ -320,7 +453,7 @@
         "last_modified": null
       },
       "file_name": "amd-q1-2025-companion.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 28,
       "requires_page_selection": false
     },
@@ -341,25 +474,69 @@
         "last_modified": null
       },
       "file_name": "amd-q2-2025-companion.pdf",
-      "reused": false,
+      "reused": true,
       "original_pages": 29,
       "requires_page_selection": false
     },
     {
       "report_id": "tsla-q1-2025-companion",
       "url": null,
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Official download URL requires resolution from entry page"
+      "sha256": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+      "size_bytes": 10786473,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/IR/TSLA-Q1-2025-Update.pdf",
+        "final_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/IR/TSLA-Q1-2025-Update.pdf",
+        "fetched_at": "2026-10-04T00:34:38.960999+00:00",
+        "etag": "\"b6fa3d3056b897bc4cf014479764727e\"",
+        "last_modified": "Tue, 22 Apr 2025 20:29:57 GMT"
+      },
+      "file_name": "tsla-q1-2025-companion.pdf",
+      "reused": true,
+      "original_pages": 32,
+      "requires_page_selection": false,
+      "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/IR/TSLA-Q1-2025-Update.pdf",
+      "resolution": {
+        "report_id": "tsla-q1-2025-companion",
+        "original_url": null,
+        "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/IR/TSLA-Q1-2025-Update.pdf",
+        "relation": "Exact Q1 2025 shareholder deck linked from issuer investor-relations entry page.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     },
     {
       "report_id": "tsla-q2-2025-companion",
       "url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
-      "status": "unavailable",
+      "status": "retained-unindexed",
       "indexed_pages": [],
       "eligible_observations": 0,
-      "error": "Snapshot HTTP status 403"
+      "sha256": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+      "size_bytes": 9489744,
+      "media_type": "application/pdf",
+      "provenance": {
+        "original_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q2-2025-Update.pdf",
+        "final_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q2-2025-Update.pdf",
+        "fetched_at": "2026-10-04T00:35:03.389429+00:00",
+        "etag": "\"7adad3fec52adb6f05f69071ebd47727\"",
+        "last_modified": "Wed, 23 Jul 2025 20:18:32 GMT"
+      },
+      "file_name": "tsla-q2-2025-companion.pdf",
+      "reused": false,
+      "original_pages": 30,
+      "requires_page_selection": false,
+      "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q2-2025-Update.pdf",
+      "resolution": {
+        "report_id": "tsla-q2-2025-companion",
+        "original_url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
+        "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q2-2025-Update.pdf",
+        "relation": "Official issuer asset copy of the standalone Q2 2025 Update. Cover, 30-page count, financial/operational tables and recast footnotes verified against the linked issuer deck; byte equivalence is not assumed.",
+        "entry_url": "https://ir.tesla.com/",
+        "verified_on": "2026-10-03"
+      }
     }
   ],
   "release_decision": "held",

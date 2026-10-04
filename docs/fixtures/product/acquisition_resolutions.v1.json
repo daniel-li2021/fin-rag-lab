@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "reports": [
+    {
+      "report_id": "tsla-q1-2024",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024017503/tsla-20240331.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024017503/tsla-20240331-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q2-2024",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024032662/tsla-20240630.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q3-2024",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828024043486/tsla-20240930.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024043486/tsla-20240930-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-fy2024",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025003063/tsla-20241231-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q1-2025",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025018911/tsla-20250331.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025018911/tsla-20250331-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q2-2025",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm",
+      "acquisition_url": "https://ir.tesla.com/_flysystem/s3/sec/000162828025035806/tsla-20250630-gen.pdf",
+      "relation": "Issuer-generated PDF of the same SEC accession and filing; cover company, form and period verified.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q1-2025-companion",
+      "original_url": null,
+      "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/IR/TSLA-Q1-2025-Update.pdf",
+      "relation": "Exact Q1 2025 shareholder deck linked from issuer investor-relations entry page.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    },
+    {
+      "report_id": "tsla-q2-2025-companion",
+      "original_url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
+      "acquisition_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q2-2025-Update.pdf",
+      "relation": "Official issuer asset copy of the standalone Q2 2025 Update. Cover, 30-page count, financial/operational tables and recast footnotes verified against the linked issuer deck; byte equivalence is not assumed.",
+      "entry_url": "https://ir.tesla.com/",
+      "verified_on": "2026-10-03"
+    }
+  ]
+}

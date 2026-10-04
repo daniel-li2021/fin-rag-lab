@@ -47,6 +47,27 @@ def test_pdf_response_failures_do_not_publish_invalid_original(tmp_path, monkeyp
     assert not (tmp_path / 'report.pdf').exists()
 
 
+def test_official_alternate_preserves_identity_and_reuse(tmp_path, monkeypatch):
+    calls = []
+    def fetch(url):
+        calls.append(url)
+        return b'<html>Original report</html>', 'text/html', {'original_url': url}
+    monkeypatch.setattr(corpus, 'fetch_snapshot', fetch)
+    original = 'https://www.sec.gov/filing.htm'
+    alternate = 'https://ir.tesla.com/filing.htm'
+    inventory = {'reports': [{'report_id': 'tesla', 'split': 'development', 'url': original}]}
+    resolutions = {'reports': [{'report_id': 'tesla', 'original_url': original, 'acquisition_url': alternate}]}
+    first = corpus.acquire(inventory, tmp_path, resolutions=resolutions)
+    receipt = first['reports'][0]
+    assert receipt['url'] == original and receipt['provenance']['original_url'] == alternate
+    assert receipt['acquisition_url'] == alternate
+    corpus.acquire(inventory, tmp_path, first, resolutions)
+    assert calls == [alternate]
+    resolutions['reports'][0]['acquisition_url'] = 'https://unofficial.example/filing.htm'
+    with pytest.raises(ValueError, match='official'):
+        corpus.acquire(inventory, tmp_path, first, resolutions)
+
+
 def test_review_packet_retains_original_page_text_and_rejects_hash_drift(tmp_path):
     import hashlib
     import fitz

@@ -2,6 +2,14 @@
 
 Working plan: [product batch](PRODUCT_NEXT_BATCH_PLAN.md). Release remains held; no planner or default promotion.
 
+## Current authorization and batch 5 — local runtime and corpus completion
+
+The subsequent owner instruction approves persistent local Postgres, authentic embeddings, historical regression and development captures with measured usage/cost. Clear original-evidence bindings may be reviewed by Codex under the existing metric policy; this does not claim independent human release review. Only unresolved semantic or policy choices require the owner. The older dependency descriptions below are historical batch receipts.
+
+All 22 development originals are now retained, including six original Tesla filing accessions and both issuer decks. Official acquisition resolutions preserve the frozen SEC/download identities and distinguish original from fetched URLs/renderings. The unchanged development inventory and separate holdout boundary remain intact. No model calls occurred during acquisition.
+
+[Local runtime](PRODUCT_LOCAL_RUNTIME.md) now starts/reuses a durable private-socket Postgres and application-only role, with an ignored connection profile and objects directory. A process-exit/restart integration check verifies identity retention, owner isolation, no network listener and no elevated role privileges. Five focused acquisition/review checks verify original hashes, cache reuse, PDF rejection, official alternatives and holdout exclusion. The installed runtime is used without cloud provisioning or new credentials.
+
 ## Batch 1 — scoped facts and complete saved outcomes
 
 SQL card loading now filters requested company, metric, scope, basis and actual interval before the 100-card limit; natural templates first resolve labels against scoped cards. All matching conflicts/revisions remain available, and immutable injected IDs are checked. Clarification/refusal questions now save pinned inventory and can reopen or explicitly rerun without changing the original.
