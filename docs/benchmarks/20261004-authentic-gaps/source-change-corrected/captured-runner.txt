@@ -1,0 +1,150 @@
+"""Replay real Tesla originals through source publication, staleness and explicit rerun.
+
+Uses a separate owner and cached original blocks/chunks/vectors. No fetching,
+parsing, embedding or generation; never changes the primary development sources.
+The timeline is a controlled local import, not a measured live URL refresh.
+"""
+import argparse
+import copy
+import hashlib
+import json
+from pathlib import Path
+import sys
+from uuid import uuid4
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from dotenv import dotenv_values
+from src.core.models import Document, DocumentChunk
+from src.financial.models import FinancialObservation
+from src.financial.research import _canonical
+from src.services.persistent_service import PersistentRAGService
+from src.storage.objects import LocalObjects
+from src.storage.registry import Registry
+
+
+def publish_cached(registry, objects, original_owner, owner, source, card):
+    pin = card['source']
+    snapshot = registry.research_snapshot(original_owner, [{k: pin[k] for k in
+        ('source_id', 'version_id', 'build_id')}])
+    with registry.connect() as db:
+        version = db.execute('SELECT * FROM source_versions WHERE version_id=%s', (pin['version_id'],)).fetchone()
+        build = db.execute('SELECT * FROM retrieval_builds WHERE build_id=%s', (pin['build_id'],)).fetchone()
+        rows = db.execute('SELECT payload FROM chunks WHERE build_id=%s ORDER BY ordinal', (pin['build_id'],)).fetchall()
+        embeddings = db.execute('SELECT chunk_id,embedding::text AS vector FROM chunk_embeddings WHERE build_id=%s',
+                                (pin['build_id'],)).fetchall()
+    raw = objects.get(version['object_key'])
+    if hashlib.sha256(raw).hexdigest() != pin['source_hash']:
+        raise ValueError('Authentic original byte hash changed')
+    chunks = [DocumentChunk.model_validate({**r['payload'], 'document_id': str(source['source_id'])}) for r in rows]
+    parents = [c for c in chunks if c.parent_chunk_id is None]
+    children = [c for c in chunks if c.parent_chunk_id is not None]
+    vectors = {e['chunk_id']: json.loads(e['vector']) for e in embeddings}
+    document = Document(document_id=str(source['source_id']), title=source['title'], source_type='pdf',
+                        source_hash=pin['source_hash'], blocks=snapshot['blocks'][pin['build_id']])
+    queued = registry.enqueue(owner, source['source_id'], raw, objects.put(owner, raw, 'application/pdf'),
+        'application/pdf', {'cached_from': pin, 'original_owner': original_owner}, build['manifest'])
+    lease = registry.claim(owner, queued['job']['job_id'])
+    registry.publish(owner, queued['job']['job_id'], lease['lease_token'], document, parents, children,
+                     [vectors[c.chunk_id] for c in children], {'api_calls': 0, 'reused_cached_vectors': len(children)})
+    return queued, snapshot['inventory'][0]['metadata']
+
+
+def rebind(registry, owner, source, card, observation_id, supersedes=()):
+    current = registry.research_snapshot(owner, [{'source_id': str(source['source_id'])}], include_blocks=False)
+    bound = {**copy.deepcopy(card), 'source': current['sources'][0].model_dump(mode='json'),
+             'observation_id': observation_id, 'supersedes_observation_ids': list(supersedes)}
+    registry.save_observation(owner, FinancialObservation.model_validate(bound))
+    return bound
+
+
+def capture(output):
+    output.mkdir(parents=True, exist_ok=False)
+    labels = {'old_value':'1129', 'new_value':'1390',
+        'staleness':['source_version_changed','retrieval_build_changed'],
+        'immutable_history':True, 'new_parent_link':True, 'pinned_old_value':'1129'}
+    (output/'labels.json').write_text(json.dumps(labels,indent=2)+'\n')
+    profile = dotenv_values(ROOT / 'index/product-local/runtime.env')
+    registry, objects = Registry(profile['DATABASE_URL']), LocalObjects(profile['FINRAG_OBJECT_DIR'])
+    original_owner = profile['FINRAG_OWNER']
+    owner = 'authentic-source-change-' + uuid4().hex
+    cards_file = ROOT / 'docs/fixtures/product/reviewed_observations.v1.json'
+    cards = {c['observation_id']: c for c in json.loads(cards_file.read_text())['observations']}
+    old = cards['tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024']
+    new = cards['tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024']
+    original_snapshot = registry.research_snapshot(original_owner, [{k:old['source'][k] for k in
+        ('source_id', 'version_id', 'build_id')}], include_blocks=False)
+    metadata = original_snapshot['inventory'][0]['metadata']
+    predecessor = registry.register(owner, {'kind':'pdf', 'title':'Tesla Q1 2024 retained predecessor', 'metadata':metadata})
+    logical = registry.register(owner, {'kind':'pdf', 'title':'Tesla common-income disclosure series (controlled import)', 'metadata':metadata})
+    receipts = []
+    for source in (predecessor, logical):
+        queued, _ = publish_cached(registry, objects, original_owner, owner, source, old)
+        receipts.append({'original':old['source'], 'imported_source_id':str(source['source_id']),
+                         'version_id':str(queued['version']['version_id']), 'build_id':str(queued['build']['build_id'])})
+    predecessor_card = rebind(registry, owner, predecessor, old, 'retained-original-q1-2024')
+    rebind(registry, owner, logical, old, 'series-original-q1-2024')
+    # Only deterministic research methods are used; no provider-backed constructor.
+    service = PersistentRAGService.__new__(PersistentRAGService)
+    service.registry, service.owner = registry, owner
+    request = {'question':'Tesla Q1 2024 common income using the latest reviewed revision',
+        'selections':[{'source_id':str(s['source_id'])} for s in (logical, predecessor)],
+        'tasks':[{'task_id':'income', **{k:old[k] for k in ('company_id','metric_id','scope','basis','period')}}]}
+    baseline = service.research(request, save=True)
+    before = registry.research_changes(owner, baseline)
+    queued, new_metadata = publish_cached(registry, objects, original_owner, owner, logical, new)
+    receipts.append({'original':new['source'], 'imported_source_id':str(logical['source_id']),
+                     'version_id':str(queued['version']['version_id']), 'build_id':str(queued['build']['build_id'])})
+    changed = registry.research_changes(owner, baseline)
+    # New bytes need metadata review; do not carry an old binding into the new build.
+    pending = service.rerun_research(baseline['run_id'])
+    registry.review_version_metadata(owner, logical['source_id'], queued['version']['version_id'], new_metadata,
+        'Codex', 'Reused named authentic FY2024 metadata in controlled source-change validation')
+    registry.update_metadata(owner, logical['source_id'], new_metadata)
+    updated_card = rebind(registry, owner, logical, new, 'series-recast-q1-2024',
+                          [predecessor_card['observation_id']])
+    rerun = service.rerun_research(baseline['run_id'])
+    pinned_request = {**request, 'selections':[{'source_id':p['source_id'], 'version_id':p['version_id'],
+        'build_id':p['build_id']} for p in baseline['manifest']]}
+    pinned = service.research(pinned_request)
+    result = rerun['result']
+    cited_values = lambda r: [o['value'] for o in r['observations'] if o['observation_id'] in r['citations']]
+    reasons = {reason for change in changed['changes'] for reason in change['reasons']}
+    checks = {
+        'baseline_original_value': baseline['outcome']=='answer' and set(cited_values(baseline))=={'1129'},
+        'initially_current': not before['potentially_stale'],
+        'real_bytes_changed': old['source']['source_hash'] != new['source']['source_hash'],
+        'version_and_build_stale': changed['potentially_stale'] and {'source_version_changed','retrieval_build_changed'} <= reasons,
+        'pending_version_not_cited': all(p['source']['source_id'] != str(logical['source_id']) for p in pending['result']['citations'].values()),
+        'original_history_immutable': registry.research_run(owner,baseline['run_id'])['payload']==baseline,
+        'rerun_recast_value': result['outcome']=='answer' and set(cited_values(result))=={'1390'},
+        'explicit_rerun_diff': rerun['diff']['evidence_changed'] and rerun['diff']['answer_changed'],
+        'parent_link': result['execution']['parent_run_id']==baseline['run_id'] and result['run_id']!=baseline['run_id'],
+        'rerun_history_reopen': registry.research_run(owner,result['run_id'])['payload']==result,
+        'rerun_current': not registry.research_changes(owner,result)['potentially_stale'],
+        'pinned_old_value': pinned['outcome']=='answer' and set(cited_values(pinned))=={'1129'},
+        'new_binding_current_hash': updated_card['source']['source_hash']==new['source']['source_hash'],
+    }
+    payload = {'qualification':__doc__, 'owner':owner, 'checks':checks, 'original_import_receipts':receipts,
+        'baseline':baseline, 'before':before, 'after_source_change':changed, 'pending_metadata_rerun':pending,
+        'reviewed_rerun':rerun, 'pinned_old_query':pinned,
+        'observation_mapping':{'predecessor':predecessor_card,'recast':updated_card},
+        'api_calls':0, 'holdout':'not_accessed', 'independent_release_reviews':0}
+    (output/'result.json').write_text(json.dumps(payload,indent=2)+'\n')
+    manifest = {'source_cards_sha256':hashlib.sha256(cards_file.read_bytes()).hexdigest(),
+        'result_sha256':hashlib.sha256((output/'result.json').read_bytes()).hexdigest(),
+        'code_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in
+            [Path(__file__), ROOT/'src/storage/registry.py', ROOT/'src/services/persistent_service.py']},
+        'labels_sha256':hashlib.sha256((output/'labels.json').read_bytes()).hexdigest(),
+        'authentic_source_change_scenarios':1, 'live_url_refresh_scenarios':0}
+    (output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    print(json.dumps({'passed':sum(checks.values()),'checks':len(checks),'api_calls':0}))
+    if not all(checks.values()):
+        raise AssertionError('Source-change scenario failed; retained output includes every check')
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output',type=Path,required=True)
+    capture(parser.parse_args().output)

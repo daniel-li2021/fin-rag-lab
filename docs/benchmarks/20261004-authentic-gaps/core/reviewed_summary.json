@@ -1,0 +1,102 @@
+{
+  "qualification": "Integrated local deterministic regression with saved drafts revalidated through production synthesis; Codex named review reused only after exact answer/claim parity. Not independent release review or fresh model generation.",
+  "reviewer": "Codex",
+  "strict_authentic_development": {
+    "passed": 48,
+    "denominator": 48,
+    "value": 1.0
+  },
+  "slices": {
+    "multi_document": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "temporal_scope": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "calculations_units": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "clarification": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "conflicts_revisions": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "missing_evidence": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    }
+  },
+  "strict_wilson_95_interval": [
+    0.9258998703338824,
+    0.9999999999999999
+  ],
+  "uncertainty_note": "Descriptive case-level interval only; reused report families make cases correlated. Not a population accuracy guarantee.",
+  "subgroups": {
+    "narrative": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "answerable_cross_company": {
+      "passed": 8,
+      "denominator": 8,
+      "value": 1.0
+    }
+  },
+  "distinct_required_multi_document": {
+    "passed": 13,
+    "denominator": 13,
+    "value": 1.0
+  },
+  "numeric_accuracy": {
+    "passed": 25,
+    "denominator": 25,
+    "value": 1.0
+  },
+  "narrative_claim_support": {
+    "passed": 12,
+    "denominator": 12,
+    "value": 1.0
+  },
+  "required_numeric_cell_coverage": {
+    "passed": 40,
+    "denominator": 40,
+    "value": 1.0
+  },
+  "issued_operand_coverage": {
+    "passed": 22,
+    "denominator": 22,
+    "value": 1.0
+  },
+  "failure_classes": {},
+  "independent_release_reviews": 0,
+  "holdout": "not_accessed",
+  "release_decision": "held",
+  "coverage_limits": {
+    "authentic_revision_policy_cases": 7,
+    "incomplete_lineage_refusal_cases": 1,
+    "authentic_unresolved_value_conflict_cases": 0,
+    "authentic_source_change_staleness_cases": 0,
+    "operational_history_reopen_cases": 48,
+    "temporal_scope_primary_cases": 8,
+    "explicit_incompatible_comparison_or_ranking_cases": 0,
+    "missing_evidence_primary_cases": 8,
+    "distinct_issuers": 3,
+    "independent_reviewers": 0,
+    "originals_hash_verified": 22,
+    "distinct_original_cards_rechecked": 33,
+    "generalization": "Development-only, selected finite grammar and reviewed cards; no release/industrial accuracy claim."
+  }
+}

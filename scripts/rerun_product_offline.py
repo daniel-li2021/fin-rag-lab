@@ -19,6 +19,8 @@ from src.financial.evidence import EvidenceSearchRequest, search_evidence
 from src.financial.intent import parse_question, question_filters, resolve_question
 from src.financial.models import FinancialObservation
 from src.financial.presentation import narrative_answer
+from src.financial.narrative import original_excerpts, synthesize_evidence
+from src.observability import CostTracker
 from src.financial.research import ResearchRequest, _canonical, run_research
 from src.storage.registry import Registry
 from scripts.run_product_development import assess, frozen_cases, summarize
@@ -68,12 +70,28 @@ def replay_narrative(case, previous, registry, owner, *, presentation=False):
     searched = search_evidence(request, snapshot)
     if searched['passages'] != previous['passages'] or searched['coverage'] != previous['coverage']:
         raise ValueError('Changed original search requires a new narrative capture/review')
-    result = {**previous, **searched, 'claims': previous['claims'],
-              'outcome': previous['outcome'], 'synthesis_review_status': previous['synthesis_review_status'],
+    # Revalidate the saved draft through the integrated synthesis path. This adapter
+    # returns saved text only; it cannot construct a provider client or make a call.
+    from types import SimpleNamespace
+    excerpts = original_excerpts({p['evidence_id']: p for p in searched['passages']})
+    draft = []
+    for claim in previous['claims']:
+        excerpt = next(e for e in excerpts.values() if all(e[k] == claim[k]
+                       for k in ('task_id', 'evidence_id', 'quote', 'char_start', 'char_end')))
+        draft.append({'task_id': claim['task_id'], 'excerpt_id': excerpt['excerpt_id'], 'text': claim['text']})
+    class SavedDraft:
+        def invoke(self, messages):
+            return SimpleNamespace(content=json.dumps({'claims': draft}), response_metadata={})
+    integrated = synthesize_evidence(searched, CostTracker(), llm=SavedDraft(), model='saved-draft-replay')
+    if integrated['claims'] != previous['claims'] or integrated['outcome'] != previous['outcome']:
+        raise ValueError('Saved draft changed during integrated synthesis validation')
+    result = {**integrated,
               'archived_generation_usage': previous['usage'],
-              'generation_provenance': 'unchanged claims replayed from pinned capture-v4; no fresh generator call'}
-    result['answer'] = (narrative_answer({t['task_id']: t for t in case['request']['tasks']}, previous['claims'])
-                        if presentation and previous['claims'] else previous['answer'])
+              'usage': searched['usage'],
+              'generation_provenance': 'saved draft revalidated through integrated synthesis; no provider call'}
+    result.pop('synthesis_latency_seconds', None)
+    if presentation and previous['claims']:
+        result['answer'] = narrative_answer({t['task_id']: t for t in case['request']['tasks']}, previous['claims'])
     return result
 
 
@@ -87,7 +105,7 @@ def capture(labels, output, *, previous=None, presentation=False):
         if digest(base / receipt['source_sha256']) != receipt['source_sha256']:
             raise ValueError('Original byte hash mismatch')
     output.mkdir(parents=True, exist_ok=False)
-    code = [*sorted((ROOT / 'src/financial').glob('*.py')), Path(__file__),
+    code = [*sorted((ROOT / 'src/financial').glob('*.py')), Path(__file__), ROOT / 'src/services/persistent_service.py',
             ROOT / 'src/storage/registry.py', ROOT / 'scripts/run_product_development.py']
     manifest = {'label_sha256': digest(labels), 'code_sha256': {str(p.relative_to(ROOT)): digest(p) for p in code},
                 'source_receipts_sha256': digest(ROOT / 'docs/fixtures/product/ingestion_receipts.v1.json'),

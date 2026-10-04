@@ -1,0 +1,75 @@
+{
+  "qualification": "Integrated local deterministic regression with saved drafts revalidated through production synthesis; Codex named review reused only after exact answer/claim parity. Not independent release review or fresh model generation.",
+  "reviewer": "Codex",
+  "strict_authentic_development": {
+    "passed": 16,
+    "denominator": 16,
+    "value": 1.0
+  },
+  "slices": {
+    "multi_document_extended": {
+      "passed": 7,
+      "denominator": 7,
+      "value": 1.0
+    },
+    "comparability_refusal": {
+      "passed": 9,
+      "denominator": 9,
+      "value": 1.0
+    }
+  },
+  "strict_wilson_95_interval": [
+    0.8063923194655637,
+    1.0000000000000002
+  ],
+  "uncertainty_note": "Descriptive case-level interval only; reused report families make cases correlated. Not a population accuracy guarantee.",
+  "subgroups": {
+    "narrative": {
+      "passed": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "answerable_cross_company": {
+      "passed": 0,
+      "denominator": 0,
+      "value": null
+    }
+  },
+  "distinct_required_multi_document": {
+    "passed": 12,
+    "denominator": 12,
+    "value": 1.0
+  },
+  "numeric_accuracy": {
+    "passed": 15,
+    "denominator": 15,
+    "value": 1.0
+  },
+  "narrative_claim_support": {
+    "passed": 0,
+    "denominator": 0,
+    "value": null
+  },
+  "required_numeric_cell_coverage": {
+    "passed": 32,
+    "denominator": 32,
+    "value": 1.0
+  },
+  "issued_operand_coverage": {
+    "passed": 4,
+    "denominator": 4,
+    "value": 1.0
+  },
+  "failure_classes": {},
+  "independent_release_reviews": 0,
+  "holdout": "not_accessed",
+  "release_decision": "held",
+  "coverage_limits": {
+    "new_cases": 16,
+    "new_comparability_or_cutoff_safety_cases": 9,
+    "tagged_hero_scenarios": 3,
+    "authentic_unresolved_value_conflict_cases": 0,
+    "authentic_source_change_staleness_cases": 0,
+    "original_bindings": "Five additional original cards checked against original rows/context; other bindings reuse the baseline original review."
+  }
+}

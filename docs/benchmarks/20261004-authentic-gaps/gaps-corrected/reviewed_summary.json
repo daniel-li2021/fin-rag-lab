@@ -1,0 +1,78 @@
+{
+  "qualification": "Eight additional authentic development cases after explicit source-selection label correction; single named reviewer, not holdout or independent release review.",
+  "reviewer": "Codex",
+  "strict_authentic_development": {
+    "passed": 8,
+    "denominator": 8,
+    "value": 1.0
+  },
+  "slices": {
+    "incomplete_authentic_lineage": {
+      "passed": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "partial_multi_document": {
+      "passed": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "publication_boundary": {
+      "passed": 2,
+      "denominator": 2,
+      "value": 1.0
+    }
+  },
+  "strict_wilson_95_interval": [
+    0.6755924351161198,
+    1.0
+  ],
+  "uncertainty_note": "Descriptive case-level interval only; reused report families make cases correlated. Not a population accuracy guarantee.",
+  "subgroups": {
+    "narrative": {
+      "passed": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "answerable_cross_company": {
+      "passed": 0,
+      "denominator": 0,
+      "value": null
+    }
+  },
+  "distinct_required_multi_document": {
+    "passed": 4,
+    "denominator": 4,
+    "value": 1.0
+  },
+  "numeric_accuracy": {
+    "passed": 5,
+    "denominator": 5,
+    "value": 1.0
+  },
+  "narrative_claim_support": {
+    "passed": 0,
+    "denominator": 0,
+    "value": null
+  },
+  "required_numeric_cell_coverage": {
+    "passed": 5,
+    "denominator": 5,
+    "value": 1.0
+  },
+  "issued_operand_coverage": {
+    "passed": 0,
+    "denominator": 0,
+    "value": null
+  },
+  "failure_classes": {},
+  "independent_release_reviews": 0,
+  "holdout": "not_accessed",
+  "release_decision": "held",
+  "coverage_limits": {
+    "true_unresolved_issuer_value_discrepancies": 0,
+    "incomplete_authentic_revision_lineage_cases": 6,
+    "publication_boundary_cases": 2,
+    "correlated_report_families": true
+  }
+}

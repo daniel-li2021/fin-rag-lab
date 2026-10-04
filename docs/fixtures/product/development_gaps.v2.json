@@ -1,0 +1,573 @@
+{
+  "split": "development_extension",
+  "qualification": "Eight authentic selected-source/cutoff cases; original frozen 48 and prior 16 remain unchanged. True unresolved issuer discrepancies are not fabricated.",
+  "source_cards_sha256": "a62a6f475962a94d27da16579c3742a6949b73d888cdbb24275336ae6ffa668e",
+  "cases": [
+    {
+      "case_id": "gap-01",
+      "primary_slice": "incomplete_authentic_lineage",
+      "lane": "research",
+      "tags": [
+        "conflict_safety"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common income from the recast deck with predecessor sources unavailable",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting"
+        ],
+        "reason": "Authentic reviewed recast requires its unavailable predecessor; no invented values or removed lineage."
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-02",
+      "primary_slice": "incomplete_authentic_lineage",
+      "lane": "research",
+      "tags": [
+        "conflict_safety"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Tesla Q2 2024 common income from the recast deck with predecessor sources unavailable",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting"
+        ],
+        "reason": "Authentic reviewed recast requires its unavailable predecessor; no invented values or removed lineage."
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-03",
+      "primary_slice": "incomplete_authentic_lineage",
+      "lane": "research",
+      "tags": [
+        "conflict_safety"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion"
+      ],
+      "request": {
+        "question": "Tesla Q3 2024 common income from the recast deck with predecessor sources unavailable",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting"
+        ],
+        "reason": "Authentic reviewed recast requires its unavailable predecessor; no invented values or removed lineage."
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-04",
+      "primary_slice": "partial_multi_document",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "request": {
+        "question": "Show Tesla Q1 2024 recast common income and Wells Fargo Q1 2024 common income separately",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "bb3297ff-b242-4587-81ba-b5021bd55916",
+            "version_id": "3cd46953-f2f7-4bf3-b62b-d7d5375a05c4",
+            "build_id": "47e90d25-3710-4f12-9826-0b9c48ad766f"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "task_id": "wfc"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "4313",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting",
+          "supported"
+        ]
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-05",
+      "primary_slice": "partial_multi_document",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "request": {
+        "question": "Calculate WFC less Tesla Q1 2024 common income with the Tesla predecessor unavailable",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "bb3297ff-b242-4587-81ba-b5021bd55916",
+            "version_id": "3cd46953-f2f7-4bf3-b62b-d7d5375a05c4",
+            "build_id": "47e90d25-3710-4f12-9826-0b9c48ad766f"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "task_id": "wfc"
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "difference",
+            "start_task_id": "t0",
+            "end_task_id": "wfc"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "4313",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting",
+          "supported"
+        ],
+        "gap_operations": [
+          "difference"
+        ]
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-06",
+      "primary_slice": "partial_multi_document",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "request": {
+        "question": "Rank WFC and Tesla Q1 2024 common income with the Tesla predecessor unavailable",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "bb3297ff-b242-4587-81ba-b5021bd55916",
+            "version_id": "3cd46953-f2f7-4bf3-b62b-d7d5375a05c4",
+            "build_id": "47e90d25-3710-4f12-9826-0b9c48ad766f"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          },
+          {
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "task_id": "wfc"
+          }
+        ],
+        "mode": "ranking"
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "4313",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "coverage_statuses": [
+          "conflicting",
+          "supported"
+        ],
+        "gap_operations": [
+          "ranking"
+        ],
+        "ranking": []
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-07",
+      "primary_slice": "publication_boundary",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common income known on 2025-01-29",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": "2025-01-29"
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1129",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "coverage_statuses": [
+          "supported"
+        ]
+      },
+      "scenario_tags": []
+    },
+    {
+      "case_id": "gap-08",
+      "primary_slice": "publication_boundary",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "request": {
+        "question": "Tesla Q1 2024 common income known on 2025-01-30",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "calculations": [],
+        "revision_policy": "latest_reviewed",
+        "as_of": "2025-01-30"
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1390",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "coverage_statuses": [
+          "supported"
+        ]
+      },
+      "scenario_tags": []
+    }
+  ],
+  "label_correction": {
+    "supersedes_sha256": "bd6bcf4a1330040926044c385816c21a303ac861432deb2d9ced012a321e038f",
+    "reason": "gap-04/05/06 accidentally selected a Tesla source in the WFC slot; bind the actual unchanged expected WFC original. Failed capture retained; no code failure."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "reviewer": "Codex",
+  "qualification": "Eight additional authentic development cases after explicit source-selection label correction; single named reviewer, not holdout or independent release review.",
+  "results_sha256": "7c1bfb0622a68735cdf8befbed609a868b39d7eeaa3a13794e13955c3b203330",
+  "labels_sha256": "991acd2968be0de8c75d5eb5701f1632b0f0b004bbdd693c2e25074a59e7b48e",
+  "cases": [
+    {
+      "case_id": "gap-01",
+      "result_sha256": "de3cd61aae06aace24c209c3537ec5defa29ecdfd33b7682aa6d74a20e3c547e",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion"
+      ],
+      "original_observation_ids": []
+    },
+    {
+      "case_id": "gap-02",
+      "result_sha256": "d6a47a80be024da43890437a15eab79943fc39ccde57f27c25d4f24ae540c44c",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion"
+      ],
+      "original_observation_ids": []
+    },
+    {
+      "case_id": "gap-03",
+      "result_sha256": "d8c2d1e3a74968c58e64f7cc23abdf9364a716195300d2ee92746a53404ffa67",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion"
+      ],
+      "original_observation_ids": []
+    },
+    {
+      "case_id": "gap-04",
+      "result_sha256": "a4d4c69c0bb861a11b3cbaf17c8285faaa55432b401fd9c0a64ea6e8cf972318",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "original_observation_ids": [
+        "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ]
+    },
+    {
+      "case_id": "gap-05",
+      "result_sha256": "0cab72e659e181dc12c368307907dd96851de68f6ee88fc09f841f244eb64c95",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "original_observation_ids": [
+        "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ]
+    },
+    {
+      "case_id": "gap-06",
+      "result_sha256": "bd1133a33a9ffa38794de8306010a224bb7ad906145f7bd3b10a4a30d505eb0e",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2025-companion",
+        "wfc-q1-2024"
+      ],
+      "original_observation_ids": [
+        "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ]
+    },
+    {
+      "case_id": "gap-07",
+      "result_sha256": "86f88ca6ea6d33bb2813c56becd970a369acb6ffe54ca79b3cd5a34b5abe9695",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ]
+    },
+    {
+      "case_id": "gap-08",
+      "result_sha256": "c0a64dfb56d89db910287ebb4d2551661c35e4f035fbdb0bb198135884ef8ab6",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Codex checked authentic immutable recast/predecessor bindings, precise missing lineage, separate supported WFC value, blocked operands/ranking, or original publication boundary as applicable; no financial values changed.",
+      "required_report_families": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ]
+    }
+  ],
+  "coverage_limits": {
+    "true_unresolved_issuer_value_discrepancies": 0,
+    "incomplete_authentic_revision_lineage_cases": 6,
+    "publication_boundary_cases": 2,
+    "correlated_report_families": true
+  }
+}

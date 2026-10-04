@@ -1,0 +1,3235 @@
+{
+  "qualification": "Replay real Tesla originals through source publication, staleness and explicit rerun.\n\nUses a separate owner and cached original blocks/chunks/vectors. No fetching,\nparsing, embedding or generation; never changes the primary development sources.\nThe timeline is a controlled local import, not a measured live URL refresh.\n",
+  "owner": "authentic-source-change-297cac3703494f6c9330dbf0ef192ad4",
+  "checks": {
+    "baseline_original_value": true,
+    "initially_current": true,
+    "real_bytes_changed": true,
+    "version_and_build_stale": true,
+    "pending_version_not_cited": true,
+    "original_history_immutable": true,
+    "rerun_recast_value": true,
+    "explicit_rerun_diff": true,
+    "parent_link": true,
+    "rerun_history_reopen": true,
+    "rerun_current": true,
+    "pinned_old_value": true,
+    "new_binding_current_hash": true
+  },
+  "original_import_receipts": [
+    {
+      "original": {
+        "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+        "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+        "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      },
+      "imported_source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+      "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+      "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6"
+    },
+    {
+      "original": {
+        "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+        "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+        "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      },
+      "imported_source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+      "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+      "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f"
+    },
+    {
+      "original": {
+        "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+        "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+        "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+        "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+        "company_id": "TSLA",
+        "publication_date": "2025-01-30",
+        "status": "available"
+      },
+      "imported_source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+      "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+      "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff"
+    }
+  ],
+  "baseline": {
+    "contract_version": "financial-research-v1",
+    "outcome": "answer",
+    "answer": "TSLA / net_income_common / Q1 2024 (2024-01-01 to 2024-03-31; calendar) / consolidated / GAAP: 1129 USD \u00d7 1000000 [retained-original-q1-2024]",
+    "request": {
+      "question": "Tesla Q1 2024 common income using the latest reviewed revision",
+      "selections": [
+        {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "version_id": null,
+          "company_id": null,
+          "fiscal_year": null,
+          "fiscal_quarter": null,
+          "document_type": null,
+          "build_id": null,
+          "metadata_review_id": null
+        },
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": null,
+          "company_id": null,
+          "fiscal_year": null,
+          "fiscal_quarter": null,
+          "document_type": null,
+          "build_id": null,
+          "metadata_review_id": null
+        }
+      ],
+      "tasks": [
+        {
+          "task_id": "income",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "scope": "consolidated",
+          "basis": "GAAP"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "retained-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+            "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        },
+        {
+          "observation_id": "series-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+            "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        }
+      ],
+      "calculations": [],
+      "mode": "lookup",
+      "as_of": null,
+      "revision_policy": "latest_reviewed"
+    },
+    "manifest": [
+      {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+        "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      },
+      {
+        "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+        "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+        "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      }
+    ],
+    "inventory": [
+      {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "title": "Tesla common-income disclosure series (controlled import)",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-03-31",
+          "fiscal_year": 2024,
+          "period_kind": "quarterly",
+          "company_name": "Tesla, Inc.",
+          "period_label": "Q1 2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-Q",
+          "review_status": "confirmed",
+          "fiscal_quarter": 1,
+          "publication_date": "2024-04-24"
+        },
+        "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0,
+        "last_error": null
+      },
+      {
+        "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+        "title": "Tesla Q1 2024 retained predecessor",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-03-31",
+          "fiscal_year": 2024,
+          "period_kind": "quarterly",
+          "company_name": "Tesla, Inc.",
+          "period_label": "Q1 2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-Q",
+          "review_status": "confirmed",
+          "fiscal_quarter": 1,
+          "publication_date": "2024-04-24"
+        },
+        "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": 0,
+        "last_error": null
+      }
+    ],
+    "coverage": [
+      {
+        "task_id": "income",
+        "status": "supported",
+        "observation_ids": [
+          "retained-original-q1-2024",
+          "series-original-q1-2024"
+        ],
+        "reason": "Exact reviewed observations cover the requested dimensions"
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "retained-original-q1-2024",
+        "company_id": "TSLA",
+        "metric_id": "net_income_common",
+        "original_label": "Net income attributable to common stockholders",
+        "value": "1129",
+        "unit": "currency",
+        "currency": "USD",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "basis": "GAAP",
+        "period": {
+          "kind": "quarter",
+          "start": "2024-01-01",
+          "end": "2024-03-31",
+          "fiscal_label": "Q1 2024",
+          "calendar": "calendar"
+        },
+        "source": {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ],
+        "verification_status": "reviewed",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "supersedes_observation_ids": [],
+        "revision_evidence": [],
+        "reported": true
+      },
+      {
+        "observation_id": "series-original-q1-2024",
+        "company_id": "TSLA",
+        "metric_id": "net_income_common",
+        "original_label": "Net income attributable to common stockholders",
+        "value": "1129",
+        "unit": "currency",
+        "currency": "USD",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "basis": "GAAP",
+        "period": {
+          "kind": "quarter",
+          "start": "2024-01-01",
+          "end": "2024-03-31",
+          "fiscal_label": "Q1 2024",
+          "calendar": "calendar"
+        },
+        "source": {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+          "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ],
+        "verification_status": "reviewed",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "supersedes_observation_ids": [],
+        "revision_evidence": [],
+        "reported": true
+      }
+    ],
+    "rejected_observations": [],
+    "calculations": [],
+    "calculation_gaps": [],
+    "ranking": [],
+    "citations": {
+      "retained-original-q1-2024": {
+        "source": {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ]
+      }
+    },
+    "code_hash": "2b6f9a1a0dc75c9342a1071a3ace5afc9826d0cf8f8ddbb2f5d4f836e2b9875b",
+    "usage": {
+      "planner_calls": 0,
+      "generator_calls": 0,
+      "embedding_calls": 0,
+      "cost_usd": "0"
+    },
+    "run_id": "091ac01e64c83d9e6608dc26193bb03bc016edf53029dba7dba27acf95f0648f",
+    "execution": {
+      "execution_id": "a6662f7d-3e59-439d-a9ab-e9d580bcab93",
+      "timestamp": "2026-10-04T07:28:05.464788+00:00",
+      "parent_run_id": null,
+      "collection_id": null
+    }
+  },
+  "before": {
+    "potentially_stale": false,
+    "changes": []
+  },
+  "after_source_change": {
+    "potentially_stale": true,
+    "changes": [
+      {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "reasons": [
+          "source_version_changed",
+          "retrieval_build_changed"
+        ],
+        "refresh_error": null
+      }
+    ]
+  },
+  "pending_metadata_rerun": {
+    "result": {
+      "contract_version": "financial-research-v1",
+      "outcome": "answer",
+      "answer": "TSLA / net_income_common / Q1 2024 (2024-01-01 to 2024-03-31; calendar) / consolidated / GAAP: 1129 USD \u00d7 1000000 [retained-original-q1-2024]",
+      "request": {
+        "question": "Tesla Q1 2024 common income using the latest reviewed revision",
+        "selections": [
+          {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": null,
+            "company_id": null,
+            "fiscal_year": null,
+            "fiscal_quarter": null,
+            "document_type": null,
+            "build_id": null,
+            "metadata_review_id": null
+          },
+          {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": null,
+            "company_id": null,
+            "fiscal_year": null,
+            "fiscal_quarter": null,
+            "document_type": null,
+            "build_id": null,
+            "metadata_review_id": null
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "income",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "observations": [
+          {
+            "observation_id": "retained-original-q1-2024",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "original_label": "Net income attributable to common stockholders",
+            "value": "1129",
+            "unit": "currency",
+            "currency": "USD",
+            "scale": "1000000",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "source": {
+              "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+              "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+              "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+              "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+              "company_id": "TSLA",
+              "publication_date": "2024-04-24",
+              "status": "available"
+            },
+            "evidence": [
+              {
+                "role": "value",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "1,129",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 2,
+                "page_number": 5
+              },
+              {
+                "role": "row_label",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "Net income attributable to common stockholders",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 0,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_8e071a8d6424",
+                "text": "Three Months Ended March 31,",
+                "char_start": 0,
+                "char_end": 28,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_d8e0aceb20c3",
+                "text": "2024 2023",
+                "char_start": 0,
+                "char_end": 9,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_4ea6e7419b47",
+                "text": "millions",
+                "char_start": 4,
+                "char_end": 12,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_89e53c5732c5",
+                "text": "$",
+                "char_start": 17,
+                "char_end": 18,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "basis",
+                "block_id": "blk_081666e3b134",
+                "text": "generally accepted accounting principles",
+                "char_start": 183,
+                "char_end": 223,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 36
+              },
+              {
+                "role": "scope",
+                "block_id": "blk_5c9ecc4c5816",
+                "text": "Consolidated Statements of Operations",
+                "char_start": 0,
+                "char_end": 37,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              }
+            ],
+            "verification_status": "reviewed",
+            "review_revision": "Codex-original-financial-review-20261003-v1",
+            "supersedes_observation_ids": [],
+            "revision_evidence": [],
+            "reported": true
+          },
+          {
+            "observation_id": "series-original-q1-2024",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "original_label": "Net income attributable to common stockholders",
+            "value": "1129",
+            "unit": "currency",
+            "currency": "USD",
+            "scale": "1000000",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "source": {
+              "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+              "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+              "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+              "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+              "company_id": "TSLA",
+              "publication_date": "2024-04-24",
+              "status": "available"
+            },
+            "evidence": [
+              {
+                "role": "value",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "1,129",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 2,
+                "page_number": 5
+              },
+              {
+                "role": "row_label",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "Net income attributable to common stockholders",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 0,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_8e071a8d6424",
+                "text": "Three Months Ended March 31,",
+                "char_start": 0,
+                "char_end": 28,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_d8e0aceb20c3",
+                "text": "2024 2023",
+                "char_start": 0,
+                "char_end": 9,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_4ea6e7419b47",
+                "text": "millions",
+                "char_start": 4,
+                "char_end": 12,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_89e53c5732c5",
+                "text": "$",
+                "char_start": 17,
+                "char_end": 18,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "basis",
+                "block_id": "blk_081666e3b134",
+                "text": "generally accepted accounting principles",
+                "char_start": 183,
+                "char_end": 223,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 36
+              },
+              {
+                "role": "scope",
+                "block_id": "blk_5c9ecc4c5816",
+                "text": "Consolidated Statements of Operations",
+                "char_start": 0,
+                "char_end": 37,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              }
+            ],
+            "verification_status": "reviewed",
+            "review_revision": "Codex-original-financial-review-20261003-v1",
+            "supersedes_observation_ids": [],
+            "revision_evidence": [],
+            "reported": true
+          }
+        ],
+        "calculations": [],
+        "mode": "lookup",
+        "as_of": null,
+        "revision_policy": "latest_reviewed"
+      },
+      "manifest": [
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        }
+      ],
+      "inventory": [
+        {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "title": "Tesla common-income disclosure series (controlled import)",
+          "status": "ready",
+          "metadata": {
+            "company_id": "TSLA",
+            "period_end": "2024-03-31",
+            "fiscal_year": 2024,
+            "period_kind": "quarterly",
+            "company_name": "Tesla, Inc.",
+            "period_label": "Q1 2024",
+            "period_start": "2024-01-01",
+            "document_type": "10-Q",
+            "review_status": "needs_review",
+            "fiscal_quarter": 1,
+            "publication_date": "2024-04-24"
+          },
+          "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+          "metadata_review_id": null,
+          "metadata_review_revision": null,
+          "source_metadata_revision": 0,
+          "last_error": null
+        },
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "title": "Tesla Q1 2024 retained predecessor",
+          "status": "ready",
+          "metadata": {
+            "company_id": "TSLA",
+            "period_end": "2024-03-31",
+            "fiscal_year": 2024,
+            "period_kind": "quarterly",
+            "company_name": "Tesla, Inc.",
+            "period_label": "Q1 2024",
+            "period_start": "2024-01-01",
+            "document_type": "10-Q",
+            "review_status": "confirmed",
+            "fiscal_quarter": 1,
+            "publication_date": "2024-04-24"
+          },
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "metadata_review_id": null,
+          "metadata_review_revision": null,
+          "source_metadata_revision": 0,
+          "last_error": null
+        }
+      ],
+      "coverage": [
+        {
+          "task_id": "income",
+          "status": "supported",
+          "observation_ids": [
+            "retained-original-q1-2024"
+          ],
+          "reason": "Exact reviewed observations cover the requested dimensions"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "retained-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+            "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        }
+      ],
+      "rejected_observations": [
+        {
+          "observation_id": "series-original-q1-2024",
+          "reason": "Observation source is outside the available pinned manifest"
+        }
+      ],
+      "calculations": [],
+      "calculation_gaps": [],
+      "ranking": [],
+      "citations": {
+        "retained-original-q1-2024": {
+          "source": {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+            "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ]
+        }
+      },
+      "code_hash": "2b6f9a1a0dc75c9342a1071a3ace5afc9826d0cf8f8ddbb2f5d4f836e2b9875b",
+      "usage": {
+        "planner_calls": 0,
+        "generator_calls": 0,
+        "embedding_calls": 0,
+        "cost_usd": "0"
+      },
+      "run_id": "fb8dea6e5323ef6c6a7e92438912698a9a2770b9ede9c1b65980b535e5dbf589",
+      "execution": {
+        "execution_id": "ea7d54a5-060c-4267-bca1-865b478a4605",
+        "timestamp": "2026-10-04T07:28:06.409139+00:00",
+        "parent_run_id": "091ac01e64c83d9e6608dc26193bb03bc016edf53029dba7dba27acf95f0648f",
+        "collection_id": null
+      }
+    },
+    "diff": {
+      "previous_outcome": "answer",
+      "current_outcome": "answer",
+      "answer_changed": false,
+      "evidence_changed": true,
+      "refresh_failed": false,
+      "previous_coverage": [
+        {
+          "reason": "Exact reviewed observations cover the requested dimensions",
+          "status": "supported",
+          "task_id": "income",
+          "observation_ids": [
+            "retained-original-q1-2024",
+            "series-original-q1-2024"
+          ]
+        }
+      ],
+      "current_coverage": [
+        {
+          "task_id": "income",
+          "status": "supported",
+          "observation_ids": [
+            "retained-original-q1-2024"
+          ],
+          "reason": "Exact reviewed observations cover the requested dimensions"
+        }
+      ],
+      "previous_calculations": [],
+      "current_calculations": []
+    }
+  },
+  "reviewed_rerun": {
+    "result": {
+      "contract_version": "financial-research-v1",
+      "outcome": "answer",
+      "answer": "TSLA / net_income_common / Q1 2024 (2024-01-01 to 2024-03-31; calendar) / consolidated / GAAP: 1390 USD \u00d7 1000000 [series-recast-q1-2024]",
+      "request": {
+        "question": "Tesla Q1 2024 common income using the latest reviewed revision",
+        "selections": [
+          {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": null,
+            "company_id": null,
+            "fiscal_year": null,
+            "fiscal_quarter": null,
+            "document_type": null,
+            "build_id": null,
+            "metadata_review_id": null
+          },
+          {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": null,
+            "company_id": null,
+            "fiscal_year": null,
+            "fiscal_quarter": null,
+            "document_type": null,
+            "build_id": null,
+            "metadata_review_id": null
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "income",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "scope": "consolidated",
+            "basis": "GAAP"
+          }
+        ],
+        "observations": [
+          {
+            "observation_id": "retained-original-q1-2024",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "original_label": "Net income attributable to common stockholders",
+            "value": "1129",
+            "unit": "currency",
+            "currency": "USD",
+            "scale": "1000000",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "source": {
+              "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+              "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+              "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+              "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+              "company_id": "TSLA",
+              "publication_date": "2024-04-24",
+              "status": "available"
+            },
+            "evidence": [
+              {
+                "role": "value",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "1,129",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 2,
+                "page_number": 5
+              },
+              {
+                "role": "row_label",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "Net income attributable to common stockholders",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 0,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_8e071a8d6424",
+                "text": "Three Months Ended March 31,",
+                "char_start": 0,
+                "char_end": 28,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_d8e0aceb20c3",
+                "text": "2024 2023",
+                "char_start": 0,
+                "char_end": 9,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_4ea6e7419b47",
+                "text": "millions",
+                "char_start": 4,
+                "char_end": 12,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_89e53c5732c5",
+                "text": "$",
+                "char_start": 17,
+                "char_end": 18,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "basis",
+                "block_id": "blk_081666e3b134",
+                "text": "generally accepted accounting principles",
+                "char_start": 183,
+                "char_end": 223,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 36
+              },
+              {
+                "role": "scope",
+                "block_id": "blk_5c9ecc4c5816",
+                "text": "Consolidated Statements of Operations",
+                "char_start": 0,
+                "char_end": 37,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              }
+            ],
+            "verification_status": "reviewed",
+            "review_revision": "Codex-original-financial-review-20261003-v1",
+            "supersedes_observation_ids": [],
+            "revision_evidence": [],
+            "reported": true
+          },
+          {
+            "observation_id": "series-recast-q1-2024",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "original_label": "Net income attributable to common stockholders",
+            "value": "1390",
+            "unit": "currency",
+            "currency": "USD",
+            "scale": "1000000",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "source": {
+              "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+              "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+              "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff",
+              "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+              "company_id": "TSLA",
+              "publication_date": "2025-01-30",
+              "status": "available"
+            },
+            "evidence": [
+              {
+                "role": "value",
+                "block_id": "blk_5701b3e1f802",
+                "text": "1,390",
+                "char_start": 14,
+                "char_end": 19,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 73
+              },
+              {
+                "role": "row_label",
+                "block_id": "blk_f94a73f8d1bd",
+                "text": "Net income attributable to common stockholders",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 8,
+                "column_index": 0,
+                "page_number": 73
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_7b30016990a5",
+                "text": "March 31, 2024",
+                "char_start": 61,
+                "char_end": 75,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 73
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_fd496fcc5cb1",
+                "text": "Three Months Ended",
+                "char_start": 0,
+                "char_end": 18,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 73
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_408db41315f2",
+                "text": "millions",
+                "char_start": 114,
+                "char_end": 122,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 72
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_5701b3e1f802",
+                "text": "$",
+                "char_start": 12,
+                "char_end": 13,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 73
+              },
+              {
+                "role": "basis",
+                "block_id": "blk_05179b64f760",
+                "text": "generally accepted accounting principles",
+                "char_start": 242,
+                "char_end": 282,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 50
+              },
+              {
+                "role": "scope",
+                "block_id": "blk_33a51964fb4e",
+                "text": "Consolidated",
+                "char_start": 9,
+                "char_end": 21,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 48
+              }
+            ],
+            "verification_status": "reviewed",
+            "review_revision": "Codex-original-financial-review-20261003-v1",
+            "supersedes_observation_ids": [
+              "retained-original-q1-2024"
+            ],
+            "revision_evidence": [
+              {
+                "role": "basis",
+                "block_id": "blk_ed8c07ce950b",
+                "text": "We adopted the new crypto assets standard on a modified retrospective approach effective January 1, 2024.",
+                "char_start": 1070,
+                "char_end": 1175,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 72
+              }
+            ],
+            "reported": true
+          },
+          {
+            "observation_id": "series-original-q1-2024",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "original_label": "Net income attributable to common stockholders",
+            "value": "1129",
+            "unit": "currency",
+            "currency": "USD",
+            "scale": "1000000",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            },
+            "source": {
+              "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+              "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+              "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+              "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+              "company_id": "TSLA",
+              "publication_date": "2024-04-24",
+              "status": "available"
+            },
+            "evidence": [
+              {
+                "role": "value",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "1,129",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 2,
+                "page_number": 5
+              },
+              {
+                "role": "row_label",
+                "block_id": "blk_5a7f6b4793a2",
+                "text": "Net income attributable to common stockholders",
+                "char_start": null,
+                "char_end": null,
+                "row_index": 28,
+                "column_index": 0,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_8e071a8d6424",
+                "text": "Three Months Ended March 31,",
+                "char_start": 0,
+                "char_end": 28,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "column_period",
+                "block_id": "blk_d8e0aceb20c3",
+                "text": "2024 2023",
+                "char_start": 0,
+                "char_end": 9,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_4ea6e7419b47",
+                "text": "millions",
+                "char_start": 4,
+                "char_end": 12,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "unit",
+                "block_id": "blk_89e53c5732c5",
+                "text": "$",
+                "char_start": 17,
+                "char_end": 18,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              },
+              {
+                "role": "basis",
+                "block_id": "blk_081666e3b134",
+                "text": "generally accepted accounting principles",
+                "char_start": 183,
+                "char_end": 223,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 36
+              },
+              {
+                "role": "scope",
+                "block_id": "blk_5c9ecc4c5816",
+                "text": "Consolidated Statements of Operations",
+                "char_start": 0,
+                "char_end": 37,
+                "row_index": null,
+                "column_index": null,
+                "page_number": 5
+              }
+            ],
+            "verification_status": "reviewed",
+            "review_revision": "Codex-original-financial-review-20261003-v1",
+            "supersedes_observation_ids": [],
+            "revision_evidence": [],
+            "reported": true
+          }
+        ],
+        "calculations": [],
+        "mode": "lookup",
+        "as_of": null,
+        "revision_policy": "latest_reviewed"
+      },
+      "manifest": [
+        {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+          "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff",
+          "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+          "company_id": "TSLA",
+          "publication_date": "2025-01-30",
+          "status": "available"
+        },
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        }
+      ],
+      "inventory": [
+        {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "title": "Tesla common-income disclosure series (controlled import)",
+          "status": "ready",
+          "metadata": {
+            "company_id": "TSLA",
+            "period_end": "2024-12-31",
+            "fiscal_year": 2024,
+            "period_kind": "annual",
+            "company_name": "Tesla, Inc.",
+            "period_label": "FY2024",
+            "period_start": "2024-01-01",
+            "document_type": "10-K",
+            "review_status": "confirmed",
+            "fiscal_quarter": null,
+            "publication_date": "2025-01-30"
+          },
+          "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+          "metadata_review_id": null,
+          "metadata_review_revision": null,
+          "source_metadata_revision": 1,
+          "last_error": null
+        },
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "title": "Tesla Q1 2024 retained predecessor",
+          "status": "ready",
+          "metadata": {
+            "company_id": "TSLA",
+            "period_end": "2024-03-31",
+            "fiscal_year": 2024,
+            "period_kind": "quarterly",
+            "company_name": "Tesla, Inc.",
+            "period_label": "Q1 2024",
+            "period_start": "2024-01-01",
+            "document_type": "10-Q",
+            "review_status": "confirmed",
+            "fiscal_quarter": 1,
+            "publication_date": "2024-04-24"
+          },
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "metadata_review_id": null,
+          "metadata_review_revision": null,
+          "source_metadata_revision": 0,
+          "last_error": null
+        }
+      ],
+      "coverage": [
+        {
+          "task_id": "income",
+          "status": "supported",
+          "observation_ids": [
+            "series-recast-q1-2024"
+          ],
+          "reason": "Exact reviewed observations cover the requested dimensions"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "retained-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+            "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        },
+        {
+          "observation_id": "series-recast-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1390",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+            "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff",
+            "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+            "company_id": "TSLA",
+            "publication_date": "2025-01-30",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5701b3e1f802",
+              "text": "1,390",
+              "char_start": 14,
+              "char_end": 19,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_f94a73f8d1bd",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 8,
+              "column_index": 0,
+              "page_number": 73
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_7b30016990a5",
+              "text": "March 31, 2024",
+              "char_start": 61,
+              "char_end": 75,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_fd496fcc5cb1",
+              "text": "Three Months Ended",
+              "char_start": 0,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_408db41315f2",
+              "text": "millions",
+              "char_start": 114,
+              "char_end": 122,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 72
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_5701b3e1f802",
+              "text": "$",
+              "char_start": 12,
+              "char_end": 13,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_05179b64f760",
+              "text": "generally accepted accounting principles",
+              "char_start": 242,
+              "char_end": 282,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 50
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_33a51964fb4e",
+              "text": "Consolidated",
+              "char_start": 9,
+              "char_end": 21,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 48
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [
+            "retained-original-q1-2024"
+          ],
+          "revision_evidence": [
+            {
+              "role": "basis",
+              "block_id": "blk_ed8c07ce950b",
+              "text": "We adopted the new crypto assets standard on a modified retrospective approach effective January 1, 2024.",
+              "char_start": 1070,
+              "char_end": 1175,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 72
+            }
+          ],
+          "reported": true
+        }
+      ],
+      "rejected_observations": [
+        {
+          "observation_id": "series-original-q1-2024",
+          "reason": "Observation source is outside the available pinned manifest"
+        }
+      ],
+      "calculations": [],
+      "calculation_gaps": [],
+      "ranking": [],
+      "citations": {
+        "series-recast-q1-2024": {
+          "source": {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+            "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff",
+            "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+            "company_id": "TSLA",
+            "publication_date": "2025-01-30",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5701b3e1f802",
+              "text": "1,390",
+              "char_start": 14,
+              "char_end": 19,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_f94a73f8d1bd",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 8,
+              "column_index": 0,
+              "page_number": 73
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_7b30016990a5",
+              "text": "March 31, 2024",
+              "char_start": 61,
+              "char_end": 75,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_fd496fcc5cb1",
+              "text": "Three Months Ended",
+              "char_start": 0,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_408db41315f2",
+              "text": "millions",
+              "char_start": 114,
+              "char_end": 122,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 72
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_5701b3e1f802",
+              "text": "$",
+              "char_start": 12,
+              "char_end": 13,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 73
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_05179b64f760",
+              "text": "generally accepted accounting principles",
+              "char_start": 242,
+              "char_end": 282,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 50
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_33a51964fb4e",
+              "text": "Consolidated",
+              "char_start": 9,
+              "char_end": 21,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 48
+            }
+          ]
+        }
+      },
+      "code_hash": "2b6f9a1a0dc75c9342a1071a3ace5afc9826d0cf8f8ddbb2f5d4f836e2b9875b",
+      "usage": {
+        "planner_calls": 0,
+        "generator_calls": 0,
+        "embedding_calls": 0,
+        "cost_usd": "0"
+      },
+      "run_id": "f63808de745b1ca8a74e51d107b6380b3d3367e1c378a17c3038d885e4bf87d8",
+      "execution": {
+        "execution_id": "24557303-0010-4ac8-bb9f-3a3fa42b1407",
+        "timestamp": "2026-10-04T07:28:06.451573+00:00",
+        "parent_run_id": "091ac01e64c83d9e6608dc26193bb03bc016edf53029dba7dba27acf95f0648f",
+        "collection_id": null
+      }
+    },
+    "diff": {
+      "previous_outcome": "answer",
+      "current_outcome": "answer",
+      "answer_changed": true,
+      "evidence_changed": true,
+      "refresh_failed": false,
+      "previous_coverage": [
+        {
+          "reason": "Exact reviewed observations cover the requested dimensions",
+          "status": "supported",
+          "task_id": "income",
+          "observation_ids": [
+            "retained-original-q1-2024",
+            "series-original-q1-2024"
+          ]
+        }
+      ],
+      "current_coverage": [
+        {
+          "task_id": "income",
+          "status": "supported",
+          "observation_ids": [
+            "series-recast-q1-2024"
+          ],
+          "reason": "Exact reviewed observations cover the requested dimensions"
+        }
+      ],
+      "previous_calculations": [],
+      "current_calculations": []
+    }
+  },
+  "pinned_old_query": {
+    "contract_version": "financial-research-v1",
+    "outcome": "answer",
+    "answer": "TSLA / net_income_common / Q1 2024 (2024-01-01 to 2024-03-31; calendar) / consolidated / GAAP: 1129 USD \u00d7 1000000 [retained-original-q1-2024]",
+    "request": {
+      "question": "Tesla Q1 2024 common income using the latest reviewed revision",
+      "selections": [
+        {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+          "company_id": null,
+          "fiscal_year": null,
+          "fiscal_quarter": null,
+          "document_type": null,
+          "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+          "metadata_review_id": null
+        },
+        {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "company_id": null,
+          "fiscal_year": null,
+          "fiscal_quarter": null,
+          "document_type": null,
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "metadata_review_id": null
+        }
+      ],
+      "tasks": [
+        {
+          "task_id": "income",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "scope": "consolidated",
+          "basis": "GAAP"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "retained-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+            "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+            "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        },
+        {
+          "observation_id": "series-original-q1-2024",
+          "company_id": "TSLA",
+          "metric_id": "net_income_common",
+          "original_label": "Net income attributable to common stockholders",
+          "value": "1129",
+          "unit": "currency",
+          "currency": "USD",
+          "scale": "1000000",
+          "scope": "consolidated",
+          "basis": "GAAP",
+          "period": {
+            "kind": "quarter",
+            "start": "2024-01-01",
+            "end": "2024-03-31",
+            "fiscal_label": "Q1 2024",
+            "calendar": "calendar"
+          },
+          "source": {
+            "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+            "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+            "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+            "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+            "company_id": "TSLA",
+            "publication_date": "2024-04-24",
+            "status": "available"
+          },
+          "evidence": [
+            {
+              "role": "value",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "1,129",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 2,
+              "page_number": 5
+            },
+            {
+              "role": "row_label",
+              "block_id": "blk_5a7f6b4793a2",
+              "text": "Net income attributable to common stockholders",
+              "char_start": null,
+              "char_end": null,
+              "row_index": 28,
+              "column_index": 0,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_8e071a8d6424",
+              "text": "Three Months Ended March 31,",
+              "char_start": 0,
+              "char_end": 28,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "column_period",
+              "block_id": "blk_d8e0aceb20c3",
+              "text": "2024 2023",
+              "char_start": 0,
+              "char_end": 9,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_4ea6e7419b47",
+              "text": "millions",
+              "char_start": 4,
+              "char_end": 12,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "unit",
+              "block_id": "blk_89e53c5732c5",
+              "text": "$",
+              "char_start": 17,
+              "char_end": 18,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            },
+            {
+              "role": "basis",
+              "block_id": "blk_081666e3b134",
+              "text": "generally accepted accounting principles",
+              "char_start": 183,
+              "char_end": 223,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 36
+            },
+            {
+              "role": "scope",
+              "block_id": "blk_5c9ecc4c5816",
+              "text": "Consolidated Statements of Operations",
+              "char_start": 0,
+              "char_end": 37,
+              "row_index": null,
+              "column_index": null,
+              "page_number": 5
+            }
+          ],
+          "verification_status": "reviewed",
+          "review_revision": "Codex-original-financial-review-20261003-v1",
+          "supersedes_observation_ids": [],
+          "revision_evidence": [],
+          "reported": true
+        }
+      ],
+      "calculations": [],
+      "mode": "lookup",
+      "as_of": null,
+      "revision_policy": "latest_reviewed"
+    },
+    "manifest": [
+      {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+        "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      },
+      {
+        "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+        "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+        "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      }
+    ],
+    "inventory": [
+      {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "title": "Tesla common-income disclosure series (controlled import)",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-03-31",
+          "fiscal_year": 2024,
+          "period_kind": "quarterly",
+          "company_name": "Tesla, Inc.",
+          "period_label": "Q1 2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-Q",
+          "review_status": "confirmed",
+          "fiscal_quarter": 1,
+          "publication_date": "2024-04-24"
+        },
+        "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": null,
+        "last_error": null
+      },
+      {
+        "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+        "title": "Tesla Q1 2024 retained predecessor",
+        "status": "ready",
+        "metadata": {
+          "company_id": "TSLA",
+          "period_end": "2024-03-31",
+          "fiscal_year": 2024,
+          "period_kind": "quarterly",
+          "company_name": "Tesla, Inc.",
+          "period_label": "Q1 2024",
+          "period_start": "2024-01-01",
+          "document_type": "10-Q",
+          "review_status": "confirmed",
+          "fiscal_quarter": 1,
+          "publication_date": "2024-04-24"
+        },
+        "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+        "metadata_review_id": null,
+        "metadata_review_revision": null,
+        "source_metadata_revision": null,
+        "last_error": null
+      }
+    ],
+    "coverage": [
+      {
+        "task_id": "income",
+        "status": "supported",
+        "observation_ids": [
+          "retained-original-q1-2024",
+          "series-original-q1-2024"
+        ],
+        "reason": "Exact reviewed observations cover the requested dimensions"
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "retained-original-q1-2024",
+        "company_id": "TSLA",
+        "metric_id": "net_income_common",
+        "original_label": "Net income attributable to common stockholders",
+        "value": "1129",
+        "unit": "currency",
+        "currency": "USD",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "basis": "GAAP",
+        "period": {
+          "kind": "quarter",
+          "start": "2024-01-01",
+          "end": "2024-03-31",
+          "fiscal_label": "Q1 2024",
+          "calendar": "calendar"
+        },
+        "source": {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ],
+        "verification_status": "reviewed",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "supersedes_observation_ids": [],
+        "revision_evidence": [],
+        "reported": true
+      },
+      {
+        "observation_id": "series-original-q1-2024",
+        "company_id": "TSLA",
+        "metric_id": "net_income_common",
+        "original_label": "Net income attributable to common stockholders",
+        "value": "1129",
+        "unit": "currency",
+        "currency": "USD",
+        "scale": "1000000",
+        "scope": "consolidated",
+        "basis": "GAAP",
+        "period": {
+          "kind": "quarter",
+          "start": "2024-01-01",
+          "end": "2024-03-31",
+          "fiscal_label": "Q1 2024",
+          "calendar": "calendar"
+        },
+        "source": {
+          "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+          "version_id": "46deb50d-f823-4d2a-8d8f-122886f51958",
+          "build_id": "21bf64be-0a03-44c2-b116-566f1278bf6f",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ],
+        "verification_status": "reviewed",
+        "review_revision": "Codex-original-financial-review-20261003-v1",
+        "supersedes_observation_ids": [],
+        "revision_evidence": [],
+        "reported": true
+      }
+    ],
+    "rejected_observations": [],
+    "calculations": [],
+    "calculation_gaps": [],
+    "ranking": [],
+    "citations": {
+      "retained-original-q1-2024": {
+        "source": {
+          "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+          "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+          "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+          "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+          "company_id": "TSLA",
+          "publication_date": "2024-04-24",
+          "status": "available"
+        },
+        "evidence": [
+          {
+            "role": "value",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "1,129",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 2,
+            "page_number": 5
+          },
+          {
+            "role": "row_label",
+            "block_id": "blk_5a7f6b4793a2",
+            "text": "Net income attributable to common stockholders",
+            "char_start": null,
+            "char_end": null,
+            "row_index": 28,
+            "column_index": 0,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_8e071a8d6424",
+            "text": "Three Months Ended March 31,",
+            "char_start": 0,
+            "char_end": 28,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "column_period",
+            "block_id": "blk_d8e0aceb20c3",
+            "text": "2024 2023",
+            "char_start": 0,
+            "char_end": 9,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_4ea6e7419b47",
+            "text": "millions",
+            "char_start": 4,
+            "char_end": 12,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "unit",
+            "block_id": "blk_89e53c5732c5",
+            "text": "$",
+            "char_start": 17,
+            "char_end": 18,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          },
+          {
+            "role": "basis",
+            "block_id": "blk_081666e3b134",
+            "text": "generally accepted accounting principles",
+            "char_start": 183,
+            "char_end": 223,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 36
+          },
+          {
+            "role": "scope",
+            "block_id": "blk_5c9ecc4c5816",
+            "text": "Consolidated Statements of Operations",
+            "char_start": 0,
+            "char_end": 37,
+            "row_index": null,
+            "column_index": null,
+            "page_number": 5
+          }
+        ]
+      }
+    },
+    "code_hash": "2b6f9a1a0dc75c9342a1071a3ace5afc9826d0cf8f8ddbb2f5d4f836e2b9875b",
+    "usage": {
+      "planner_calls": 0,
+      "generator_calls": 0,
+      "embedding_calls": 0,
+      "cost_usd": "0"
+    },
+    "run_id": "2c4b3e6fa3b6e1e400b5417f1ae9f2f49817278bbabdcfb2f89a24a905e2201d"
+  },
+  "observation_mapping": {
+    "predecessor": {
+      "observation_id": "retained-original-q1-2024",
+      "company_id": "TSLA",
+      "metric_id": "net_income_common",
+      "original_label": "Net income attributable to common stockholders",
+      "value": "1129",
+      "unit": "currency",
+      "currency": "USD",
+      "scale": "1000000",
+      "scope": "consolidated",
+      "basis": "GAAP",
+      "period": {
+        "kind": "quarter",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "fiscal_label": "Q1 2024",
+        "calendar": "calendar"
+      },
+      "source": {
+        "source_id": "c5638b11-18d6-4696-83d5-fa2fef086757",
+        "version_id": "89ac033e-0546-4125-85f7-0c14390b7017",
+        "build_id": "3bcdcc02-a2e8-40b8-a41f-ae943be256e6",
+        "source_hash": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+        "company_id": "TSLA",
+        "publication_date": "2024-04-24",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_5a7f6b4793a2",
+          "text": "1,129",
+          "char_start": null,
+          "char_end": null,
+          "row_index": 28,
+          "column_index": 2,
+          "page_number": 5
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_5a7f6b4793a2",
+          "text": "Net income attributable to common stockholders",
+          "char_start": null,
+          "char_end": null,
+          "row_index": 28,
+          "column_index": 0,
+          "page_number": 5
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_8e071a8d6424",
+          "text": "Three Months Ended March 31,",
+          "char_start": 0,
+          "char_end": 28,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 5
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_d8e0aceb20c3",
+          "text": "2024 2023",
+          "char_start": 0,
+          "char_end": 9,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 5
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_4ea6e7419b47",
+          "text": "millions",
+          "char_start": 4,
+          "char_end": 12,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 5
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_89e53c5732c5",
+          "text": "$",
+          "char_start": 17,
+          "char_end": 18,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 5
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_081666e3b134",
+          "text": "generally accepted accounting principles",
+          "char_start": 183,
+          "char_end": 223,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 36
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_5c9ecc4c5816",
+          "text": "Consolidated Statements of Operations",
+          "char_start": 0,
+          "char_end": 37,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 5
+        }
+      ],
+      "verification_status": "reviewed",
+      "review_revision": "Codex-original-financial-review-20261003-v1",
+      "supersedes_observation_ids": [],
+      "revision_evidence": [],
+      "reported": true
+    },
+    "recast": {
+      "observation_id": "series-recast-q1-2024",
+      "company_id": "TSLA",
+      "metric_id": "net_income_common",
+      "original_label": "Net income attributable to common stockholders",
+      "value": "1390",
+      "unit": "currency",
+      "currency": "USD",
+      "scale": "1000000",
+      "scope": "consolidated",
+      "basis": "GAAP",
+      "period": {
+        "kind": "quarter",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "fiscal_label": "Q1 2024",
+        "calendar": "calendar"
+      },
+      "source": {
+        "source_id": "a4151009-f576-4183-bf64-f696b9de1b84",
+        "version_id": "554ff992-afa9-4b71-9ddf-263043ecc7ba",
+        "build_id": "6a4204c5-8fd9-49ce-beb9-9124fc6d18ff",
+        "source_hash": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+        "company_id": "TSLA",
+        "publication_date": "2025-01-30",
+        "status": "available"
+      },
+      "evidence": [
+        {
+          "role": "value",
+          "block_id": "blk_5701b3e1f802",
+          "text": "1,390",
+          "char_start": 14,
+          "char_end": 19,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 73
+        },
+        {
+          "role": "row_label",
+          "block_id": "blk_f94a73f8d1bd",
+          "text": "Net income attributable to common stockholders",
+          "char_start": null,
+          "char_end": null,
+          "row_index": 8,
+          "column_index": 0,
+          "page_number": 73
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_7b30016990a5",
+          "text": "March 31, 2024",
+          "char_start": 61,
+          "char_end": 75,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 73
+        },
+        {
+          "role": "column_period",
+          "block_id": "blk_fd496fcc5cb1",
+          "text": "Three Months Ended",
+          "char_start": 0,
+          "char_end": 18,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 73
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_408db41315f2",
+          "text": "millions",
+          "char_start": 114,
+          "char_end": 122,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 72
+        },
+        {
+          "role": "unit",
+          "block_id": "blk_5701b3e1f802",
+          "text": "$",
+          "char_start": 12,
+          "char_end": 13,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 73
+        },
+        {
+          "role": "basis",
+          "block_id": "blk_05179b64f760",
+          "text": "generally accepted accounting principles",
+          "char_start": 242,
+          "char_end": 282,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 50
+        },
+        {
+          "role": "scope",
+          "block_id": "blk_33a51964fb4e",
+          "text": "Consolidated",
+          "char_start": 9,
+          "char_end": 21,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 48
+        }
+      ],
+      "verification_status": "reviewed",
+      "review_revision": "Codex-original-financial-review-20261003-v1",
+      "supersedes_observation_ids": [
+        "retained-original-q1-2024"
+      ],
+      "revision_evidence": [
+        {
+          "role": "basis",
+          "block_id": "blk_ed8c07ce950b",
+          "text": "We adopted the new crypto assets standard on a modified retrospective approach effective January 1, 2024.",
+          "char_start": 1070,
+          "char_end": 1175,
+          "row_index": null,
+          "column_index": null,
+          "page_number": 72
+        }
+      ],
+      "reported": true
+    }
+  },
+  "api_calls": 0,
+  "holdout": "not_accessed",
+  "independent_release_reviews": 0
+}

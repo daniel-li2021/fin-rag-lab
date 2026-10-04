@@ -64,6 +64,10 @@ def assess(case, result):
         checks['ranking'] = result.get('ranking', []) == expected['ranking']
     if 'gap_operations' in expected:
         checks['gap_operations'] = [g['operation'] for g in result.get('calculation_gaps', [])] == expected['gap_operations']
+    if 'coverage_statuses' in expected:
+        checks['coverage_statuses'] = [c['status'] for c in result.get('coverage', [])] == expected['coverage_statuses']
+        checks['supported_citations_only'] = set(result.get('citations', {})) == {
+            c['observation_ids'][0] for c in result.get('coverage', []) if c['status'] == 'supported'}
     if case['lane'] == 'narrative':
         passages = {p['evidence_id']: p for p in result.get('passages', [])}
         checks['quoted_original_provenance'] = all(

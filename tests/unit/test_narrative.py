@@ -1,6 +1,8 @@
 """A cited draft cannot exceed its tasks, original quotes or single call ceiling."""
 import json
+from pathlib import Path
 from types import SimpleNamespace
+import pytest
 
 from src.financial.narrative import synthesize_evidence, original_excerpts
 from src.observability import CostTracker
@@ -75,3 +77,28 @@ def test_excerpt_selection_retains_exact_bounded_original_spans():
               'text':result['passages'][1]['text']}]
     answer = synthesize_evidence(result, CostTracker(), llm=Model(draft), model='test')
     assert answer['outcome'] == 'qualified_answer' and answer['claims'][0]['char_start'] > 0
+
+
+@pytest.mark.parametrize('case_id', ['dev-08', 'dev-15', 'dev-16'])
+def test_saved_authentic_drafts_use_period_labels_in_integrated_synthesis(case_id, monkeypatch):
+    from src.core import config
+    from src.financial.research import _canonical
+    import hashlib
+    root = Path(__file__).resolve().parents[2]
+    rows = [json.loads(line) for line in (root / 'docs/benchmarks/20261003-product-development/capture-v4/results.jsonl').read_text().splitlines()]
+    previous = next(row['result'] for row in rows if row['case_id'] == case_id)
+    excerpts = original_excerpts({p['evidence_id']: p for p in previous['passages']})
+    draft = []
+    for claim in previous['claims']:
+        excerpt = next(e for e in excerpts.values() if all(e[k] == claim[k]
+                       for k in ('task_id', 'evidence_id', 'quote', 'char_start', 'char_end')))
+        draft.append({'task_id': claim['task_id'], 'excerpt_id': excerpt['excerpt_id'], 'text': claim['text']})
+    def forbidden(*args, **kwargs):
+        raise AssertionError('Saved draft validation must not construct a provider client')
+    monkeypatch.setattr(config, 'make_chat_llm', forbidden)
+    result = synthesize_evidence(previous, CostTracker(), llm=Model(draft), model='saved')
+    assert result['claims'] == previous['claims']
+    assert result['synthesis_review_status'] == previous['synthesis_review_status'] == 'unreviewed'
+    for task in previous['request']['tasks']:
+        assert f"{task['company_id']} / {task['document_period_label']}:" in result['answer']
+    assert result['run_id'] == hashlib.sha256(_canonical({k:v for k,v in result.items() if k != 'run_id'}).encode()).hexdigest()

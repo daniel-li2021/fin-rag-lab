@@ -7,6 +7,7 @@ import time
 from pydantic import BaseModel, ConfigDict, Field
 
 from .research import _canonical
+from .presentation import narrative_answer
 
 
 class NarrativeClaim(BaseModel):
@@ -122,7 +123,6 @@ def synthesize_evidence(result, tracker, *, llm=None, model=None):
         updated['claims'] = []
     else:
         updated['outcome'] = 'qualified_answer'
-        updated['answer'] = '\n'.join(f'{tasks[c["task_id"]]["company_id"]}: {c["text"]} [{c["evidence_id"]}]' for c in updated['claims'])
-        updated['answer'] += '\nGenerated synthesis requires semantic review; exact quote locators establish provenance only.'
+        updated['answer'] = narrative_answer(tasks, updated['claims'])
     updated['run_id'] = hashlib.sha256(_canonical({k:v for k,v in updated.items() if k != 'run_id'}).encode()).hexdigest()
     return updated

@@ -1,0 +1,37 @@
+{
+  "qualification": "Development-only paired strict review; saved generation reused; no provider calls or holdout access.",
+  "reviewer": "Codex",
+  "core": {
+    "before": 45,
+    "after": 48,
+    "denominator": 48,
+    "wins": [
+      "dev-08",
+      "dev-15",
+      "dev-16"
+    ],
+    "losses": []
+  },
+  "existing_extension": {
+    "passed": 16,
+    "denominator": 16
+  },
+  "new_gaps": {
+    "passed": 8,
+    "denominator": 8
+  },
+  "authentic_source_change": {
+    "scenarios": 1,
+    "passed_checks": 13,
+    "check_denominator": 13,
+    "live_url_refresh": 0
+  },
+  "true_unresolved_issuer_discrepancies": 0,
+  "retained_failed_attempts": [
+    "gaps: source-selection label error; v2 correction",
+    "source-change: cached parent classifier error before publication"
+  ],
+  "api_calls": 0,
+  "holdout": "not_accessed",
+  "release_decision": "held"
+}

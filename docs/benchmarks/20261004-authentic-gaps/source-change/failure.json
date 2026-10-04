@@ -1,0 +1,5 @@
+{
+  "stage": "cached-import-before-enqueue",
+  "exception": "AttributeError: DocumentChunk has no chunk_type",
+  "correction": "Classify cached parents/children using parent_chunk_id; zero API calls, zero source activation."
+}
