@@ -65,6 +65,30 @@ def test_pinned_research_and_metadata_history(durable):
         svc.registry.research_snapshot('alice', [historical_selection])
 
 
+def test_numeric_research_loads_role_blocks_before_whole_corpus_limit(durable):
+    svc, _, _ = durable
+    source = svc.register(kind='text', title='Large synthetic original', metadata={'company_id': 'TEST', 'review_status': 'confirmed'})
+    prototype, block = fact()
+    svc.ingest_bytes(source['source_id'], block.text.encode())
+    selection = {'source_id': str(source['source_id'])}
+    snap = svc.registry.research_snapshot('alice', [selection])
+    pin = snap['sources'][0]
+    original = snap['blocks'][pin.build_id][0]
+    observation = prototype.model_copy(update={'source': pin, 'evidence': tuple(
+        e.model_copy(update={'block_id': original.block_id, 'page_number': None}) for e in prototype.evidence)})
+    svc.registry.save_observation('alice', observation)
+    with svc.registry.connect() as db:
+        db.execute("""INSERT INTO blocks(build_id,block_id,ordinal,payload)
+            SELECT %s,'irrelevant-'||n,n+100,'{}'::jsonb FROM generate_series(1,10001) n""", (pin.build_id,))
+    with pytest.raises(ValueError, match='10000'):
+        svc.registry.research_snapshot('alice', [selection])
+    result = svc.research_question('show GAAP consolidated revenue for TEST in Q1 2026', selections=[selection])
+    assert result['outcome'] == 'answer' and result['observations'][0]['value'] == '12'
+    assert svc.registry.observation_blocks('alice', [pin], [observation])[pin.build_id] == [original]
+    with pytest.raises(LookupError):
+        svc.registry.observation_blocks('another-owner', [pin], [observation])
+
+
 def test_research_api_keeps_auth_and_plan_bounds(durable):
     svc, _, _ = durable
     token = 'offline-secure-token-at-least-24-characters'

@@ -130,7 +130,7 @@ class Registry:
             return db.execute('SELECT * FROM source_version_metadata_reviews WHERE version_id=%s ORDER BY revision',
                               (version_id,)).fetchall()
 
-    def research_snapshot(self, owner, selections):
+    def research_snapshot(self, owner, selections, *, include_blocks=True):
         """Resolve all authorized versions/builds and original blocks in one read snapshot."""
         from src.core.models import DocumentBlock
         from src.financial.models import PinnedSource
@@ -182,7 +182,7 @@ class Registry:
                     build_id=str(row['build_id']), source_hash=row['sha256'], company_id=metadata['company_id'],
                     publication_date=metadata.get('publication_date'))
                 pins.append(pin)
-            if pins:
+            if pins and include_blocks:
                 rows = db.execute('''SELECT build_id,payload FROM blocks
                     WHERE build_id=ANY(%s) ORDER BY build_id,ordinal LIMIT 10001''',
                     ([UUID(p.build_id) for p in pins],)).fetchall()
@@ -192,6 +192,31 @@ class Registry:
                 for row in rows:
                     blocks[str(row['build_id'])].append(DocumentBlock.model_validate(row['payload']))
         return {'sources': pins, 'blocks': blocks, 'inventory': inventory}
+
+    def observation_blocks(self, owner, pins, observations):
+        """Load only original role locators, preserving the bounded authorized manifest."""
+        from src.core.models import DocumentBlock
+        wanted = {p.build_id: set() for p in pins}
+        for observation in observations:
+            if observation.source in pins:
+                wanted[observation.source.build_id].update(link.block_id for link in
+                    (*observation.evidence, *observation.revision_evidence))
+        if sum(map(len, wanted.values())) > 10000:
+            raise ValueError('Research exceeds 10000 original blocks')
+        blocks = {p.build_id: [] for p in pins}
+        with self.connect() as db:
+            db.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')
+            for pin in pins:
+                source = self.owned(db, owner, pin.source_id)
+                if source['status'] == 'archived':
+                    raise LookupError('Source not found')
+                if wanted[pin.build_id]:
+                    rows = db.execute('''SELECT b.payload FROM blocks b
+                        JOIN retrieval_builds rb USING(build_id) JOIN source_versions v USING(version_id)
+                        WHERE b.build_id=%s AND b.block_id=ANY(%s) AND v.source_id=%s AND v.sha256=%s
+                        ORDER BY b.ordinal''', (pin.build_id, list(wanted[pin.build_id]), pin.source_id, pin.source_hash)).fetchall()
+                    blocks[pin.build_id] = [DocumentBlock.model_validate(row['payload']) for row in rows]
+        return blocks
 
     def save_observation(self, owner, observation):
         from src.financial.models import FinancialObservation

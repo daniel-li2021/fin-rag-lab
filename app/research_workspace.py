@@ -63,7 +63,7 @@ def render_research(svc):
         metric = st.selectbox('Metric', metric_options)
         operating = metric in ('vehicle deliveries', 'vehicle production')
         basis = st.selectbox('Basis', ['operating'] if operating else ['GAAP', 'non-GAAP'])
-        scope = st.selectbox('Scope', ['consolidated', 'automotive', 'segment'])
+        scope = st.selectbox('Scope', ['consolidated', 'continuing_operations', 'automotive', 'segment'])
         if scope == 'segment':
             scope = 'segment:' + st.text_input('Reviewed segment definition', placeholder='client_gaming_2025').strip()
         period = st.text_input('Reporting period', placeholder='Q1 2026 or Q4 2024 to Q4 2025')

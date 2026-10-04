@@ -8,6 +8,7 @@ METRICS = {'revenue': 'revenue', 'net income': 'net_income', 'gross profit': 'gr
            'operating income': 'operating_income', 'gross margin': 'gross_margin',
            'vehicle production': 'vehicle_production', 'vehicle deliveries': 'vehicle_deliveries',
            'net income attributable to parent': 'net_income_parent', 'net interest income': 'net_interest_income',
+           'net income attributable to common': 'net_income_common',
            'provision for credit losses': 'provision_credit_losses'}
 PERIOD = r'(?:Q[1-4]\s+(?:19|20|21)\d{2}|FY\s*(?:19|20|21)\d{2})'
 
@@ -26,7 +27,7 @@ def parse_question(question, inventory):
     metrics = '|'.join(re.escape(m) for m in METRICS)
     # ponytail: finite templates, explicit tasks for questions outside this grammar; planner stays gated.
     pattern = (rf'(?P<action>show|compare|rank|growth|change|margin|delivery ratio|production gap)\s+(?P<basis>GAAP|non-GAAP|operating)\s+'
-               rf'(?P<scope>consolidated|automotive|segment:[a-z0-9_-]+)\s+(?P<metric>{metrics})\s+for\s+'
+               rf'(?P<scope>consolidated|continuing_operations|automotive|segment:[a-z0-9_-]+)\s+(?P<metric>{metrics})\s+for\s+'
                rf'(?P<companies>.+?)\s+in\s+(?P<periods>{PERIOD}(?:\s+to\s+{PERIOD})?)')
     match = re.fullmatch(pattern, text, re.I)
     if not match:

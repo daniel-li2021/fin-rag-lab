@@ -199,7 +199,7 @@ class PersistentRAGService(RAGService):
         from src.financial.research import ResearchRequest
         request = ResearchRequest.model_validate(request)
         snapshot = self.registry.research_snapshot(self.owner, [s.model_dump(mode='json', exclude_none=True)
-                                                              for s in request.selections])
+                                                              for s in request.selections], include_blocks=False)
         return self._execute_research(request, snapshot, save, collection_id, parent_run_id)
 
     def _execute_research(self, request, snapshot, save=False, collection_id=None, parent_run_id=None):
@@ -222,6 +222,7 @@ class PersistentRAGService(RAGService):
                 raise ValueError('Request conflicts with an immutable stored observation')
             observations[observation.observation_id] = observation.model_dump(mode='json')
         request = ResearchRequest.model_validate({**request.model_dump(mode='json'), 'observations': list(observations.values())})
+        snapshot = {**snapshot, 'blocks': self.registry.observation_blocks(self.owner, snapshot['sources'], request.observations)}
         result = QueryPipeline(None, None).research(request, snapshot)
         if save:
             self._save_research_result(result, collection_id, parent_run_id)
@@ -256,7 +257,7 @@ class PersistentRAGService(RAGService):
                 raise ValueError('Choose a collection or explicit selections')
             collection = self.registry.collection(self.owner, collection_id)
             selections = [{'source_id': source_id} for source_id in collection['source_ids']]
-        snapshot = self.registry.research_snapshot(self.owner, selections or [])
+        snapshot = self.registry.research_snapshot(self.owner, selections or [], include_blocks=False)
         parsed = parse_question(question, snapshot['inventory'])
         if 'outcome' in parsed:
             resolution = parsed

@@ -69,6 +69,12 @@ def test_natural_aliases_and_guided_calculations_require_all_operands():
     profit, pb = fact(value='3', metric='gross_profit', observation_id='profit')
     natural = resolve_question('What was GAAP consolidated net revenue for Test in Q1 2026?', selections, inventory, [revenue])
     assert natural['request']['tasks'][0]['metric_id'] == 'revenue'
+    common = revenue.model_copy(update={'metric_id': 'net_income_common'})
+    resolved = resolve_question('compare GAAP consolidated net income attributable to common for TEST in Q1 2026', selections, inventory, [common])
+    assert resolved['request']['tasks'][0]['metric_id'] == 'net_income_common'
+    continuing = revenue.model_copy(update={'scope': 'continuing_operations'})
+    resolved = resolve_question('show GAAP continuing_operations revenue for TEST in Q1 2026', selections, inventory, [continuing])
+    assert resolved['request']['tasks'][0]['scope'] == 'continuing_operations'
     margin = resolve_question('margin GAAP consolidated gross profit for Test in Q1 2026', selections, inventory, [revenue, profit])['request']
     assert [t['metric_id'] for t in margin['tasks']] == ['gross_profit', 'revenue']
     result = QueryPipeline(None, None).research({**margin, 'observations': [o.model_dump(mode='json') for o in (revenue, profit)]}, snapshot([revenue, profit], [rb, pb]))
