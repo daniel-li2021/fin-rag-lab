@@ -21,4 +21,6 @@ The frozen acquisition inventory remains unchanged. `acquisition_resolutions.v1.
 SSL_CERT_FILE=$(.venv/bin/python -m certifi) .venv/bin/python scripts/prepare_product_corpus.py --acquire
 ```
 
-Next gates are reviewed indexed windows, actual ingestion/provenance, immutable metric bindings, frozen development labels and captures with measured model usage, latency and cost. The separate 48-question holdout remains inaccessible to development work.
+The reviewed physical windows and metadata are in `indexed_windows.v1.json`; partial coverage remains visible. `.venv/bin/python scripts/ingest_product_corpus.py` validates every inventory, window and original hash without model calls. Add `--ingest` for actual embeddings; the worker reuses completed builds and cached embeddings, stages each build and atomically activates it. Job/build IDs, actual API usage, configured cost estimates and per-report wall time are retained in `ingestion_receipts.v1.json`. The application never treats the candidate review packet as ingestion blocks.
+
+Next gates are immutable metric bindings, frozen development labels and captures with measured model usage, latency and cost. The separate 48-question holdout remains inaccessible to development work.

@@ -1,0 +1,579 @@
+{
+  "schema_version": 1,
+  "inventory_sha256": "523085fecf1f21deaaca83bc0cbe35b972d2b2628a183e11c031d9803c40ced3",
+  "policy": "PRODUCT_METRIC_POLICY.md; Codex original review for development, not independent release review",
+  "reports": [
+    {
+      "report_id": "amd-q1-2024",
+      "source_sha256": "ac46272ad91e7ca57b98d7e043e9a137eaeccd86fc972430958035c8e8497edc",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 61,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2023-12-31",
+        "period_end": "2024-03-30",
+        "period_label": "Q1 2024",
+        "publication_date": "2024-05-01",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q2-2024",
+      "source_sha256": "d1d3c5e60762c0ba7b92e732d884574a6c5d61d35d9bcd7a5e47373d5c1c5c7a",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 76,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2024-03-31",
+        "period_end": "2024-06-29",
+        "period_label": "Q2 2024",
+        "publication_date": "2024-07-31",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q3-2024",
+      "source_sha256": "71898036bf96e7a0c22b454e3829b27cdd8b3eb080e7bac1276aeda12d63ccb7",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 64,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 3,
+        "period_kind": "quarterly",
+        "period_start": "2024-06-30",
+        "period_end": "2024-09-28",
+        "period_label": "Q3 2024",
+        "publication_date": "2024-10-30",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-fy2024",
+      "source_sha256": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+      "physical_pages": [
+        37,
+        89
+      ],
+      "original_pages": 138,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": null,
+        "period_kind": "annual",
+        "period_start": "2023-12-31",
+        "period_end": "2024-12-28",
+        "period_label": "FY2024",
+        "publication_date": "2025-02-05",
+        "document_type": "10-K",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q1-2025",
+      "source_sha256": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 82,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2024-12-29",
+        "period_end": "2025-03-29",
+        "period_label": "Q1 2025",
+        "publication_date": "2025-05-07",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q2-2025",
+      "source_sha256": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 103,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2025-03-30",
+        "period_end": "2025-06-28",
+        "period_label": "Q2 2025",
+        "publication_date": "2025-08-06",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q1-2024",
+      "source_sha256": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+      "physical_pages": [
+        1,
+        38
+      ],
+      "original_pages": 38,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2024-01-01",
+        "period_end": "2024-03-31",
+        "period_label": "Q1 2024",
+        "publication_date": "2024-04-24",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q2-2024",
+      "source_sha256": "759322ed8c4392e44daa4f2e8688e00b1debdd3de8b26fa3f6e62a685a22e912",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 85,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2024-04-01",
+        "period_end": "2024-06-30",
+        "period_label": "Q2 2024",
+        "publication_date": "2024-07-24",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q3-2024",
+      "source_sha256": "b5daa6775e1eb6e3fdea2fdd7434eddc329afdbfbc6ff4d7158a6d3e34a1c564",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 40,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 3,
+        "period_kind": "quarterly",
+        "period_start": "2024-07-01",
+        "period_end": "2024-09-30",
+        "period_label": "Q3 2024",
+        "publication_date": "2024-10-24",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-fy2024",
+      "source_sha256": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+      "physical_pages": [
+        29,
+        95
+      ],
+      "original_pages": 144,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2024,
+        "fiscal_quarter": null,
+        "period_kind": "annual",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "period_label": "FY2024",
+        "publication_date": "2025-01-30",
+        "document_type": "10-K",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q1-2025",
+      "source_sha256": "496c2e8c9026454aeb9adf7a51f657f528aa4dfeacb1166c449deed8367359ef",
+      "physical_pages": [
+        1,
+        37
+      ],
+      "original_pages": 37,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2025-01-01",
+        "period_end": "2025-03-31",
+        "period_label": "Q1 2025",
+        "publication_date": "2025-04-23",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q2-2025",
+      "source_sha256": "9afc2b2040944cb4050b8dec57ad947933e094a73eb731cd6f1cf0e23c780d58",
+      "physical_pages": [
+        1,
+        39
+      ],
+      "original_pages": 39,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2025-04-01",
+        "period_end": "2025-06-30",
+        "period_label": "Q2 2025",
+        "publication_date": "2025-07-24",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-q1-2024",
+      "source_sha256": "0212acc399cb836e32b038b840e2aff38814d92840e1273e9fe709acc9a6898d",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 131,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2024-01-01",
+        "period_end": "2024-03-31",
+        "period_label": "Q1 2024",
+        "publication_date": "2024-05-02",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-q2-2024",
+      "source_sha256": "a33281354593e6d6c657487445465bd4db598f4a30c5f8fc8afe726967f6dc02",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 138,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2024-04-01",
+        "period_end": "2024-06-30",
+        "period_label": "Q2 2024",
+        "publication_date": "2024-08-01",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-q3-2024",
+      "source_sha256": "036703b621462317411083856a9b6494f78a8d13b5026c780ae3fa74beda6a02",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 137,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2024,
+        "fiscal_quarter": 3,
+        "period_kind": "quarterly",
+        "period_start": "2024-07-01",
+        "period_end": "2024-09-30",
+        "period_label": "Q3 2024",
+        "publication_date": "2024-10-31",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-fy2024",
+      "source_sha256": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 184,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2024,
+        "fiscal_quarter": null,
+        "period_kind": "annual",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "period_label": "FY2024",
+        "publication_date": "2025-02-25",
+        "document_type": "10-K",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-q1-2025",
+      "source_sha256": "b2e4260b874e2375257d4ffafb4967cfaf806990e347d514c140938d25c5a503",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 128,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2025-01-01",
+        "period_end": "2025-03-31",
+        "period_label": "Q1 2025",
+        "publication_date": "2025-04-29",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "wfc-q2-2025",
+      "source_sha256": "81eb0c431eac6631f48d67189e486e153a00227ca9e0bf3fd4ca22adb85b9105",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 133,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Financial statements, MD&A and relevant accounting/segment footnotes; omitted pages remain outside coverage.",
+      "metadata": {
+        "company_id": "WFC",
+        "company_name": "Wells Fargo & Company",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2025-04-01",
+        "period_end": "2025-06-30",
+        "period_label": "Q2 2025",
+        "publication_date": "2025-08-05",
+        "document_type": "10-Q",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q1-2025-companion",
+      "source_sha256": "66103a4150554120f76a7aa3540f9bdb3b82acb81ffdf7be4cb64b5d2dbd22c1",
+      "physical_pages": [
+        1,
+        28
+      ],
+      "original_pages": 28,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Complete original companion deck, including original financial/operational summaries and definition footnotes.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2024-12-29",
+        "period_end": "2025-03-29",
+        "period_label": "Q1 2025",
+        "publication_date": "2025-05-06",
+        "document_type": "earnings_presentation",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "amd-q2-2025-companion",
+      "source_sha256": "5593ac91ef8115a931fe9129a87c77403c88cb78f92b4ccfbafbdd8bfa9387a5",
+      "physical_pages": [
+        1,
+        29
+      ],
+      "original_pages": 29,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Complete original companion deck, including original financial/operational summaries and definition footnotes.",
+      "metadata": {
+        "company_id": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2025-03-30",
+        "period_end": "2025-06-28",
+        "period_label": "Q2 2025",
+        "publication_date": "2025-08-05",
+        "document_type": "earnings_presentation",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q1-2025-companion",
+      "source_sha256": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+      "physical_pages": [
+        1,
+        32
+      ],
+      "original_pages": 32,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Complete original companion deck, including original financial/operational summaries and definition footnotes.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 1,
+        "period_kind": "quarterly",
+        "period_start": "2025-01-01",
+        "period_end": "2025-03-31",
+        "period_label": "Q1 2025",
+        "publication_date": "2025-04-22",
+        "document_type": "earnings_presentation",
+        "review_status": "confirmed"
+      }
+    },
+    {
+      "report_id": "tsla-q2-2025-companion",
+      "source_sha256": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+      "physical_pages": [
+        1,
+        30
+      ],
+      "original_pages": 30,
+      "reviewer": "Codex",
+      "review_revision": "codex-original-windows-20261003-v1",
+      "review_status": "confirmed",
+      "selection_reason": "Complete original companion deck, including original financial/operational summaries and definition footnotes.",
+      "metadata": {
+        "company_id": "TSLA",
+        "company_name": "Tesla, Inc.",
+        "fiscal_year": 2025,
+        "fiscal_quarter": 2,
+        "period_kind": "quarterly",
+        "period_start": "2025-04-01",
+        "period_end": "2025-06-30",
+        "period_label": "Q2 2025",
+        "publication_date": "2025-07-23",
+        "document_type": "earnings_presentation",
+        "review_status": "confirmed"
+      }
+    }
+  ]
+}

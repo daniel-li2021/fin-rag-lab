@@ -1,0 +1,2024 @@
+{
+  "schema_version": 1,
+  "owner": "authentic-development",
+  "backend": "local-postgres",
+  "release_decision": "held",
+  "captured_at": "2026-10-04T00:41:09.532845+00:00",
+  "windows_sha256": "7e1bd44b932d80a6100d88b52805c19f952e437b0e6e29e1df87deeeef747f90",
+  "captioner": "NoOpCaptioner",
+  "reports": [
+    {
+      "report_id": "amd-q1-2024",
+      "source_id": "7fcd160a-05f0-471e-8915-5c28134b0dd4",
+      "version_id": "43484e0a-3409-4732-84d7-1711abb58076",
+      "build_id": "e1a281d9-6b98-40ad-8c39-83090ef12370",
+      "job_id": "e7c1f058-58a7-4f76-a8ab-a26aaff1c4c5",
+      "source_sha256": "ac46272ad91e7ca57b98d7e043e9a137eaeccd86fc972430958035c8e8497edc",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 61,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 907,
+      "n_parents": 64,
+      "n_children": 434,
+      "usage": {
+        "request_id": "8c25e95e6f484d58848093afebdb1898",
+        "total_usd": 0.000906,
+        "priced_subtotal_usd": 0.000906,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000906
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000906
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 45318,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 45318,
+                "total_tokens": 45318
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00090636,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 8.218
+    },
+    {
+      "report_id": "amd-q2-2024",
+      "source_id": "1a89a6f4-0e7c-4cea-9de6-3edc7c86bc1a",
+      "version_id": "a2e9686a-c6d2-4733-bd65-b8482bb72d21",
+      "build_id": "48ce33b8-e946-4489-a983-436b5765bcb6",
+      "job_id": "4d3ac911-fcbd-4326-9efd-fe3d74f62add",
+      "source_sha256": "d1d3c5e60762c0ba7b92e732d884574a6c5d61d35d9bcd7a5e47373d5c1c5c7a",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 76,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 951,
+      "n_parents": 74,
+      "n_children": 473,
+      "usage": {
+        "request_id": "9e0fd44969f2496a951c405ce506d5dc",
+        "total_usd": 0.000777,
+        "priced_subtotal_usd": 0.000777,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000777
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000777
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 38847,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 38847,
+                "total_tokens": 38847
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00077694,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 7.359
+    },
+    {
+      "report_id": "amd-q3-2024",
+      "source_id": "eea36d44-3a84-463c-8b5e-86215056fb96",
+      "version_id": "0ecd27a3-6610-4f65-a1cf-56ed3ebd0762",
+      "build_id": "a02f80af-425d-4715-b0a3-4c9f24877e72",
+      "job_id": "4882c977-abdc-4be5-98db-664dd8158bf5",
+      "source_sha256": "71898036bf96e7a0c22b454e3829b27cdd8b3eb080e7bac1276aeda12d63ccb7",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 64,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 957,
+      "n_parents": 72,
+      "n_children": 460,
+      "usage": {
+        "request_id": "5f55593faf8b419bb64898584bd9eaa2",
+        "total_usd": 0.000719,
+        "priced_subtotal_usd": 0.000719,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000719
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000719
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 35974,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 35974,
+                "total_tokens": 35974
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00071948,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 6.243
+    },
+    {
+      "report_id": "amd-fy2024",
+      "source_id": "6c228951-9d82-4b14-a68d-3b6e4fb5ad73",
+      "version_id": "3580b96f-4f1a-4e68-8c20-b2a8c194888a",
+      "build_id": "5a0482e7-fa4c-47e6-a966-cc3a9501e9bd",
+      "job_id": "8e534479-a8e6-478b-a4fd-7e4796e66db9",
+      "source_sha256": "079208174889130f5d6696d1199869b3e8f49d7a879473d040c069ffc9620491",
+      "physical_pages": [
+        37,
+        89
+      ],
+      "original_pages": 138,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1357,
+      "n_parents": 94,
+      "n_children": 626,
+      "usage": {
+        "request_id": "05422830f6e44c618a9022bf2e9ba795",
+        "total_usd": 0.00131,
+        "priced_subtotal_usd": 0.00131,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.00131
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.00131
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 65523,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 65523,
+                "total_tokens": 65523
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0013104600000000003,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 11.293
+    },
+    {
+      "report_id": "amd-q1-2025",
+      "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+      "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+      "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4",
+      "job_id": "0ff9fc95-3c86-4b96-a787-d5b4e7071f89",
+      "source_sha256": "a01d8517c745b1df29346058edba9fde3604fef241b6ab5561dc406219c50ce5",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 82,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 929,
+      "n_parents": 66,
+      "n_children": 431,
+      "usage": {
+        "request_id": "389504df4a664358b0b03fdf59179516",
+        "total_usd": 0.000718,
+        "priced_subtotal_usd": 0.000718,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000718
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000718
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 35903,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 35903,
+                "total_tokens": 35903
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0007180600000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 6.919
+    },
+    {
+      "report_id": "amd-q2-2025",
+      "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+      "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+      "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5",
+      "job_id": "51f1258d-745c-4308-8fa3-addc296c747a",
+      "source_sha256": "1145961f8c78b7cf4f691be9548c1af812587ec2048b48b06eb3ada9c2d406f6",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 103,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1029,
+      "n_parents": 73,
+      "n_children": 463,
+      "usage": {
+        "request_id": "df1c8276805249bb98b25e2ee3bb4e06",
+        "total_usd": 0.000856,
+        "priced_subtotal_usd": 0.000856,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000856
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000856
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 42787,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 42787,
+                "total_tokens": 42787
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00085574,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 7.743
+    },
+    {
+      "report_id": "tsla-q1-2024",
+      "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+      "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+      "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308",
+      "job_id": "8442c584-ba62-4a82-9cf7-94acfaaeaa2c",
+      "source_sha256": "fe82df13ea094dd405292d77bb6357307554eee2cbf8b950cb0ab6ea06236a6c",
+      "physical_pages": [
+        1,
+        38
+      ],
+      "original_pages": 38,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1182,
+      "n_parents": 96,
+      "n_children": 598,
+      "usage": {
+        "request_id": "42042666959b48efaad7611916750104",
+        "total_usd": 0.001343,
+        "priced_subtotal_usd": 0.001343,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.001343
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.001343
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 67134,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 67134,
+                "total_tokens": 67134
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0013426800000000002,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 7.932
+    },
+    {
+      "report_id": "tsla-q2-2024",
+      "source_id": "c653cd62-9485-41a1-8b21-23e3bb625e79",
+      "version_id": "7671271b-ddc2-4b5d-92d9-2261afd32fce",
+      "build_id": "26aa38ce-3a33-469d-9bf7-68cd3decdc34",
+      "job_id": "93875179-504a-471a-bcdd-6676e1679567",
+      "source_sha256": "759322ed8c4392e44daa4f2e8688e00b1debdd3de8b26fa3f6e62a685a22e912",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 85,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1269,
+      "n_parents": 108,
+      "n_children": 691,
+      "usage": {
+        "request_id": "9db8e4ffc93d4521b829f79040606064",
+        "total_usd": 0.001457,
+        "priced_subtotal_usd": 0.001457,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.001457
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.001457
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 72844,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 72844,
+                "total_tokens": 72844
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0014568800000000002,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 10.356
+    },
+    {
+      "report_id": "tsla-q3-2024",
+      "source_id": "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+      "version_id": "6069faf8-3aba-4707-a660-4b3557f52e17",
+      "build_id": "aa5d78a0-fe12-4af6-9e5e-09cdf208c027",
+      "job_id": "77e5e5bd-93a5-4f5d-885e-3859f514a6c7",
+      "source_sha256": "b5daa6775e1eb6e3fdea2fdd7434eddc329afdbfbc6ff4d7158a6d3e34a1c564",
+      "physical_pages": [
+        1,
+        40
+      ],
+      "original_pages": 40,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1323,
+      "n_parents": 114,
+      "n_children": 709,
+      "usage": {
+        "request_id": "b1e821f95254468aaa8aea98ba0981f7",
+        "total_usd": 0.001489,
+        "priced_subtotal_usd": 0.001489,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.001489
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.001489
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 74466,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 74466,
+                "total_tokens": 74466
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0014893200000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 11.413
+    },
+    {
+      "report_id": "tsla-fy2024",
+      "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+      "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+      "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277",
+      "job_id": "77313196-c653-4320-9d21-44b0f85d883a",
+      "source_sha256": "2957d89daa2066035df5cf56f3586dd3c25a20a8e366fcf4da866e7e48c1a504",
+      "physical_pages": [
+        29,
+        95
+      ],
+      "original_pages": 144,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1752,
+      "n_parents": 127,
+      "n_children": 855,
+      "usage": {
+        "request_id": "d0d1eeadce8d47f2b79afddacefa3f77",
+        "total_usd": 0.001749,
+        "priced_subtotal_usd": 0.001749,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.001749
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.001749
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 87475,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 87475,
+                "total_tokens": 87475
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0017495,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 13.464
+    },
+    {
+      "report_id": "tsla-q1-2025",
+      "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+      "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+      "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067",
+      "job_id": "b7c61549-ad7b-4835-8d49-0c8592d099c7",
+      "source_sha256": "496c2e8c9026454aeb9adf7a51f657f528aa4dfeacb1166c449deed8367359ef",
+      "physical_pages": [
+        1,
+        37
+      ],
+      "original_pages": 37,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1207,
+      "n_parents": 90,
+      "n_children": 553,
+      "usage": {
+        "request_id": "c0ca3233292d47aba6f1a56cd3e14c77",
+        "total_usd": 0.0012,
+        "priced_subtotal_usd": 0.0012,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.0012
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.0012
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 59979,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 59979,
+                "total_tokens": 59979
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00119958,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 8.812
+    },
+    {
+      "report_id": "tsla-q2-2025",
+      "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+      "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+      "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05",
+      "job_id": "6eb2d25f-40a0-44e1-9a05-efe52e2c037d",
+      "source_sha256": "9afc2b2040944cb4050b8dec57ad947933e094a73eb731cd6f1cf0e23c780d58",
+      "physical_pages": [
+        1,
+        39
+      ],
+      "original_pages": 39,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 1316,
+      "n_parents": 103,
+      "n_children": 647,
+      "usage": {
+        "request_id": "71242e423ded49e08350cdfad3985f38",
+        "total_usd": 0.001301,
+        "priced_subtotal_usd": 0.001301,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.001301
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.001301
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 65028,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 65028,
+                "total_tokens": 65028
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00130056,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 10.6
+    },
+    {
+      "report_id": "wfc-q1-2024",
+      "source_id": "bb3297ff-b242-4587-81ba-b5021bd55916",
+      "version_id": "3cd46953-f2f7-4bf3-b62b-d7d5375a05c4",
+      "build_id": "47e90d25-3710-4f12-9826-0b9c48ad766f",
+      "job_id": "a86b0b9f-70da-47ae-8199-b72dda902ed9",
+      "source_sha256": "0212acc399cb836e32b038b840e2aff38814d92840e1273e9fe709acc9a6898d",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 131,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 3764,
+      "n_parents": 176,
+      "n_children": 1159,
+      "usage": {
+        "request_id": "5325b3957b2342b68f9cc75a14444400",
+        "total_usd": 0.002742,
+        "priced_subtotal_usd": 0.002742,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.002742
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.002742
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 118830,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 118830,
+                "total_tokens": 118830
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0023766000000000004,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 18256,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 18256,
+                "total_tokens": 18256
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0003651200000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 27.592
+    },
+    {
+      "report_id": "wfc-q2-2024",
+      "source_id": "2b177168-779c-4074-a131-2b2d4d100e3e",
+      "version_id": "72543603-8b1f-4e64-910a-06576a7e0c77",
+      "build_id": "6fb280ce-228c-421f-af2c-0c43b09ef08b",
+      "job_id": "2b13750f-f9bf-4591-bf34-a2ddc3a4e9f2",
+      "source_sha256": "a33281354593e6d6c657487445465bd4db598f4a30c5f8fc8afe726967f6dc02",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 138,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 4142,
+      "n_parents": 191,
+      "n_children": 1258,
+      "usage": {
+        "request_id": "425ab0430020464b91975c59f3614e82",
+        "total_usd": 0.00259,
+        "priced_subtotal_usd": 0.00259,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.00259
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.00259
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 120711,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 120711,
+                "total_tokens": 120711
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0024142200000000003,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 8765,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 8765,
+                "total_tokens": 8765
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0001753,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 36.824
+    },
+    {
+      "report_id": "wfc-q3-2024",
+      "source_id": "12eda076-d539-49a9-94b8-fe821809fa4f",
+      "version_id": "ee96e41f-5fdf-436a-bf1a-f6cad1aa10dc",
+      "build_id": "1d8558e0-745d-471b-a905-3250784a6f60",
+      "job_id": "de5afc39-02ed-47f3-8680-344610c1a51a",
+      "source_sha256": "036703b621462317411083856a9b6494f78a8d13b5026c780ae3fa74beda6a02",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 137,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 4186,
+      "n_parents": 193,
+      "n_children": 1265,
+      "usage": {
+        "request_id": "2a14054a30bd4c4980908d333dfc1a66",
+        "total_usd": 0.002526,
+        "priced_subtotal_usd": 0.002526,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.002526
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.002526
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 120430,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 120430,
+                "total_tokens": 120430
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0024086000000000003,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 5892,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 5892,
+                "total_tokens": 5892
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00011784000000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 35.741
+    },
+    {
+      "report_id": "wfc-fy2024",
+      "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+      "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+      "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9",
+      "job_id": "ba5f2f03-8b21-4010-ac0c-0fc587f463be",
+      "source_sha256": "3b6c33f45509d97981d7c4c17f22f537b65181029bd0666b228ca8fea8cf4a42",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 184,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 3515,
+      "n_parents": 187,
+      "n_children": 1260,
+      "usage": {
+        "request_id": "0d75d181ba92429a97af4ff7251d9e76",
+        "total_usd": 0.002807,
+        "priced_subtotal_usd": 0.002807,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.002807
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.002807
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 113584,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 113584,
+                "total_tokens": 113584
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0022716800000000003,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 26747,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 26747,
+                "total_tokens": 26747
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0005349400000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 26.917
+    },
+    {
+      "report_id": "wfc-q1-2025",
+      "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+      "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+      "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae",
+      "job_id": "721504d1-498f-4e05-8afc-8802a785332f",
+      "source_sha256": "b2e4260b874e2375257d4ffafb4967cfaf806990e347d514c140938d25c5a503",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 128,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 3739,
+      "n_parents": 170,
+      "n_children": 1123,
+      "usage": {
+        "request_id": "e280d147a4604937bcb3eea2079565fc",
+        "total_usd": 0.002478,
+        "priced_subtotal_usd": 0.002478,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.002478
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.002478
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 118947,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 118947,
+                "total_tokens": 118947
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00237894,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 4952,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 4952,
+                "total_tokens": 4952
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 9.904e-05,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 25.494
+    },
+    {
+      "report_id": "wfc-q2-2025",
+      "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+      "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+      "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2",
+      "job_id": "06ca709e-b31f-42f1-ae6b-978d3177f3bd",
+      "source_sha256": "81eb0c431eac6631f48d67189e486e153a00227ca9e0bf3fd4ca22adb85b9105",
+      "physical_pages": [
+        1,
+        100
+      ],
+      "original_pages": 133,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 4409,
+      "n_parents": 191,
+      "n_children": 1253,
+      "usage": {
+        "request_id": "d45e052c926e45c69c56aeae8d759d89",
+        "total_usd": 0.002605,
+        "priced_subtotal_usd": 0.002605,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.002605
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.002605
+        },
+        "n_calls": {
+          "embedding": 2
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 122003,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 122003,
+                "total_tokens": 122003
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0024400600000000004,
+            "pricing_status": "configured_estimate"
+          },
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 8243,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 8243,
+                "total_tokens": 8243
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00016486000000000002,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 30.118
+    },
+    {
+      "report_id": "amd-q1-2025-companion",
+      "source_id": "a2e09a0f-eaeb-4eec-8360-5008e46aef2e",
+      "version_id": "6e88aad5-e6b4-4358-bad6-c12eeee281d1",
+      "build_id": "84202495-490d-4941-953b-2d508115e6b7",
+      "job_id": "955c6de6-600e-4a65-ab26-dbcd40f8c867",
+      "source_sha256": "66103a4150554120f76a7aa3540f9bdb3b82acb81ffdf7be4cb64b5d2dbd22c1",
+      "physical_pages": [
+        1,
+        28
+      ],
+      "original_pages": 28,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 585,
+      "n_parents": 23,
+      "n_children": 144,
+      "usage": {
+        "request_id": "d9ce57c2c13a4f9a8ce40d1edd841a39",
+        "total_usd": 0.000336,
+        "priced_subtotal_usd": 0.000336,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000336
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000336
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 16824,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 16824,
+                "total_tokens": 16824
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00033648,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 1.916
+    },
+    {
+      "report_id": "amd-q2-2025-companion",
+      "source_id": "da37cba0-72b7-4dd9-b209-b5f5e4d2b7b1",
+      "version_id": "90257fde-f156-4d60-aea4-e40c083aa7ca",
+      "build_id": "960c8b9b-f167-4eb6-a560-9a1a32ee28c9",
+      "job_id": "3ccfb3d3-baf3-4ede-822b-77e242eef159",
+      "source_sha256": "5593ac91ef8115a931fe9129a87c77403c88cb78f92b4ccfbafbdd8bfa9387a5",
+      "physical_pages": [
+        1,
+        29
+      ],
+      "original_pages": 29,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 630,
+      "n_parents": 25,
+      "n_children": 159,
+      "usage": {
+        "request_id": "c0712211d95e4612ac3373b29bc30a36",
+        "total_usd": 0.000356,
+        "priced_subtotal_usd": 0.000356,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000356
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000356
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 17775,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 17775,
+                "total_tokens": 17775
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0003555,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 2.234
+    },
+    {
+      "report_id": "tsla-q1-2025-companion",
+      "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+      "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+      "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+      "job_id": "fb0ea1f9-eb48-4a9a-b90c-e57e7bc59068",
+      "source_sha256": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+      "physical_pages": [
+        1,
+        32
+      ],
+      "original_pages": 32,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 521,
+      "n_parents": 43,
+      "n_children": 266,
+      "usage": {
+        "request_id": "263eeb2dc4a749a5ad9a7e93769cd417",
+        "total_usd": 0.000601,
+        "priced_subtotal_usd": 0.000601,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000601
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000601
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 30037,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 30037,
+                "total_tokens": 30037
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.00060074,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 8.636
+    },
+    {
+      "report_id": "tsla-q2-2025-companion",
+      "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+      "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+      "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+      "job_id": "771af1b9-1c3d-4ec7-801a-071a0e825667",
+      "source_sha256": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+      "physical_pages": [
+        1,
+        30
+      ],
+      "original_pages": 30,
+      "status": "ready",
+      "activated": true,
+      "reused": false,
+      "n_blocks": 516,
+      "n_parents": 42,
+      "n_children": 262,
+      "usage": {
+        "request_id": "15562ddf27ab4baebb0f2d10f9745858",
+        "total_usd": 0.000552,
+        "priced_subtotal_usd": 0.000552,
+        "unknown_calls": 0,
+        "by_stage": {
+          "embedding": 0.000552
+        },
+        "by_model": {
+          "text-embedding-3-small": 0.000552
+        },
+        "n_calls": {
+          "embedding": 1
+        },
+        "reasoning_tokens": {
+          "embedding": 0
+        },
+        "events": [
+          {
+            "stage": "embedding",
+            "model": "text-embedding-3-small",
+            "input_tokens": 27579,
+            "output_tokens": 0,
+            "reasoning_tokens": 0,
+            "raw_usage": {
+              "usage": {
+                "prompt_tokens": 27579,
+                "total_tokens": 27579
+              },
+              "response_model": "text-embedding-3-small"
+            },
+            "usage_source": "reported",
+            "cost_usd": 0.0005515800000000001,
+            "pricing_status": "configured_estimate"
+          }
+        ],
+        "pricing_snapshot": {
+          "text-embedding-3-small": {
+            "input": 2e-05,
+            "output": 0
+          }
+        },
+        "pricing_status": "configured_estimate"
+      },
+      "ingestion_latency_seconds": 7.684
+    }
+  ],
+  "this_invocation_usage": {
+    "request_id": "74265fc9849a409aa208b20b428ff8ae",
+    "total_usd": 0.031417,
+    "priced_subtotal_usd": 0.031417,
+    "unknown_calls": 0,
+    "by_stage": {
+      "embedding": 0.031417
+    },
+    "by_model": {
+      "text-embedding-3-small": 0.031417
+    },
+    "n_calls": {
+      "embedding": 28
+    },
+    "reasoning_tokens": {
+      "embedding": 0
+    },
+    "events": [
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 45318,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 45318,
+            "total_tokens": 45318
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00090636,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 38847,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 38847,
+            "total_tokens": 38847
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00077694,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 35974,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 35974,
+            "total_tokens": 35974
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00071948,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 65523,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 65523,
+            "total_tokens": 65523
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0013104600000000003,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 35903,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 35903,
+            "total_tokens": 35903
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0007180600000000001,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 42787,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 42787,
+            "total_tokens": 42787
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00085574,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 67134,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 67134,
+            "total_tokens": 67134
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0013426800000000002,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 72844,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 72844,
+            "total_tokens": 72844
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0014568800000000002,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 74466,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 74466,
+            "total_tokens": 74466
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0014893200000000001,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 87475,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 87475,
+            "total_tokens": 87475
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0017495,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 59979,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 59979,
+            "total_tokens": 59979
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00119958,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 65028,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 65028,
+            "total_tokens": 65028
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00130056,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 118830,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 118830,
+            "total_tokens": 118830
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0023766000000000004,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 18256,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 18256,
+            "total_tokens": 18256
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0003651200000000001,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 120711,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 120711,
+            "total_tokens": 120711
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0024142200000000003,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 8765,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 8765,
+            "total_tokens": 8765
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0001753,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 120430,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 120430,
+            "total_tokens": 120430
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0024086000000000003,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 5892,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 5892,
+            "total_tokens": 5892
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00011784000000000001,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 113584,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 113584,
+            "total_tokens": 113584
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0022716800000000003,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 26747,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 26747,
+            "total_tokens": 26747
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0005349400000000001,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 118947,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 118947,
+            "total_tokens": 118947
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00237894,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 4952,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 4952,
+            "total_tokens": 4952
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 9.904e-05,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 122003,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 122003,
+            "total_tokens": 122003
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0024400600000000004,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 8243,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 8243,
+            "total_tokens": 8243
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00016486000000000002,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 16824,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 16824,
+            "total_tokens": 16824
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00033648,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 17775,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 17775,
+            "total_tokens": 17775
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0003555,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 30037,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 30037,
+            "total_tokens": 30037
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.00060074,
+        "pricing_status": "configured_estimate"
+      },
+      {
+        "stage": "embedding",
+        "model": "text-embedding-3-small",
+        "input_tokens": 27579,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "raw_usage": {
+          "usage": {
+            "prompt_tokens": 27579,
+            "total_tokens": 27579
+          },
+          "response_model": "text-embedding-3-small"
+        },
+        "usage_source": "reported",
+        "cost_usd": 0.0005515800000000001,
+        "pricing_status": "configured_estimate"
+      }
+    ],
+    "pricing_snapshot": {
+      "text-embedding-3-small": {
+        "input": 2e-05,
+        "output": 0
+      }
+    },
+    "pricing_status": "configured_estimate"
+  }
+}
