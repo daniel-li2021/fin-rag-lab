@@ -1,6 +1,6 @@
 # Phase 3 evaluation contract (M1)
 
-Frozen design revision: `phase3-design-v1`, October 3, 2026. This implements the evaluation design in [PHASE_3_PLAN.md](PHASE_3_PLAN.md); it does not claim a populated 96-question corpus or improved answer accuracy. The offline [manifest](fixtures/phase3/manifest.json) pins immutable inputs and development diagnostics. Run `python3 scripts/check_phase3_evaluation.py` without credentials, ingestion, embeddings or model calls.
+Frozen design revision: `phase3-design-v1`, October 3, 2026. This is the retained evaluation contract; the obsolete design proposal is consolidated into [decisions](DECISIONS.md) and the [remaining release plan](plans/RELEASE_VALIDATION.md). The offline [manifest](fixtures/phase3/manifest.json) pins immutable inputs and the original development diagnostics. Run `python3 scripts/check_phase3_evaluation.py` without credentials, ingestion, embeddings or model calls. Its diagnostic counts do not describe the later product corpus; [STATE](STATE.md) owns current implementation and evidence status. The gates below are unchanged.
 
 ## Splits and authority
 
@@ -37,6 +37,6 @@ Matched simple-path receipt mean cost and service p95 may rise at most 20%; ordi
 
 Freeze corpus, labels, model, source/version policy, original-evidence budget, cache mode, review policy and paid budget before any capture. Compare one variable at a time and publish paired wins/losses and all denominators. Do not run paid tests in CI. A budget freeze is not authorization for a model capture; no paid recapture was authorized for this implementation.
 
-## Current release decision
+## Diagnostic-fixture scope and release decision
 
-`held`: the offline diagnostics exercise provenance and deterministic contracts only. `not_assessable`: expanded holdout accuracy, numeric holdout, amendment/revision quality, current-default improvement, cost/latency and planner gain. The three retained PDF families cannot satisfy the planned 12–18 report corpus, independent development/holdout separation, successive-quarter/annual coverage or a verified authentic amendment/reclassification case. Additional bounded corpus collection, complete sealed labels, full current-default paired capture and independent release-critical review remain required. No default answer path or historical golden label is promoted by these artifacts.
+The original manifest remains a three-family diagnostic fixture, with zero eligible observations and no sealed holdout cases. Its checker reports `held` and `not_assessable` for release metrics; it does not evaluate the newer 22-source/168-card development corpus. That development extension and its 48-case captures are recorded in [STATE](STATE.md) and [development results](PRODUCT_DEVELOPMENT_CAPTURE.md). Independent release-critical review, disjoint sealed labels and matched historical/holdout gates remain required through the [release plan](plans/RELEASE_VALIDATION.md). No default answer path or historical golden label is promoted by these artifacts.
