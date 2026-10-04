@@ -1,0 +1,829 @@
+{
+  "reviewer": "Codex",
+  "revision": "Codex-authentic-development-current-regression-20261003-v1",
+  "qualification": "Named Codex source-grounded development review of all 48 saved executions. Independent release review remains absent. Strict answer rubric includes explicit requested period distinctions, visible duration qualifications and precise clarification gaps; applied equally before and after fixes. Structured UI context remains supported but does not repair an incomplete exported answer. Original immutable capture and labels retained. Current deterministic code re-executed against pinned local originals; eight unchanged narrative generations are replayed with their production answer text. No provider calls. Domain/registry regression, not HTTP/UI or fresh generation.",
+  "results_file": "results.jsonl",
+  "results_sha256": "f1e633b79a89d6169ec4fcaa9d3d3dc389fa38f02cae3b8326e8e3993486b5c8",
+  "labels_sha256": "a09112414165dd3821223b5f6fac715d722f10b413502a23a0dab41c897a2c9d",
+  "cases": [
+    {
+      "case_id": "dev-01",
+      "result_sha256": "79f42f7505fe2df9a99a7cbf7cddfdb593b5d1c69fe2e1974edbcb670c93460f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "FY2024 common-equity income: Tesla 7091 and WFC 18606 USD millions; identical annual intervals. Compare reported common-equity amounts, not economic business equivalence.",
+      "required_report_families": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-02",
+      "result_sha256": "1908b1b1775476778f9d97bf8281b94d13a28dc6767cb7e8b52778caad46b933",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Q1 2025 common-equity income: Tesla 409 and WFC 4616 USD millions; original current-quarter columns.",
+      "required_report_families": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+        "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-03",
+      "result_sha256": "66987ebd10638346d2628c730b78c7e5f1856965e37606f9e089f86b504298e9",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Q2 2025 common-equity income: Tesla 1172 and WFC 5214 USD millions; quarterly columns, not six-month YTD.",
+      "required_report_families": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+        "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-04",
+      "result_sha256": "0f5a013a8b40c994097793ac473b882b7b8ee87d808122705a740922aab87176",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Q1 2024 Tesla latest recast 1390 versus WFC 4313 USD millions; Tesla predecessor 1129 and original adoption note retained.",
+      "required_report_families": [
+        "tsla-fy2024",
+        "wfc-q1-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+        "wfc-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-05",
+      "result_sha256": "0fd5cb0bc71d7e2ea897e3a84e5724fe37ca3f51d9ba35688679e80211d5304f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [],
+      "review_note": "Both issuer driver statements supported: AMD expressly Data Center scope; Tesla operating-income bullets. No numeric causal bridge claimed.",
+      "required_report_families": [
+        "amd-q2-2025",
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-06",
+      "result_sha256": "6e59c6e0f954d0475b36419851fde525aa3042c3c4e1bfe5eade2e62a36b3bba",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [],
+      "review_note": "AMD 57% Data Center revenue growth and EPYC/Instinct driver statement supported; Tesla delivery/ASP statement uses operating-income section.",
+      "required_report_families": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-07",
+      "result_sha256": "b2b24219271eca207dc638833eef4ffc6ab199ebec4ec588bad7354b3d157809",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [],
+      "review_note": "WFC FY2024 NII drivers and Tesla automotive-sales drivers supported. Tesla preceding original block supplies 2024 versus 2023 metric context; continuation alone is insufficient.",
+      "required_report_families": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-08",
+      "result_sha256": "5b41e855a57e62610011f9befa14b17e6ca64632bcb785b194004e3efded6784",
+      "rubric_pass": false,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [
+        "answer_period_distinction_missing"
+      ],
+      "review_note": "Both driver claims supported, but answer does not explicitly label FY2024 versus Q2 2025 as requested. UI task table provides context; exported answer is incomplete.",
+      "required_report_families": [
+        "amd-q2-2025",
+        "wfc-fy2024"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-09",
+      "result_sha256": "a1b6107ebabd2fdbabd2d3bc31436297c65e0d1a83ba43d1627b23482f037023",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD 5473 to 5835 USD millions; 91-day fiscal quarters, correct +6.61% with both original operands.",
+      "required_report_families": [
+        "amd-q1-2024",
+        "amd-q2-2024"
+      ],
+      "original_observation_ids": [
+        "amd-q1-2024:revenue:consolidated:GAAP:Q1-2024",
+        "amd-q2-2024:revenue:consolidated:GAAP:Q2-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-10",
+      "result_sha256": "ef6ea8773b2807bce10ed631ece535649269981c09e9bfdcc3541b73a2f5ee4a",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "WFC 11495 to 11708 USD millions; correct +1.85%, but unequal-duration limitation is hidden in receipt rather than answer. Correction verified in current standalone answer: answer_duration_qualification_missing.",
+      "required_report_families": [
+        "wfc-q1-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "wfc-q1-2025:net_interest_income:consolidated:GAAP:Q1-2025",
+        "wfc-q2-2025:net_interest_income:consolidated:GAAP:Q2-2025"
+      ],
+      "resolved_failures": [
+        "answer_duration_qualification_missing"
+      ]
+    },
+    {
+      "case_id": "dev-11",
+      "result_sha256": "63bf3a405c39886b7abd6c60dfc4f9f6bbe3cd44daee9c67dced410fd9803d9f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla 19335 to 22496 USD millions; correct +16.35%, but unequal-duration limitation is hidden in receipt rather than answer. Correction verified in current standalone answer: answer_duration_qualification_missing.",
+      "required_report_families": [
+        "tsla-q1-2025",
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+        "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025"
+      ],
+      "resolved_failures": [
+        "answer_duration_qualification_missing"
+      ]
+    },
+    {
+      "case_id": "dev-12",
+      "result_sha256": "146d45a378d977d90e22047fcab1a6644546be0f12444d31b6a60209b46dc2c9",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q4 2024 common income 2128 USD millions directly reported in Q1 2025 deck; not annual substitution or quarter subtraction.",
+      "required_report_families": [
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025-companion:net_income_common:consolidated:GAAP:Q4-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-13",
+      "result_sha256": "1e649d60ccb35bdc1080cc15321f17684d857127fca07f104bd13a06420c64f8",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD FY2024 revenue 25785 USD millions; fiscal year ends December 28, 2024, not calendar-year alignment.",
+      "required_report_families": [
+        "amd-fy2024"
+      ],
+      "original_observation_ids": [
+        "amd-fy2024:revenue:consolidated:GAAP:FY2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-14",
+      "result_sha256": "7257bf9d18d7de681d3c3b840dde7a08f4cceebd596c6da6b661391c54c3551a",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 2025 revenue 22496 USD millions; original quarter column, not 41831 six-month column.",
+      "required_report_families": [
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-15",
+      "result_sha256": "362e9d9a06470363c78052a82e515b4e62f05fd500bf49bad5daad2c7e825821",
+      "rubric_pass": false,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [
+        "answer_period_distinction_missing"
+      ],
+      "review_note": "Both operating-income bullet lists supported; exported answer does not distinguish Q1 versus Q2 and repeats the same company label.",
+      "required_report_families": [
+        "tsla-q1-2025",
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-16",
+      "result_sha256": "c07d2308077b99b5c2086b8442fb1adcf75fb12c9eacde7dc418d86e0987347a",
+      "rubric_pass": false,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [
+        true,
+        true
+      ],
+      "failures": [
+        "answer_period_distinction_missing"
+      ],
+      "review_note": "Original four-segment and combined Client/Gaming disclosure supported; exported answer omits FY2024 versus Q1 2025 identifiers.",
+      "required_report_families": [
+        "amd-fy2024",
+        "amd-q1-2025"
+      ],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-17",
+      "result_sha256": "fb61001f3824ea76fe4ad7e3bec4cae3b22cb00671cbac2c4fd6b174ee09094c",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD Q1 gross-profit margin 3736/7438 = 50.23%; original consolidated GAAP operands; computed versus rounded report value.",
+      "required_report_families": [
+        "amd-q1-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q1-2025:gross_profit:consolidated:GAAP:Q1-2025",
+        "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-18",
+      "result_sha256": "9ca0cb714a7e587b82d0569959e214983890a998f32a3ba3f93a18adb1d3eced",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD Q2 gross-profit margin 3059/7685 = 39.80%; both continuing-operations operands supported by original ZT note.",
+      "required_report_families": [
+        "amd-q2-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q2-2025:gross_profit:continuing_operations:GAAP:Q2-2025",
+        "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-19",
+      "result_sha256": "72e1fac00a91a55f52b3aecf5332fb1c67bad98180b3a211ed3c31aeccd6eb5d",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD Q2 continuing-income margin 768/7685 = 9.99%; excludes consolidated 872 including discontinued operations.",
+      "required_report_families": [
+        "amd-q2-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q2-2025:net_income:continuing_operations:GAAP:Q2-2025",
+        "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-20",
+      "result_sha256": "38a456715dfd41a8987aa4e4642e4f07feec8e1d555c1f9b34e05b68e4f6f2e6",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q1 gross-profit margin 3153/19335 = 16.31%; same-period GAAP consolidated operands.",
+      "required_report_families": [
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025:gross_profit:consolidated:GAAP:Q1-2025",
+        "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-21",
+      "result_sha256": "7d3a92ee905c3b1a587a7f4ba4dd8696a1bb31bd725d8d84b01fa4f74fe52249",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 operating-income margin 923/22496 = 4.10%; same-period GAAP consolidated operands.",
+      "required_report_families": [
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:operating_income:consolidated:GAAP:Q2-2025",
+        "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-22",
+      "result_sha256": "c5139ca9bff6049d3776a1d9630ca2d96b6993073f4a1600f32c9277a2c8d6bd",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q1 delivery/production 336681/362615 = 92.85%; operating count basis, no inventory inference.",
+      "required_report_families": [
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025-companion:vehicle_deliveries:consolidated:operating:Q1-2025",
+        "tsla-q1-2025-companion:vehicle_production:consolidated:operating:Q1-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-23",
+      "result_sha256": "a70b62ac38d09c9f0655db48a6ece81fea9158930d8c6524a9d2895bab4dc45d",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 delivery/production 384122/410244 = 93.63%; operating count basis, no inventory inference.",
+      "required_report_families": [
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025-companion:vehicle_deliveries:consolidated:operating:Q2-2025",
+        "tsla-q2-2025-companion:vehicle_production:consolidated:operating:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-24",
+      "result_sha256": "f5e3b998c7dedf2501b226956e05603011b7ad2cafd14325b4465079b5004c60",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 production less deliveries 410244-384122 = 26122 vehicles; correct direction, no inventory inference.",
+      "required_report_families": [
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025-companion:vehicle_deliveries:consolidated:operating:Q2-2025",
+        "tsla-q2-2025-companion:vehicle_production:consolidated:operating:Q2-2025"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-25",
+      "result_sha256": "1a2355e22a85f27f5ab7b2a859e470e4d68b4a1e6c21f50eb8501bd2c1df1d20",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Company and revenue supplied; missing period, scope and basis should be requested precisely instead of listing all five dimensions. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-26",
+      "result_sha256": "da71cc1079eccb6d5a11097793c3efc64825d34537da6ecc1dd51b5578d41069",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Company, metric, scope and period supplied; only basis missing; generic request repeats resolved dimensions. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-27",
+      "result_sha256": "afdda03dfd113ae927b0e726718e76b9ba88b047e71f74fe9239258a641cbd55",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Company, metric, basis and period supplied; only scope missing; generic request repeats resolved dimensions. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-28",
+      "result_sha256": "82ec21a9e4512bc9a54206a354c3f1ab9a7084dbd4093a1bcb8ecf650bb80c3d",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Metric, basis, scope and period supplied; only company missing; generic request repeats resolved dimensions. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-29",
+      "result_sha256": "e2eb260ca8dca5499a344f20c407c72a4699733194b2e8100a5cc2d6ff6b904b",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Company, metric, basis and scope supplied; only period missing; generic request repeats resolved dimensions. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-30",
+      "result_sha256": "28faf534437268769a1b1269f1a0511e6d5cc6cc245671e498f4ece32173ffb6",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Best company is undefined: metric/ranking criterion, scope and basis missing; companies and annual period already supplied. Correction verified in current standalone answer: clarification_gap_not_precise.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": [
+        "clarification_gap_not_precise"
+      ]
+    },
+    {
+      "case_id": "dev-31",
+      "result_sha256": "bbc578acb6344c67a90be402b8f119c4da8f215c5f8a8c44094a2d936fbc50be",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Margin needs an explicit profit numerator; asking for gross profit, operating income or net income is correct.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-32",
+      "result_sha256": "95324f9757ae1dd7d191360af5d226f64e2b238cd8811241807eab7d03428e94",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Vehicle delivery ratio requires operating basis and production denominator; GAAP count request correctly clarified.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-33",
+      "result_sha256": "5e793d7568814c374aba598eb678a98752faa5dccfaa2272f68fe882d6ce4f7e",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q1 latest reviewed selects original FY2024 adoption recast 1390 with complete predecessor chain.",
+      "required_report_families": [
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-34",
+      "result_sha256": "ede9cafe44f979eb44e558b03011d40dfda846d45b37ecce18a3ec350365d440",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q1 as-reported selects 1129, preserves original result rather than latest-publication substitution.",
+      "required_report_families": [
+        "tsla-q1-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-35",
+      "result_sha256": "3d68197a94788b0dc929329871456374bded7557057b0d7fac3455e3c22625a0",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 latest reviewed selects adoption recast 1400 with original predecessor 1478.",
+      "required_report_families": [
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q2-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-36",
+      "result_sha256": "385b7b7f6ac49650d8820d162889e150b69956a146aa9a6d78e53449b18a1f84",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q2 as-reported selects 1478 despite a later reviewed recast.",
+      "required_report_families": [
+        "tsla-q2-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2024:net_income_common:consolidated:GAAP:Q2-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-37",
+      "result_sha256": "051d23e15dca7ccd1d7485792e88ab134057691240cd0fa1a1675b3efc34b181",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q3 latest reviewed selects adoption recast 2173 with predecessor 2167.",
+      "required_report_families": [
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q3-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-38",
+      "result_sha256": "e33af104ddb0845497dc2c00ed865db9a6fd39fce2a22dc8b9a58ccc871594fb",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "As-of October 24, 2024 excludes January 2025 adoption recast and selects original Q3 2167.",
+      "required_report_families": [
+        "tsla-q3-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-q3-2024:net_income_common:consolidated:GAAP:Q3-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-39",
+      "result_sha256": "523a7f9c2655e0338d62ada7641a171d61ed248fa706a8b16262b54fe521f44f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "As-of February 1, 2025 includes January 2025 adoption recast and selects Q1 1390.",
+      "required_report_families": [
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024"
+      ],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-40",
+      "result_sha256": "3785d13a416a8981f2a31ccfc121a70b67db560970bfe7530e251ed9cd4758cb",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Recast deck alone lacks selected predecessor; refusal explicitly identifies incomplete/dimension-invalid revision lineage.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-41",
+      "result_sha256": "71bd2f38d4c28de0c69daa3cae5df3aedf974571d749b9a04d60cb77e3b374fe",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "NVIDIA absent from selected confirmed inventory; fact-free refusal supported.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-42",
+      "result_sha256": "690a13879b6f0a3e19e78889a605f217f7aaa2d19f0922f4999ab1a7ecbf2489",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "WFC selected inventory has no reviewed exact gross-profit card; refusal is a binding gap, not proof metric absent everywhere.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-43",
+      "result_sha256": "7f3cefb9fbf0a45c047f1e5deab25f87844e97bb683c44210eeb3f6eb4a139af",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla common-income card cannot substitute for requested parent attribution; exact reviewed parent binding absent.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-44",
+      "result_sha256": "6848211aa8bedca7e537f777b297e160e2b3e35d970fb172674ab3d1ca824ffa",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD old Client/Gaming definitions cannot supply an unchanged new-scope card; no reviewed requested-period/scope binding.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-45",
+      "result_sha256": "6e1cda32ac9032ec5549f590b54291d7f2b5489732e0e9e30ddeda9a5bf4cd7f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q4 deck exists and has revenue, but no eligible reviewed Q4 revenue card; policy-safe binding refusal, not exhaustive document absence.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-46",
+      "result_sha256": "639cd49e10f6c98522a17d558ddc270d9a1000a50fd13ae5b7401a403d5c8ce9",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Tesla Q1 2026 outside selected corpus; no quarter or annual substitution.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-47",
+      "result_sha256": "82b2c263b01746598b138551c60ade9772908d0bb4551eaf06f974f75d372be7",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "No exact Q4 2027 delivery target supported by indexed Q2 2025 update; zero claims and bounded refusal. Does not prove exhaustive absence beyond indexed windows.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    },
+    {
+      "case_id": "dev-48",
+      "result_sha256": "188af63fb82e409d70e0adfb7755c86b9cb5040b0d94d268de81011dc7f5a58e",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "No exact standalone quantum unit count supported by indexed AMD window; zero claims and bounded refusal. Does not prove exhaustive absence beyond indexed windows.",
+      "required_report_families": [],
+      "original_observation_ids": [],
+      "resolved_failures": []
+    }
+  ],
+  "coverage_limits": {
+    "authentic_revision_policy_cases": 7,
+    "incomplete_lineage_refusal_cases": 1,
+    "authentic_unresolved_value_conflict_cases": 0,
+    "authentic_source_change_staleness_cases": 0,
+    "operational_history_reopen_cases": 48,
+    "temporal_scope_primary_cases": 8,
+    "explicit_incompatible_comparison_or_ranking_cases": 0,
+    "missing_evidence_primary_cases": 8,
+    "distinct_issuers": 3,
+    "independent_reviewers": 0,
+    "originals_hash_verified": 22,
+    "distinct_original_cards_rechecked": 33,
+    "generalization": "Development-only, selected finite grammar and reviewed cards; no release/industrial accuracy claim."
+  }
+}

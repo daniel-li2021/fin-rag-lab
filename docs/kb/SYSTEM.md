@@ -82,6 +82,8 @@ A submitted `reviewed` observation with a named `review_revision` is a manual se
 
 Original passage search returns `binding_unverified` candidates by default. Optional **Draft a cited narrative** makes at most one generator call (60-second timeout, no retries, 1,600 output tokens), requiring exact unique original quotes, offered excerpt IDs and complete task coverage. Unknown IDs/numbers reject. Provenance bounds do not establish semantic support; generated claims remain unreviewed even after a separate post-capture review overlay. [Draft contract and captures](../benchmarks/20261003-product-development/capture-v4/summary.json).
 
+Numeric standalone answers expose the actual reporting interval/calendar and every issued calculation duration limitation. Finite question templates now diagnose missing dimensions for clarification without turning a partial parse into an executable plan. The standalone narrative formatter is tested and measured as a separate candidate; production synthesis still omits period labels in its answer text. [Current versus candidate review](../benchmarks/20261003-authentic-development/paired_summary.json).
+
 ## Research API
 
 Apply the existing schema migration before using the new research or historical metadata-review routes:

@@ -80,6 +80,18 @@ def test_percentage_points_and_duration_policy_are_explicit():
         calculate(req.model_copy(update={'operation': 'growth'}), a.model_copy(update={'value': '-1'}), b)
 
 
+def test_exported_trend_displays_actual_intervals_and_duration_limitation():
+    a, ab = fact(observation_id='q1')
+    period = FinancialPeriod(kind='quarter', start=date(2026, 4, 1), end=date(2026, 6, 30), fiscal_label='Q2 2026')
+    b, bb = fact('15', observation_id='q2', period=period)
+    req = plan((a, b), calculations=(CalculationRequest(operation='growth', start_task_id='q1',
+               end_task_id='q2', period_policy='reporting_kind'),))
+    result = run_research(req, snapshot([a, b], [ab, bb]))
+    assert '2026-01-01 to 2026-03-31' in result['answer']
+    assert '2026-04-01 to 2026-06-30' in result['answer']
+    assert all(limitation in result['answer'] for limitation in result['calculations'][0]['limitations'])
+
+
 def test_research_requires_every_rank_candidate_and_exports_reproducible_trace():
     a, block = fact()
     missing = CoverageTask(task_id='missing', company_id='OTHER', metric_id='revenue', period=a.period)

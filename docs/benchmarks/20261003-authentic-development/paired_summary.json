@@ -1,0 +1,45 @@
+{
+  "label_sha256": "a09112414165dd3821223b5f6fac715d722f10b413502a23a0dab41c897a2c9d",
+  "baseline_results_sha256": "20f15a2e50726ec996194788d105bf8a7d7bfed7ac66e0cc5a30cb806ea58b43",
+  "current_results_sha256": "f1e633b79a89d6169ec4fcaa9d3d3dc389fa38f02cae3b8326e8e3993486b5c8",
+  "reviewer": "Codex",
+  "qualification": "Post-capture supplemental standalone-answer rubric applied equally; multiple small deterministic fixes, not a single-variable retrieval/model promotion study. Current narrative generation remains unchanged. Candidate formatter is not yet connected to production synthesis.",
+  "baseline_strict": {
+    "passed": 37,
+    "denominator": 48,
+    "value": 0.7708333333333334
+  },
+  "current_strict": {
+    "passed": 45,
+    "denominator": 48,
+    "value": 0.9375
+  },
+  "presentation_candidate_strict": {
+    "passed": 48,
+    "denominator": 48,
+    "value": 1.0
+  },
+  "wins": [
+    "dev-10",
+    "dev-11",
+    "dev-25",
+    "dev-26",
+    "dev-27",
+    "dev-28",
+    "dev-29",
+    "dev-30"
+  ],
+  "losses": [],
+  "remaining_failure_cases": [
+    "dev-08",
+    "dev-15",
+    "dev-16"
+  ],
+  "new_provider_calls": 0,
+  "new_provider_cost_usd": 0,
+  "fresh_generation_accuracy": null,
+  "matched_provider_latency_cost_gate": "not_assessable; reused generation is not a fresh paired provider measurement",
+  "independent_release_reviews": 0,
+  "holdout": "not_accessed",
+  "release_decision": "held"
+}

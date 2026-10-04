@@ -6,7 +6,7 @@ Start with [STATE](STATE.md) for implemented behavior, evidence limits and next 
 | --- | --- |
 | [STATE](STATE.md) | Canonical current status and next action |
 | [DECISIONS](DECISIONS.md) | Retained choices, negative results and supersession |
-| [Next work](NEXT_WORK.md) — active preparation; release blocked on independent review/holdout custody | Close authentic release and matched historical gates for the existing prototype |
+| [Next work](NEXT_WORK.md) — active development closure; release blocked on independent review/holdout custody | Connect the measured narrative presentation candidate, broaden missing authentic slices, then close release/historical gates |
 | [System KB](kb/SYSTEM.md) | Current architecture, source lifecycle, private API, research and saved history |
 | [Runtime KB](kb/RUNTIME.md) | Local Postgres/UI, notebook compatibility, private Docker limits and restore |
 | [Evidence and usage KB](kb/EVIDENCE.md) | Original provenance, structured outcomes and receipt semantics |
@@ -17,7 +17,7 @@ Code/contracts establish behavior; plans describe pending work; immutable captur
 
 ## Evidence artifacts
 
-- [Benchmark captures](benchmarks/): original manifests, results, overlays, receipts, failed attempts and captured patches. Key records: [historical reviewed baseline](benchmarks/20261002-parent-bm25/reviewed_summary.json), [quote-bound paired result](benchmarks/20261002-financial-answers-bound/paired_summary.json), [latest development capture](benchmarks/20261003-product-development/capture-v4/summary.json), [claim review](benchmarks/20261003-product-development/development_claim_review.v1.json), [usage/failure ledger](benchmarks/20261003-product-development/usage_ledger.v1.json), [historical control](benchmarks/20261003-product-regression/capture/summary.json).
+- [Benchmark captures](benchmarks/): original manifests, results, overlays, receipts, failed attempts and captured patches. Key records: [full development paired review](benchmarks/20261003-authentic-development/paired_summary.json), [current 48-case review](benchmarks/20261003-authentic-development/regression/reviewed_summary.json), [separate 16-case extension](benchmarks/20261003-authentic-development/extension/reviewed_summary.json), [narrative formatter candidate](benchmarks/20261003-authentic-development/presentation-candidate/reviewed_summary.json), [historical reviewed baseline](benchmarks/20261002-parent-bm25/reviewed_summary.json), [quote-bound paired result](benchmarks/20261002-financial-answers-bound/paired_summary.json), [original development capture](benchmarks/20261003-product-development/capture-v4/summary.json), [claim review](benchmarks/20261003-product-development/development_claim_review.v1.json), [usage/failure ledger](benchmarks/20261003-product-development/usage_ledger.v1.json), [historical control](benchmarks/20261003-product-regression/capture/summary.json).
 - [Check artifacts](evidence/checks/): dated [contextual](evidence/checks/CONTEXTUAL_CHECK.json), [lexical](evidence/checks/LEXICAL_CHECK.json), [metadata](evidence/checks/METADATA_CHECK.json), [live smoke](evidence/checks/LIVE_CHECK.json) and [Docker](evidence/checks/DOCKER_CHECK.json) records.
 - [Frozen fixtures](fixtures/) and [actual local screenshots](screenshots/). Ignored originals/caches/databases need separate acquisition/reproduction; receipts do not distribute them.
 

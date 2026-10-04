@@ -1,0 +1,1820 @@
+{
+  "split": "development",
+  "qualification": "Additional source-grounded development questions frozen before extension capture; not independent holdout. Three tagged hero scenarios share this 16-case denominator. No fabricated source values.",
+  "source_cards_sha256": "a62a6f475962a94d27da16579c3742a6949b73d888cdbb24275336ae6ffa668e",
+  "cases": [
+    {
+      "case_id": "ext-01",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank reported common-equity income amounts for Tesla and Wells Fargo in FY2024",
+        "selections": [
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          },
+          {
+            "source_id": "b9189a65-79ff-426a-986f-23a881e3c9ba",
+            "version_id": "7df4d4d5-f29f-44d0-b8c1-c4baf9a64c18",
+            "build_id": "5fc72f1f-f3ed-429a-9251-ec3ae3c776a9"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+            "value": "7091",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024",
+            "value": "18606",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim.",
+        "ranking": [
+          "t1",
+          "t0"
+        ]
+      },
+      "report_ids": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "scenario_tags": [
+        "hero_common_equity"
+      ]
+    },
+    {
+      "case_id": "ext-02",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank reported common-equity income amounts for Tesla and Wells Fargo in Q1 2025",
+        "selections": [
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          },
+          {
+            "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+            "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+            "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "409",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "4616",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim.",
+        "ranking": [
+          "t1",
+          "t0"
+        ]
+      },
+      "report_ids": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-03",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank reported common-equity income amounts for Tesla and Wells Fargo in Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "1172",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "5214",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim.",
+        "ranking": [
+          "t1",
+          "t0"
+        ]
+      },
+      "report_ids": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-04",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Difference in reported common-equity income amounts: WFC less Tesla, Q1 2025",
+        "selections": [
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          },
+          {
+            "source_id": "a42222e3-16d7-4c5f-96b6-b44d69483bae",
+            "version_id": "407792b1-834e-45f6-be6f-2746b51f6193",
+            "build_id": "43a823a1-3fcf-49c7-8894-1e9198bcdfae"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [
+          {
+            "operation": "difference",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "cross_company": true
+          }
+        ],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "409",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+            "value": "4616",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "difference",
+            "displayed_result": "+4207000000.00 USD"
+          }
+        ],
+        "gap_operations": [],
+        "reason": "Explicit cross-company same-interval difference with both original operands."
+      },
+      "report_ids": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-05",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Difference in reported common-equity income amounts: WFC less Tesla, Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [
+          {
+            "operation": "difference",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "cross_company": true
+          }
+        ],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "1172",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "5214",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [
+          {
+            "operation": "difference",
+            "displayed_result": "+4042000000.00 USD"
+          }
+        ],
+        "gap_operations": [],
+        "reason": "Explicit cross-company same-interval difference with both original operands."
+      },
+      "report_ids": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-06",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Tesla Q1-Q3 2024 common income after crypto-adoption recast; preserve predecessor lineage",
+        "selections": [
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          },
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "c653cd62-9485-41a1-8b21-23e3bb625e79",
+            "version_id": "7671271b-ddc2-4b5d-92d9-2261afd32fce",
+            "build_id": "26aa38ce-3a33-469d-9bf7-68cd3decdc34"
+          },
+          {
+            "source_id": "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+            "version_id": "6069faf8-3aba-4707-a660-4b3557f52e17",
+            "build_id": "aa5d78a0-fe12-4af6-9e5e-09cdf208c027"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t2",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1390",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q2-2024",
+            "value": "1400",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-fy2024:net_income_common:consolidated:GAAP:Q3-2024",
+            "value": "2173",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Three separate quarter tasks, FY2024 adoption original and three original predecessor families. Latest 1390/1400/2173."
+      },
+      "report_ids": [
+        "tsla-fy2024",
+        "tsla-q1-2024",
+        "tsla-q2-2024",
+        "tsla-q3-2024"
+      ],
+      "scenario_tags": [
+        "hero_recast"
+      ]
+    },
+    {
+      "case_id": "ext-07",
+      "primary_slice": "multi_document_extended",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Tesla Q1-Q3 2024 common income as originally reported",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "c653cd62-9485-41a1-8b21-23e3bb625e79",
+            "version_id": "7671271b-ddc2-4b5d-92d9-2261afd32fce",
+            "build_id": "26aa38ce-3a33-469d-9bf7-68cd3decdc34"
+          },
+          {
+            "source_id": "43bffa7d-2b9d-4afc-b397-f7d957cdf4b0",
+            "version_id": "6069faf8-3aba-4707-a660-4b3557f52e17",
+            "build_id": "aa5d78a0-fe12-4af6-9e5e-09cdf208c027"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t2",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "as_reported",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+            "value": "1129",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q2-2024:net_income_common:consolidated:GAAP:Q2-2024",
+            "value": "1478",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "fiscal_label": "Q2 2024",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-q3-2024:net_income_common:consolidated:GAAP:Q3-2024",
+            "value": "2167",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "fiscal_label": "Q3 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Original 1129/1478/2167 retained despite later adoption recast."
+      },
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-q2-2024",
+        "tsla-q3-2024",
+        "tsla-fy2024"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-08",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [],
+      "request": {
+        "question": "Tesla Q1 2024 income known before original publication",
+        "selections": [
+          {
+            "source_id": "df21c4b6-bdfd-497a-b76e-6f0c8f5b881f",
+            "version_id": "e7ab050c-32c7-4e03-995c-10b041d8954b",
+            "build_id": "c74b0bda-8d63-46ca-9d8e-3d9e693fd308"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "fiscal_label": "Q1 2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": "2024-01-01"
+      },
+      "expected": {
+        "outcome": "refuse",
+        "observations": [],
+        "calculations": [],
+        "gap_operations": [],
+        "reason": "Publication cutoff excludes every original value; no retrospective knowledge."
+      },
+      "report_ids": [
+        "tsla-q1-2024",
+        "tsla-fy2024"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-09",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Compare AMD fiscal Q1 and Tesla calendar Q1 2025 revenue; preserve unequal intervals",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "comparison",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "7438",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "19335",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "comparison"
+        ],
+        "reason": "Fiscal dates/calendars differ; separately shown values do not establish a common interval."
+      },
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-10",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank AMD and Tesla Q1 2025 revenue on a common interval",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "7438",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "19335",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "ranking"
+        ],
+        "reason": "Unequal original intervals block full ranking.",
+        "ranking": []
+      },
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-11",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Calculate Tesla less AMD Q1 2025 revenue on a common interval",
+        "selections": [
+          {
+            "source_id": "7814244f-0992-460a-a998-fa986b88b891",
+            "version_id": "35a9b452-70ec-41e4-a69a-fb8611a46bd2",
+            "build_id": "7082c566-e401-46a1-b922-6febd1ad33a4"
+          },
+          {
+            "source_id": "2729655d-c819-4638-89b0-29397d1ccd83",
+            "version_id": "c31f2ee9-b0c5-4004-a5fe-d8ec0434362b",
+            "build_id": "26c477a4-8fa3-49c4-b073-cc1cbc433067"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [
+          {
+            "operation": "difference",
+            "start_task_id": "t0",
+            "end_task_id": "t1",
+            "cross_company": true
+          }
+        ],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "7438",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2024-12-29",
+              "end": "2025-03-29",
+              "fiscal_label": "Q1 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+            "value": "19335",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "fiscal_label": "Q1 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "difference"
+        ],
+        "reason": "Cross-company operands use different fiscal calendars; calculation withheld."
+      },
+      "report_ids": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-12",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "AMD Q2 2025 consolidated net-income margin against continuing-operations revenue",
+        "selections": [
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "net_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "mode": "lookup",
+        "revision_policy": "latest_reviewed",
+        "calculations": [
+          {
+            "operation": "margin",
+            "start_task_id": "t0",
+            "end_task_id": "t1"
+          }
+        ],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "amd-q2-2025:net_income:consolidated:GAAP:Q2-2025",
+            "value": "872",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "net_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025",
+            "value": "7685",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "AMD",
+            "metric_id": "revenue",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "margin"
+        ],
+        "reason": "Consolidated 872 includes discontinued operations; continuing revenue 7685 cannot support this margin."
+      },
+      "report_ids": [
+        "amd-q2-2025"
+      ],
+      "scenario_tags": [
+        "hero_scope_refusal"
+      ]
+    },
+    {
+      "case_id": "ext-13",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Compare AMD GAAP and non-GAAP reported Q2 2025 gross margin",
+        "selections": [
+          {
+            "source_id": "da37cba0-72b7-4dd9-b209-b5f5e4d2b7b1",
+            "version_id": "90257fde-f156-4d60-aea4-e40c083aa7ca",
+            "build_id": "960c8b9b-f167-4eb6-a560-9a1a32ee28c9"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "AMD",
+            "metric_id": "gross_margin",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "AMD",
+            "metric_id": "gross_margin",
+            "scope": "continuing_operations",
+            "basis": "non-GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "mode": "comparison",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "amd-q2-2025-companion:gross_margin:continuing_operations:GAAP:Q2-2025",
+            "value": "40",
+            "scale": "1",
+            "unit": "percent",
+            "currency": null,
+            "company_id": "AMD",
+            "metric_id": "gross_margin",
+            "scope": "continuing_operations",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          },
+          {
+            "observation_id": "amd-q2-2025-companion:gross_margin:continuing_operations:non-GAAP:Q2-2025",
+            "value": "43",
+            "scale": "1",
+            "unit": "percent",
+            "currency": null,
+            "company_id": "AMD",
+            "metric_id": "gross_margin",
+            "scope": "continuing_operations",
+            "basis": "non-GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "comparison"
+        ],
+        "reason": "40% GAAP versus 43% non-GAAP are shown separately; basis cannot be substituted."
+      },
+      "report_ids": [
+        "amd-q2-2025-companion"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-14",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank common-equity income for Tesla, WFC and AMD in Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          },
+          {
+            "source_id": "2b03b269-5c4e-4a00-8200-2f8535227a24",
+            "version_id": "71a4ba7d-4a8f-495e-8e3c-865a60c19aa8",
+            "build_id": "391765ac-11c0-44e6-a717-fc7a4eb91fd5"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t2",
+            "company_id": "AMD",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-03-30",
+              "end": "2025-06-28",
+              "fiscal_label": "Q2 2025",
+              "calendar": "amd_52_53_week"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "1172",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "5214",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "ranking"
+        ],
+        "reason": "AMD common-equity binding absent; full ranking withheld; retained two supported values are not a complete ranking.",
+        "ranking": []
+      },
+      "report_ids": [
+        "tsla-q2-2025",
+        "wfc-q2-2025",
+        "amd-q2-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-15",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Compare Tesla common-equity income with Wells Fargo consolidated total income Q2 2025",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "435f63fc-11ae-420f-9077-425d67317dca",
+            "version_id": "e8d6a72e-dc92-4a31-8369-b3d68cbb63a2",
+            "build_id": "cea8dc69-346c-40e5-a939-df14f4dfa1f2"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "WFC",
+            "metric_id": "net_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "comparison",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+            "value": "1172",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "net_income_common",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "wfc-q2-2025:net_income:consolidated:GAAP:Q2-2025",
+            "value": "5522",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "WFC",
+            "metric_id": "net_income",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "comparison"
+        ],
+        "reason": "Common-equity and consolidated total income are different attribution definitions."
+      },
+      "report_ids": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "scenario_tags": []
+    },
+    {
+      "case_id": "ext-16",
+      "primary_slice": "comparability_refusal",
+      "lane": "research",
+      "tags": [
+        "numeric"
+      ],
+      "request": {
+        "question": "Rank Tesla Q2 2025 and FY2024 reported revenue as if the same interval",
+        "selections": [
+          {
+            "source_id": "413889ad-7787-425e-a5e1-bd88f624fa7f",
+            "version_id": "ec43dd46-7e46-420a-b2e9-5535aad42d68",
+            "build_id": "b2d9a83b-01c2-429f-9f57-1c5c06218e05"
+          },
+          {
+            "source_id": "b2b5e8a3-4a68-4c76-a41a-867009c24dfe",
+            "version_id": "9ef98c28-f763-4bae-b3c5-5adf18c83496",
+            "build_id": "20a7cbe6-d650-43a6-b190-b6fd5f7d1277"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "mode": "ranking",
+        "revision_policy": "latest_reviewed",
+        "calculations": [],
+        "as_of": null
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [
+          {
+            "observation_id": "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025",
+            "value": "22496",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "quarter",
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "fiscal_label": "Q2 2025",
+              "calendar": "calendar"
+            }
+          },
+          {
+            "observation_id": "tsla-fy2024:revenue:consolidated:GAAP:FY2024",
+            "value": "97690",
+            "scale": "1000000",
+            "unit": "currency",
+            "currency": "USD",
+            "company_id": "TSLA",
+            "metric_id": "revenue",
+            "scope": "consolidated",
+            "basis": "GAAP",
+            "period": {
+              "kind": "annual",
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "fiscal_label": "FY2024",
+              "calendar": "calendar"
+            }
+          }
+        ],
+        "calculations": [],
+        "gap_operations": [
+          "ranking"
+        ],
+        "reason": "Quarter versus annual interval cannot support a full comparison ranking.",
+        "ranking": []
+      },
+      "report_ids": [
+        "tsla-q2-2025",
+        "tsla-fy2024"
+      ],
+      "scenario_tags": []
+    }
+  ]
+}

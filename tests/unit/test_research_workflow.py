@@ -3,10 +3,37 @@ from datetime import date
 
 from src.core.models import DocumentBlock
 from src.financial.intent import resolve_question
+from src.financial.intent import parse_question
 from src.financial.evidence import EvidenceSearchRequest, search_evidence
 from src.financial.models import PinnedSource
 from src.pipelines.query import QueryPipeline
 from tests.unit.test_financial_research import fact, plan, snapshot, SOURCE_ID
+
+
+def test_clarification_names_only_missing_dimensions_and_never_builds_partial_plan():
+    inventory = [{'metadata': {'company_id': 'TSLA', 'company_name': 'Tesla, Inc.', 'review_status': 'confirmed'}}]
+    cases = {
+        'What was Tesla revenue?': ['reporting period', 'scope', 'basis'],
+        'show consolidated revenue for TSLA in Q1 2025': ['basis'],
+        'show GAAP revenue for TSLA in Q1 2025': ['scope'],
+        'show GAAP consolidated revenue in Q1 2025': ['company'],
+        'show GAAP consolidated revenue for TSLA': ['reporting period'],
+        'rank best company for TSLA in FY2024': ['metric', 'scope', 'basis'],
+    }
+    for question, missing in cases.items():
+        result = parse_question(question, inventory)
+        assert result['outcome'] == 'clarify' and result['missing_dimensions'] == missing
+        assert 'request' not in result and not result['citations']
+
+
+def test_standalone_narrative_labels_separate_same_company_periods():
+    from src.financial.presentation import narrative_answer
+    tasks = {'q1': {'company_id': 'TSLA', 'document_period_label': 'Q1 2025'},
+             'q2': {'company_id': 'TSLA', 'document_period_label': 'Q2 2025'}}
+    claims = [{'task_id': t, 'text': 'Issuer statement.', 'evidence_id': t} for t in tasks]
+    answer = narrative_answer(tasks, claims)
+    assert 'TSLA / Q1 2025:' in answer and 'TSLA / Q2 2025:' in answer
+    assert 'requires semantic review' in answer
 
 
 def test_templates_keep_company_period_scope_and_basis_explicit():

@@ -59,12 +59,30 @@ Captures reject legacy provenance and runtime/build embedding mismatch; rebuildi
 
 The legacy [Phase 3 manifest](../fixtures/phase3/manifest.json) is an immutable three-question diagnostic, not the newer 168-card/48-case product corpus or populated holdout. Its checker can pass integrity while reporting release held/unassessable. [Product labels](../fixtures/product/development_cases.v1.json) are separately frozen before generation; the development runner never opens holdout.
 
+## Authentic development review and extensions
+
+[Paired review](../benchmarks/20261003-authentic-development/paired_summary.json) now binds named Codex per-case review to all 48 saved results and unchanged labels. Original raw capture summaries remain mechanical. Source-grounded review covers numeric row/column/interval/unit/scope/basis, Decimal operands/results, narrative topic/context and safe gaps. A supplemental standalone-answer completeness rubric was frozen after the original capture and before fixes: requested period distinctions must be explicit, issued duration qualifications must appear in the answer, and clarification must identify absent dimensions. It is applied equally to baseline and correction; this post-capture development rubric is not an independent sealed test.
+
+Baseline strict is 37/48. Current domain/registry regression is 45/48: six clarification and two duration-presentation wins, zero formerly correct losses. It includes 40 fresh deterministic executions and eight unchanged narrative claims replayed only after exact live passage/coverage parity. Numeric accuracy is 25/25; original-required numeric cells 40/40; issued operands 22/22; reviewed narrative claims 12/12. Current narrative strict is 5/8 and multi-document strict 10/13. A separately labeled standalone formatter candidate scores 48/48, narrative 8/8 and multi-document 13/13, but is not connected to production synthesis. No fresh narrative generation, provider cost/latency comparison or HTTP/UI benchmark is claimed.
+
+[Extension labels](../fixtures/product/development_extension.v1.json) freeze 16 additional source-grounded development tasks before capture: three common-equity rankings, two explicit cross-company differences, two three-quarter revision views, a pre-publication cutoff, and eight incompatible/missing-cell comparison/calculation/ranking cases. They score 16/16 strict, 15/15 numeric and 12/12 tasks needing distinct report families. Three tagged hero scenarios share the 16-case denominator; they are not extra independent successes. No fake conflicting values, artificial source changes, paid calls or holdout access were introduced.
+
+Required multi-document coverage counts task-supplying report families; selecting distractors or repeating a companion value is insufficient. The original revision slice covers seven Tesla policy/cutoff decisions and one incomplete-lineage refusal. Authentic unresolved-value-conflict and source-change-staleness denominators are still zero. Unit adversaries/operational refresh failures do not fill them. Descriptive Wilson intervals are reported, with an explicit correlated-family caveat; the 48/48 candidate's case-level interval does not establish industrial accuracy. The independent review, disjoint holdout, historical and matched cost/latency gates above remain unchanged.
+
+`replay_product_review.py` fails closed on changed result/label hashes, missing cases, unknown semantic attestations or missing claim reviews. `rerun_product_offline.py` reuses the authorized local originals and live registry, verifies all 22 raw hashes, appends immutable history and records code/input hashes. Archived generation usage is separate from new execution usage. The retained captured-runner text preserves the exact runner revision used by the initial candidate/extension. Replayed API receipts are not new costs or fresh inference-time measurements.
+
 ## Commands from repository root
 
 ```sh
 # Offline replay/integrity only; no database or model calls.
 python scripts/check_phase3_evaluation.py
 python scripts/replay_answer_review.py docs/benchmarks/20261002-parent-bm25
+python scripts/replay_product_review.py docs/benchmarks/20261003-authentic-development/regression
+python scripts/replay_product_review.py docs/benchmarks/20261003-authentic-development/extension --labels docs/fixtures/product/development_extension.v1.json
+# Local pinned domain/registry regression; no provider calls. Requires the existing local database/objects.
+python scripts/rerun_product_offline.py --output /tmp/finrag-NEW-domain-regression
+# The proposed formatter remains separate until connected to production synthesis.
+python scripts/rerun_product_offline.py --presentation-candidate --output /tmp/finrag-NEW-presentation-candidate
 python scripts/run_benchmark.py --replay docs/benchmarks/20261002-parent-bm25/results.jsonl
 python scripts/run_product_development.py --pricing docs/benchmarks/20261003-product-regression/pricing.json --output-dir /tmp/finrag-label-check
 

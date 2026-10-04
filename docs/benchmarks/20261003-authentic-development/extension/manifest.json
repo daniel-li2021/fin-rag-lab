@@ -1,0 +1,23 @@
+{
+  "label_sha256": "e2800d4eea1e801446b26cdf2ab1b3086db0a2333742d9a42eca67f3ec01ac1d",
+  "code_sha256": {
+    "src/financial/__init__.py": "f3f4353bcc24403d06c1016ef4fba4147c431d25a69dffaeb64575f3ee6cac3a",
+    "src/financial/calculations.py": "2f76b500d3100ae3d50ba65a200c024b0fddfc3cc2daed2111a4fdd2ee53c8a7",
+    "src/financial/evidence.py": "5e1ef2ab86668faa738ecdba418c856345238608e9c8522136aef0fd542db112",
+    "src/financial/intent.py": "77ca479237e99aa00103d1dde4219ef63659a83610828d973ec44d5d92f74a3b",
+    "src/financial/models.py": "9211fe006f7d358184d2bcc808fca456f963f3617d9a6455a691e6ea98762360",
+    "src/financial/narrative.py": "dfdc70387a542d72bf9e71044483cd45f319733ed5c90b66c440af3ca379f5e2",
+    "src/financial/observations.py": "b40931c4eb076686939e76b4179e357290e8a2a1400f0bd86a5b886b54624b31",
+    "src/financial/presentation.py": "d4ce052260f4143633162c24ea38a25065ce46b1b8683d2f54bfc0499073b4d0",
+    "src/financial/research.py": "f1044b2844a983f92b2c678245b61aa0e15ab90a21b6f7b8c0d499614972564f",
+    "scripts/rerun_product_offline.py": "4e76b18873c4ebc08bc1e04be2c5755dedfb70be9a5935e62705dd0e75082cc1",
+    "src/storage/registry.py": "5fef3961dfa192f0df8222f67824996f9378d8cca325c64adf8dd33638256b2f",
+    "scripts/run_product_development.py": "c2bcf7bd9419ece8e985ca77b96b5926caa0c64f43a05d9929984048877ef15b"
+  },
+  "source_receipts_sha256": "59332d8f08c5f963088361690139aa5a1cbcf061e538b38ec80d3d26075d3ddc",
+  "original_byte_hashes_verified": 22,
+  "holdout": "not_accessed",
+  "api_calls": 0,
+  "scope": "Live pinned Postgres domain/registry execution; not HTTP/UI or fresh generation",
+  "reused_narrative_results_sha256": "20f15a2e50726ec996194788d105bf8a7d7bfed7ac66e0cc5a30cb806ea58b43"
+}

@@ -1,0 +1,299 @@
+{
+  "reviewer": "Codex",
+  "revision": "Codex-authentic-development-extension-20261003-v1",
+  "qualification": "Source-grounded named Codex review of 16 additional authentic development executions, frozen before capture. Not independent release review or holdout; three hero tags share this denominator.",
+  "results_sha256": "f0348cc6065762678dabcc93fde6f6e9df67d7881e41b03a4669cc1a0bd465a0",
+  "labels_sha256": "e2800d4eea1e801446b26cdf2ab1b3086db0a2333742d9a42eca67f3ec01ac1d",
+  "cases": [
+    {
+      "case_id": "ext-01",
+      "result_sha256": "ce4ed2fdf59924fa1bd56b53380e1bf752a847f9ebb331c619efb9f21f470875",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-fy2024",
+        "wfc-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:FY2024",
+        "wfc-fy2024:net_income_common:consolidated:GAAP:FY2024"
+      ]
+    },
+    {
+      "case_id": "ext-02",
+      "result_sha256": "b960f6d2dad081f18d63f6f1c0963bae0681f55193e457cc93606cc09567f1ed",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+        "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025"
+      ]
+    },
+    {
+      "case_id": "ext-03",
+      "result_sha256": "335d75ed9f1ff2c5bccc35f00ec5873500652576a10c7d01cf94c6db9cce7c74",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Identical USD common-equity definition and calendar interval; no operating-performance equivalence claim. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+        "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-04",
+      "result_sha256": "01d33f96b95b646bbdc6965c9adeff5975f9fd097f70e4571340fb71eda99443",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Explicit cross-company same-interval difference with both original operands. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q1-2025",
+        "wfc-q1-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2025:net_income_common:consolidated:GAAP:Q1-2025",
+        "wfc-q1-2025:net_income_common:consolidated:GAAP:Q1-2025"
+      ]
+    },
+    {
+      "case_id": "ext-05",
+      "result_sha256": "cdd377c1034c61089af94277e304727d5e82990ff22e9909e014515d0c7ea2f6",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Explicit cross-company same-interval difference with both original operands. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+        "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-06",
+      "result_sha256": "25176ac3c2d16f185f9fed9f30fdd1cac6b2a6d61ecb9219c15f12e86e4da346",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Three separate quarter tasks, FY2024 adoption original and three original predecessor families. Latest 1390/1400/2173. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-fy2024"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q1-2024",
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q2-2024",
+        "tsla-fy2024:net_income_common:consolidated:GAAP:Q3-2024"
+      ]
+    },
+    {
+      "case_id": "ext-07",
+      "result_sha256": "13a9d9977a023cf02644ed553f411a72fc97a2f9a32b7d91fc88f16145193e07",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Original 1129/1478/2167 retained despite later adoption recast. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q1-2024",
+        "tsla-q2-2024",
+        "tsla-q3-2024"
+      ],
+      "original_observation_ids": [
+        "tsla-q1-2024:net_income_common:consolidated:GAAP:Q1-2024",
+        "tsla-q2-2024:net_income_common:consolidated:GAAP:Q2-2024",
+        "tsla-q3-2024:net_income_common:consolidated:GAAP:Q3-2024"
+      ]
+    },
+    {
+      "case_id": "ext-08",
+      "result_sha256": "a59e16979e86bdabf3326cdf807fc60dce688dc81986c6ec93bb26d52d7fba82",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Publication cutoff excludes every original value; no retrospective knowledge. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [],
+      "original_observation_ids": []
+    },
+    {
+      "case_id": "ext-09",
+      "result_sha256": "0fa9b965c6cd241d3aa5b582763bc08d3178dba1e28e8b875d41bac6ea8659c0",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Fiscal dates/calendars differ; separately shown values do not establish a common interval. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+        "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025"
+      ]
+    },
+    {
+      "case_id": "ext-10",
+      "result_sha256": "a5b9c0534c411547e215fb2353d61a22eb0322aa17a534d2cb0482924bed8b8f",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Unequal original intervals block full ranking. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+        "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025"
+      ]
+    },
+    {
+      "case_id": "ext-11",
+      "result_sha256": "7ec1c7e96107fde51fc14baa932cffe495e56adc919bc62458063b347635d6a8",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Cross-company operands use different fiscal calendars; calculation withheld. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "amd-q1-2025",
+        "tsla-q1-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q1-2025:revenue:consolidated:GAAP:Q1-2025",
+        "tsla-q1-2025:revenue:consolidated:GAAP:Q1-2025"
+      ]
+    },
+    {
+      "case_id": "ext-12",
+      "result_sha256": "deed3b9f7082bb18a7163c3dabcda558f98723662ba58126f02e6e9634579419",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Consolidated 872 includes discontinued operations; continuing revenue 7685 cannot support this margin. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "amd-q2-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q2-2025:net_income:consolidated:GAAP:Q2-2025",
+        "amd-q2-2025:revenue:continuing_operations:GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-13",
+      "result_sha256": "29cbea11542a6e0926de1e284b4db5b6fba3ca264028fcfdbabf78791545e84b",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "40% GAAP versus 43% non-GAAP are shown separately; basis cannot be substituted. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "amd-q2-2025"
+      ],
+      "original_observation_ids": [
+        "amd-q2-2025-companion:gross_margin:continuing_operations:GAAP:Q2-2025",
+        "amd-q2-2025-companion:gross_margin:continuing_operations:non-GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-14",
+      "result_sha256": "74b2aa109fd4dd6af2bbd4d44defff3957e9dda188e847b554cd534379855fcf",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "AMD common-equity binding absent; full ranking withheld; retained two supported values are not a complete ranking. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+        "wfc-q2-2025:net_income_common:consolidated:GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-15",
+      "result_sha256": "605aa7aa4177e1023802cceb2931f96bf8ef0760941f67f1f298619e36f308c7",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Common-equity and consolidated total income are different attribution definitions. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-q2-2025",
+        "wfc-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-q2-2025:net_income_common:consolidated:GAAP:Q2-2025",
+        "wfc-q2-2025:net_income:consolidated:GAAP:Q2-2025"
+      ]
+    },
+    {
+      "case_id": "ext-16",
+      "result_sha256": "1b7fe9d8c4931dfbe859e2122ff12214c486f52d0cbd9a75fe561fd14e20b113",
+      "rubric_pass": true,
+      "original_binding_support": true,
+      "safe_outcome": true,
+      "claim_support": [],
+      "failures": [],
+      "review_note": "Quarter versus annual interval cannot support a full comparison ranking. Verified actual original-bound outputs, gap reason and suppressed ranking/calculation against the frozen requirement.",
+      "required_report_families": [
+        "tsla-fy2024",
+        "tsla-q2-2025"
+      ],
+      "original_observation_ids": [
+        "tsla-fy2024:revenue:consolidated:GAAP:FY2024",
+        "tsla-q2-2025:revenue:consolidated:GAAP:Q2-2025"
+      ]
+    }
+  ],
+  "coverage_limits": {
+    "new_cases": 16,
+    "new_comparability_or_cutoff_safety_cases": 9,
+    "tagged_hero_scenarios": 3,
+    "authentic_unresolved_value_conflict_cases": 0,
+    "authentic_source_change_staleness_cases": 0,
+    "original_bindings": "Five additional original cards checked against original rows/context; other bindings reuse the baseline original review."
+  }
+}

@@ -60,6 +60,10 @@ def assess(case, result):
             for label in expected['observations'])
     checks['calculations'] = [{k:r[k] for k in ('operation', 'displayed_result')}
                               for r in result.get('calculations', [])] == expected['calculations']
+    if 'ranking' in expected:
+        checks['ranking'] = result.get('ranking', []) == expected['ranking']
+    if 'gap_operations' in expected:
+        checks['gap_operations'] = [g['operation'] for g in result.get('calculation_gaps', [])] == expected['gap_operations']
     if case['lane'] == 'narrative':
         passages = {p['evidence_id']: p for p in result.get('passages', [])}
         checks['quoted_original_provenance'] = all(

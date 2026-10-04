@@ -15,8 +15,9 @@ PERIOD = r'(?:Q[1-4]\s+(?:19|20|21)\d{2}|FY\s*(?:19|20|21)\d{2})'
 
 def parse_question(question, inventory):
     """Return a validated-plan candidate or a fact-free safe outcome; no model call."""
-    def stop(outcome, answer):
+    def stop(outcome, answer, missing_dimensions=None):
         return {'outcome': outcome, 'answer': answer, 'coverage': [], 'citations': {},
+                **({'missing_dimensions': missing_dimensions} if missing_dimensions is not None else {}),
                 'usage': {'planner_calls': 0, 'generator_calls': 0, 'embedding_calls': 0, 'cost_usd': '0'}}
     text = question.strip().rstrip('?').strip()
     text = re.sub(r'^(?:what (?:was|is|were)|lookup)\s+', 'show ', text, flags=re.I)
@@ -31,9 +32,25 @@ def parse_question(question, inventory):
                rf'(?P<companies>.+?)\s+in\s+(?P<periods>{PERIOD}(?:\s+to\s+{PERIOD})?)')
     match = re.fullmatch(pattern, text, re.I)
     if not match:
-        return stop('clarify', 'Specify company, metric, reporting period, scope and GAAP/non-GAAP basis. '
-                    'For example: "compare GAAP consolidated revenue for Tesla and AMD in Q1 2026". '
-                    'Use explicit research tasks for other questions.')
+        # Diagnose absent dimensions only; a partial parse never authorizes a fact.
+        aliases = {str(alias).casefold() for source in inventory
+                   if source['metadata'].get('review_status') == 'confirmed'
+                   for alias in (source['metadata'].get('company_id'), source['metadata'].get('company_name'))
+                   if alias}
+        aliases.update(alias.split(',')[0].strip() for alias in tuple(aliases))
+        present = {
+            'company': bool(re.search(r'\bfor\s+.+?(?:\s+in\s+|$)', text, re.I)) or any(
+                re.search(r'(?<!\w)' + re.escape(alias) + r'(?!\w)', text, re.I) for alias in aliases),
+            'metric': bool(re.search(r'\b(?:' + metrics + r')\b', text, re.I)),
+            'reporting period': bool(re.search(PERIOD, text, re.I)),
+            'scope': bool(re.search(r'\b(?:consolidated|continuing_operations|automotive|segment:[a-z0-9_-]+)\b', text, re.I)),
+            'basis': bool(re.search(r'\b(?:GAAP|non-GAAP|operating)\b', text, re.I)),
+        }
+        missing = [key for key, found in present.items() if not found]
+        if missing:
+            return stop('clarify', 'Specify the missing ' + ', '.join(missing) +
+                        '. Use an explicit research task if the question is outside the supported templates.', missing)
+        return stop('clarify', 'The request is outside the supported templates; use an explicit research task.', [])
     aliases = {}
     for source in inventory:
         metadata = source['metadata']

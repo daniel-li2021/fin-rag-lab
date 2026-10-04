@@ -108,9 +108,12 @@ def run_research(request: ResearchRequest, snapshot: dict) -> dict:
         observation = supported.get(task.task_id)
         if observation:
             unit = (observation.currency or observation.unit) + (' × ' + observation.scale if observation.scale != '1' else '')
-            lines.append(f'{task.company_id} / {task.metric_id} / {task.period.fiscal_label} / {task.scope} / '
+            interval = (f' ({observation.period.start} to {observation.period.end}; {observation.period.calendar})'
+                        if observation.period.start and observation.period.end else '')
+            lines.append(f'{task.company_id} / {task.metric_id} / {task.period.fiscal_label}{interval} / {task.scope} / '
                          f'{task.basis}: {observation.value} {unit} [{observation.observation_id}]')
     lines.extend(f'{r.operation}: {r.displayed_result} [{r.observation_ids[0]}] [{r.observation_ids[1]}]' for r in receipts)
+    lines.extend(limitation for receipt in receipts for limitation in receipt.limitations)
     if ranked:
         lines.append('Ranking (descending, ties share a value): ' + ', '.join(ranked))
     lines.extend(f'{c.task_id}: {c.status} — {c.reason}' for c in missing)
