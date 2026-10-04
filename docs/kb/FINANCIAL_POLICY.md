@@ -1,6 +1,8 @@
-# Development metric definitions — policy v1
+# Financial metric policy v1
 
-This is the curation policy for the [frozen development inventory](fixtures/product/development_inventory.v1.json), not automatic semantic certification. A reviewer must attest every original metric/table column, actual interval, scale, currency, scope, basis and report identity before importing an eligible card. Independent second review is required for release-critical facts/calculations and revision mappings. No acquired file alone authorizes an answer.
+This is the current home of the policy identified as `PRODUCT_METRIC_POLICY.md` in frozen acquisition/ingestion metadata. That historical policy identifier remains unchanged to preserve artifact hashes; its current reference is this document.
+
+This is the curation policy for the [frozen development inventory](../fixtures/product/development_inventory.v1.json), not automatic semantic certification. A reviewer must attest every original metric/table column, actual interval, scale, currency, scope, basis and report identity before importing an eligible card. Independent second review is required for release-critical facts/calculations and revision mappings. No acquired file alone authorizes an answer.
 
 | Metric | Binding and comparison rule |
 | --- | --- |

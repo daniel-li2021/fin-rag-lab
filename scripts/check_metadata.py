@@ -49,7 +49,9 @@ def main():
     report={'cases':rows,'correct_fields':sum(r['correct_fields'] for r in rows),'field_denominator':len(rows)*4,
             'abstentions':sum(r['abstentions'] for r in rows),'usage':usage,'model':'gpt-6-luna',
             'synthetic_only':True,'decision':'suggestions_require_user_confirmation'}
-    (ROOT/'docs/METADATA_CHECK.json').write_text(json.dumps(report,indent=2)+'\n')
+    destination = ROOT/'docs/evidence/checks/METADATA_CHECK.json'
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(report,indent=2)+'\n')
 
 
 if __name__=='__main__':

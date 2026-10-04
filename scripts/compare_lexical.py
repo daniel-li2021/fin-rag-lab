@@ -54,7 +54,9 @@ def main():
     report={'decision':'retain_bm25','reason':'Retrieval screening does not establish answer/refusal parity. SQL lexical ranking remains opt-in.',
             'summary':summary,'paired_deltas':pairs,'vector_reference_parity':parity,'query_embedding_usage':query_usage,
             'token_budget':2400,'fetch_k':20,'rrf_k':60,'questions':rows}
-    (ROOT/'docs/LEXICAL_CHECK.json').write_text(json.dumps(report,indent=2)+'\n')
+    destination = ROOT/'docs/evidence/checks/LEXICAL_CHECK.json'
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({'summary':summary,'parity':parity,'decision':report['decision']}),flush=True)
 
 

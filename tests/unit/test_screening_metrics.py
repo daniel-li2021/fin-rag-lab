@@ -18,7 +18,7 @@ def read(relative):
 def test_published_contextual_metrics_replay_from_original_evidence(arm):
     examples, _ = load_benchmark(ROOT / 'data/golden_set/golden.jsonl', ROOT / 'data/golden_set/labels.v1.json')
     fixture = read('data/golden_set/retrieval_screen.v1.json')
-    report = read('docs/CONTEXTUAL_CHECK.json')
+    report = read('docs/evidence/checks/CONTEXTUAL_CHECK.json')
     assert fixture['labels_sha256'] == hashlib.sha256((ROOT / 'data/golden_set/labels.v1.json').read_bytes()).hexdigest()
     assert report['run_manifest']['labels_sha256'] == fixture['labels_sha256']
     assert [r['id'] for r in fixture['arms'][arm]] == [e['id'] for e in examples]
@@ -39,7 +39,7 @@ def test_published_contextual_metrics_replay_from_original_evidence(arm):
 
 def test_cached_context_usage_counts_completion_once_and_preserves_unknown_cost():
     fixture = read('data/golden_set/retrieval_screen.v1.json')
-    report = read('docs/CONTEXTUAL_CHECK.json')
+    report = read('docs/evidence/checks/CONTEXTUAL_CHECK.json')
     events = fixture['context_usage_events']
     assert report['all_cached_context_usage'] == {
         'calls': len(events), 'input_tokens': sum(e['input_tokens'] for e in events),
@@ -50,7 +50,7 @@ def test_cached_context_usage_counts_completion_once_and_preserves_unknown_cost(
 
 
 def test_lexical_summary_parity_and_paired_deltas():
-    report = read('docs/LEXICAL_CHECK.json')
+    report = read('docs/evidence/checks/LEXICAL_CHECK.json')
     examples, _ = load_benchmark(ROOT / 'data/golden_set/golden.jsonl', ROOT / 'data/golden_set/labels.v1.json')
     reference = read('data/golden_set/retrieval_screen.v1.json')['arms']['A']
     rows = report['questions']
@@ -71,7 +71,7 @@ def test_lexical_summary_parity_and_paired_deltas():
 
 
 def test_metadata_totals_are_exact_field_matches_and_abstentions():
-    report = read('docs/METADATA_CHECK.json')
+    report = read('docs/evidence/checks/METADATA_CHECK.json')
     for row in report['cases']:
         assert row['correct_fields'] == sum(row['actual'][k] == v for k, v in row['expected'].items())
         assert row['abstentions'] == sum(v is None for v in row['actual'].values())
