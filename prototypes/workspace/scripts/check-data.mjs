@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const root = fileURLToPath(new URL('../../../', import.meta.url));
+const workspace = fileURLToPath(new URL('../', import.meta.url));
+const data=JSON.parse(readFileSync(path.join(workspace,'public/fixtures.json')));
+assert.equal(data.scenarios.length,5);
+const hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
+for(const [artifact,expected] of Object.entries(data.artifacts)) assert.equal(hash(path.join(root,artifact)),expected,artifact);
+const steps=[...data.scenarios.flatMap(s=>s.steps),data.calculation];
+for(const step of steps){
+  const artifact=readFileSync(path.join(root,step.artifact),'utf8');
+  const expected=step.artifact.endsWith('.jsonl') ? artifact.trim().split('\n').map(JSON.parse).find(r=>r.case_id===step.case_id).result : step.case_id==='reviewed_rerun' ? JSON.parse(artifact).reviewed_rerun.result : JSON.parse(artifact)[step.case_id];
+  assert.deepEqual(step.result,expected,`Preserved result differs: ${step.case_id}`);
+  for(const citation of Object.values(step.result.citations)) assert.ok(data.originals[citation.source.source_hash]);
+}
+for(const [sha,original] of Object.entries(data.originals)) assert.equal(hash(path.join(workspace,'public',original.local_url)),sha);
+for(const page of Object.values(data.pages)) assert.ok(existsSync(path.join(workspace,'public',page)));
+assert.equal(steps.filter(s=>s.result.execution).length,10);
+const narrative=data.scenarios.find(s=>s.id==='narrative').steps[0].result;
+assert.equal(narrative.claims.length,2);
+assert.equal(narrative.passages.length,18);
+for(const claim of narrative.claims) assert.ok(narrative.citations[claim.evidence_id]);
+const partial=data.scenarios.find(s=>s.id==='partial');
+assert.equal(Object.keys(partial.steps[1].result.citations).length,1);
+assert.equal(partial.steps[1].result.calculations.length,0);
+assert.equal(partial.steps[1].result.calculation_gaps[0].operation,'difference');
+const change=data.scenarios.find(s=>s.id==='change');
+assert.equal(change.steps[1].result.execution.parent_run_id,change.steps[0].result.run_id);
+assert.notEqual(change.steps[0].result.run_id,change.steps[1].result.run_id);
+assert.equal(data.calculation.result.calculations[0].displayed_result,'+6.61%');
+console.log(`Passed: ${steps.length} exact preserved payloads, five Heroes, ${Object.keys(data.originals).length} original byte hashes, citation/page links, blocked arithmetic and immutable parent-linked rerun.`);

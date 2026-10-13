@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-13",
+  "scope": "Local representative UI/UX prototypes; preserved development data; no live API integration or release promotion",
+  "backend_publication": {
+    "remote": "https://github.com/daniel-li2021/fin-rag-lab.git",
+    "branch": "main",
+    "verified_sha": "ba5eac7a402a328a71905dacfdee928760c64008",
+    "frontend_included": false,
+    "focused_tests_repeated": 19,
+    "hero_integrity_replay": 5,
+    "retained_backend_code_hashes_verified": true
+  },
+  "prototype": {
+    "directions": [
+      "Folio",
+      "Meridian"
+    ],
+    "framework": "Next.js 16.4.0 / React 19.3.0",
+    "production_static_build": "passed",
+    "provider_calls": 0,
+    "database_mutations": 0,
+    "preserved_payloads": 11,
+    "saved_executions_in_history": 10,
+    "hero_scenarios": 5,
+    "original_byte_hashes_checked": 11,
+    "decimal_example": "Existing dev-09; displayed +6.61%; receipt and operands copied unchanged",
+    "financial_logic": "Backend retained outputs; UI digit grouping and bar pixel geometry only",
+    "narrative": "Two cited claims; eighteen original candidates retained separately in exact export"
+  },
+  "validation": {
+    "fixture_parity": "All eleven payloads equal their original retained artifact payloads",
+    "originals": "Eleven local retained PDF byte hashes match capture pins; rendered cited PDF page previews available",
+    "manual_browser_checks": [
+      "Numeric card/citation selection opens correct source and value",
+      "Chart bars select the same original binding",
+      "Original physical PDF page preview and local PDF link",
+      "Keyboard resizing changes divider value from 66 to 61; result scrolling leaves inspector present",
+      "Latest reviewed and as-reported Tesla quarter values stay in separate saved steps",
+      "Partial coverage displays WFC 4313 and withholds requested difference; no unsupported Tesla card",
+      "Narrative periods and generated/unreviewed qualification remain explicit; only two cited evidence selectors",
+      "AMD growth displays saved +6.61%, formula, normalized operands and true fiscal intervals",
+      "Source-change original 1129 and rerun 1390 stay separate; exact parent identity visible",
+      "Library text filtering, empty-state and company filter controls",
+      "History search returns only saved executions; ten rows reach two five-row pages; disabled next on five-match search",
+      "Research/Library/History/Hero navigation available in both directions",
+      "Five Hero selection controls open preserved workflows",
+      "390px full-width inspector: open, select WFC citation, original page, return to results",
+      "1024px tablet and 1440px desktop retain split result/inspector; no document-level horizontal overflow"
+    ],
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "width": 1440,
+        "height": 1000
+      }
+    ],
+    "browser_error_logs_final": []
+  },
+  "limits": [
+    "Manual browser checks are not a measured usability study or accessibility audit",
+    "References are actual public UI images/demos/docs; authenticated paid competitor sessions were not tested",
+    "No arbitrary live questions, source registration, generation or live FastAPI frontend requests",
+    "Full original PDFs are ignored local copies; acquiring them separately is required for complete reproduction",
+    "Complete frontend implementation and live integration stop for owner visual review",
+    "Prototype branch is local; no frontend push to main",
+    "No independent review, sealed holdout or new accuracy denominator"
+  ],
+  "reproduce": [
+    ".venv/bin/python prototypes/workspace/scripts/export-fixtures.py",
+    "cd prototypes/workspace && npm ci --cache /tmp/finrag-npm-cache",
+    "npm run check",
+    "npm run build",
+    "npm run preview"
+  ],
+  "artifact_sha256": {
+    "prototypes/workspace/app/page.jsx": "4055e14f2281957a11887386a1af8bd068bc359c9d429471864b1b91e583a378",
+    "prototypes/workspace/app/globals.css": "aee6e7990772b1da43e32cf3577fce47605f9db8c183dd31c1563f93a8ec8f5f",
+    "prototypes/workspace/public/fixtures.json": "0f5d6696a746dba8f4a90f0dc1e04980b5576dfffc6f1e1799532f684477ae43",
+    "prototypes/workspace/scripts/export-fixtures.py": "094f5fc05f2f989f2cf14d270be132b879b731cf3bb5899e6a639bb39feae2ee",
+    "prototypes/workspace/scripts/check-data.mjs": "85b6176ebcf9e0545d6ef2bfc65ad00e28846b739fa4a6a4271131bcee689f0a"
+  },
+  "screenshots": {
+    "docs/screenshots/workspace-design-20261013/comparison.jpg": "e3d6da7e757e2b7933942ba21888b8614ae0008891242ad198b6219a4b39c99e",
+    "docs/screenshots/workspace-design-20261013/folio-library.jpg": "d8190f2994f725113f24b73ac587698f6f0a55b03a2aae53f19a014c3f21ea80",
+    "docs/screenshots/workspace-design-20261013/folio-mobile-evidence.jpg": "efabd2d693d807bd626e4c1318543bb299a1fd3091d3fe598f684962bb8db259",
+    "docs/screenshots/workspace-design-20261013/folio-mobile.jpg": "6690a76778e52c131cecf4f8bc73f1e658a04ef547222f3397def317c81d43b4",
+    "docs/screenshots/workspace-design-20261013/folio-narrative.jpg": "f9cab8d2ea9da7336301519c65bda5ceb066feab1add2da85aeb372fee74bc77",
+    "docs/screenshots/workspace-design-20261013/folio-partial.jpg": "fbe74b10a29435626fb3b82b143d6f95e66e630a78a63cabc25f67d45baf1938",
+    "docs/screenshots/workspace-design-20261013/folio-research.jpg": "4e71e8a06ebe5e443450cdc687d127a3af46b5756e00f9df5a8770fdda1956f9",
+    "docs/screenshots/workspace-design-20261013/folio-source-change.jpg": "9020ad3e4e24ac1eb07d511741eaefbd4dbc1da59ac16b8f699b8806105325f9",
+    "docs/screenshots/workspace-design-20261013/meridian-history.jpg": "5dc32194036eaf44cefc12d295cbd6d6096324bdbc8f75397486ada2cbada7ba",
+    "docs/screenshots/workspace-design-20261013/meridian-research.jpg": "cad5580361a4600f4d745366123084e5eb6e1831194ea601d47a25590ac1114f"
+  }
+}

@@ -4,6 +4,8 @@ A local financial research prototype for Wells Fargo, Tesla and AMD reports, wit
 
 **Start with [docs/INDEX.md](docs/INDEX.md)** for the [current state and next work](docs/STATE.md), active plans, decisions, contracts and retained evidence. Contributors and agents follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
+Two local **Next.js/React workspace prototypes** are ready for visual review: [Folio and Meridian setup](prototypes/workspace/README.md), [design investigation and recommendation](docs/kb/WORKSPACE_DESIGN.md). They use preserved results over the existing backend contracts; Streamlit remains private administration. Complete frontend implementation awaits visual approval.
+
 [![CI](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)

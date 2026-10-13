@@ -6,11 +6,12 @@ Start with [STATE](STATE.md) for implemented behavior, evidence limits and next 
 | --- | --- |
 | [STATE](STATE.md) | Canonical current status and next action |
 | [DECISIONS](DECISIONS.md) | Retained choices, negative results and supersession |
-| [Next work](NEXT_WORK.md) — frontend decision pending; release blocked on independent review/holdout custody | Backend failure/HTML improvements and five saved Hero replays complete; pause major UI for the owner’s architecture decision, with independent review/holdout gates held |
+| [Next work](NEXT_WORK.md) — two visual prototypes ready for review; release blocked on independent review/holdout custody | Backend published; Next.js/React selected; review Folio and Meridian before complete frontend implementation, with independent review/holdout gates held |
 | [System KB](kb/SYSTEM.md) | Current architecture, source lifecycle, private API, research and saved history |
 | [Runtime KB](kb/RUNTIME.md) | Local Postgres/UI, notebook compatibility, private Docker limits and restore |
 | [Evidence and usage KB](kb/EVIDENCE.md) | Original provenance, structured outcomes and receipt semantics |
 | [Evaluation KB](kb/EVALUATION.md) | Frozen labels, unchanged promotion gates and capture/replay recipes |
+| [Workspace design](kb/WORKSPACE_DESIGN.md) | Public UI investigation, two local functional directions, recommendation and visual review boundary |
 | [Financial policy](kb/FINANCIAL_POLICY.md) | Metric definitions, fiscal/revision comparability and review authority |
 
 Code/contracts establish behavior; plans describe pending work; immutable captures establish only what was measured/reviewed in their pinned configuration. Verify disagreements, then update STATE. An implementation merge does not establish release quality or deployment.

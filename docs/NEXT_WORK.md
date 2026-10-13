@@ -1,17 +1,17 @@
 # Next work
 
-Status: **backend engineering pass complete; frontend decision pending; release blocked on independent review and holdout custody**. Purpose: polish the local prototype while preserving the external release gates. [STATE](STATE.md) owns completion; [evaluation](kb/EVALUATION.md) owns unchanged acceptance thresholds.
+Status: **backend engineering pass complete; two frontend prototypes ready for visual review; release blocked on independent review and holdout custody**. Purpose: polish the local prototype while preserving the external release gates. [STATE](STATE.md) owns completion; [evaluation](kb/EVALUATION.md) owns unchanged acceptance thresholds.
 
-1. **Owner decision pending:** present the short frontend architecture/product checkpoint in chat and pause major UI work. Compare Streamlit and dedicated React/Next.js on final product quality, financial workflows, integration, maintenance and deployment. Backend changes/evidence remain preserved; the uncommitted exploratory UI draft is retained locally, not integrated. Implement only after the owner chooses the direction.
+1. **Owner visual review pending:** compare the two functional [workspace prototypes](../prototypes/workspace/README.md), **A — Folio** and **B — Meridian**. [Design investigation](kb/WORKSPACE_DESIGN.md) recommends Folio and records reference observations, usability/density/complexity tradeoffs and current API boundaries. Next.js/React over existing FastAPI is selected; Streamlit remains private administration. Complete frontend implementation and live API integration stop here until the owner reviews the visuals. Backend `ba5eac7` is published; prototype changes are local and excluded from remote main.
 2. **External release inputs:** obtain named independent financial review (coverage, exceptions, strict case outcomes) and independent custody of 48 disjoint sealed holdout cases under unchanged gates. The reserve is unverified/unsealed; development must not access sealed labels.
 3. **Separately authorized measurement:** freeze matched model/corpus/build/cache/budget/review configuration before fresh generation/generalization captures. Preserve the full historical and holdout gates in [evaluation](kb/EVALUATION.md). Saved receipts are not fresh cost/latency observations.
 4. **Revisit only against actual inputs/need:** more issuers/report families with reviewed facts, authentic unexplained discrepancies, changed live public-URL refresh, sustained expanded-corpus capacity, and privacy-approved tracing. The backend engineering pass fixed measured gaps; speculative planners, ANN migration, connection pools and automatic semantic review are not justified by current evidence. Public hosting/scheduled refresh remain deferred.
 
-The five Hero demonstrations are complete [hash-bound saved replays](benchmarks/20261004-release-demonstrations/heroes/summary.json), not five new accuracy cases or fresh narrative generations. Their product walkthroughs remain to be validated. Release is held.
+The five Hero demonstrations are complete [hash-bound saved replays](benchmarks/20261004-release-demonstrations/heroes/summary.json), not five new accuracy cases or fresh narrative generations. Their representative saved-data UI walkthroughs are locally checked; owner visual review and live API integration remain pending. Release is held.
 
 ## Hero Scenario definitions
 
-These are development demonstrations validated by Codex, not release/independent-review claims. Each definition names a saved example, original source families and expected behavior. UI walkthroughs and fresh inference remain unmeasured.
+These are development demonstrations validated by Codex, not release/independent-review claims. Each definition names a saved example, original source families and expected behavior. Saved-data UI walkthroughs are locally checked; live API integration and fresh inference remain unmeasured.
 
 | Scenario | Real corpus and saved execution | Validated behavior and demonstration steps |
 | --- | --- | --- |
