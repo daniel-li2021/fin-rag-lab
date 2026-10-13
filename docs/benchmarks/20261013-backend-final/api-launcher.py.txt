@@ -1,0 +1,25 @@
+from pathlib import Path
+import os, sys
+sys.path.insert(0, '/Users/daniel/Desktop/Job/zhitong/fin-rag-lab')
+os.environ['OPENAI_API_KEY'] = 'offline-validation-no-provider-key'
+os.environ['FINRAG_ALLOW_TRACING'] = 'false'
+from dotenv import dotenv_values
+from unittest.mock import patch
+import httpx, uvicorn
+from src.services.persistent_service import PersistentRAGService
+from src.storage.objects import LocalObjects
+from src.api.private_server import build_private_app
+root = Path('/Users/daniel/Desktop/Job/zhitong/fin-rag-lab')
+profile = dotenv_values(root / 'index/product-local/runtime.env')
+class NoEmbeddings:
+    def embed_documents(self, *args, **kwargs):
+        raise RuntimeError('Provider use forbidden in offline API validation')
+    embed_query = embed_documents
+def deny(*args, **kwargs):
+    raise RuntimeError('HTTP provider use forbidden in offline API validation')
+service = PersistentRAGService(profile['DATABASE_URL'], owner=profile['FINRAG_OWNER'],
+    objects=LocalObjects(profile['FINRAG_OBJECT_DIR']), embeddings=NoEmbeddings(),
+    cache_root=root / 'cache', index_dir=root / 'index/product-local')
+app = build_private_app(service, 'offline-validation-token-at-least-24-characters')
+with patch.object(httpx.Client, 'send', deny), patch.object(httpx.AsyncClient, 'send', deny):
+    uvicorn.run(app, host='127.0.0.1', port=8008, access_log=False)

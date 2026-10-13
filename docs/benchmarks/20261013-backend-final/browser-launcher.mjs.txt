@@ -1,0 +1,14 @@
+import { chromium } from '/Users/daniel/Desktop/Job/zhitong/fin-rag-lab/frontend/node_modules/playwright-core/index.mjs';
+import { browserRegression, responsiveRegression } from '/tmp/finrag-final-browser-regression.mjs';
+const browser = await chromium.launch({ channel: 'chrome' });
+try {
+ const page = await browser.newPage({viewport:{width:1440,height:1000}});
+ const errors=[]; page.on('pageerror', e=>errors.push(e.message));
+ const adapter=new Proxy(page,{get:(target,key)=>key==='domSnapshot'?()=>target.locator('body').ariaSnapshot():typeof target[key]==='function'?target[key].bind(target):target[key]});
+ const tab={playwright:adapter,goto:url=>page.goto(url.replace('127.0.0.1:3200','127.0.0.1:3211'))};
+ const desktop=await browserRegression(tab);
+ await page.setViewportSize({width:390,height:844});
+ const mobile=await responsiveRegression(tab);
+ if(errors.length) throw Error(JSON.stringify(errors));
+ console.log(JSON.stringify({passed:desktop.length+mobile.length,checks:[...desktop,...mobile],page_errors:errors,provider_calls:0}));
+} finally { await browser.close(); }

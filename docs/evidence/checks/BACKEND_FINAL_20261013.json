@@ -1,0 +1,179 @@
+{
+  "captured_at": "2026-10-13T15:22:59.173906+00:00",
+  "scope": "Final existing-backend validation and portfolio evidence; no release promotion",
+  "provider_calls": 0,
+  "holdout_accessed": false,
+  "independent_reviews_obtained": 0,
+  "validation": {
+    "unit_target": {
+      "passed": 179,
+      "command": ".venv/bin/python -m pytest tests/unit -q"
+    },
+    "disposable_postgres": {
+      "passed": 16,
+      "command": ".venv/bin/python -m pytest tests/integration/test_persistent.py tests/integration/test_financial_research.py tests/integration/test_research_workspace.py -q"
+    },
+    "saved_review_replay": {
+      "core": 48,
+      "extension": 16,
+      "gaps": 8
+    },
+    "hero_hash_replay": {
+      "passed": 5,
+      "existing_steps": 7
+    },
+    "source_transition_replay": {
+      "passed_checks": 13,
+      "scenarios": 1,
+      "fresh_transition": false
+    },
+    "relay_unit_checks": {
+      "passed": 7,
+      "command": "node --test frontend/tests/relay.test.mjs"
+    },
+    "documentation": {
+      "links_checked": 208,
+      "passed": true,
+      "command": ".venv/bin/python scripts/check_docs.py"
+    },
+    "capture_integrity": {
+      "captures": 2,
+      "samples_each": 264,
+      "distinct_cases_each": 72,
+      "runner_and_sample_hashes_verified": true
+    }
+  },
+  "performance": {
+    "capture": "docs/benchmarks/20261013-backend-final/qualified",
+    "executions": 264,
+    "exact_reviewed_parity": 264,
+    "distinct_cases": {
+      "core": 48,
+      "extension": 16,
+      "gaps": 8
+    },
+    "historical_first_capture": "docs/benchmarks/20261013-backend-final",
+    "reporting_change": "The initial capture reported nearest-rank p95 with n=8. The qualified capture suppresses p95 below 20 samples; both captures and runner bytes are retained."
+  },
+  "frontend": {
+    "status": "Local draft compatibility only; not committed or release-certified",
+    "next_build_id": "AIhSX57nL1dIlfo61t9cE",
+    "mode": "Reused existing production build, Next.js loopback 3211 -> FastAPI loopback 8008 -> retained local PostgreSQL",
+    "http_checks": 50,
+    "http_result": {
+      "sources": 22,
+      "history_pages": 2,
+      "ranking_run": "599779fbbe9535c89d2a79319c3d31bc1d060b97a2df95f6d0d4e7462bc793df",
+      "evidence_run": "a51b5c7b4803ce6ffdbf95e183f649cf44aa4e14be68e47d9ff2f6e28eb48e40"
+    },
+    "browser_checks": [
+      "live ranking",
+      "citation binding",
+      "live original navigation",
+      "exact provenance",
+      "keyboard resize",
+      "immutable parent-linked rerun",
+      "server history search",
+      "history reopen",
+      "history pagination",
+      "library search",
+      "library versions",
+      "reviewed fact cards",
+      "library to pinned research",
+      "hero 1",
+      "hero 2 latest",
+      "hero 2 as reported",
+      "hero 3 blocked arithmetic",
+      "hero 4 period citations",
+      "hero 5 preserved transition",
+      "exact calculation",
+      "mobile evidence",
+      "mobile citation switch",
+      "mobile source page",
+      "mobile live calculation"
+    ],
+    "page_errors": [],
+    "viewport_sizes": [
+      [
+        1440,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "provider_guard": "Offline embeddings raise; synchronous/asynchronous httpx sends forbidden in backend process; dummy provider key only",
+    "history_effect": "Append-only local test runs/reruns; originals, reviewed cards and existing saved answers not edited",
+    "harness_correction": "Temporary copy replaces ambiguous growth text locator with .calculation-value filtered by +6.61%; original draft test and frontend source unchanged",
+    "build_boundary": "This validates the retained compiled local draft. No rebuild, frontend integration/publication or source-to-build certification is claimed."
+  },
+  "attempts": [
+    {
+      "action": "Disposable Postgres tests under sandbox",
+      "result": "16 setup errors: psutil sysctl process inspection denied; same checks outside sandbox passed 16/16"
+    },
+    {
+      "action": "Chrome startup under sandbox",
+      "result": "SIGABRT; disposable profile outside sandbox started successfully"
+    },
+    {
+      "action": "Next dev on port 3211",
+      "result": "EMFILE file watchers and repeated dev cache restart; stopped; existing production build used"
+    },
+    {
+      "action": "Production build with default configured workspace origin",
+      "result": "403 on alternate port; explicit FINRAG_WORKSPACE_ORIGIN=http://127.0.0.1:3211 matched test origin"
+    },
+    {
+      "action": "Unmodified draft mobile check",
+      "result": "Playwright strict-mode ambiguity: growth text in both prose and receipt; temporary selector overlay passed"
+    }
+  ],
+  "reproduce": [
+    ".venv/bin/python scripts/benchmark_backend_offline.py --output /tmp/finrag-NEW-final",
+    ".venv/bin/python scripts/run_hero_demonstrations.py --replay docs/benchmarks/20261004-release-demonstrations/heroes",
+    ".venv/bin/python scripts/check_authentic_source_change.py --replay docs/benchmarks/20261004-authentic-gaps/source-change-corrected",
+    "API/browser launchers and temporary regression overlay are retained as *.txt under docs/benchmarks/20261013-backend-final; recreate /tmp files, use the existing local frontend build, override backend/token/origin to the shown loopback settings. Frontend draft/build are not distributed by this backend change."
+  ],
+  "limitations": [
+    "All authentic cases remain development-only and correlated across AMD/Tesla/Wells Fargo report families.",
+    "Saved narrative drafts and their named Codex semantic review are reused after exact parity; zero fresh model generations.",
+    "No sealed holdout, independent review, fresh inference cost/latency, unexplained issuer discrepancy or live changed-URL refresh.",
+    "Current-corpus local bursts and controlled failures are not sustained capacity, cold-storage measurements or a production SLA.",
+    "Frontend is an existing untracked draft/build; owner visual approval and frontend integration remain separate."
+  ],
+  "sha256": {
+    "scripts/benchmark_backend_offline.py": "58e940b81b7606312996580c2d6856f588d5734293dd2a5513c4678736a346b7",
+    "tests/unit/test_backend_benchmark.py": "575bb0c5687aa8142a13a5ae6d01e8689ecc4a7de6e8ef0131872043359c8270",
+    "frontend/package.json": "f73c6819273cb593b73033729a788750fe2edc678c39a9a0270aa3dc2444be30",
+    "frontend/next.config.mjs": "774b16201eddaa3ac6a34975f3c092bcdab0aa55b00b36cd0bddf859dceef092",
+    "frontend/lib/relay.mjs": "ef8017a98f5344fdf27c086acffa71f20f40061920b3cd4afaa035af1fba5e9e",
+    "frontend/app/api/archive/[hash]/route.js": "07d38d74793ba5bb0301522bb0b4c8839b65607f8ec7ca896f806e9200780ce8",
+    "frontend/app/api/backend/[...path]/route.js": "5d42ed1727a2acc1c0db937dd3bbe0cc023dea39190333fd8263debcab7b767f",
+    "frontend/app/components/pdf-page.jsx": "285e6f5f0a8df6bf44dfd320ed123a7b99063919032aae7cfab14bba601d2fcb",
+    "frontend/app/components/results.jsx": "3c5db37e4fa7898fabfbe74cfa5bafb41beb75d4752c9956fc06a229934e52d7",
+    "frontend/app/layout.jsx": "e07f1805a1cb84796c696e1219ff9008db13c98a5f97cc6c54539bfdda3efc13",
+    "frontend/app/page.jsx": "edd56b83859ceac95d1adfffd246fa8c3e1210f62234a217a53374a1450a1e0a",
+    "frontend/tests/browser-regression.mjs": "4daaaa276386a88c2cf65f7475dd75918571ee27979b8ba9ac65ffd2b8804320",
+    "frontend/tests/live-api.mjs": "c242a921ad3889a780bd7e401ab66bc00e6121faa645c859af18919bd21434b9",
+    "frontend/tests/relay.test.mjs": "7c762468b08b7de6bf34bc53b69d827074b98b3e975d653c53553c4447ac6eaa",
+    "frontend/.next/BUILD_ID": "24bba9d342e0778d614d09d1afbefbd0ebbb616b77c79e020a49c42fa6cd02a4",
+    "frontend/public/fixtures.json": "0f5d6696a746dba8f4a90f0dc1e04980b5576dfffc6f1e1799532f684477ae43",
+    "docs/benchmarks/20261013-backend-final/api-launcher.py.txt": "3e73b4447db9386f0b73b0d7de8f003911a87db1b921ac984c08d341f3285d3e",
+    "docs/benchmarks/20261013-backend-final/browser-launcher.mjs.txt": "324c1804d548f271978500374a825c3c3792998969b18b06c03fe2f1f4f4fd1f",
+    "docs/benchmarks/20261013-backend-final/browser-regression.mjs.txt": "2f8cc17f864e151f1fecf8c09899cf4769a117a4ac49502e99207333a07232da",
+    "docs/benchmarks/20261013-backend-final/captured_runner.py.txt": "878ce8eef171e2733473641cf5729e12a06e0b1e8fdd4e6f53e06baf26fba85e",
+    "docs/benchmarks/20261013-backend-final/live-api.mjs.txt": "c242a921ad3889a780bd7e401ab66bc00e6121faa645c859af18919bd21434b9"
+  },
+  "integration": {
+    "mode": "AUTO",
+    "scope": "Local scoped commit on existing codex/ui-design-prototypes branch; remote publication not authorized for this new change",
+    "excluded": [
+      "frontend/",
+      ".codegraph/",
+      "docs/benchmarks/20261004-release-demonstrations/second-review/"
+    ],
+    "temporary_servers": "Stopped; retained local PostgreSQL left running as found"
+  }
+}

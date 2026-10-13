@@ -1,0 +1,101 @@
+{
+  "finished_at": "2026-10-13T15:16:43.108835+00:00",
+  "executions": 264,
+  "exact_reviewed_content_parity": 264,
+  "first_sweep_distinct_cases": {
+    "core": 48,
+    "extension": 16,
+    "gaps": 8
+  },
+  "distributions": {
+    "first_sweep/deterministic": {
+      "n": 64,
+      "mean_ms": 7.892554662248585,
+      "p50_ms": 6.548624602146447,
+      "p95_ms": 22.773916134610772,
+      "min_ms": 2.0133748184889555,
+      "max_ms": 31.741541111841798
+    },
+    "first_sweep/saved_draft_revalidation": {
+      "n": 8,
+      "mean_ms": 83.48188034142368,
+      "p50_ms": 62.19316693022847,
+      "p95_ms": 188.0333749577403,
+      "min_ms": 14.509374974295497,
+      "max_ms": 188.0333749577403
+    },
+    "warm/deterministic": {
+      "n": 120,
+      "mean_ms": 6.965925662855929,
+      "p50_ms": 6.954604526981711,
+      "p95_ms": 13.063332997262478,
+      "min_ms": 1.8400840926915407,
+      "max_ms": 25.132083101198077
+    },
+    "warm/saved_draft_revalidation": {
+      "n": 24,
+      "mean_ms": 58.863479032879695,
+      "p50_ms": 45.83837487734854,
+      "p95_ms": 133.48550000227988,
+      "min_ms": 14.783832943066955,
+      "max_ms": 143.90000002458692
+    },
+    "two_threads/deterministic": {
+      "n": 40,
+      "mean_ms": 11.996228224597871,
+      "p50_ms": 7.094604428857565,
+      "p95_ms": 28.3203748986125,
+      "min_ms": 1.7763751093298197,
+      "max_ms": 125.194292049855
+    },
+    "two_threads/saved_draft_revalidation": {
+      "n": 8,
+      "mean_ms": 82.91391655802727,
+      "p50_ms": 83.09974998701364,
+      "p95_ms": 227.64091612771153,
+      "min_ms": 12.458708137273788,
+      "max_ms": 227.64091612771153
+    }
+  },
+  "batches": [
+    {
+      "phase": "first_sweep",
+      "n": 72,
+      "wall_seconds": 1.179649209138006,
+      "executions_per_second": 61.03509368909075
+    },
+    {
+      "phase": "warm",
+      "n": 48,
+      "wall_seconds": 0.7502222079783678,
+      "executions_per_second": 63.98104386878408
+    },
+    {
+      "phase": "warm",
+      "n": 48,
+      "wall_seconds": 0.7643432079348713,
+      "executions_per_second": 62.79901424085136
+    },
+    {
+      "phase": "warm",
+      "n": 48,
+      "wall_seconds": 0.7460720839444548,
+      "executions_per_second": 64.33694683525192
+    },
+    {
+      "phase": "two_threads",
+      "n": 48,
+      "wall_seconds": 0.5925068338401616,
+      "executions_per_second": 81.01172384612325
+    }
+  ],
+  "samples_sha256": "776af5e753f7720be1b7621372ca39c098801d972b8985f162ac6b068d5aaf97",
+  "limits": [
+    "Development cases and reviewed attestations reused; no unseen accuracy claim.",
+    "Timing excludes parity checks; batch throughput includes validation and executor overhead.",
+    "First sweep is process-first, with an already running database and OS caches; not cold storage.",
+    "Median p50 and nearest-rank p95; repeated cases are correlated, narrative samples are small.",
+    "No model-generation time, fresh token/cost measurement, ingestion or HTTP/browser latency.",
+    "Two-thread burst uses the existing local corpus; not sustained load or a production SLA."
+  ]
+}

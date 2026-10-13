@@ -1,0 +1,154 @@
+"""Bounded, read-only current-corpus timing and reviewed-content parity.
+
+No ingestion, history writes, embeddings or fresh generations. Requires the
+retained local Postgres/originals. Saved narrative drafts are revalidated only.
+"""
+import argparse
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+import hashlib
+from importlib.metadata import version
+import json
+import math
+from pathlib import Path
+import platform
+import socket
+import statistics
+import sys
+import time
+from unittest.mock import patch
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from dotenv import dotenv_values
+from scripts.rerun_product_offline import execute, replay_narrative
+from scripts.replay_product_review import digest, replay
+from scripts.run_product_development import assess
+from src.storage.registry import Registry
+
+GROUPS = (
+    ('core', 'development_cases.v1.json', 'core'),
+    ('extension', 'development_extension.v1.json', 'extension'),
+    ('gaps', 'development_gaps.v2.json', 'gaps-corrected'),
+)
+PARITY_FIELDS = ('outcome', 'answer', 'claims', 'calculations', 'calculation_gaps',
+                 'citations', 'coverage', 'observations', 'ranking', 'manifest')
+
+
+def verified_content(case, actual, expected):
+    checks = assess(case, actual)
+    changed = [key for key in PARITY_FIELDS if actual.get(key) != expected.get(key)]
+    if changed or not all(checks.values()):
+        raise ValueError(f'{case["case_id"]}: parity changed {changed}; checks {checks}')
+    payload = {key: actual.get(key) for key in PARITY_FIELDS}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
+def distribution(values):
+    ordered = sorted(values)
+    return {'n': len(values), 'mean_ms': statistics.mean(values) * 1000,
+            'p50_ms': statistics.median(values) * 1000,
+            'p95_ms': ordered[math.ceil(.95 * len(ordered)) - 1] * 1000,
+            'min_ms': ordered[0] * 1000, 'max_ms': ordered[-1] * 1000}
+
+
+def run(output, warm_sweeps=3):
+    output.mkdir(parents=True, exist_ok=False)
+    profile = dotenv_values(ROOT / 'index/product-local/runtime.env')
+    registry, owner = Registry(profile['DATABASE_URL']), profile['FINRAG_OWNER']
+    receipts_path = ROOT / 'docs/fixtures/product/ingestion_receipts.v1.json'
+    receipts = json.loads(receipts_path.read_text())['reports']
+    originals = Path(profile['FINRAG_OBJECT_DIR']) / hashlib.sha256(owner.encode()).hexdigest()
+    for receipt in receipts:
+        if digest(originals / receipt['source_sha256']) != receipt['source_sha256']:
+            raise ValueError('Original byte hash mismatch')
+    jobs, inputs = [], {}
+    for group, filename, folder in GROUPS:
+        labels = ROOT / 'docs/fixtures/product' / filename
+        reviewed = ROOT / 'docs/benchmarks/20261004-authentic-gaps' / folder
+        replay(reviewed, labels)
+        references = {r['case_id']: r['result'] for r in
+                      map(json.loads, (reviewed / 'results.jsonl').read_text().splitlines())}
+        for case in json.loads(labels.read_text())['cases']:
+            jobs.append((group, case, references[case['case_id']]))
+        for path in (labels, reviewed / 'results.jsonl', reviewed / 'reviewed_summary.json'):
+            inputs[str(path.relative_to(ROOT))] = digest(path)
+    with registry.connect() as db:
+        environment = db.execute('SELECT version() AS postgres').fetchone()
+        environment['active_corpus'] = db.execute('''SELECT count(DISTINCT s.source_id) AS sources,
+            count(DISTINCT s.active_build_id) AS builds, count(c.chunk_id) AS children
+            FROM sources s LEFT JOIN chunks c ON c.build_id=s.active_build_id AND c.parent_id IS NOT NULL
+            WHERE s.owner_id=%s AND s.status<>'archived' ''', (owner,)).fetchone()
+    manifest = {'started_at': datetime.now(timezone.utc).isoformat(), 'scope': __doc__,
+                'provider_calls': 0, 'holdout_accessed': False, 'history_writes': 0,
+                'python': platform.python_version(), 'platform': platform.platform(),
+                'packages': {p: version(p) for p in ('psycopg', 'pydantic', 'tiktoken')},
+                **environment, 'warm_sweeps': warm_sweeps, 'concurrency': 2,
+                'original_hashes_verified': len(receipts), 'inputs_sha256': inputs,
+                'source_receipts_sha256': digest(receipts_path),
+                'code_sha256': {str(p.relative_to(ROOT)): digest(p) for p in
+                               [*sorted((ROOT / 'src').rglob('*.py')),
+                                ROOT / 'src/storage/schema.sql', Path(__file__),
+                                ROOT / 'scripts/rerun_product_offline.py',
+                                ROOT / 'scripts/run_product_development.py',
+                                ROOT / 'scripts/replay_product_review.py']}}
+    (output / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    rows, batches = [], []
+    def measured(job, phase):
+        group, case, expected = job
+        started = time.perf_counter()
+        result = (replay_narrative(case, expected, registry, owner) if case['lane'] == 'narrative'
+                  else execute(case, registry, owner))
+        elapsed = time.perf_counter() - started
+        return {'case_id': case['case_id'], 'group': group, 'phase': phase,
+                'lane': 'saved_draft_revalidation' if case['lane'] == 'narrative' else 'deterministic',
+                'seconds': elapsed, 'reviewed_content_sha256': verified_content(case, result, expected)}
+    # Only Unix sockets (local Postgres) are allowed during execution. Any accidental
+    # HTTP/provider request fails instead of silently billing or fetching new data.
+    connect = socket.socket.connect
+    def local_only(sock, address):
+        if sock.family != socket.AF_UNIX:
+            raise RuntimeError('Offline benchmark forbids network connections')
+        return connect(sock, address)
+    core = [job for job in jobs if job[0] == 'core']
+    with patch.object(socket.socket, 'connect', local_only), (output / 'samples.jsonl').open('x') as stream:
+        phases = [('first_sweep', jobs)] + [('warm', core)] * warm_sweeps + [('two_threads', core)]
+        for phase, selected in phases:
+            started = time.perf_counter()
+            if phase == 'two_threads':
+                with ThreadPoolExecutor(max_workers=2) as pool:
+                    batch = list(pool.map(lambda job: measured(job, phase), selected))
+            else:
+                batch = [measured(job, phase) for job in selected]
+            wall = time.perf_counter() - started
+            batches.append({'phase': phase, 'n': len(batch), 'wall_seconds': wall,
+                            'executions_per_second': len(batch) / wall})
+            for row in batch:
+                stream.write(json.dumps(row) + '\n')
+            stream.flush()
+            rows.extend(batch)
+    summary = {'finished_at': datetime.now(timezone.utc).isoformat(),
+               'executions': len(rows), 'exact_reviewed_content_parity': len(rows),
+               'first_sweep_distinct_cases': {g: sum(r['phase'] == 'first_sweep' and r['group'] == g
+                                                    for r in rows) for g, _, _ in GROUPS},
+               'distributions': {f'{phase}/{lane}': distribution([r['seconds'] for r in rows
+                                if r['phase'] == phase and r['lane'] == lane])
+                                for phase in ('first_sweep', 'warm', 'two_threads')
+                                for lane in ('deterministic', 'saved_draft_revalidation')},
+               'batches': batches, 'samples_sha256': digest(output / 'samples.jsonl'),
+               'limits': ['Development cases and reviewed attestations reused; no unseen accuracy claim.',
+                          'Timing excludes parity checks; batch throughput includes validation and executor overhead.',
+                          'First sweep is process-first, with an already running database and OS caches; not cold storage.',
+                          'Median p50 and nearest-rank p95; repeated cases are correlated, narrative samples are small.',
+                          'No model-generation time, fresh token/cost measurement, ingestion or HTTP/browser latency.',
+                          'Two-thread burst uses the existing local corpus; not sustained load or a production SLA.']}
+    (output / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+    return summary
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--warm-sweeps', type=int, choices=range(1, 6), default=3)
+    args = parser.parse_args()
+    print(json.dumps(run(args.output, args.warm_sweeps), indent=2))
