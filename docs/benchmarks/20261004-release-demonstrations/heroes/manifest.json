@@ -1,0 +1,10 @@
+{
+  "scope": "Five existing development demonstrations; no new accuracy denominator",
+  "captured_at": "2026-10-04T07:49:18.985364+00:00",
+  "holdout": "not_accessed",
+  "provider_calls": 0,
+  "artifacts": {},
+  "code_sha256": {
+    "scripts/run_hero_demonstrations.py": "ea494c16549fd1990dfd1adf416e5f7db53597a529f99efc9cf8bdc02335672e"
+  }
+}

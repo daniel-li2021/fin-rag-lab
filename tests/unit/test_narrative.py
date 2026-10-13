@@ -64,6 +64,39 @@ def test_missing_required_source_withholds_model_call():
     assert result['outcome'] == 'refuse' and model.calls == 0
 
 
+def test_provider_failure_retains_candidates_and_unknown_usage_without_private_errors():
+    class Broken:
+        calls = 0
+        def invoke(self, messages):
+            self.calls += 1
+            raise TimeoutError('private provider credentials and request content')
+    model = Broken()
+    original = candidates()
+    original['citations'] = {p['evidence_id']: p for p in original['passages']}
+    result = synthesize_evidence(original, CostTracker(), llm=model, model='test')
+    assert model.calls == 1 and result['outcome'] == 'qualified_answer'
+    assert result['passages'] == original['passages'] and result['citations'] == original['citations']
+    assert not result['claims'] and result['synthesis_review_status'] == 'unavailable'
+    assert result['usage']['unknown_calls'] == 1 and result['usage']['total_usd'] is None
+    assert result['usage']['generator_calls'] == 1
+    assert result['synthesis_errors'] == ['provider_failure:TimeoutError']
+    assert 'private provider' not in json.dumps(result)
+
+
+def test_one_original_block_can_support_two_required_narrative_tasks():
+    original = candidates()
+    for passage in original['passages']:
+        passage.update(evidence_id='same-original', text='Revenue grew due to demand and margins grew due to mix.',
+                       source={'company_id': 'AMD'})
+    original['request']['tasks'][1]['company_id'] = 'AMD'
+    draft = [{'task_id': 'a', 'excerpt_id': 'e1', 'text': 'Revenue grew due to demand.'},
+             {'task_id': 'b', 'excerpt_id': 'e2', 'text': 'Margins grew due to mix.'}]
+    result = synthesize_evidence(original, CostTracker(), llm=Model(draft), model='test')
+    assert result['outcome'] == 'qualified_answer'
+    assert {c['task_id'] for c in result['claims']} == {'a', 'b'}
+    assert all(c['evidence_id'] == 'same-original' for c in result['claims'])
+
+
 def test_excerpt_selection_retains_exact_bounded_original_spans():
     result = candidates()
     text = ('Repeated original sentence. ' * 70) + 'Final sentence.'

@@ -1,0 +1,11 @@
+{
+  "old_value": "1129",
+  "new_value": "1390",
+  "staleness": [
+    "source_version_changed",
+    "retrieval_build_changed"
+  ],
+  "immutable_history": true,
+  "new_parent_link": true,
+  "pinned_old_value": "1129"
+}

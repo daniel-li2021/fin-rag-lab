@@ -26,7 +26,7 @@ class _HTMLText(HTMLParser):
 
     def handle_data(self, text):
         if not self.hidden:
-            self.parts.append(text + ' ')
+            self.parts.append(re.sub(r'\s+', ' ', text) + ' ')
 
 
 def load_text(data, kind, title):
@@ -38,7 +38,8 @@ def load_text(data, kind, title):
     if kind == 'html':
         parser = _HTMLText()
         parser.feed(text)
-        text = '\n'.join(line.strip() for line in ''.join(parser.parts).splitlines() if line.strip())
+        # Keep structural HTML boundaries as paragraphs, including original table rows.
+        text = '\n\n'.join(' '.join(line.split()) for line in ''.join(parser.parts).splitlines() if line.strip())
     blocks, heading, pending, start, fenced = [], [], [], 1, False
     def flush():
         if pending:

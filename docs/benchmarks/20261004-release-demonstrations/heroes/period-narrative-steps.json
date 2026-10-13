@@ -1,0 +1,176 @@
+{
+  "qualification": "Subset of existing development labels; not a new split",
+  "original_labels_path": "docs/fixtures/product/development_cases.v1.json",
+  "original_labels_sha256": "a09112414165dd3821223b5f6fac715d722f10b413502a23a0dab41c897a2c9d",
+  "cases": [
+    {
+      "case_id": "dev-15",
+      "primary_slice": "temporal_scope",
+      "lane": "narrative",
+      "tags": [
+        "narrative"
+      ],
+      "report_ids": [
+        "tsla-q1-2025-companion",
+        "tsla-q2-2025-companion"
+      ],
+      "request": {
+        "question": "Separate Tesla Q1 and Q2 2025 reported operating-income headwinds without extrapolating a cause of the sequential change.",
+        "selections": [
+          {
+            "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+            "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+            "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3"
+          },
+          {
+            "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+            "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+            "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "query": "operating income lower ASP Model Y deliveries",
+            "document_period_label": "Q1 2025"
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "query": "operating income primarily impacted regulatory credit operating expenses deliveries",
+            "document_period_label": "Q2 2025"
+          }
+        ],
+        "synthesize": true
+      },
+      "expected": {
+        "outcome": "qualified_answer",
+        "observations": [],
+        "calculations": [],
+        "claims_review_status": "unreviewed",
+        "narrative_tasks": [
+          {
+            "task_id": "t0",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "deliveries",
+              "ASP"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_09ea8e2ee3de",
+                "page_number": 5,
+                "text": "- reduced vehicle ASP - decline in vehicle deliveries - increase in operating expenses driven by AI and other R&D projects partially offset by a decrease in SG&A + growth in Energy Generation and Storage gross profit + lower cost associated with Cybertruck production ramp in Q1’24 + lower cost per vehicle, including lower raw material costs partially offset by lower fixed cost absorption primarily from Model Y production decrease YoY + higher regulatory credit revenue"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_4a3a89e90f32",
+                "page_number": 6,
+                "text": "Model 3/Y deliveries 369,783 422,405 439,975 471,930 323,800 -12%"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_e094f447f8db",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries, in part due to the Model Y update across all four vehicle factories - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix and sales incentives - negative FX impact of $0.3B1"
+              },
+              {
+                "source": {
+                  "source_id": "31041781-3f1a-40e8-91fa-cecb2dac226b",
+                  "version_id": "5e6931f5-e911-4010-ae6d-e581fcf718f6",
+                  "build_id": "034256f3-d1f3-4e67-9b24-a8f896daf8b3",
+                  "source_hash": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-04-22",
+                  "status": "available"
+                },
+                "block_id": "blk_c06c007ace2b",
+                "page_number": 6,
+                "text": "Other models deliveries 17,027 21,551 22,915 23,640 12,881 -24%"
+              }
+            ]
+          },
+          {
+            "task_id": "t1",
+            "company_id": "TSLA",
+            "required_topic_terms": [
+              "regulatory credit",
+              "operating expenses",
+              "deliveries"
+            ],
+            "reviewed_original_candidates": [
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_768c1f1e2854",
+                "page_number": 4,
+                "text": "Operating expenses 2,973 2,280 2,596 2,754 2,955 -1%"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_2fb297909907",
+                "page_number": 5,
+                "text": "- decline in vehicle deliveries - lower regulatory credit revenue - reduced vehicle average selling price (ASP) (excl. FX impact1), due to mix - decline in Energy Generation and Storage revenue due to lower ASP + growth in Services and Other"
+              },
+              {
+                "source": {
+                  "source_id": "5732a5a5-76a9-441b-9705-8757592cf9ca",
+                  "version_id": "3fd9d48c-3cae-472a-a02e-adb603479d2c",
+                  "build_id": "d1661447-2601-47b7-9f02-8b9bf4a90c19",
+                  "source_hash": "2ec32ec8cc3b75243fcdd8edcbcdc6f69fceab6c5c5a8e7cd1b4023767113ed6",
+                  "company_id": "TSLA",
+                  "publication_date": "2025-07-23",
+                  "status": "available"
+                },
+                "block_id": "blk_b8549d85abd3",
+                "page_number": 5,
+                "text": "- lower regulatory credit revenue - increase in operating expenses (ex. restructuring and SBC) driven by AI and other R&D projects - decline in vehicle deliveries - increase in SBC + decrease in restructuring charges + lower cost per vehicle, due to mix and lower raw materials partially offset by lower fixed cost absorption and an increase in tariffs + growth in Energy Generation and Storage gross profit"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "source_cards_sha256": "a62a6f475962a94d27da16579c3742a6949b73d888cdbb24275336ae6ffa668e",
+  "result_sha256": "421228a3af906941cd992bdd758211d37f0ff7a212ea94549c5b3eb0d8425040",
+  "code_sha256": {
+    "scripts/check_authentic_source_change.py": "b8f0ce62cfda1881fc3587d6cf466c6a58fa4d1e547e230d1e69f2573e104fe9",
+    "src/storage/registry.py": "5fef3961dfa192f0df8222f67824996f9378d8cca325c64adf8dd33638256b2f",
+    "src/services/persistent_service.py": "6e5e939292e7c4217a0b39f9334c6906d24728e8923030d1039bf376ff919087"
+  },
+  "labels_sha256": "ee997d83c16f3a0d1e9563321b30d5a89e10938480cca6eba3dd09b878ce2f8c",
+  "authentic_source_change_scenarios": 1,
+  "live_url_refresh_scenarios": 0
+}

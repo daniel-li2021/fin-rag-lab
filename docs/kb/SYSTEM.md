@@ -116,3 +116,9 @@ Saved executions add a unique execution ID/time before hashing so even an unchan
 
 
 The local compatibility service stores Chroma child vectors, in-memory BM25 and saved parent/child artifacts. Old artifacts without original/embedding provenance remain migration-required; do not infer model identity from dimensions or relabel legacy evidence. [Provenance/usage](EVIDENCE.md), [runtime](RUNTIME.md), [financial policy](FINANCIAL_POLICY.md).
+
+## Snapshot and narrative failure behavior
+
+HTTP acquisition checks DNS/public addresses and pins the destination at every redirect. A socket watchdog shares the absolute snapshot deadline across headers/body, including responses that transfer socket ownership on close. Truncated declared bodies reject before publication. Static HTML keeps structural paragraph/table-row boundaries; whitespace normalization and original-byte hash remain explicit. No external resources execute/fetch. Changed loader code creates a separate build on explicit ingestion; previous builds/history remain intact.
+
+Narrative excerpt lookup uses task plus original evidence identity, so the same original can support several requested tasks. A failed provider invocation performs no retry, preserves original candidates/citations, emits no claims and records `synthesis_review_status=unavailable` plus a sanitized exception class. Failed-call token/cost counts stay unknown. A qualified candidate result is not a supported narrative answer. [Measured engineering checks](../evidence/checks/BACKEND_PASS_20261012.json).

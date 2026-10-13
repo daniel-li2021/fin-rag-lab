@@ -1,0 +1,40 @@
+{
+  "status": "development_capture_release_held",
+  "case_count": 3,
+  "slices": {
+    "partial_multi_document": {
+      "mechanical_pass": 3,
+      "denominator": 3
+    }
+  },
+  "mechanical_pass": 3,
+  "numeric_bindings": {
+    "passed": 3,
+    "denominator": 3
+  },
+  "semantic_citation_support": {
+    "value": null,
+    "reviewed_denominator": 0
+  },
+  "strict_authentic_accuracy": {
+    "value": null,
+    "reviewed_denominator": 0
+  },
+  "planner_calls": 0,
+  "generation_calls": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "configured_estimate_usd": 0,
+  "unpriced_events": 0,
+  "latency_seconds": {
+    "p50": 0.01263349992223084,
+    "p95": 0.01263349992223084
+  },
+  "saved_history_reopens": 3,
+  "holdout": "not_accessed",
+  "qualification": "Live pinned Postgres domain/registry execution; not HTTP/UI or fresh generation",
+  "execution_counts": {
+    "fresh_deterministic": 3,
+    "narrative_claim_replay": 0
+  }
+}

@@ -1,6 +1,6 @@
 # Current project state
 
-Updated October 4, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
+Updated October 12, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
 
 ## Implemented and locally demonstrated
 
@@ -11,6 +11,16 @@ Updated October 4, 2026. This is the canonical current state; [INDEX](INDEX.md) 
 - Research/Library/History in local Streamlit, named collections, immutable saved results, source-change indicators and separate explicit reruns. Source edits/imports are under trusted owner administration. Navigation is not public authorization.
 
 The local development corpus contains **22 official originals** (18 primary + four companion reports/decks), **168 named Codex-reviewed fact cards**, **48 frozen development cases**, **16 separately frozen extension cases**, **eight additional selected-source/publication-boundary cases** and eight prepared collections. One separate real-byte source-change scenario uses an isolated owner and reuses existing blocks/vectors; it does not enlarge these case denominators. The extension does not change the release denominator or split. Physical indexed windows disclose omitted pages and preserve issuer fiscal dates. Numeric selection can use the 18-primary inventory without loading all passage blocks; passage search retains its 10,000-child bound. [Runtime](kb/RUNTIME.md), [financial policy](kb/FINANCIAL_POLICY.md), [system knowledge](kb/SYSTEM.md).
+
+## Final backend engineering pass
+
+[October 12 checks](evidence/checks/BACKEND_PASS_20261012.json) investigated current research/retrieval/synthesis contracts, financial comparability and original citations, source/version/lease recovery, owner/API boundaries, request/worker/corpus limits, usage isolation and deployment configuration. Four confirmed gaps were repaired: repeated originals no longer collide across narrative tasks; failed narrative calls retain searchable evidence with unknown usage and sanitized failure classes; HTTP snapshots enforce a wall-clock deadline and reject truncated declared bodies; HTML reports retain paragraph/table-row boundaries instead of one unsearchable block.
+
+A controlled 0.2-second HTTP budget stopped at 0.202 seconds after the fix versus 0.386 before. One live official Microsoft FY2025 annual-report HTML acquisition (601,259 bytes) was parsed offline: 1 oversized 48,299-token block/0 candidates became 1,743 blocks (maximum 310 tokens)/9 original candidates under the existing budget. This additional report-family probe measures lexical availability only, with illustrative pins and no registry ingestion, reviewed financial cards, embeddings or accuracy denominator. The local Python CA configuration required a standard CA bundle; TLS verification stayed enabled. Existing indexed originals/builds were not rebuilt.
+
+The full CI unit target passes 176/176. Focused failure/parser/synthesis tests pass 17/17; disposable offline Postgres/API/workspace tests pass 15/15, including owner isolation, concurrency leases, failed refresh, saved failed-narrative candidates, history and backup restore. The 48-case domain/registry regression retains exact reviewed answer/claim/calculation/citation/coverage parity and 48/48 immutable reopens (40 deterministic executions + 8 saved draft revalidations; zero provider calls). The existing five [Hero demonstrations](benchmarks/20261004-release-demonstrations/heroes/summary.json) replay with their hash envelope intact; they are not new accuracy cases. No independent review or sealed holdout was acquired.
+
+Independently executable high-value fixes found in this pass are complete. Fresh model generalization requires a separately authorized paid capture; independent reviewer/holdout custody remain external inputs. Additional issuers, genuine unexplained discrepancies, changed live public URLs and sustained capacity remain valuable measured follow-ups, not reasons to delay product work. Langfuse/Phoenix were investigated; existing pinned exports, coverage/attempts, sanitized failures and request-local usage address current diagnostics without a new hosted tracing stack. Retention/access review and a demonstrated cross-request diagnostic need should precede instrumentation.
 
 ## Evidence boundary
 
@@ -41,6 +51,6 @@ The old Phase 3 fixture remains a three-question diagnostic with zero eligible o
 
 ## Next work
 
-Follow [NEXT_WORK](NEXT_WORK.md): acquire and review genuinely unresolved issuer discrepancies/more report families if available, complete independent review of retained historical/release-critical evidence, and establish independent holdout custody under unchanged gates. Use the five defined Hero Scenarios for bounded demonstrations; a live source-refresh or UI demo needs its own measured scope. Reuse saved outputs before any paid capture.
+Follow [NEXT_WORK](NEXT_WORK.md): improve the local product workspace, then revisit externally gated review/holdout and explicitly authorized fresh generation. Hero demonstrations are complete saved replays; live changed-URL refresh remains unmeasured. Reuse saved outputs before paid captures.
 
 Release promotion is **held**. The planner is disabled. Public/cloud deployment, scheduled refresh, generic extraction and a frontend rewrite are deferred. Integrated development is 48/48 and the separate extensions are 16/16 and 8/8; authentic source-change staleness is demonstrated by one controlled original-byte import. No holdout, paid capture or provisioning occurred. The historical saved baseline replay remains 19/30 strict and 9/10 numeric; it is unchanged historical evidence, not a fresh current-default promotion result.

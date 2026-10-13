@@ -1,0 +1,131 @@
+{
+  "demonstrations_passed": 5,
+  "demonstration_count": 5,
+  "existing_case_steps": 7,
+  "scenarios": [
+    {
+      "scenario": "common-equity",
+      "step_ids": [
+        "ext-03"
+      ],
+      "checks": {
+        "ext-03": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        }
+      },
+      "passed": true,
+      "review_provenance": "Existing named development review reused after exact parity",
+      "original_review_sha256": "4b22573fa54f82364688163404945184f9fd40a1bca6b4b623cc29bfd4b8053f",
+      "original_results_sha256": "7fb4d980ad343707113c5eab781d5fd829c58c2149ebb6b84f821e8b2529b683"
+    },
+    {
+      "scenario": "recast-quarters",
+      "step_ids": [
+        "ext-06",
+        "ext-07"
+      ],
+      "checks": {
+        "ext-06": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        },
+        "ext-07": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        }
+      },
+      "passed": true,
+      "review_provenance": "Existing named development review reused after exact parity",
+      "original_review_sha256": "4b22573fa54f82364688163404945184f9fd40a1bca6b4b623cc29bfd4b8053f",
+      "original_results_sha256": "7fb4d980ad343707113c5eab781d5fd829c58c2149ebb6b84f821e8b2529b683"
+    },
+    {
+      "scenario": "partial-coverage",
+      "step_ids": [
+        "gap-04",
+        "gap-05",
+        "gap-06"
+      ],
+      "checks": {
+        "gap-04": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        },
+        "gap-05": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        },
+        "gap-06": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        }
+      },
+      "passed": true,
+      "review_provenance": "Existing named development review reused after exact parity",
+      "original_review_sha256": "14f8fa6e9f375ddf1b0886044dee911ed1057f20029fc86ae2f5f56a23def664",
+      "original_results_sha256": "7c1bfb0622a68735cdf8befbed609a868b39d7eeaa3a13794e13955c3b203330"
+    },
+    {
+      "scenario": "period-narrative",
+      "step_ids": [
+        "dev-15"
+      ],
+      "checks": {
+        "dev-15": {
+          "mechanical_checks": true,
+          "exact_reviewed_answer": true,
+          "exact_claims": true,
+          "exact_calculations": true,
+          "exact_citations": true,
+          "new_history_run": true,
+          "history_reopen_equal": true
+        }
+      },
+      "passed": true,
+      "review_provenance": "Existing named development review reused after exact parity",
+      "original_review_sha256": "a1df163d37acf700d30ce081b5a2e4965878fdac5c4f0fbb203a5496ea0bc445",
+      "original_results_sha256": "2c2cfb76ec9d199b68c33f4d9100c4df344de1b2b4ff2abf1f67831a47f072c5"
+    },
+    {
+      "scenario": "source-change",
+      "passed": true,
+      "lifecycle_checks": 13,
+      "qualification": "Fresh controlled original-byte import; cached vectors; separate owner; not live URL refresh"
+    }
+  ],
+  "provider_calls": 0,
+  "fresh_narrative_generations": 0,
+  "holdout_executed": 0,
+  "qualification": "Domain/registry executions and exact history reopens; no HTTP/UI benchmark; no extra semantic successes"
+}

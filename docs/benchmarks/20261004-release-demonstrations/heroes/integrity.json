@@ -1,0 +1,23 @@
+{
+  "common-equity/manifest.json": "e2e76748e8dc538d10eecf7f19d41ba41b9ff8ac0efcbc78a15cd6d56ef9bcf0",
+  "common-equity/results.jsonl": "8e258d2b16798f74a43b30eb8c678c198a9c2ce08cff177735d3da675454f0a4",
+  "common-equity/summary.json": "3aae6f28a067347c962bc5d8a35bafe4d609d41c421dfef6fac7dfd8e079d350",
+  "common-equity-steps.json": "e5c7135092521c979851dcbfba597125bb39358e22f9ab0d585a80141248d2ed",
+  "manifest.json": "db66c29ee428ea3c6afb5576ce70e0a379fed36a0b51f4ea87eb584a0ba58a94",
+  "partial-coverage/manifest.json": "d2761b009b66367264aa659def678c19f4c96d47b649bfb43b9461d26d381903",
+  "partial-coverage/results.jsonl": "c1a36534aa6551e9ea1388eeed0f92e7c5dea7e13b527a9d5c37a3832bf3ec26",
+  "partial-coverage/summary.json": "87df28f4a90a9182c399739af90bcaacf87652902bb911b11a8e9f61ad70bc11",
+  "partial-coverage-steps.json": "45ad1625f685d4b68a5d5365386c0833c9887b4cfb8d817ec5c6ae91d9b3ac8d",
+  "period-narrative/manifest.json": "d3afe885a0e8031114414aaceaecde79d2375ac3030fa921faeb53bc2eb69dbc",
+  "period-narrative/results.jsonl": "568efa6002771de63649365d37373514f3031a7344de2f207016f0accb93bbec",
+  "period-narrative/summary.json": "1b05bb43fb60211e50050bf4bf3e0346f26d63253fe718fff3b36431f1bb4d02",
+  "period-narrative-steps.json": "e325dd5bee4b2ea2d74eff3d1585fbdddf5addc0135858f00315a02e02133c3e",
+  "recast-quarters/manifest.json": "bc72d109f5a446c70c7e6f57555e9333a855001df2ba408d68eec88d83cfa0ca",
+  "recast-quarters/results.jsonl": "312ba9d5b831d6bdbf16a0452200788b8b8bc007c11e4a2e8084fd8d207026e5",
+  "recast-quarters/summary.json": "23e37dd74829a01cfdccf543ecb760a2c56db7e42ecc2139d0391a4fbe4e79b9",
+  "recast-quarters-steps.json": "813ff2e7ab3676cf030ca04bca2b769d78721151a9dfbe18c89a734768cc01ea",
+  "source-change/labels.json": "ee997d83c16f3a0d1e9563321b30d5a89e10938480cca6eba3dd09b878ce2f8c",
+  "source-change/manifest.json": "024e4b359c70f5420b25fbadbfec6a1a53b998c568fc4dde61d0fea0ebcd639d",
+  "source-change/result.json": "421228a3af906941cd992bdd758211d37f0ff7a212ea94549c5b3eb0d8425040",
+  "summary.json": "cb844f5cead3c655a4146ccf98cdcf9daea87d6943feb660323923d5d00259b9"
+}

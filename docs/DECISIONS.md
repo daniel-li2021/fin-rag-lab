@@ -14,6 +14,14 @@
 | Planner | deferred: first pass deterministic authentic gates and identify at least five supported decomposition/routing failures where explicit tasks succeed. A fresh planner evaluation must add at least three strict holdout successes without losses and meet unchanged safety/budget bounds. |
 | Public hosting, scheduled refresh and broad feature expansion | deferred: public use needs server-enforced read-only access, TLS/auth, isolated data, server-only secrets, session isolation, disabled upload/fetch/review/admin routes and hard request/model allowances. Measure full expanded-process capacity. Consider frontend rewrite, new companies/XBRL/ANN, automatic semantic promotion or general formulas only for a measured requirement. |
 
+## October 12 investigation decisions
+
+The final engineering pass repairs measured ingestion/synthesis failures and preserves the 48-case reviewed-content parity. It does not certify fresh generation, unseen-company financial correctness or release readiness. Backend expansion stops when no measured independently executable gap remains; reviewer/holdout access and paid capture authorization remain external inputs.
+
+[Langfuse masking](https://langfuse.com/docs/observability/features/masking) and [Phoenix tracing](https://arize.com/docs/phoenix/tracing/concepts-tracing/how-does-tracing-work) support OpenTelemetry diagnostics, but a new collector/retention stack is not justified for current single-owner usage. Keep local pinned exports, coverage/attempts and request-scoped usage/failure receipts. Revisit only when a concrete investigation needs cross-request spans and private-content retention/access is approved.
+
+UI references reviewed October 12: [Perplexity Finance/Spaces](https://www.perplexity.ai/changelog/what-we-shipped-june-27th), [Elicit source quotes and review tables](https://elicit.com/solutions/systematic-review), [AlphaSense workspace](https://www.alpha-sense.com/platform/), [Vercel Chatbot](https://github.com/vercel/chatbot), [assistant-ui](https://github.com/assistant-ui/assistant-ui) and [shadcn accessible panels](https://ui.shadcn.com/docs/components/base/resizable). Adopt visible source context, quote inspection and structured research results. Streamlit reuses the current trusted-local runtime and contracts; a React/Next.js client offers finer panel/routing control but adds a second server, API/credential wiring and two application toolchains. Improve Streamlit first; no chat SDK, gateway or new AI functionality is needed for this workspace.
+
 ## Supersession and document ownership
 
 Registry implementation, reviewed local histories/cards, calculations, saved history, guided UI and development capture are implemented; earlier missing-registry, missing-database, acquisition-gap and “build next” prose is superseded by STATE and current KB. Failed/partial experiments remain held in their original artifacts; development completion does not supersede independent release gates.

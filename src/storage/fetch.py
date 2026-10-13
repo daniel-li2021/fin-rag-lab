@@ -56,8 +56,10 @@ def fetch_snapshot(url, max_bytes=MAX_BYTES, timeout=30, max_redirects=3):
         port = 443 if p.scheme == 'https' else 80
         addresses = public_addresses(p.hostname, port, min(5, max(.01, deadline-time.monotonic())))
         family, kind, proto, _, address = addresses[0]
+        transport = {'socket': None}
         def pinned_connect(*args, **kwargs):
             sock = socket.socket(family, kind, proto)
+            transport['socket'] = sock
             try:
                 sock.settimeout(max(.01, deadline-time.monotonic()))
                 sock.connect(address)
@@ -68,9 +70,22 @@ def fetch_snapshot(url, max_bytes=MAX_BYTES, timeout=30, max_redirects=3):
         connection = (HTTPSConnection if p.scheme == 'https' else HTTPConnection)(
             p.hostname, port, timeout=max(.01, deadline-time.monotonic()))
         connection._create_connection = pinned_connect
+        # Closing HTTP responses may own the socket after connection.sock is cleared.
+        # A watchdog enforces one wall-clock budget even for trickled headers/body.
+        def expire(connection=connection, transport=transport):
+            sock = connection.sock or transport['socket']
+            if sock:
+                try:
+                    sock.shutdown(socket.SHUT_RDWR)
+                except OSError:
+                    pass
+        watchdog = threading.Timer(max(.01, deadline-time.monotonic()), expire)
+        watchdog.daemon = True
+        watchdog.start()
         try:
             connection.request('GET', urlunsplit(('', '', p.path, p.query, '')),
                                headers={'User-Agent': 'FinRAG-snapshot/1', 'Accept-Encoding': 'identity'})
+            transport['socket'] = connection.sock or transport['socket']
             response = connection.getresponse()
             if response.status in (301, 302, 303, 307, 308):
                 if hop == max_redirects or not response.getheader('Location'):
@@ -95,6 +110,8 @@ def fetch_snapshot(url, max_bytes=MAX_BYTES, timeout=30, max_redirects=3):
                     connection.sock.settimeout(remaining)
                 part = response.read1(min(65536, max_bytes+1-size))
                 if not part:
+                    if getattr(response, 'length', None) not in (None, 0):
+                        raise ValueError('Incomplete snapshot body')
                     break
                 parts.append(part)
                 size += len(part)
@@ -102,10 +119,13 @@ def fetch_snapshot(url, max_bytes=MAX_BYTES, timeout=30, max_redirects=3):
                     raise ValueError('Snapshot exceeds byte limit')
             if not size:
                 raise ValueError('Empty snapshot')
+            if time.monotonic() >= deadline:
+                raise TimeoutError('Snapshot deadline exceeded')
             from datetime import datetime, timezone
             return b''.join(parts), media, {'original_url': original, 'final_url': url,
                 'fetched_at': datetime.now(timezone.utc).isoformat(),
                 'etag': response.getheader('ETag'), 'last_modified': response.getheader('Last-Modified')}
         finally:
+            watchdog.cancel()
             connection.close()
     raise ValueError('Redirect limit')

@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-12",
+  "scope": "Backend engineering and development regression; no release promotion",
+  "provider_calls": 0,
+  "holdout_accessed": false,
+  "deadline_probe": {
+    "scope": "Controlled local HTTP fixture; not authentic financial accuracy",
+    "budget_seconds": 0.2,
+    "before_seconds": 0.386,
+    "after_seconds": 0.202382,
+    "after_failure_class": "ValueError"
+  },
+  "narrative_provider_failure": {
+    "before": "Exception loses candidate result and records zero receipt events",
+    "after_outcome": "qualified_answer",
+    "candidate_passages_retained": 2,
+    "generator_calls": 1,
+    "unknown_calls": 1,
+    "total_usd": null,
+    "claims": 0
+  },
+  "shared_original_two_tasks": {
+    "scope": "Synthetic task-binding regression",
+    "before_accepted_claims": 0,
+    "after_accepted_claims": 2,
+    "review_status": "unreviewed_generated_claim"
+  },
+  "html_annual_report_probe": {
+    "scope": "Offline whole-report lexical candidate retrieval over live official bytes; illustrative pin, no registry/embedding/financial review",
+    "source": {
+      "scope": "Live HTTP acquisition and offline HTML parse; no embeddings or financial review",
+      "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+      "sha256": "564154a15ac28c0f7f72f304ae26b74c29cfca9f3eafe8d59595776769d621ca",
+      "bytes": 601259,
+      "media": "text/html",
+      "blocks": 1,
+      "characters": 227280,
+      "seconds": 0.506,
+      "provenance": {
+        "original_url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "final_url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "fetched_at": "2026-10-13T05:09:30.500085+00:00",
+        "etag": "\"0x8DEB69EA687D4C6\"",
+        "last_modified": "Wed, 20 May 2026 18:36:04 GMT"
+      }
+    },
+    "query": {
+      "question": "Find original Azure discussion",
+      "selections": [
+        {
+          "source_id": "00000000-0000-0000-0000-000000000001",
+          "version_id": null,
+          "company_id": null,
+          "fiscal_year": null,
+          "fiscal_quarter": null,
+          "document_type": null,
+          "build_id": null,
+          "metadata_review_id": null
+        }
+      ],
+      "tasks": [
+        {
+          "task_id": "azure",
+          "company_id": "MSFT",
+          "query": "Azure revenue growth",
+          "repair_query": null,
+          "document_period_label": null
+        }
+      ],
+      "as_of": null,
+      "synthesize": false
+    },
+    "before": {
+      "blocks": 1,
+      "largest_block_tokens": 48299,
+      "retrieved_passages": 0,
+      "original_tokens": 0,
+      "coverage": [
+        {
+          "task_id": "azure",
+          "status": "passage_not_found",
+          "reason": "Matching original blocks exceed the allocated evidence budget",
+          "evidence_ids": [],
+          "budget_exhausted": true
+        }
+      ],
+      "seconds": 0.374894
+    },
+    "after": {
+      "blocks": 1743,
+      "largest_block_tokens": 310,
+      "retrieved_passages": 9,
+      "original_tokens": 194,
+      "coverage": [
+        {
+          "task_id": "azure",
+          "status": "binding_unverified",
+          "reason": "Original candidates require topic/period review before synthesis",
+          "evidence_ids": [
+            "1c0187e82244653c4e943d1b5bfa1d9f55afae76d30a62afb2e623150e014dee",
+            "a630875972628cf152aaa24ab71e5450b25d08837e1d73000fcbd747fec6b13f",
+            "f9836889b7e786bb58faaf40fb9d0927ae4775f42b8addede85df7a041d01a79",
+            "0445e3c2eec798aafe5116baf26e779184a0c0224ff32fb1e464b6497939de06",
+            "861f00d1237669c6a651a2bfd89730f465d222bb983c48e3812237e51504f338",
+            "8e387e11ee15f6ac9e41b24dc1174c96fa58956b126e3bb213efe7805720e7b6",
+            "9c0f6104060c27bdd02fd5093c618cba1e005dd24daf72128cb49030ff7c1a27",
+            "f72472101f4c82a0878395f109f1e59d9ce5bcb2b67ae4fd4a3b4ff915cb67a2",
+            "83e147d6bd3f5715f0e1da2c906721c6c3a38a2e087b324b41c33766ffe2a552"
+          ],
+          "budget_exhausted": false
+        }
+      ],
+      "seconds": 0.055669
+    }
+  },
+  "development_regression": {
+    "cases": 48,
+    "mechanical_pass": 48,
+    "exact_reviewed_content_parity": 48,
+    "history_reopens": 48,
+    "original_byte_hashes_checked": 22,
+    "fresh_deterministic": 40,
+    "saved_narrative_revalidation": 8,
+    "fresh_narrative_generations": 0,
+    "reference_results": "docs/benchmarks/20261004-authentic-gaps/core/results.jsonl",
+    "reference_sha256": "2c2cfb76ec9d199b68c33f4d9100c4df344de1b2b4ff2abf1f67831a47f072c5",
+    "new_capture_sha256": "80c3c4345c303709803b4cc02687e24d11006240c4e6323b3eb50a0f6954a479",
+    "new_capture_retention": "Temporary local execution, not distributed; reference content retained; rerun command below",
+    "parity_fields": [
+      "answer",
+      "claims",
+      "calculations",
+      "citations",
+      "coverage"
+    ]
+  },
+  "validation": {
+    "focused_unit_tests": 17,
+    "offline_postgres_api_workspace_tests": 15,
+    "hero_demonstrations_replayed": 5,
+    "initial_integration_attempt": "Blocked by sandbox process inspection; rerun outside sandbox passed",
+    "initial_live_fetch": "Default local Python TLS trust failed; standard certifi CA bundle via SSL_CERT_FILE succeeded; TLS verification stayed enabled",
+    "ci_unit_tests": 176
+  },
+  "reproduce": [
+    ".venv/bin/python -m pytest tests/unit/test_sources.py tests/unit/test_narrative.py -q",
+    ".venv/bin/python -m pytest tests/integration/test_persistent.py tests/integration/test_financial_research.py tests/integration/test_research_workspace.py -q",
+    ".venv/bin/python scripts/rerun_product_offline.py --output /tmp/finrag-NEW-backend-regression"
+  ],
+  "limits": [
+    "HTML probe measures whole-report lexical candidate availability, not topic support or reviewed financial extraction",
+    "HTML boundary changes require an explicit new ingestion build; existing originals/history are unchanged",
+    "No new issuer fact cards, authentic unexplained discrepancy, changed public URL or fresh paid generation was evaluated",
+    "Large corpus and sustained concurrency beyond documented caps remain unmeasured",
+    "Independent review, disjoint sealed holdout and matched paid capture gates remain held"
+  ],
+  "code_sha256": {
+    "src/storage/fetch.py": "2592368b129633087f29bc7bc3f226f11cd4a0c64e1ca913989d3153451f2997",
+    "src/loaders/text_loader.py": "fef3c09451f7370c30a1725d4a1818137f2c4ce2d71ef23f11bb8aef06230a6f",
+    "src/financial/narrative.py": "cd1ba03266ec6d8457ba52597feb13deba51096e4c8e0148380795a7e536d215",
+    "tests/unit/test_sources.py": "b12cb6acd7a90f5790cae13fcda87665095d70cb585aee2ac818c28742b41ebf",
+    "tests/unit/test_narrative.py": "da495357b0613c01b30cb63ac4385d07277de2192bc77ce93a59e1681b947fb1"
+  }
+}

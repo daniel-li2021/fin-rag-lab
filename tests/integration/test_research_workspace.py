@@ -113,6 +113,26 @@ def test_failed_refresh_and_two_company_evidence_keep_last_good(durable):
     assert svc.rerun_research(result['run_id'])['result']['passages'] == result['passages']
 
 
+def test_failed_narrative_retains_immutable_saved_candidates(durable, monkeypatch):
+    from src.core import config
+    svc, _, _ = durable
+    source = svc.register(kind='text', title='Synthetic narrative report', metadata={
+        'company_id': 'TEST', 'review_status': 'confirmed'})
+    svc.ingest_bytes(source['source_id'], b'Revenue grew due to strong product demand.')
+    class Broken:
+        def invoke(self, messages):
+            raise TimeoutError('private provider payload')
+    monkeypatch.setattr(config, 'make_chat_llm', lambda *args, **kwargs: Broken())
+    result = svc.research_evidence({'question': 'Reported revenue drivers', 'synthesize': True,
+        'selections': [{'source_id': str(source['source_id'])}],
+        'tasks': [{'task_id': 'drivers', 'company_id': 'TEST', 'query': 'revenue'}]}, save=True)
+    assert result['passages'] and not result['claims']
+    assert result['usage']['total_usd'] is None and result['usage']['unknown_calls'] == 1
+    assert svc.registry.research_run(svc.owner, result['run_id'])['payload'] == result
+    assert not svc.registry.research_changes(svc.owner, result)['potentially_stale']
+    assert 'private provider' not in str(result)
+
+
 def test_streamlit_workspace_renders_and_runs_reviewed_lookup(durable, monkeypatch):
     from streamlit.testing.v1 import AppTest
     import app.research_workspace as workspace
