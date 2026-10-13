@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-12",
+  "scope": "Follow-up backend API access and concurrency checks; UI direction paused",
+  "provider_calls": 0,
+  "holdout_accessed": false,
+  "history": {
+    "before_visible_runs": 100,
+    "retained_owner_runs": 443,
+    "after_reachable_runs": 443,
+    "page_sizes": [
+      100,
+      100,
+      100,
+      100,
+      43
+    ],
+    "exact_sorted_identity_parity": true,
+    "search": "Bounded literal case-insensitive question search; parameterized SQL; owner scoped; OFFSET pages of 100"
+  },
+  "upload_event_loop": {
+    "scope": "Synthetic 150ms blocking registry lookup on ASGI; no sustained-capacity/SLA claim",
+    "before_largest_tick_seconds": 0.156705,
+    "after_largest_tick_seconds": 0.01111,
+    "upload_status_before_and_after": 200,
+    "fix": "Run authorized owner lookup in thread pool before reading content"
+  },
+  "validation": {
+    "ci_unit_target": 177,
+    "offline_postgres_api_workspace_tests": 16,
+    "history_fixture": "105 hash-bound synthetic runs: 100+5 disjoint pages, literal %_ search reaches old run, foreign owner/injection/invalid input reject",
+    "concurrency_fixture": "A second ASGI coroutine releases a blocking owner lookup; proves event loop remains available"
+  },
+  "ui": {
+    "status": "Decision pending; no major UI committed",
+    "provisional_draft": "Ignored local index/ui-checkpoint-20261012; tracked app restored",
+    "note": "Backend API paging/search is independent of the frontend choice"
+  },
+  "code_sha256": {
+    "src/api/private_server.py": "0f889124f1eb6d2cd44c27748b8ce769bb051205f2017f6789e89ea80869da39",
+    "src/storage/registry.py": "ff29a08146ee8fc2835bd0010915b885bc125ee70e1878b7c0f3923ec5d294b8",
+    "tests/unit/test_private_runtime.py": "7b99509c7ead9aa5dbb4a51cec3d87447fd3541d25e81d2551f1660a2dd8ff19",
+    "tests/integration/test_research_workspace.py": "3a1df301b67ea1252d225bdeacac9c9775f84b171f62fe09d444d94b70022d05"
+  },
+  "reproduce": [
+    ".venv/bin/python -m pytest tests/unit -q",
+    ".venv/bin/python -m pytest tests/integration/test_persistent.py tests/integration/test_financial_research.py tests/integration/test_research_workspace.py -q"
+  ],
+  "limits": [
+    "Paging uses independent requests rather than a cross-page database snapshot; newly saved rows can shift offset pages",
+    "No public deployment, new provider generation, sealed holdout or independent financial review",
+    "The Streamlit UI still uses its existing history list until the frontend decision is made"
+  ]
+}

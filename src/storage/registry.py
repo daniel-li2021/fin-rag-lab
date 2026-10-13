@@ -317,12 +317,17 @@ class Registry:
                 raise LookupError('Research not found')
             return row
 
-    def research_runs(self, owner):
+    def research_runs(self, owner, *, offset=0, search=''):
+        if not isinstance(offset, int) or isinstance(offset, bool) or not 0 <= offset <= 2147483647:
+            raise ValueError('Invalid history offset')
+        if not isinstance(search, str) or len(search) > 4000:
+            raise ValueError('Invalid history search')
         with self.connect() as db:
             return db.execute('''SELECT run_id,collection_id,parent_run_id,created_at,
                 payload->>'answer' AS answer,payload->>'outcome' AS outcome,
                 payload->'request'->>'question' AS question FROM research_runs
-                WHERE owner_id=%s ORDER BY created_at DESC,run_id LIMIT 100''', (owner,)).fetchall()
+                WHERE owner_id=%s AND (%s='' OR strpos(lower(COALESCE(payload->'request'->>'question','')),lower(%s))>0)
+                ORDER BY created_at DESC,run_id LIMIT 100 OFFSET %s''', (owner, search, search, offset)).fetchall()
 
     def research_changes(self, owner, result):
         """Byte/build/metadata changes are potential staleness, never edits to a saved answer."""

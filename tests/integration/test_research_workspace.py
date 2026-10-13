@@ -255,3 +255,40 @@ def test_explicit_original_version_rerun_does_not_invent_metadata_change(durable
     svc.registry.update_metadata(svc.owner, source['source_id'], {**source['metadata'], 'company_name':'Test Inc'})
     changed = svc.rerun_research(first['run_id'])
     assert changed['diff']['evidence_changed'] and not changed['diff']['answer_changed']
+
+
+def test_history_search_and_pagination_reach_older_runs_without_owner_leaks(durable):
+    from datetime import datetime, timedelta, timezone
+    from psycopg.types.json import Jsonb
+    from src.financial.research import _canonical
+    import hashlib
+    svc, _, _ = durable
+    source, observation, request = reviewed_source(svc)
+    prototype = svc.research({**request.model_dump(mode='json'), 'observations': [observation.model_dump(mode='json')]})
+    # Synthetic history fixture with unique content hashes and deterministic ordering.
+    with svc.registry.connect() as db:
+        for i in range(105):
+            payload = {**prototype, 'request': {**prototype['request'], 'question': f'Older revenue research {i}%_'},
+                       'execution': {'execution_id': str(i)}}
+            payload['run_id'] = hashlib.sha256(_canonical({k: v for k, v in payload.items() if k != 'run_id'}).encode()).hexdigest()
+            db.execute('INSERT INTO research_runs(owner_id,run_id,payload,created_at) VALUES(%s,%s,%s,%s)',
+                       (svc.owner, payload['run_id'], Jsonb(payload), datetime(2026, 1, 1, tzinfo=timezone.utc)+timedelta(seconds=i)))
+    first = svc.registry.research_runs(svc.owner)
+    second = svc.registry.research_runs(svc.owner, offset=100)
+    assert len(first) == 100 and len(second) == 5
+    assert not {r['run_id'] for r in first}.intersection(r['run_id'] for r in second)
+    assert svc.registry.research_runs('bob', offset=100, search='revenue') == []
+    older = svc.registry.research_runs(svc.owner, search='RESEARCH 0%_')
+    assert len(older) == 1 and older[0]['run_id'] in {r['run_id'] for r in second}
+    assert svc.registry.research_runs(svc.owner, search="' OR true --") == []
+    assert svc.registry.research_run(svc.owner, older[0]['run_id'])['payload']['request']['question'].endswith('0%_')
+    client = TestClient(build_private_app(svc, 'offline-token-at-least-24-characters'))
+    assert client.get('/research/runs', params={'offset': 100}).status_code == 401
+    client.headers['Authorization'] = 'Bearer offline-token-at-least-24-characters'
+    assert len(client.get('/research/runs', params={'offset': 100}).json()) == 5
+    assert len(client.get('/research/runs', params={'search': 'RESEARCH 0%_'}).json()) == 1
+    assert client.get('/research/runs', params={'offset': -1}).status_code == 422
+    assert client.get('/research/runs', params={'search': 'x'*4001}).status_code == 422
+    for offset in (-1, True, 2147483648):
+        with pytest.raises(ValueError, match='offset'):
+            svc.registry.research_runs(svc.owner, offset=offset)

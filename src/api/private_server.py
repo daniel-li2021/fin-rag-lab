@@ -4,7 +4,7 @@ import secrets
 from uuid import UUID
 from typing import Literal
 
-from fastapi import FastAPI, Depends, Header, HTTPException, Request
+from fastapi import FastAPI, Depends, Header, HTTPException, Request, Query
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, Field, ConfigDict
 
@@ -122,14 +122,14 @@ def build_private_app(service=None, token=None):
 
     @app.post('/sources/{source_id}/content')
     async def upload(source_id: UUID, request: Request):
-        service.registry.get(service.owner,source_id)
+        from starlette.concurrency import run_in_threadpool
+        await run_in_threadpool(service.registry.get,service.owner,source_id)
         data = bytearray()
         async for part in request.stream():
             data.extend(part)
             if len(data)>MAX_BYTES:
                 raise HTTPException(413,'Upload exceeds 20 MiB')
         # Parsing/model work is performed by the bounded worker, never the event loop.
-        from starlette.concurrency import run_in_threadpool
         queued = await run_in_threadpool(service.submit,source_id,bytes(data),
                                         media_type=request.headers.get('content-type','').split(';')[0])
         return {'job_id':str(queued['job']['job_id']),'version_id':str(queued['version']['version_id']),
@@ -204,8 +204,9 @@ def build_private_app(service=None, token=None):
         return service.research_evidence(req, save=True)
 
     @app.get('/research/runs')
-    def research_runs():
-        return jsonable_encoder(service.registry.research_runs(service.owner))
+    def research_runs(offset: int = Query(default=0, ge=0, le=2147483647),
+                      search: str = Query(default='', max_length=4000)):
+        return jsonable_encoder(service.registry.research_runs(service.owner, offset=offset, search=search))
 
     @app.get('/research/runs/{run_id}')
     def research_run(run_id: str):
