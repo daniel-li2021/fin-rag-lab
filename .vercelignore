@@ -1,0 +1,12 @@
+# Deploy only the real Next.js application, never local backend data or credentials.
+*
+!frontend
+!frontend/**
+frontend/node_modules
+frontend/.next
+frontend/.env*
+frontend/test-results
+frontend/playwright-report
+frontend/public/originals
+frontend/public/pages
+frontend/public/pdfjs

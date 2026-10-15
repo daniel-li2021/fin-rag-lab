@@ -1,0 +1,27 @@
+{
+  "name": "finrag-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3200",
+    "build": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1 --port 3200",
+    "test": "node --test tests/relay.test.mjs tests/data-access.test.mjs && node scripts/check-public.mjs",
+    "test:e2e": "node scripts/public-browser-tests.mjs",
+    "test:live": "node scripts/browser-tests.mjs",
+    "test:api": "node tests/live-api.mjs",
+    "prebuild": "node scripts/pdf-assets.mjs",
+    "predev": "node scripts/pdf-assets.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "next": "16.4.0",
+    "pdfjs-dist": "5.4.624",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-resizable-panels": "^4.7.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0"
+  }
+}

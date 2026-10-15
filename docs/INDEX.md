@@ -6,9 +6,9 @@ Start with [STATE](STATE.md) for implemented behavior, evidence limits and next 
 | --- | --- |
 | [STATE](STATE.md) | Canonical current status and next action |
 | [DECISIONS](DECISIONS.md) | Retained choices, negative results and supersession |
-| [Next work](NEXT_WORK.md) — two visual prototypes ready for review; release blocked on independent review/holdout custody | Backend published; Next.js/React selected; review Folio and Meridian before complete frontend implementation, with independent review/holdout gates held |
+| [Next work](NEXT_WORK.md) — Meridian public-demo deployment in progress; independent review/holdout held | Meridian implemented with feature-level Demo/Live adapters; complete Vercel import, then separately authorize Render/Neon activation |
 | [System KB](kb/SYSTEM.md) | Current architecture, source lifecycle, private API, research and saved history |
-| [Runtime KB](kb/RUNTIME.md) | Local Postgres/UI, notebook compatibility, private Docker limits and restore |
+| [Runtime KB](kb/RUNTIME.md) | Public Vercel setup, progressive Render/Neon activation, local runtime and restore |
 | [Evidence and usage KB](kb/EVIDENCE.md) | Original provenance, structured outcomes and receipt semantics |
 | [Evaluation KB](kb/EVALUATION.md#portfolio-benchmark-and-engineering-evidence) | Final portfolio benchmark/engineering summary, frozen labels, unchanged promotion gates and reproduction |
 | [Workspace design](kb/WORKSPACE_DESIGN.md) | Public UI investigation, two local functional directions, recommendation and visual review boundary |

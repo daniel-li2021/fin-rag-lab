@@ -27,6 +27,7 @@ cache/embeddings/
 
 # OS
 .DS_Store
+.vercel/
 Thumbs.db
 
 # IDE
