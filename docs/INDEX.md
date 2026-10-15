@@ -6,7 +6,7 @@ Start with [STATE](STATE.md) for implemented behavior, evidence limits and next 
 | --- | --- |
 | [STATE](STATE.md) | Canonical current status and next action |
 | [DECISIONS](DECISIONS.md) | Retained choices, negative results and supersession |
-| [Next work](NEXT_WORK.md) — Meridian public-demo deployment in progress; independent review/holdout held | Meridian implemented with feature-level Demo/Live adapters; complete Vercel import, then separately authorize Render/Neon activation |
+| [Next work](NEXT_WORK.md) — Meridian public demo live; independent review/holdout held | Meridian deployed on Vercel Hobby with feature-level Demo/Live adapters; separately authorize Render/Neon activation |
 | [System KB](kb/SYSTEM.md) | Current architecture, source lifecycle, private API, research and saved history |
 | [Runtime KB](kb/RUNTIME.md) | Public Vercel setup, progressive Render/Neon activation, local runtime and restore |
 | [Evidence and usage KB](kb/EVIDENCE.md) | Original provenance, structured outcomes and receipt semantics |

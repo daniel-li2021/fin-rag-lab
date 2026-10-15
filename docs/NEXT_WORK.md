@@ -1,10 +1,9 @@
 # Next work
 
-Status: **Meridian selected; progressive public demo implemented and locally checked; initial Vercel deployment in progress.** [STATE](STATE.md) records actual deployment status; [runtime](kb/RUNTIME.md#public-hosting-and-progressive-activation) owns deployment configuration, security boundaries and minimal Render/Neon activation steps. Independent financial release gates remain held.
+Status: **Meridian public demo deployed on Vercel Hobby; focused public smoke checks passed.** [STATE](STATE.md) records actual deployment status; [runtime](kb/RUNTIME.md#public-hosting-and-progressive-activation) owns deployment configuration, security boundaries and minimal Render/Neon activation steps. Independent financial release gates remain held.
 
-1. Complete Vercel Hobby GitHub import with `frontend` root/Next.js preset; verify the stable production URL anonymously and run the focused public browser smoke checks. Preserve the same project/URL for later releases.
-2. On a later separately authorized backend increment, restore reviewed owner data/vectors and immutable raw objects to Neon/private storage, deploy existing FastAPI on Render, verify TLS/auth/readiness and enable capabilities independently. Do not provision paid services or execute new AI research without a bounded allowance. Public visitor identity, quotas and dataset isolation are required before anonymous Live access.
-3. Obtain independent named financial review and separately held disjoint sealed holdout custody under unchanged [evaluation gates](kb/EVALUATION.md). Saved development replay is not fresh inference or independent release validation.
+1. On a later separately authorized backend increment, restore reviewed owner data/vectors and immutable raw objects to Neon/private storage, deploy existing FastAPI on Render, verify TLS/auth/readiness and enable capabilities independently. Do not provision paid services or execute new AI research without a bounded allowance. Public visitor identity, quotas and dataset isolation are required before anonymous Live access.
+2. Obtain independent named financial review and separately held disjoint sealed holdout custody under unchanged [evaluation gates](kb/EVALUATION.md). Saved development replay is not fresh inference or independent release validation.
 
 ## Hero Scenario definitions
 

@@ -4,7 +4,7 @@ An evidence-oriented financial research workspace for Wells Fargo, Tesla and AMD
 
 **Start with [docs/INDEX.md](docs/INDEX.md)** for the [current state and next work](docs/STATE.md), active plans, decisions, contracts and retained evidence. Contributors and agents follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
-The **Meridian Next.js workspace** in `frontend/` is the real public portfolio frontend: five interactive saved Heroes, exact calculations, citation inspection, Library and History. It runs without PostgreSQL, FastAPI or paid APIs. Start with `cd frontend && npm ci && npm run dev`; [deployment and progressive Live activation](docs/kb/RUNTIME.md#public-hosting-and-progressive-activation) preserves the same frontend and URL. Streamlit remains private administration. Initial Vercel deployment is in progress; [STATE](docs/STATE.md) records the verified URL/status.
+The **Meridian Next.js workspace** in `frontend/` is the real public portfolio frontend: five interactive saved Heroes, exact calculations, citation inspection, Library and History. It runs without PostgreSQL, FastAPI or paid APIs. Start with `cd frontend && npm ci && npm run dev`; [deployment and progressive Live activation](docs/kb/RUNTIME.md#public-hosting-and-progressive-activation) preserves the same frontend and URL. Streamlit remains private administration. **Live: [fin-rag-lab.vercel.app](https://fin-rag-lab.vercel.app/)**. [STATE](docs/STATE.md) records deployment evidence and boundaries.
 
 [![CI](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/daniel-li2021/fin-rag-lab/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
