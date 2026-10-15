@@ -1,12 +1,14 @@
 # Current project state
 
-Updated October 14, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
+Updated October 15, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
 
 ## Public Meridian portfolio
 
 The owner selected Meridian and authorized initial public deployment on Vercel Hobby. The real Next.js application in `frontend/` now provides all five preserved interactive Heroes, exact financial results/calculation receipts, citations/provenance, Library and immutable History through a shared per-capability Demo/Live boundary. Eleven payloads match their frozen originals; public artifacts exclude full PDFs/rendered report pages, local paths and credentials. Official source links and exact saved excerpts remain available. Private live routes require owner authentication before any backend access; public generation, uploads and administration are forbidden. No FastAPI/PostgreSQL/provider is needed for Demo.
 
 **Actual deployment:** [fin-rag-lab.vercel.app](https://fin-rag-lab.vercel.app/) is live on Vercel Hobby, GitHub `main`, application commit `49e385558bd1828e9b8afed293a9d0bcadd0cd15`, deployment `dpl_AAMGhGsakzZQMbKXsw9HGCavGeL1`. Local and Vercel production builds succeeded. Eleven adapter/security checks, exact parity for eleven preserved payloads, public artifact screening and npm production audit (zero reported vulnerabilities) pass. Public browser checks cover twelve desktop journeys and two mobile journeys; anonymous HTTPS root returns 200. [Deployment receipt](evidence/checks/PUBLIC_DEPLOYMENT_20261014.json) and [actual public screenshot](screenshots/meridian-public-20261014.png) retain the bounded evidence. Full independent accuracy/release gates remain held. [Hosting configuration and exact later Render/Neon steps](kb/RUNTIME.md#public-hosting-and-progressive-activation).
+
+The [README](../README.md) now presents the research workflow, engineering controls and linked development/evaluation denominators, with [comparison/evidence](screenshots/meridian-vercel-20261015/research-evidence.jpg) and [source-change/history](screenshots/meridian-vercel-20261015/source-change-history.jpg) screenshots captured from public Vercel on October 15. It distinguishes the saved public archive from locally demonstrated private live research and pending cloud activation. This documentation update adds no new accuracy, backend or release validation.
 
 ## Implemented and locally demonstrated
 
