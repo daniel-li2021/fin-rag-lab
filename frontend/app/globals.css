@@ -18,7 +18,8 @@ body {
 }
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 button,
@@ -46,6 +47,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible,
+textarea:focus-visible,
 summary:focus-visible,
 [role="separator"]:focus-visible {
   outline: 2px solid var(--accent, #26775e);
@@ -1588,6 +1590,58 @@ select {
 .empty-state p {
   font-size: 11px;
 }
+.workflow-guide {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.8;
+  background: var(--panel);
+}
+.workflow-guide summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+.workflow-guide ol {
+  padding-left: 20px;
+  margin: 12px 0;
+}
+.workflow-guide li + li { margin-top: 8px; }
+.scenario-pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin: -8px 0 20px;
+}
+.scenario-pagination > span { margin-right: auto; color: var(--muted); }
+.scenario-pagination button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+}
+.starter-stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.starter-stories button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 12px;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--panel);
+}
+.starter-stories button:hover { border-color: var(--accent); }
+.starter-stories span { color: var(--muted); font-size: 12px; grid-column: 1; }
+.starter-stories svg { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--accent); }
+@media (max-width: 1000px) {
+  .starter-stories { grid-template-columns: minmax(0, 1fr); }
+}
+.empty-state .text-button { margin-top: 14px; min-height: 44px; }
 .loading {
   height: 100dvh;
   display: flex;

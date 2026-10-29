@@ -60,3 +60,70 @@ export async function publicMobileSmoke(tab, base = "http://127.0.0.1:3250") {
   await p.locator(".history-card").first().waitFor({state:"visible"});
   return ["mobile evidence selection and return", "mobile history navigation"];
 }
+
+export async function publicUXSmoke(tab, base = "http://127.0.0.1:3250") {
+  const p = tab.playwright, checks = [];
+  const nav = name => p.getByRole("navigation", {name:"Main navigation"}).getByRole("button",{name,exact:true});
+  await tab.goto(`${base}/?view=history`);
+  await p.locator(".history-card").first().click();
+  await p.locator(".query-card").waitFor({state:"visible"});
+  const original = await p.locator(".query-card").innerText();
+  await p.locator(".new-question").click();
+  assert.equal(await p.locator(".query-card").count(), 0, "new research must clear the reopened answer");
+  assert.equal(await p.getByRole("button",{name:"Export exact result JSON"}).count(),0);
+  assert.equal(await p.locator(".starter-stories button").count(),5);
+  await p.getByText("How to use this workspace",{exact:true}).click();
+  assert.ok((await p.locator(".workflow-guide").innerText()).includes("Check the evidence"));
+  await tab.back();
+  await p.locator(".query-card").waitFor({state:"visible"});
+  assert.equal(await p.locator(".query-card").innerText(),original);
+  await tab.forward();
+  await p.locator(".starter-stories").waitFor({state:"visible"});
+  assert.equal(await p.locator(".query-card").count(),0);
+  checks.push("history to fresh start, exact Back reopen and clean Forward");
+
+  await p.locator(".starter-stories").getByRole("button",{name:/Source change/}).click();
+  assert.ok((await p.locator(".scenario-pagination").innerText()).includes("Step 1 of 3"));
+  assert.equal(await p.getByRole("button",{name:"Previous step",exact:true}).isEnabled(),false);
+  await p.getByRole("button",{name:"Next step",exact:true}).click();
+  assert.ok((await p.locator(".scenario-pagination").innerText()).includes("Step 2 of 3"));
+  assert.ok((await p.locator(".query-card").innerText()).includes("latest reviewed"));
+  await p.getByRole("button",{name:"Next step",exact:true}).click();
+  assert.ok((await p.locator(".scenario-pagination").innerText()).includes("Step 3 of 3"));
+  assert.equal(await p.getByRole("button",{name:"Next step",exact:true}).isEnabled(),false);
+  await p.getByRole("button",{name:"Previous step",exact:true}).click();
+  assert.ok((await p.locator(".scenario-pagination").innerText()).includes("Step 2 of 3"));
+  checks.push("guided source-change steps preserve original and rerun navigation");
+
+  await nav("Library").click();
+  await p.getByLabel("Search source library").fill("no-such-source-ux-check");
+  await p.getByRole("button",{name:"Clear source search",exact:true}).click();
+  assert.ok(await p.locator(".source-card").count() > 0);
+  await nav("History").click();
+  await p.getByLabel("Search saved history").fill("no-such-history-ux-check");
+  await p.getByRole("button",{name:"Clear history search",exact:true}).click();
+  await p.locator(".history-card").first().waitFor({state:"visible"});
+  checks.push("library and history empty searches recover in one action");
+  return checks;
+}
+
+export async function publicMobileUXSmoke(tab, base = "http://127.0.0.1:3250") {
+  const p = tab.playwright;
+  await tab.goto(`${base}/?view=research&hero=equity`);
+  await p.locator(".query-card").waitFor({state:"visible"});
+  await p.getByRole("button",{name:"Inspect citation 2",exact:true}).click();
+  assert.equal(await p.locator(".mobile-evidence-button").getAttribute("aria-expanded"),"true");
+  assert.equal(await p.evaluate(() => document.activeElement?.getAttribute("aria-label")),"Return to research");
+  await p.getByRole("button",{name:"Return to research",exact:true}).press("Escape");
+  await p.locator(".query-card").waitFor({state:"visible"});
+  assert.equal(await p.evaluate(() => document.activeElement?.getAttribute("aria-label")),"Inspect citation 2");
+  await p.getByRole("button",{name:"Inspect evidence",exact:true}).click();
+  await p.getByRole("button",{name:"Return to research",exact:true}).click();
+  assert.equal(await p.evaluate(() => document.activeElement?.textContent?.trim()),"Inspect evidence");
+  await p.locator(".mobile-nav").getByRole("button",{name:"Hero Scenarios",exact:true}).click();
+  await p.locator(".hero-card").filter({hasText:"Source change"}).click();
+  await p.getByRole("button",{name:"Next step",exact:true}).click();
+  assert.ok((await p.locator(".scenario-pagination").innerText()).includes("Step 2 of 3"));
+  assert.equal(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth),false);
+  return ["mobile evidence Escape and return restore triggering focus", "mobile scenario navigation has no horizontal overflow"];
+}

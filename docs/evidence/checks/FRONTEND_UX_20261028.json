@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-28",
+  "timezone": "America/Los_Angeles",
+  "scope": "Local Meridian saved-demo UX and recovery; not deployed",
+  "base_commit": "8f442f0",
+  "next_version": "16.4.1",
+  "checks": {
+    "production_build": {
+      "command": "npm --prefix frontend run build",
+      "result": "passed"
+    },
+    "node_tests": {
+      "command": "npm --prefix frontend test",
+      "passed": 14,
+      "failed": 0
+    },
+    "preserved_public_payloads": {
+      "passed": 11,
+      "exact_parity": true,
+      "full_reports_distributed": false
+    },
+    "npm_production_audit": {
+      "command": "npm --prefix frontend audit --omit=dev",
+      "vulnerabilities": 0
+    },
+    "browser": {
+      "tool": "Codex in-app browser via CUA; production next start on loopback",
+      "desktop_viewport": [
+        1280,
+        720
+      ],
+      "mobile_viewport": [
+        390,
+        844
+      ],
+      "reusable_checks_passed": 19,
+      "functions": [
+        "publicSmoke: 12",
+        "publicUXSmoke: 3",
+        "publicMobileSmoke: 2",
+        "publicMobileUXSmoke: 2"
+      ],
+      "additional_checks": [
+        "Source Inspector Escape restores Inspect button focus",
+        "320x568 research view has no horizontal document overflow"
+      ],
+      "coverage": [
+        "all five Hero stories and saved calculation",
+        "citation switching and provenance",
+        "official source preview policy",
+        "keyboard inspector resizing",
+        "source versions and reviewed cards",
+        "immutable history reopen and disabled public rerun",
+        "clear stale saved answer on fresh exploration",
+        "Back reopens exact question; Forward clears old answer",
+        "guided source-change step bounds",
+        "Library and History empty-search clearing",
+        "mobile evidence selection and return",
+        "Escape and return restore trigger focus",
+        "mobile step navigation without horizontal overflow"
+      ]
+    },
+    "controlled_local_failures": {
+      "method": "Disposable Node loopback reverse proxy against the production preview; no production state touched",
+      "passed": [
+        "Archive 503 has Retry archive and recovers original comparison",
+        "History 503 has Retry history, no false empty-search state, restores ten rows",
+        "Saved-run GET delayed five seconds: explicit pending message, navigation remains on chosen Hero Scenarios page after read cancellation"
+      ],
+      "automatic_mutation_retry": false
+    },
+    "documentation_links": {
+      "command": "python3 scripts/check_docs.py",
+      "result": "passed",
+      "local_links_and_anchors": 234
+    }
+  },
+  "screenshots": [
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/01-before-research.png",
+      "sha256": "00b7c31f1631dbaa1b4469bad257dc7c7105ea565e7c1c0f2da429b9ede8884c"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/02-before-new-research.png",
+      "sha256": "d01045424084ee25e6c0e7c587b353f6b7dd9d397f57a74a1d783f719a225c50"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/03-guided-steps.png",
+      "sha256": "58ea157667c82b9be7fc11a101e1512d0cad31ff230332cab6bc32a4739935d8"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/04-archive-recovery.png",
+      "sha256": "1738cf56402c36bc03b5081825b39f6c55deb2dab6a7814a82cc0df5fe58310d"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/05-history-recovery.png",
+      "sha256": "1e52595556e77455b40fcd574e392129300b857fc832da705a20c7c801bb90b4"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/06-explore-research.png",
+      "sha256": "05ee1f6faf8a042f2fc3d83b99eeeb4380f3bb0b89c884704b8793da1d819ed7"
+    },
+    {
+      "path": "docs/screenshots/meridian-ux-20261028/07-research-evidence.png",
+      "sha256": "c131d7b1a19b7a0d4da2e5063d2314b8f0349ec6decd6d00c73d1ebe9a87c237"
+    }
+  ],
+  "source_sha256": {
+    "frontend/app/page.jsx": "b54351cd23e47e3e8234e8b8928fd94e64b4ecd28eff2e026c02da2c262583dc",
+    "frontend/app/globals.css": "50266cbd00e7310cd49aa34f7ffa1c070712a46ff018431af2c0fedb03d5995f",
+    "frontend/lib/client.mjs": "f04a78d3a034728d6e32ddd624d6ad4b28ae674f97ffe70052a73f35e2d8b426",
+    "frontend/package.json": "69cd6d2f4bb17a493ccd0da71af78359d7acc216d42700968a50942e8a39695d",
+    "frontend/package-lock.json": "71e66a4d3f0feefef98b400ca6bd6ca80d095b2295af517decd7492fa23cc4ba",
+    "frontend/tests/client.test.mjs": "37fbf183b857843e330ab9b22e894282376b5782a2b6a02a2619557c71de1046",
+    "frontend/tests/public-smoke.mjs": "1c571e57a6bfc50d2ca7cedf33d42111a1aa41524ce484e85a26d863cf8fa70d",
+    "frontend/scripts/public-browser-tests.mjs": "26b6a249a423b29a62e1b53e78b7c462dc407ee71a65be40f51d57f48381a8fb",
+    "frontend/public/fixtures.json": "ed6d06d18565c5e164a12f54e73e202776474136cc382b330afdedad7d440a78"
+  },
+  "limits": [
+    "No public deployment or Git push",
+    "No paid provider calls, fresh generation, ingestion or database mutation",
+    "No fresh private live-backend browser validation",
+    "No new financial accuracy denominator, independent review or sealed holdout",
+    "No human usability study, full screen-reader/contrast audit or physical mobile keyboard test"
+  ],
+  "notes": [
+    "One mobile test locator initially used the pre-toggle accessible name; corrected to the stable control selector, then passed",
+    "Next dev hit the local file-watch limit; polling was used for the initial review, with final checks on the production server",
+    "npm cache was redirected to a temporary writable directory for the dependency patch; no global permission changes"
+  ]
+}

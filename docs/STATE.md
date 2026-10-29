@@ -1,8 +1,10 @@
 # Current project state
 
-Updated October 15, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
+Updated October 28, 2026. This is the canonical current state; [INDEX](INDEX.md) lists current plans and [CONTRIBUTING](../CONTRIBUTING.md) owns the integration mode and update workflow. The authentic development review and deterministic answer fixes build on the cleaned `dbb065a` baseline.
 
 ## Public Meridian portfolio
+
+**Local experience update (October 28; not deployed):** Meridian now offers a compact usage guide, an explicit saved-demo exploration entry with all five stories, Previous/Next scenario steps, actionable empty searches, archive/History retry controls and mobile evidence focus/Escape recovery. Starting research clears a reopened answer and its evidence; Back/Forward restores the selected saved run without leaking it into the next fresh start. Abandoned URL loads cannot override later navigation. Failed mutations are never replayed automatically and uncertain responses direct the owner to History before another submission. Next.js is patched to 16.4.1. [Workspace behavior and browser evidence](kb/WORKSPACE_DESIGN.md#workspace-guidance-and-recovery), [local validation receipt](evidence/checks/FRONTEND_UX_20261028.json). These changes are local; the public deployment below is historical and has not been updated in this task.
 
 The owner selected Meridian and authorized initial public deployment on Vercel Hobby. The real Next.js application in `frontend/` now provides all five preserved interactive Heroes, exact financial results/calculation receipts, citations/provenance, Library and immutable History through a shared per-capability Demo/Live boundary. Eleven payloads match their frozen originals; public artifacts exclude full PDFs/rendered report pages, local paths and credentials. Official source links and exact saved excerpts remain available. Private live routes require owner authentication before any backend access; public generation, uploads and administration are forbidden. No FastAPI/PostgreSQL/provider is needed for Demo.
 

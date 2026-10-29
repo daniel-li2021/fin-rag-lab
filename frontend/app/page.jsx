@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { api } from "../lib/client.mjs";
 import OriginalPage from "./components/pdf-page";
 import { Group, Panel, Separator } from "react-resizable-panels";
 import {
@@ -39,31 +40,12 @@ const navigation = [
   ["history", "History", History],
   ["heroes", "Hero Scenarios", FlaskConical],
 ];
-export async function api(path, body, signal) {
-  const response = await fetch(`/api/backend/${path}`, {
-    method: body ? "POST" : "GET",
-    cache: "no-store",
-    signal,
-    ...(body
-      ? {
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        }
-      : {}),
-  });
-  const value = await response.json();
-  if (!response.ok)
-    throw Error(
-      typeof value.detail === "string"
-        ? value.detail
-        : "The request did not match the backend contract. Check your selections.",
-    );
-  return value;
-}
-
 export default function Workspace() {
   const [archive, setArchive] = useState(null),
     [view, setView] = useState("research");
+  const [archiveStatus, setArchiveStatus] = useState("loading"),
+    [retryRead, setRetryRead] = useState(null),
+    [openingRun, setOpeningRun] = useState(false);
   const [sources, setSources] = useState([]),
     [collections, setCollections] = useState([]),
     [connection, setConnection] = useState("Connecting");
@@ -81,6 +63,8 @@ export default function Workspace() {
     [offset, setOffset] = useState(0),
     [historyQuery, setHistoryQuery] = useState(""),
     [historyLoading, setHistoryLoading] = useState(false);
+  const [historyError, setHistoryError] = useState(""),
+    [historyRetry, setHistoryRetry] = useState(0);
   const [librarySource, setLibrarySource] = useState(null),
     [pins, setPins] = useState({}),
     [collectionId, setCollectionId] = useState("");
@@ -88,7 +72,8 @@ export default function Workspace() {
     [composer, setComposer] = useState(true),
     [initialized, setInitialized] = useState(false);
   const locked = useRef(false);
-  const result = hero
+  const urlRequest = useRef(null), evidenceTrigger = useRef(null);
+  const result = composer ? null : hero
     ? hero === "calculation"
       ? archive?.calculation.result
       : archive?.scenarios.find((s) => s.id === hero)?.steps[
@@ -100,19 +85,40 @@ export default function Workspace() {
         ]?.result
     : live?.payload;
   const scenario = archive?.scenarios.find((s) => s.id === hero);
+  const stepIndex = Math.min(heroStep, Math.max(0, (scenario?.steps.length || 1) - 1));
   const ids = result ? citedIds(result) : [];
   const activeId = ids.includes(selected) ? selected : ids[0];
+  function openInspector() {
+    if (!mobileEvidence) evidenceTrigger.current = document.activeElement;
+    setMobileEvidence(true);
+  }
+  function closeInspector() {
+    setMobileEvidence(false);
+    if (matchMedia("(max-width: 760px)").matches)
+      requestAnimationFrame(() => evidenceTrigger.current?.focus());
+  }
   const openEvidence = (id) => {
     setSelected(id);
     setTab("excerpts");
-    setMobileEvidence(true);
+    openInspector();
   };
   function route(nextView, values = {}) {
+    urlRequest.current?.abort();
+    setOpeningRun(false);
     setView(nextView);
     setQuery("");
     setMobileEvidence(false);
     const q = new URLSearchParams({ view: nextView, ...values });
     history.pushState(null, "", "?" + q);
+  }
+  function startResearch() {
+    setHero(null);
+    setLive(null);
+    setSelected("");
+    setComparison(null);
+    setLibrarySource(null);
+    setComposer(true);
+    navigate("research");
   }
   function showLive(row, diff = null, writeURL = true) {
     setLive(row);
@@ -138,15 +144,17 @@ export default function Workspace() {
     setComposer(false);
     route("research", { hero: id, step: String(index) });
   }
-  async function action(operation) {
+  async function action(operation, retry = null) {
     if (locked.current) return;
     locked.current = true;
     setBusy(true);
     setError("");
+    setRetryRead(null);
     try {
       await operation();
     } catch (e) {
       setError(e.message);
+      setRetryRead(() => retry);
     } finally {
       locked.current = false;
       setBusy(false);
@@ -155,11 +163,16 @@ export default function Workspace() {
   async function reopen(run, writeURL = true) {
     await action(async () =>
       showLive(await api(`research/runs/${run}`), null, writeURL),
+      () => reopen(run, writeURL),
     );
   }
   function navigate(next) {
     setError("");
+    setRetryRead(null);
     route(next);
+  }
+  function reconnect() {
+    action(connect, reconnect);
   }
   async function connect() {
     const health = await api("health");
@@ -172,26 +185,45 @@ export default function Workspace() {
     if (s.status === "fulfilled") setSources(s.value);
     if (c.status === "fulfilled") setCollections(c.value);
     if (s.status === "rejected" || c.status === "rejected")
-      setError("A private live capability is unavailable. Preserved Hero Scenarios remain available.");
+      throw Error("A workspace capability is unavailable. Preserved research stories remain available; reconnect to reload sources and collections.");
+  }
+  async function loadArchive(signal) {
+    setArchiveStatus("loading");
+    try {
+      const response = await fetch("/fixtures.json", { signal });
+      if (!response.ok) throw Error("Archive unavailable");
+      setArchive(await response.json());
+      setArchiveStatus("ready");
+    } catch (e) {
+      if (e.name !== "AbortError") setArchiveStatus("error");
+    }
   }
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/fixtures.json", { signal: controller.signal })
-      .then((r) => r.json())
-      .then(setArchive)
-      .catch((e) => {
-        if (e.name !== "AbortError") setError("Hero archive unavailable");
-      });
+    loadArchive(controller.signal);
     connect().catch((e) => {
       setConnection("Backend unavailable");
       setError(e.message);
+      setRetryRead(() => reconnect);
     });
     async function readURL() {
+      urlRequest.current?.abort();
+      const request = new AbortController();
+      urlRequest.current = request;
       const q = new URLSearchParams(location.search),
         next = q.get("view");
       setView(navigation.some((n) => n[0] === next) ? next : "research");
       setQuery("");
       setMobileEvidence(false);
+      setLive(null);
+      setHero(null);
+      setSelected("");
+      setComparison(null);
+      setLibrarySource(null);
+      setError("");
+      setRetryRead(null);
+      setComposer(true);
+      setOpeningRun(false);
       if (
         [
           "equity",
@@ -205,7 +237,20 @@ export default function Workspace() {
         setHero(q.get("hero"));
         setHeroStep(Math.max(0, Math.min(2, Number(q.get("step")) || 0)));
         setComposer(false);
-      } else if (q.get("run")) await reopen(q.get("run"), false);
+      } else if (q.get("run")) {
+        setComposer(false);
+        setOpeningRun(true);
+        try {
+          const row = await api(`research/runs/${encodeURIComponent(q.get("run"))}`, undefined, request.signal);
+          if (!request.signal.aborted) showLive(row, null, false);
+        } catch (e) {
+          if (request.signal.aborted) return;
+          setError(e.message);
+          setRetryRead(() => () => reopen(q.get("run")));
+        } finally {
+          if (!request.signal.aborted) setOpeningRun(false);
+        }
+      }
       else {
         setHero(!next ? "equity" : null);
         setComposer(Boolean(next));
@@ -215,6 +260,7 @@ export default function Workspace() {
     addEventListener("popstate", readURL);
     return () => {
       controller.abort();
+      urlRequest.current?.abort();
       removeEventListener("popstate", readURL);
     };
   }, []);
@@ -222,6 +268,7 @@ export default function Workspace() {
     if (view !== "history" || !initialized) return;
     const c = new AbortController();
     setHistoryLoading(true);
+    setHistoryError("");
     setRows([]);
     const timer = setTimeout(
       () =>
@@ -232,7 +279,7 @@ export default function Workspace() {
         )
           .then(setRows)
           .catch((e) => {
-            if (e.name !== "AbortError") setError(e.message);
+            if (!c.signal.aborted) setHistoryError(e.message);
           })
           .finally(() => {
             if (!c.signal.aborted) setHistoryLoading(false);
@@ -243,7 +290,19 @@ export default function Workspace() {
       c.abort();
       clearTimeout(timer);
     };
-  }, [view, offset, historyQuery, initialized, live]);
+  }, [view, offset, historyQuery, initialized, historyRetry]);
+  useEffect(() => {
+    if (!mobileEvidence || !matchMedia("(max-width: 760px)").matches) return;
+    document.querySelector(".evidence-panel .mobile-close")?.focus();
+    const escape = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeInspector();
+      }
+    };
+    addEventListener("keydown", escape);
+    return () => removeEventListener("keydown", escape);
+  }, [mobileEvidence]);
   useEffect(() => {
     document.getElementById("main-content")?.scrollTo({ top: 0 });
   }, [view, result?.run_id]);
@@ -278,7 +337,7 @@ export default function Workspace() {
         key={librarySource.source_id}
         source={librarySource}
         onUse={useSource}
-        close={() => setMobileEvidence(false)}
+        close={closeInspector}
       />
     ) : result ? (
       <EvidenceInspector
@@ -288,7 +347,7 @@ export default function Workspace() {
         tab={tab}
         setTab={setTab}
         onSelect={openEvidence}
-        close={() => setMobileEvidence(false)}
+        close={closeInspector}
       />
     ) : (
       <aside className="inspector inspector-welcome">
@@ -360,14 +419,10 @@ export default function Workspace() {
           <button
             className="new-research"
             disabled={busy}
-            onClick={() => {
-              setHero(null);
-              setComposer(true);
-              navigate("research");
-            }}
+            onClick={startResearch}
           >
             <Search size={15} />
-            New research
+            {modes.research === "live" ? "New research" : "Explore research"}
           </button>
           <div className="sidebar-section">
             <span className="eyebrow">COLLECTIONS · {modes.collections.toUpperCase()}</span>
@@ -428,7 +483,7 @@ export default function Workspace() {
               <strong> / {navigation.find((n) => n[0] === view)?.[1]}</strong>
             </span>
             <span className="context-note">
-              {hero
+              {hero && view === "research"
                 ? "Preserved development walkthrough"
                 : `${modes[view] || "demo"} · ${modes[view] === "live" ? "Private access required" : "Preserved public evidence"}`}
             </span>
@@ -457,6 +512,13 @@ export default function Workspace() {
               className="result-panel"
             >
               <main id="main-content" className="content-scroll" tabIndex={-1}>
+                {archiveStatus === "error" && (
+                  <div className="error-banner" role="alert">
+                    <TriangleAlert size={18} />
+                    <div><strong>Saved stories could not load</strong><p>Retry the archive. Library and History remain available.</p></div>
+                    <button disabled={busy} onClick={() => loadArchive()}>Retry archive</button>
+                  </div>
+                )}
                 {error && (
                   <div className="error-banner" role="alert">
                     <TriangleAlert size={18} />
@@ -464,7 +526,7 @@ export default function Workspace() {
                       <strong>Request could not complete</strong>
                       <p>{error}</p>
                     </div>
-                    <button onClick={() => action(connect)}>Reconnect</button>
+                    {retryRead && <button disabled={busy} onClick={retryRead}>Retry loading</button>}
                     <button
                       aria-label="Dismiss error"
                       onClick={() => setError("")}
@@ -475,7 +537,7 @@ export default function Workspace() {
                 )}
                 {busy && (
                   <p className="pending-message" role="status">
-                    Working with the private backend…
+                    Request in progress. Your current view and selections are retained.
                   </p>
                 )}
                 {view === "research" && (
@@ -501,14 +563,9 @@ export default function Workspace() {
                         <button
                           className="text-button new-question"
                           disabled={busy}
-                          onClick={() => {
-                            setHero(null);
-                            setComposer(true);
-                            setComparison(null);
-                            route("research");
-                          }}
+                          onClick={startResearch}
                         >
-                          New research <Search size={14} />
+                          {modes.research === "live" ? "New research" : "Explore research"} <Search size={14} />
                         </button>
                       )}
                       {result && (
@@ -521,6 +578,16 @@ export default function Workspace() {
                         </button>
                       )}
                     </div>
+                    <details className="workflow-guide">
+                      <summary>How to use this workspace</summary>
+                      <ol>
+                        <li><strong>Choose a story.</strong> Explore a saved comparison, revision, partial answer or narrative. Private live access is required for new questions.</li>
+                        <li><strong>Check the evidence.</strong> Select an amount or numbered citation to read its exact source excerpts. Use Provenance for source and version identities.</li>
+                        <li><strong>Follow the record.</strong> Open History to revisit the original answer. A rerun has its own identity; it never replaces the original.</li>
+                      </ol>
+                      <p className="small-note">These are saved development examples. Opening them creates no fresh execution. Generated narrative drafts remain unreviewed.</p>
+                    </details>
+                    {openingRun && <p role="status">Opening saved research…</p>}
                     {composer && modes.research === "demo" && (
                       <div className="archive-notice"><FlaskConical size={18} /><div>
                         <strong>Explore preserved research</strong>
@@ -554,7 +621,7 @@ export default function Workspace() {
                         }
                       />
                     )}
-                    {hero && (
+                    {hero && result && (
                       <>
                         <div className="archive-notice">
                           <FlaskConical size={17} />
@@ -568,29 +635,25 @@ export default function Workspace() {
                           </div>
                           <button
                             className="text-button"
-                            onClick={() => {
-                              setHero(null);
-                              setComposer(true);
-                              route("research");
-                            }}
+                            onClick={startResearch}
                           >
                             {modes.research === "live" ? "Start private research" : "Explore research"} <ArrowRight size={14} />
                           </button>
                         </div>
                         {scenario?.steps.length > 1 && (
-                          <div
-                            className="step-switch"
-                            aria-label="Scenario steps"
-                          >
-                            {scenario.steps.map((s, i) => (
-                              <button
-                                key={s.case_id}
-                                aria-pressed={heroStep === i}
-                                onClick={() => showHero(hero, i)}
-                              >
-                                {s.label}
-                              </button>
-                            ))}
+                          <div className="scenario-progress">
+                            <div className="step-switch" aria-label="Scenario steps">
+                              {scenario.steps.map((s, i) => (
+                                <button key={s.case_id} aria-pressed={stepIndex === i} onClick={() => showHero(hero, i)}>
+                                  {s.label}
+                                </button>
+                              ))}
+                            </div>
+                            <div className="scenario-pagination">
+                              <span role="status">Step {stepIndex + 1} of {scenario.steps.length}</span>
+                              <button disabled={stepIndex === 0} onClick={() => showHero(hero, stepIndex - 1)}><ArrowLeft size={14} /> Previous step</button>
+                              <button disabled={stepIndex >= scenario.steps.length - 1} onClick={() => showHero(hero, stepIndex + 1)}>Next step <ArrowRight size={14} /></button>
+                            </div>
                           </div>
                         )}
                         {scenario?.id === "change" && (
@@ -751,31 +814,22 @@ export default function Workspace() {
                           )}
                       </>
                     )}
-                    {!composer && !result && (
+                    {hero && !result && archiveStatus === "loading" && (
                       <p role="status">Opening saved evidence…</p>
                     )}
-                    {!result && (
+                    {!result && composer && (
                       <div className="research-intro">
                         <span className="eyebrow">
-                          EXPLORE THE EVIDENCE STANDARD
+                          CHOOSE A SAVED STORY
                         </span>
-                        <h2>A financial answer should show its work.</h2>
-                        <p>
-                          Compare reviewed facts across periods, trace an
-                          accounting recast, or inspect an exact calculation.
-                          Start with the sources you choose.
-                        </p>
-                        <button
-                          className="text-button"
-                          onClick={() => showHero("equity")}
-                        >
-                          Explore a common-equity comparison{" "}
-                          <ArrowRight size={16} />
-                        </button>
-                        <button
-                          className="text-button"
-                          onClick={() => showHero("calculation")}
-                        >
+                        <div className="starter-stories">
+                          {archive?.scenarios.map((s) => (
+                            <button key={s.id} onClick={() => showHero(s.id)}>
+                              <strong>{s.title}</strong><span>{s.subtitle}</span><ArrowRight size={16} />
+                            </button>
+                          ))}
+                        </div>
+                        <button className="text-button" onClick={() => showHero("calculation")}>
                           Inspect a Decimal calculation <ArrowRight size={16} />
                         </button>
                       </div>
@@ -850,7 +904,7 @@ export default function Workspace() {
                             className="text-button"
                             onClick={() => {
                               setLibrarySource(s);
-                              setMobileEvidence(true);
+                              openInspector();
                             }}
                           >
                             Inspect <ArrowUpRight size={15} />
@@ -859,7 +913,9 @@ export default function Workspace() {
                       ))}
                     </div>
                     {!liveSources.length && (
-                      <Empty>There are no matching sources.</Empty>
+                      <Empty action={query ? () => setQuery("") : reconnect} label={query ? "Clear source search" : "Reload sources"}>
+                        {query ? "No sources match this search." : "No sources are available yet."}
+                      </Empty>
                     )}
                   </>
                 )}
@@ -896,7 +952,9 @@ export default function Workspace() {
                         placeholder="Search saved research questions…"
                       />
                     </label>
-                    {historyLoading ? (
+                    {historyError ? (
+                      <div className="error-banner" role="alert"><TriangleAlert size={18} /><div><strong>History could not load</strong><p>{historyError}</p></div><button onClick={() => setHistoryRetry((n) => n + 1)}>Retry history</button></div>
+                    ) : historyLoading ? (
                       <p role="status">Loading saved executions…</p>
                     ) : (
                       <div className="history-list">
@@ -935,7 +993,9 @@ export default function Workspace() {
                           </button>
                         ))}
                         {!rows.length && (
-                          <Empty>No saved questions match this search.</Empty>
+                          <Empty action={historyQuery ? () => { setHistoryQuery(""); setOffset(0); } : () => navigate("heroes")} label={historyQuery ? "Clear history search" : "Explore saved stories"}>
+                            {historyQuery ? "No saved questions match this search." : "No saved executions on this page."}
+                          </Empty>
                         )}
                       </div>
                     )}
@@ -952,7 +1012,7 @@ export default function Workspace() {
                         Previous
                       </button>
                       <button
-                        disabled={rows.length < 100 || historyLoading}
+                        disabled={rows.length < 100 || historyLoading || Boolean(historyError)}
                         onClick={() => setOffset((o) => o + 100)}
                       >
                         Next <ArrowRight size={14} />
@@ -972,6 +1032,7 @@ export default function Workspace() {
                       </div>
                       <FlaskConical size={29} />
                     </div>
+                    {archiveStatus === "loading" && <p role="status">Loading saved stories…</p>}
                     <div className="hero-grid">
                       {archive?.scenarios.map((s, i) => (
                         <button
@@ -984,7 +1045,7 @@ export default function Workspace() {
                             <h2>{s.title}</h2>
                             <p>{s.subtitle}</p>
                             <span className="hero-meta">
-                              {s.steps.length} preserved steps · Original
+                              {s.steps.length} preserved {s.steps.length === 1 ? "step" : "steps"} · Original
                               evidence
                             </span>
                           </div>
@@ -1034,7 +1095,10 @@ export default function Workspace() {
           </Group>
           <button
             className="mobile-evidence-button"
-            onClick={() => setMobileEvidence((v) => !v)}
+            disabled={!result && !(view === "library" && librarySource)}
+            aria-expanded={mobileEvidence}
+            aria-controls="evidence"
+            onClick={() => mobileEvidence ? closeInspector() : openInspector()}
           >
             <BookOpen size={16} />
             {mobileEvidence ? "Return to results" : "Inspect evidence"}
@@ -1045,12 +1109,13 @@ export default function Workspace() {
   );
 }
 
-function Empty({ children }) {
+function Empty({ children, action, label }) {
   return (
     <div className="empty-state">
       <Search size={25} />
       <h3>{children}</h3>
-      <p>Choose another search or reconnect the private backend.</p>
+      <p>Try a different search or explore a preserved research story.</p>
+      <button className="text-button" onClick={action}>{label} <ArrowRight size={14} /></button>
     </div>
   );
 }

@@ -1,6 +1,29 @@
 # Financial research workspace design
 
-Investigated October 13, 2026. **Recommendation: A — Folio**, subject to owner visual review. Next.js/React over the existing FastAPI backend is the chosen architecture; Streamlit remains private administration. Two functional, read-only [prototypes](../../prototypes/workspace/README.md) are available. Complete frontend implementation is paused at this review boundary. [STATE](../STATE.md) owns status; [NEXT_WORK](../NEXT_WORK.md) owns remaining work.
+The owner selected **Meridian** on October 14, superseding the original Folio recommendation and visual-review pause. The real Next.js/React application in `frontend/` uses the existing FastAPI contracts; Streamlit remains private administration. The October 13 investigation and two read-only [prototypes](../../prototypes/workspace/README.md) below retain the original design rationale. [STATE](../STATE.md) owns current deployment/validation status; [NEXT_WORK](../NEXT_WORK.md) owns remaining work.
+
+## Workspace guidance and recovery
+
+The October 28 local update applies the ClaimFlow post-draft process to Meridian: reproduce concrete journey failures, add guidance at the point of use, recover without silently replaying work, and check desktop/mobile interactions against the existing evidence boundary. The midnight workbench, backend authority and eleven frozen payloads remain intact. This is an implementation check, not a human usability study or full accessibility certification.
+
+- **Entry:** Demo uses **Explore research** and a five-story starter list. A collapsible **How to use this workspace** guide explains story → cited evidence → immutable History. Live mode keeps **New research** and its existing private composer.
+- **Fresh starts and navigation:** Starting research clears the old answer, selection, comparison and source inspector. Back/Forward reopens the URL's saved run; an aborted older URL read cannot replace a later view. Opening a deep link has an explicit loading state.
+- **Walkthroughs:** Multi-step stories retain direct step selection and add bounded Previous/Next controls with an announced step count. These controls only select preserved results; they do not execute reruns.
+- **Recovery:** Library/History empty searches offer one-action clearing. Archive failures offer **Retry archive**; History failures show **Retry history** rather than a misleading empty result. Other failed reads retry their original read. Network/unreadable errors retain the current view/draft; uncertain mutation responses direct the owner to History before another submission. No automatic mutation retry or new idempotency guarantee is introduced.
+- **Evidence access:** On mobile, opening evidence focuses the return control; Escape or Return restores the invoking citation/button. Source inspection uses the same return behavior. The footer control exposes expanded state and is disabled when there is no result or inspected source. Textareas inherit typography and visible keyboard focus.
+
+The dependency patch pins Next.js 16.4.1, following the upstream [image optimization](https://github.com/advisories/GHSA-2464-fhr4-w9xw) and [cache function](https://github.com/advisories/GHSA-673q-mjm6-r5xr) advisories. The local production audit reports zero vulnerabilities after installation. This says nothing about whether the previously hosted build has been patched.
+
+### Bounded journey review
+
+| Step | Captured finding and final behavior | Evidence |
+| --- | --- | --- |
+| 1. Start/explore | Initial comparison preserved; a fresh exploration now clears the previously reopened answer and exposes the five stories and usage guide. Healthy in the checked local flow. | [Initial screen](../screenshots/meridian-ux-20261028/01-before-research.png), [reproduced stale-answer bug](../screenshots/meridian-ux-20261028/02-before-new-research.png), [updated exploration](../screenshots/meridian-ux-20261028/06-explore-research.png) |
+| 2. Follow a story | Previous/Next controls and step counts work on desktop/mobile, preserving original/rerun/old-version identities. Healthy in the checked local flow. | [Guided steps](../screenshots/meridian-ux-20261028/03-guided-steps.png) |
+| 3. Inspect evidence | Citation switching, excerpts, provenance and mobile return focus pass; saved financial values and full source bindings remain unchanged. Healthy in the checked local flow. | [Updated comparison and evidence](../screenshots/meridian-ux-20261028/07-research-evidence.png) |
+| 4. Recover/reopen | Controlled local 503s recover through archive/History retries; a five-second delayed saved-run response cannot override navigation. Healthy for these bounded failures. | [Archive failure](../screenshots/meridian-ux-20261028/04-archive-recovery.png), [History failure](../screenshots/meridian-ux-20261028/05-history-recovery.png) |
+
+The [dated receipt](../evidence/checks/FRONTEND_UX_20261028.json) records exact checks and limits. Screenshots establish visible layout, not contrast compliance, screen-reader behavior or physical mobile keyboard behavior. No paid generation, database mutation, backend/cloud activation, public deployment or financial accuracy re-evaluation is part of this update. Historical design conclusions below describe the October 13 prototype stage, not the current frontend's implementation status.
 
 ## Investigation and access boundary
 
