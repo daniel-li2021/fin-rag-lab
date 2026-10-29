@@ -103,6 +103,8 @@ The disposable integration check restores a SQL dump into a second database and 
 
 ## Notebook and local compatibility path
 
+The lab dependencies in `requirements.txt` pin PyArrow to 25.0.0. [PyArrow 26 requires NumPy 2](https://apache.googlesource.com/arrow/+/b60d43701bae097566bda6b96cd514690ca9dc9d), while the pinned LangChain packages require NumPy <2; unconstrained fresh installs previously broke the Ragas/Datasets import in CI. Keep this compatibility pin until the lab stack is upgraded together. The private service uses its separate `requirements-private.txt`.
+
 Seven notebooks teach parsing, chunking, retrieval, generation and offline evaluation. These commands can make paid embedding/model calls; reuse valid cached outputs and budget new work explicitly.
 
 ```sh
