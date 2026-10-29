@@ -30,7 +30,7 @@ The public archive contains **11 exact preserved result payloads**; one old-vers
 
 Live adapters exist per capability, but Render/Neon and fresh cloud AI research have not been activated or validated. [Hosting and progressive activation](docs/kb/RUNTIME.md#public-hosting-and-progressive-activation) documents the owner authentication and activation requirements. Independent financial release validation remains held.
 
-The local October 28 update adds an in-app usage guide, a five-story exploration entry, guided Previous/Next steps, recoverable archive/History errors and mobile evidence keyboard navigation. It also patches Next.js to 16.4.1. This increment has not been deployed; [workspace guidance and local checks](docs/kb/WORKSPACE_DESIGN.md#workspace-guidance-and-recovery) describe its scope.
+The local October 28 update adds an in-app usage guide, a five-story exploration entry, guided Previous/Next steps, recoverable archive/History errors and mobile evidence keyboard navigation. It also patches Next.js to 16.4.1. GitHub publication was authorized October 29; hosted rollout remains unverified. [Workspace guidance and local checks](docs/kb/WORKSPACE_DESIGN.md#workspace-guidance-and-recovery) describe its scope.
 
 ## Research workflow
 
